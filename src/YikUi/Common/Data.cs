@@ -1,4 +1,4 @@
-using YikUi.Common.Helper;
+using YikUi.Common.Helpers;
 
 namespace YikUi.Common;
 

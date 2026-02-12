@@ -9,3 +9,30 @@ public enum DesktopType
     Unknown,
     Undefine
 }
+
+public enum DialogMode
+{
+    Info,
+    Warning,
+    Error,
+    Question,
+    None,
+    Success
+}
+
+public enum DialogButton
+{
+    None,
+    OK,
+    OKCancel,
+    YesNo,
+    YesNoCancel
+}
+
+public enum Position
+{
+    Left,
+    Top,
+    Right,
+    Bottom
+}

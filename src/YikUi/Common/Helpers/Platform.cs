@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace YikUi.Common.Helper;
+namespace YikUi.Common.Helpers;
 
 public class Platform
 {
