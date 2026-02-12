@@ -1,5 +1,8 @@
 <Solution>
   <Project Path="src\YikUi\YikUi.csproj" />
-  <Project Path="z.import/Semi.Avalonia/src/Semi.Avalonia/Z.Semi.Avalonia.csproj" DisplayName="Z.Semi" />
+  <Project Path="z.import/FluentAvalonia/src/FluentAvalonia/Z.FluentAvalonia.csproj" />
+  <Project Path="z.import/Semi.Avalonia/src/Semi.Avalonia/Z.Semi.Avalonia.csproj" />
   <Project Path="src\YikUi.Demo\YikUi.Demo.csproj" />
+  <Project Path="z.import/Ursa.Avalonia/src/Ursa.Themes.Semi/Z.Ursa.Themes.Semi.csproj" />
+  <Project Path="z.import/Ursa.Avalonia/src/Ursa/Z.Ursa.csproj" />
 </Solution>

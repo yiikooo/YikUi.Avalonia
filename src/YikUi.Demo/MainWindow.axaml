@@ -33,7 +33,7 @@
         </StackPanel>
     </yik:YikWindow.TitleBarLeftContent>
 
-    <Border Margin="10">
+    <StackPanel Margin="10">
         <TextBlock Margin="5,0,0,0" Text="Hi Avalonia!" />
-    </Border>
+    </StackPanel>
 </yik:YikWindow>
