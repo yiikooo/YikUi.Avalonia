@@ -10,8 +10,8 @@ namespace YikUi.Controls;
 
 public partial class YikTitleBar : UserControl
 {
-    private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
     private DateTime? _lastClickTime;
+    private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
 
     public YikTitleBar()
     {
@@ -22,72 +22,12 @@ public partial class YikTitleBar : UserControl
         MoveDragArea.PointerPressed += MoveDragArea_PointerPressed;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
             AttachedToVisualTree += (_, _) =>
             {
                 Debug.WriteLine("YikTitleBar: AttachedToVisualTree event fired");
                 EnableWindowsSnapLayout(MaximizeButton);
             };
-        }
     }
-
-    #region Styled Properties
-
-    public static readonly StyledProperty<object?> LeftContentProperty =
-        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(LeftContent));
-
-    public object? LeftContent
-    {
-        get => GetValue(LeftContentProperty);
-        set => SetValue(LeftContentProperty, value);
-    }
-
-    public static readonly StyledProperty<object?> RightContentProperty =
-        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(RightContent));
-
-    public object? RightContent
-    {
-        get => GetValue(RightContentProperty);
-        set => SetValue(RightContentProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
-        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnShow), defaultValue: true);
-
-    public bool IsCloseBtnShow
-    {
-        get => GetValue(IsCloseBtnShowProperty);
-        set => SetValue(IsCloseBtnShowProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsMaxBtnShowProperty =
-        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMaxBtnShow), defaultValue: true);
-
-    public bool IsMaxBtnShow
-    {
-        get => GetValue(IsMaxBtnShowProperty);
-        set => SetValue(IsMaxBtnShowProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsMinBtnShowProperty =
-        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMinBtnShow), defaultValue: true);
-
-    public bool IsMinBtnShow
-    {
-        get => GetValue(IsMinBtnShowProperty);
-        set => SetValue(IsMinBtnShowProperty, value);
-    }
-
-    public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
-        AvaloniaProperty.Register<YikTitleBar, Func<bool>?>(nameof(OnClose));
-
-    public Func<bool>? OnClose
-    {
-        get => GetValue(OnCloseProperty);
-        set => SetValue(OnCloseProperty, value);
-    }
-
-    #endregion
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
@@ -151,6 +91,64 @@ public partial class YikTitleBar : UserControl
         window.Close();
     }
 
+    #region Styled Properties
+
+    public static readonly StyledProperty<object?> LeftContentProperty =
+        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(LeftContent));
+
+    public object? LeftContent
+    {
+        get => GetValue(LeftContentProperty);
+        set => SetValue(LeftContentProperty, value);
+    }
+
+    public static readonly StyledProperty<object?> RightContentProperty =
+        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(RightContent));
+
+    public object? RightContent
+    {
+        get => GetValue(RightContentProperty);
+        set => SetValue(RightContentProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnShow), true);
+
+    public bool IsCloseBtnShow
+    {
+        get => GetValue(IsCloseBtnShowProperty);
+        set => SetValue(IsCloseBtnShowProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsMaxBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMaxBtnShow), true);
+
+    public bool IsMaxBtnShow
+    {
+        get => GetValue(IsMaxBtnShowProperty);
+        set => SetValue(IsMaxBtnShowProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsMinBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMinBtnShow), true);
+
+    public bool IsMinBtnShow
+    {
+        get => GetValue(IsMinBtnShowProperty);
+        set => SetValue(IsMinBtnShowProperty, value);
+    }
+
+    public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
+        AvaloniaProperty.Register<YikTitleBar, Func<bool>?>(nameof(OnClose));
+
+    public Func<bool>? OnClose
+    {
+        get => GetValue(OnCloseProperty);
+        set => SetValue(OnCloseProperty, value);
+    }
+
+    #endregion
+
     #region Windows Snap Layout Support
 
     [DllImport("user32.dll")]
@@ -189,7 +187,7 @@ public partial class YikTitleBar : UserControl
             return;
         }
 
-        Debug.WriteLine($"YikTitleBar: Enabling Snap Layout for button");
+        Debug.WriteLine("YikTitleBar: Enabling Snap Layout for button");
 
         try
         {
@@ -252,8 +250,10 @@ public partial class YikTitleBar : UserControl
             return 0;
         }
 
-        static int ToInt32(IntPtr ptr) =>
-            IntPtr.Size == 4 ? ptr.ToInt32() : (int)(ptr.ToInt64() & 0xffffffff);
+        static int ToInt32(IntPtr ptr)
+        {
+            return IntPtr.Size == 4 ? ptr.ToInt32() : (int)(ptr.ToInt64() & 0xffffffff);
+        }
     }
 
     #endregion

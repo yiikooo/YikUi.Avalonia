@@ -1,5 +1,6 @@
 using Avalonia.Markup.Xaml;
 using Avalonia.Metadata;
+using Avalonia.Styling;
 
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Controls")]
@@ -7,7 +8,7 @@ using Avalonia.Metadata;
 
 namespace YikUi;
 
-public class YikUiTheme : Avalonia.Styling.Styles
+public class YikUiTheme : Styles
 {
     public YikUiTheme()
     {

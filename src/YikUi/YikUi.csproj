@@ -19,12 +19,12 @@
     <ItemGroup>
         <AvaloniaResource Include="Themes\**\*.axaml"/>
         <None Remove="Public\MiSans-Regular.ttf"/>
-        <None Remove="Assets\MiSans-Regular.otf" />
-        <AvaloniaResource Include="Assets\MiSans-Regular.otf" />
+        <None Remove="Assets\MiSans-Regular.otf"/>
+        <AvaloniaResource Include="Assets\MiSans-Regular.otf"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\" />
+        <Folder Include="Assets\"/>
     </ItemGroup>
 
 </Project>

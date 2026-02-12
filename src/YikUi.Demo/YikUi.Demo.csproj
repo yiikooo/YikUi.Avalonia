@@ -9,31 +9,31 @@
         <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
     <ItemGroup>
-      <Content Include="icon.ico" />
+        <Content Include="icon.ico"/>
     </ItemGroup>
     <ItemGroup>
-      <AvaloniaResource Include="..\..\assets\icon.png">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </AvaloniaResource>
-      <None Remove="icon.i.ico" />
-      <AvaloniaResource Include="icon.i.ico" />
+        <AvaloniaResource Include="..\..\assets\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </AvaloniaResource>
+        <None Remove="icon.i.ico"/>
+        <AvaloniaResource Include="icon.i.ico"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.11" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.11" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.11" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.11" />
+        <PackageReference Include="Avalonia" Version="11.3.11"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.11"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.11"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.11"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="11.3.11">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
             <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="HotAvalonia" Version="3.1.0" />
+        <PackageReference Include="HotAvalonia" Version="3.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\YikUi\YikUi.csproj" />
+        <ProjectReference Include="..\YikUi\YikUi.csproj"/>
     </ItemGroup>
 </Project>
