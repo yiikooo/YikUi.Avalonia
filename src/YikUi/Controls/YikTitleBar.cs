@@ -1,14 +1,17 @@
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.VisualTree;
 
 namespace YikUi.Controls;
 
-public partial class YikTitleBar : UserControl
+public class YikTitleBar : TemplatedControl
 {
     private readonly List<Action> _disposeActions = new();
     private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
@@ -16,20 +19,36 @@ public partial class YikTitleBar : UserControl
 
     public YikTitleBar()
     {
-        InitializeComponent();
-        CloseButton.Click += CloseButton_Click;
-        MaximizeButton.Click += MaximizeButton_Click;
-        MinimizeButton.Click += MinimizeButton_Click;
-        MoveDragArea.PointerPressed += MoveDragArea_PointerPressed;
+        // 移除InitializeComponent()调用
+        // 通过TemplateApplied事件处理控件初始化
+        TemplateApplied += YikTitleBar_TemplateApplied;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             AttachedToVisualTree += (s, e) =>
             {
                 Debug.WriteLine("YikTitleBar: AttachedToVisualTree event fired");
-                EnableWindowsSnapLayout(MaximizeButton);
+                var maximizeButton = this.FindControl<Button>("MaximizeButton");
+                if (maximizeButton != null)
+                {
+                    EnableWindowsSnapLayout(maximizeButton);
+                }
             };
         }
+    }
+
+    private void YikTitleBar_TemplateApplied(object? sender, TemplateAppliedEventArgs e)
+    {
+        // 从模板中获取控件并添加事件处理
+        var closeButton = e.NameScope.Find<Button>("CloseButton");
+        var maximizeButton = e.NameScope.Find<Button>("MaximizeButton");
+        var minimizeButton = e.NameScope.Find<Button>("MinimizeButton");
+        var moveDragArea = e.NameScope.Find<Grid>("MoveDragArea");
+
+        if (closeButton != null) closeButton.Click += CloseButton_Click;
+        if (maximizeButton != null) maximizeButton.Click += MaximizeButton_Click;
+        if (minimizeButton != null) minimizeButton.Click += MinimizeButton_Click;
+        if (moveDragArea != null) moveDragArea.PointerPressed += MoveDragArea_PointerPressed;
     }
 
     #region Styled Properties
@@ -165,12 +184,6 @@ public partial class YikTitleBar : UserControl
             }
             else
             {
-                CloseButton.Click -= CloseButton_Click;
-                MaximizeButton.Click -= MaximizeButton_Click;
-                MinimizeButton.Click -= MinimizeButton_Click;
-                MoveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
-
-                // Execute disposal actions (including Win32 hook cleanup)
                 foreach (var disposeAction in _disposeActions)
                 {
                     try

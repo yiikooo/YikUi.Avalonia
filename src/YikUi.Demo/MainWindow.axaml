@@ -12,21 +12,5 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <yik:YikWindow.TitleBarLeftContent>
-        <StackPanel Orientation="Horizontal" Spacing="10">
-            <TextBlock
-                FontSize="16"
-                FontWeight="Bold"
-                Text="Demo App" />
-            <Button Content="Settings" Padding="8,4" />
-        </StackPanel>
-    </yik:YikWindow.TitleBarLeftContent>
-    <Border Padding="20">
-        <StackPanel Spacing="20">
-            <TextBlock
-                FontSize="24"
-                FontWeight="Bold"
-                Text="Welcome to YikWindow Demo!" />
-        </StackPanel>
-    </Border>
+    <yik:YikTitleBar />
 </yik:YikWindow>
