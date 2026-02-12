@@ -1,0 +1,75 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <ControlTheme TargetType="yik:YikWindow" x:Key="{x:Type yik:YikWindow}">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="SystemDecorations">
+            <OnPlatform>
+                <On Options="Default">
+                    <SystemDecorations>Full</SystemDecorations>
+                </On>
+                <On Options="Linux">
+                    <SystemDecorations>None</SystemDecorations>
+                </On>
+            </OnPlatform>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:YikWindow">
+                <Panel>
+                    <Border IsHitTestVisible="False" Name="PART_TransparencyFallback" />
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BackgroundSizing="InnerBorderEdge"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        IsHitTestVisible="False" />
+                    <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+                    <VisualLayerManager Padding="{TemplateBinding OffScreenMargin, Mode=OneWay}">
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <Panel>
+                                <yik:YikTitleBar
+                                    IsCloseBtnExitApp="{Binding $parent[yik:YikWindow].IsCloseBtnExitApp}"
+                                    IsCloseBtnHideWindow="{Binding $parent[yik:YikWindow].IsCloseBtnHideWindow}"
+                                    IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
+                                    IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
+                                    IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
+                                    LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
+                                    OnExit="{Binding $parent[yik:YikWindow].TitleBarOnExit}"
+                                    Title="{Binding $parent[yik:YikWindow].Title}" />
+                                <VisualLayerManager>
+                                    <!-- <Panel> -->
+                                    <!--  <u:OverlayDialogHost  -->
+                                    <!--  Name="{x:Static u:UrsaWindow.PART_DialogHost}"  -->
+                                    <!--  IsModalStatusReporter="True"  -->
+                                    <!--  IsTopLevel="True" />  -->
+                                    <!--  <u:WindowResizer  -->
+                                    <!--  HorizontalAlignment="Stretch"  -->
+                                    <!--  VerticalAlignment="Stretch"  -->
+                                    <!--  IsVisible="{Binding $parent[u:UrsaWindow].IsManagedResizerVisible}" />  -->
+                                    <!-- </Panel> -->
+                                </VisualLayerManager>
+                            </Panel>
+                        </VisualLayerManager.ChromeOverlayLayer>
+                        <Panel>
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                Name="PART_ContentPresenter"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                        </Panel>
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

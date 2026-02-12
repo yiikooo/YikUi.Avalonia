@@ -1,26 +1,40 @@
-<Window
-    Background="Transparent"
+<yik:YikWindow
     CanResize="True"
     DragDrop.AllowDrop="True"
-    FontFamily="{DynamicResource MiSans}"
-    FontWeight="{DynamicResource FontWeight}"
+    FontFamily="{DynamicResource YikFontFamily}"
+    FontWeight="{DynamicResource YikFontWeight}"
     IsHitTestVisible="True"
-    MinHeight="250"
-    MinWidth="450"
-    SystemDecorations="Full"
+    MinHeight="400"
+    MinWidth="600"
     Title="YikUi.Demo"
     WindowStartupLocation="CenterScreen"
     x:Class="YikUi.Demo.MainWindow"
     xmlns="https://github.com/avaloniaui"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:YikWindow.TitleBarLeftContent>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <TextBlock
+                FontSize="16"
+                FontWeight="Bold"
+                Text="Demo App" />
+            <Button Content="Settings" Padding="8,4" />
+        </StackPanel>
+    </yik:YikWindow.TitleBarLeftContent>
     <Border Padding="20">
         <StackPanel Spacing="20">
-            <Border Background="#f8f9fa" CornerRadius="10">
-                <yik:YikTitleBar />
-            </Border>
+            <TextBlock
+                FontSize="24"
+                FontWeight="Bold"
+                Text="Welcome to YikWindow Demo!" />
+            <TextBlock Text="This is a demonstration of the YikWindow control with integrated YikTitleBar." />
+            <TextBlock Text="Features:" />
+            <StackPanel Margin="20,0,0,0" Spacing="5">
+                <TextBlock Text="• Custom title bar with minimize, maximize, and close buttons" />
+                <TextBlock Text="• Ability to set left content in the title bar" />
+                <TextBlock Text="• Customizable content margin" />
+                <TextBlock Text="• Access to TitleBar properties via TitleBar.xxx" />
+            </StackPanel>
         </StackPanel>
     </Border>
-</Window>
+</yik:YikWindow>
