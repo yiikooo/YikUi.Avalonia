@@ -34,6 +34,29 @@
     </yik:YikWindow.TitleBarLeftContent>
 
     <StackPanel Margin="10">
-        <TextBlock Margin="5,0,0,0" Text="Hi Avalonia!" />
+        <WrapPanel>
+            <Button
+                Click="Notice"
+                Content="Notice Info"
+                Tag="Info" />
+            <Button
+                Click="Notice"
+                Content="Notice Warn"
+                Tag="Warn" />
+            <Button
+                Click="Notice"
+                Content="Notice Error"
+                Tag="Error" />
+            <Button
+                Click="Notice"
+                Content="Notice Success"
+                Tag="Success" />
+            <Button
+                Click="Notice"
+                Content="Notice Long Time"
+                Tag="Long" />
+            <Button Click="NoticeWithButtons" Content="Notice With Buttons" />
+            <Button Click="NoticeWithButtonsInline" Content="Notice With Buttons (Inline)" />
+        </WrapPanel>
     </StackPanel>
 </yik:YikWindow>
