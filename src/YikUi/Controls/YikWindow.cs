@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -15,7 +16,8 @@ public class YikWindow : Window
         PropertyChanged += (_, args) =>
         {
             if (args.Property != WindowStateProperty) return;
-            _rootBorder?.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
+            if (_rootBorder != null)
+                _rootBorder.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
         };
     }
 
@@ -76,18 +78,6 @@ public class YikWindow : Window
 
     #region Styled Properties
 
-    /// <summary>
-    /// 窗口图标，接管 Avalonia 的 Icon 属性
-    /// </summary>
-    public static new readonly StyledProperty<WindowIcon?> IconProperty =
-        Window.IconProperty.AddOwner<YikWindow>();
-
-    public new WindowIcon? Icon
-    {
-        get => GetValue(IconProperty);
-        set => SetValue(IconProperty, value);
-    }
-
     public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
         AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnShow), defaultValue: true);
 
@@ -114,19 +104,12 @@ public class YikWindow : Window
         get => GetValue(IsMinBtnShowProperty);
         set => SetValue(IsMinBtnShowProperty, value);
     }
-
-    /// <summary>
-    /// 关闭按钮点击时的回调。返回 true 表示阻止默认关闭行为，返回 false 或 null 表示执行默认关闭。
-    /// </summary>
-    public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
-        AvaloniaProperty.Register<YikWindow, Func<bool>?>(nameof(OnClose));
-
-    public Func<bool>? OnClose
+    
+    public virtual bool OnClose()
     {
-        get => GetValue(OnCloseProperty);
-        set => SetValue(OnCloseProperty, value);
+        return false;
     }
-
+    
     public static readonly StyledProperty<object?> TitleBarLeftContentProperty =
         AvaloniaProperty.Register<YikWindow, object?>(nameof(TitleBarLeftContent));
 

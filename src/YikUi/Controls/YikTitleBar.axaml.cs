@@ -77,7 +77,7 @@ public partial class YikTitleBar : UserControl
         get => GetValue(IsMinBtnShowProperty);
         set => SetValue(IsMinBtnShowProperty, value);
     }
-    
+
     public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
         AvaloniaProperty.Register<YikTitleBar, Func<bool>?>(nameof(OnClose));
 
@@ -86,7 +86,7 @@ public partial class YikTitleBar : UserControl
         get => GetValue(OnCloseProperty);
         set => SetValue(OnCloseProperty, value);
     }
-    
+
     #endregion
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
@@ -130,20 +130,24 @@ public partial class YikTitleBar : UserControl
     private void CloseButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
+        if (button.GetVisualRoot() is not Window window) return;
 
-        if (OnClose != null)
+        if (window is YikWindow yikWindow)
+        {
+            var handled = yikWindow.OnClose();
+            if (handled) return;
+        }
+        else if (OnClose != null)
         {
             var handled = OnClose.Invoke();
             if (handled) return;
         }
 
-        if (button.GetVisualRoot() is not Window window) return;
-
         CloseButton.Click -= CloseButton_Click;
         MaximizeButton.Click -= MaximizeButton_Click;
         MinimizeButton.Click -= MinimizeButton_Click;
         MoveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
-        
+
         window.Close();
     }
 
@@ -231,18 +235,18 @@ public partial class YikTitleBar : UserControl
                     {
                         pointerOnButton = true;
                         pointerOverSetter.SetValue(maximizeButton, true);
-                        Debug.WriteLine("YikTitleBar: Pointer entered maximize button");
+                        // Debug.WriteLine("YikTitleBar: Pointer entered maximize button");
                     }
 
                     var result = IsMouseDown() ? HTCLIENT : HTMAXBUTTON;
-                    Debug.WriteLine($"YikTitleBar: Returning {(result == HTMAXBUTTON ? "HTMAXBUTTON" : "HTCLIENT")}");
+                    // Debug.WriteLine($"YikTitleBar: Returning {(result == HTMAXBUTTON ? "HTMAXBUTTON" : "HTCLIENT")}");
                     return result;
                 }
 
                 if (!pointerOnButton) return 0;
                 pointerOnButton = false;
                 pointerOverSetter.SetValue(maximizeButton, false);
-                Debug.WriteLine("YikTitleBar: Pointer left maximize button");
+                // Debug.WriteLine("YikTitleBar: Pointer left maximize button");
             }
 
             return 0;

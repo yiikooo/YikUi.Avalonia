@@ -14,7 +14,7 @@
     </yik:YikWindow.TitleBarLeftContent>
 
     <yik:YikWindow.TitleBarRightContent>
-        <Button Content="TitleBarRightContent" />
+        <TextBlock Text="TitleBarRightContent" />
     </yik:YikWindow.TitleBarRightContent>
 
     <Border Margin="10">
