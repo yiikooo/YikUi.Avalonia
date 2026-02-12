@@ -8,7 +8,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
-        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="40" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="SystemDecorations">
             <OnPlatform>
