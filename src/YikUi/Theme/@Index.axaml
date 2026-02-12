@@ -3,7 +3,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="Controls/Basic/@Basic.axaml" />
-                <!-- <ResourceInclude Source="Controls/Yik/@Yik.axaml" /> -->
+                <ResourceInclude Source="Controls/Yik/@Yik.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

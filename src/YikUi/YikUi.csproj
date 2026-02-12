@@ -26,7 +26,13 @@
     <ItemGroup>
       <Folder Include="Assets\" />
       <Folder Include="Common\" />
-      <Folder Include="Theme\Controls\Yik\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Controls\YikTitleBar.cs">
+        <DependentUpon>YikTitleBar.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

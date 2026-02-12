@@ -1,90 +1,132 @@
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.VisualTree;
 
 namespace YikUi.Controls;
 
-public partial class YikTitleBar : UserControl, INotifyPropertyChanged
+public class YikTitleBar : TemplatedControl
 {
-    private readonly List<Action> _disposeActions = [];
+    private readonly List<Action> _disposeActions = new();
     private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
+    private Button? _closeButton;
+    private Button? _maximizeButton;
+    private Button? _minimizeButton;
+    private Grid? _moveDragArea;
+    private DateTime? _lastClickTime;
 
-    public YikTitleBar()
+    public static readonly StyledProperty<string?> TitleProperty =
+        AvaloniaProperty.Register<YikTitleBar, string?>(nameof(Title));
+
+    public static readonly StyledProperty<object?> LeftContentProperty =
+        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(LeftContent));
+
+    public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnExitApp));
+
+    public static readonly StyledProperty<bool> IsCloseBtnHideWindowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnHideWindow));
+
+    public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnShow), defaultValue: true);
+
+    public static readonly StyledProperty<bool> IsMaxBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMaxBtnShow), defaultValue: true);
+
+    public static readonly StyledProperty<bool> IsMinBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMinBtnShow), defaultValue: true);
+
+    public static readonly StyledProperty<Action?> ExitActionProperty =
+        AvaloniaProperty.Register<YikTitleBar, Action?>(nameof(ExitAction));
+
+    public string? Title
     {
-        InitializeComponent();
-        DataContext = this;
-        CloseButton.Click += CloseButton_Click;
-        MaximizeButton.Click += MaximizeButton_Click;
-        MinimizeButton.Click += MinimizeButton_Click;
-        MoveDragArea.PointerPressed += MoveDragArea_PointerPressed;
-
-        // Enable Windows Snap Layout for maximize button
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-        {
-            AttachedToVisualTree += (s, e) =>
-            {
-                Debug.WriteLine("YikTitleBar: AttachedToVisualTree event fired");
-                EnableWindowsSnapLayout(MaximizeButton);
-            };
-        }
+        get => GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
     }
-    
-    public string Title
-    {
-        get;
-        set => SetField(ref field, value);
-    }
 
-    public object LeftContent
+    public object? LeftContent
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(LeftContentProperty);
+        set => SetValue(LeftContentProperty, value);
     }
 
     public bool IsCloseBtnExitApp
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(IsCloseBtnExitAppProperty);
+        set => SetValue(IsCloseBtnExitAppProperty, value);
     }
 
     public bool IsCloseBtnHideWindow
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(IsCloseBtnHideWindowProperty);
+        set => SetValue(IsCloseBtnHideWindowProperty, value);
     }
 
     public bool IsCloseBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
+        get => GetValue(IsCloseBtnShowProperty);
+        set => SetValue(IsCloseBtnShowProperty, value);
+    }
 
     public bool IsMaxBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
+        get => GetValue(IsMaxBtnShowProperty);
+        set => SetValue(IsMaxBtnShowProperty, value);
+    }
 
     public bool IsMinBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
-    
+        get => GetValue(IsMinBtnShowProperty);
+        set => SetValue(IsMinBtnShowProperty, value);
+    }
+
     public Action? ExitAction
     {
-        get;
-        set => SetField(ref field, value);
-    } 
+        get => GetValue(ExitActionProperty);
+        set => SetValue(ExitActionProperty, value);
+    }
 
-    public DateTime? lastClickTime { get; set; }
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
 
+        // Unsubscribe old events
+        if (_closeButton != null)
+            _closeButton.Click -= CloseButton_Click;
+        if (_maximizeButton != null)
+            _maximizeButton.Click -= MaximizeButton_Click;
+        if (_minimizeButton != null)
+            _minimizeButton.Click -= MinimizeButton_Click;
+        if (_moveDragArea != null)
+            _moveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
+
+        // Get template parts
+        _closeButton = e.NameScope.Find<Button>("CloseButton");
+        _maximizeButton = e.NameScope.Find<Button>("MaximizeButton");
+        _minimizeButton = e.NameScope.Find<Button>("MinimizeButton");
+        _moveDragArea = e.NameScope.Find<Grid>("MoveDragArea");
+
+        // Subscribe to events
+        if (_closeButton != null)
+            _closeButton.Click += CloseButton_Click;
+        if (_maximizeButton != null)
+            _maximizeButton.Click += MaximizeButton_Click;
+        if (_minimizeButton != null)
+            _minimizeButton.Click += MinimizeButton_Click;
+        if (_moveDragArea != null)
+            _moveDragArea.PointerPressed += MoveDragArea_PointerPressed;
+
+        // Enable Windows Snap Layout for maximize button
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && _maximizeButton != null)
+        {
+            EnableWindowsSnapLayout(_maximizeButton);
+        }
+    }
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
@@ -96,9 +138,9 @@ public partial class YikTitleBar : UserControl, INotifyPropertyChanged
                 window.BeginMoveDrag(e);
             }
 
-            if (IsMaxBtnShow && lastClickTime.HasValue && (DateTime.Now - lastClickTime.Value).TotalMilliseconds < 300)
+            if (IsMaxBtnShow && _lastClickTime.HasValue && (DateTime.Now - _lastClickTime.Value).TotalMilliseconds < 300)
             {
-                lastClickTime = null;
+                _lastClickTime = null;
                 if (this.GetVisualRoot() is Window window)
                     window.WindowState = window.WindowState == WindowState.Maximized
                         ? WindowState.Normal
@@ -106,7 +148,7 @@ public partial class YikTitleBar : UserControl, INotifyPropertyChanged
             }
             else
             {
-                lastClickTime = DateTime.Now;
+                _lastClickTime = DateTime.Now;
             }
 
             e.Handled = true;
@@ -143,10 +185,14 @@ public partial class YikTitleBar : UserControl, INotifyPropertyChanged
             else
             {
                 // Cleanup event handlers
-                CloseButton.Click -= CloseButton_Click;
-                MaximizeButton.Click -= MaximizeButton_Click;
-                MinimizeButton.Click -= MinimizeButton_Click;
-                MoveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
+                if (_closeButton != null)
+                    _closeButton.Click -= CloseButton_Click;
+                if (_maximizeButton != null)
+                    _maximizeButton.Click -= MaximizeButton_Click;
+                if (_minimizeButton != null)
+                    _minimizeButton.Click -= MinimizeButton_Click;
+                if (_moveDragArea != null)
+                    _moveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
 
                 // Execute disposal actions (including Win32 hook cleanup)
                 foreach (var disposeAction in _disposeActions)
@@ -295,19 +341,4 @@ public partial class YikTitleBar : UserControl, INotifyPropertyChanged
     }
 
     #endregion
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
-    }
 }
