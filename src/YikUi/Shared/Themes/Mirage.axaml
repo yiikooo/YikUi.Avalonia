@@ -1,0 +1,55 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:t="clr-namespace:YikUi.Shared"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="{x:Static t:Themes.Mirage}">
+            <SolidColorBrush Color="#e6e1cf" x:Key="ForegroundColor" />
+            <SolidColorBrush Color="#171b24" x:Key="LineColor" />
+            <Color x:Key="BackgroundColor">
+                #1f2430
+            </Color>
+            <SolidColorBrush
+                Color="#293040"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="SelectionNormal" />
+            <SolidColorBrush
+                Color="#282e3b"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="PanelBackgroundColor" />
+            <SolidColorBrush
+                Color="#191d26"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="PanelBorderBrush" />
+            <SolidColorBrush
+                Color="#1c212c"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="PopupBackgroundColor" />
+            <SolidColorBrush
+                Color="#161922"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="PopupBorderBrush" />
+
+            <SolidColorBrush
+                Color="#3a3d3d"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="SelectedTabBackgroundColor" />
+            <SolidColorBrush
+                Color="#232629"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="HoverTabBackgroundColor" />
+            <SolidColorBrush
+                Color="#191d21"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="TabBackgroundColor" />
+            <SolidColorBrush
+                Color="#FF85857E"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="TabTextColor" />
+            <SolidColorBrush
+                Color="#cac6b7"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="SelectedTabTextColor" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <LangVersion>14.0</LangVersion>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.11"/>
+        <PackageReference Include="Avalonia.Skia" Version="11.3.11"/>
+        <PackageReference Include="SkiaSharp" Version="2.88.9"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="Themes\**\*.axaml"/>
+        <None Remove="Public\MiSans-Regular.ttf"/>
+        <None Remove="Assets\MiSans-Regular.otf" />
+        <AvaloniaResource Include="Assets\MiSans-Regular.otf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets\" />
+      <Folder Include="Common\" />
+      <Folder Include="Controls\" />
+    </ItemGroup>
+
+</Project>

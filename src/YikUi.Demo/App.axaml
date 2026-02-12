@@ -1,0 +1,10 @@
+<Application
+    RequestedThemeVariant="Default"
+    x:Class="YikUi.Demo.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Application.Styles>
+        <yik:YikUiTheme />
+    </Application.Styles>
+</Application>

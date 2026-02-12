@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="SystemAccentColor">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight1">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight2">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight3">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark1">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark2">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark3">#1BD76A</Color>
+    <system:Double x:Key="BackGroundOpacity">1</system:Double>
+    <FontFamily x:Key="MiSans">avares://YikUi/Public#MiSans</FontFamily>
+    <FontWeight x:Key="FontWeight">350</FontWeight>
+    <CornerRadius x:Key="CardCornerRadius">10</CornerRadius>
+</ResourceDictionary>
