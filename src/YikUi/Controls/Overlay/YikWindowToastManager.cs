@@ -26,13 +26,12 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
 
     public void Show(IToast content)
     {
-        var options = new ToastOptions
+        var options = new NotificationOptions
         {
             Type = content.Type,
             Expiration = content.Expiration,
-            ShowIcon = content.ShowIcon,
-            ShowClose = content.ShowClose,
-            TouchClose = true,
+            IsIconVisible = content.ShowIcon,
+            IsCloseButtonVisible = content.ShowClose,
             OnClick = content.OnClick,
             OnClose = content.OnClose
         };
@@ -42,35 +41,9 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
     public void Show(string msg, NotificationType type = NotificationType.Information)
     {
         var toast = new Toast(msg, type);
-        var toastOptions = new ToastOptions
+        var toastOptions = new NotificationOptions
         {
             Type = type,
-            NotificationEntry = new NotificationEntry(new Notification("YikUi", msg, type), type, DateTime.Now),
-            Classes = ["Light"],
-            ShowClose = false,
-            TouchClose = false,
-            Expiration = TimeSpan.FromSeconds(4),
-            ShowIcon = true
-        };
-
-        Show(toast, toastOptions);
-    }
-
-    public void Show(string msg, NotificationOptions? options)
-    {
-        var t = DateTime.Now;
-
-        var toast = new Toast(msg, options.Type);
-        var toastOptions = new ToastOptions
-        {
-            Type = options.Type,
-            NotificationEntry =
-                new NotificationEntry(new Notification("YikUi", msg, options.Type), options.Type, DateTime.Now),
-            Classes = ["Light"],
-            ShowClose = false,
-            TouchClose = false,
-            Expiration = TimeSpan.FromSeconds(4),
-            ShowIcon = true
         };
 
         Show(toast, toastOptions);
@@ -87,7 +60,7 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
         if (content is IToast toast)
             Show(toast);
         else
-            Show(content, new ToastOptions());
+            Show(content, new NotificationOptions());
     }
 
     /// <summary>
@@ -95,7 +68,7 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
     /// </summary>
     /// <param name="content">内容</param>
     /// <param name="options">显示选项</param>
-    public async void Show(object content, ToastOptions options)
+    public async void Show(object content, NotificationOptions options)
     {
         Dispatcher.UIThread.VerifyAccess();
 
@@ -103,11 +76,12 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
         {
             Content = content,
             NotificationType = options.Type,
-            ShowIcon = options.ShowIcon,
-            ShowClose = options.ShowClose,
+            ShowIcon = options.IsIconVisible,
             OperateButtons = options.OperateButtons,
             IsButtonsInline = options.IsButtonsInline,
-            NotificationEntry = options.NotificationEntry
+            OnRemove = options.OnRemove,
+            ShowCollapseButton = options.IsCollapseButtonVisible,
+            ShowRemoveButton = options.IsCloseButtonVisible
         };
 
         if (options.Classes is not null)
@@ -122,7 +96,7 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
 
         toastControl.PointerPressed += (_, _) =>
         {
-            if (options.TouchClose)
+            if (options.IsTouchClose)
                 toastControl.Close();
             options.OnClick?.Invoke();
         };
@@ -137,7 +111,7 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
 
         if (options.Expiration == TimeSpan.Zero) return;
 
-        await Task.Delay(options.Expiration ?? TimeSpan.FromSeconds(10));
+        await Task.Delay(options.Expiration);
 
         toastControl.CloseWithoutRemovingFromList();
     }

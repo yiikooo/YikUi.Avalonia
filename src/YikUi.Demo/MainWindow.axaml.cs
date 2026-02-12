@@ -32,7 +32,6 @@ public partial class MainWindow : YikWindow
                 toast.Show("Success", new NotificationOptions
                 {
                     Type = NotificationType.Success,
-                    Expiration = i
                 });
                 break;
             case "Warn":
@@ -81,7 +80,7 @@ public partial class MainWindow : YikWindow
             new NotificationOptions
             {
                 Type = NotificationType.Information,
-                OperateButtons = buttons
+                OperateButtons = buttons, IsButtonsInline = false
             }
         );
     }

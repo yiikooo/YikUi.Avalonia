@@ -3,5 +3,6 @@
         <ResourceInclude Source="Button.axaml" />
         <ResourceInclude Source="Border.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
+        <ResourceInclude Source="HyperlinkButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

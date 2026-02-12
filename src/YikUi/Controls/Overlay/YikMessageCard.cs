@@ -30,9 +30,6 @@ public abstract class YikMessageCard : ContentControl
     public static readonly StyledProperty<bool> ShowIconProperty =
         AvaloniaProperty.Register<YikMessageCard, bool>(nameof(ShowIcon), true);
 
-    public static readonly StyledProperty<bool> ShowCloseProperty =
-        AvaloniaProperty.Register<YikMessageCard, bool>(nameof(ShowClose), true);
-
     public static readonly StyledProperty<IList<OperateButtonEntry>?> OperateButtonsProperty =
         AvaloniaProperty.Register<YikMessageCard, IList<OperateButtonEntry>?>(nameof(OperateButtons));
 
@@ -98,12 +95,6 @@ public abstract class YikMessageCard : ContentControl
         set => SetValue(ShowIconProperty, value);
     }
 
-    public bool ShowClose
-    {
-        get => GetValue(ShowCloseProperty);
-        set => SetValue(ShowCloseProperty, value);
-    }
-
     public IList<OperateButtonEntry>? OperateButtons
     {
         get => GetValue(OperateButtonsProperty);
@@ -114,12 +105,6 @@ public abstract class YikMessageCard : ContentControl
     {
         get => GetValue(IsButtonsInlineProperty);
         set => SetValue(IsButtonsInlineProperty, value);
-    }
-
-    public NotificationEntry? NotificationEntry
-    {
-        get => GetValue(NotificationEntryProperty);
-        set => SetValue(NotificationEntryProperty, value);
     }
 
     public bool ShowCollapseButton

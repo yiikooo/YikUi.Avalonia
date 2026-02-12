@@ -45,7 +45,6 @@
 
     <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
         <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackground}" />
-        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource HyperlinkButtonBorderThemeThickness}" />
         <Setter Property="Padding" Value="11,5,11,6" />
@@ -53,7 +52,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
         <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontWeight" Value="{DynamicResource YikFontWeight}" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="Template">
@@ -73,17 +72,20 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^">
+            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
+        </Style>
+
+
         <Style Selector="^ /template/ TextBlock">
             <Setter Property="TextDecorations" Value="{x:Null}" />
         </Style>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForegroundPointerOver}" />
             <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackgroundPointerOver}" />
             <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrushPointerOver}" />
         </Style>
         <Style Selector="^:pressed /template/ ContentPresenter#ContentPresenter">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForegroundPressed}" />
             <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackgroundPressed}" />
             <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrushPressed}" />
         </Style>
