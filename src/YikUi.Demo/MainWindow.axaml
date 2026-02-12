@@ -7,19 +7,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Padding="20">
         <StackPanel Spacing="20">
-            <Button Content="Click Me" />
-            <Border Theme="{StaticResource CardBorder}">
-                <TextBlock>Hello</TextBlock>
-            </Border>
-            <Border Classes="Shadow" Theme="{StaticResource CardBorder}">
-                <TextBlock>Hello</TextBlock>
-            </Border>
-            <Border Classes="Hover" Theme="{StaticResource CardBorder}">
-                <TextBlock>Hello</TextBlock>
-            </Border>
+            <yik:YikTitleBar />
         </StackPanel>
     </Border>
 </Window>

@@ -10,12 +10,12 @@ using Avalonia.VisualTree;
 
 namespace YikUi.Controls;
 
-public partial class TitleBar : UserControl, INotifyPropertyChanged
+public partial class YikTitleBar : UserControl, INotifyPropertyChanged
 {
     private readonly List<Action> _disposeActions = [];
     private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
 
-    public TitleBar()
+    public YikTitleBar()
     {
         InitializeComponent();
         DataContext = this;
@@ -29,7 +29,7 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
         {
             AttachedToVisualTree += (s, e) =>
             {
-                Debug.WriteLine("TitleBar: AttachedToVisualTree event fired");
+                Debug.WriteLine("YikTitleBar: AttachedToVisualTree event fired");
                 EnableWindowsSnapLayout(MaximizeButton);
             };
         }
@@ -198,18 +198,18 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
         var pointerOverSetter = typeof(Button).GetProperty(nameof(IsPointerOver));
         if (pointerOverSetter is null)
         {
-            Debug.WriteLine("TitleBar: IsPointerOver property not found");
+            Debug.WriteLine("YikTitleBar: IsPointerOver property not found");
             return;
         }
 
         var window = this.GetVisualRoot() as Window;
         if (window == null)
         {
-            Debug.WriteLine("TitleBar: Window not found");
+            Debug.WriteLine("YikTitleBar: Window not found");
             return;
         }
 
-        Debug.WriteLine($"TitleBar: Enabling Snap Layout for button");
+        Debug.WriteLine($"YikTitleBar: Enabling Snap Layout for button");
 
         nint ProcHookCallback(nint hWnd, uint msg, nint wParam, nint lParam, ref bool handled)
         {
@@ -240,11 +240,11 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
                     {
                         pointerOnButton = true;
                         pointerOverSetter.SetValue(maximizeButton, true);
-                        Debug.WriteLine("TitleBar: Pointer entered maximize button");
+                        Debug.WriteLine("YikTitleBar: Pointer entered maximize button");
                     }
 
                     var result = IsMouseDown() ? HTCLIENT : HTMAXBUTTON;
-                    Debug.WriteLine($"TitleBar: Returning {(result == HTMAXBUTTON ? "HTMAXBUTTON" : "HTCLIENT")}");
+                    Debug.WriteLine($"YikTitleBar: Returning {(result == HTMAXBUTTON ? "HTMAXBUTTON" : "HTCLIENT")}");
                     return result;
                 }
                 else
@@ -253,7 +253,7 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
                     {
                         pointerOnButton = false;
                         pointerOverSetter.SetValue(maximizeButton, false);
-                        Debug.WriteLine("TitleBar: Pointer left maximize button");
+                        Debug.WriteLine("YikTitleBar: Pointer left maximize button");
                     }
                 }
             }
@@ -269,7 +269,7 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
             _wndProcHookCallback = new Win32Properties.CustomWndProcHookCallback(ProcHookCallback);
             Win32Properties.AddWndProcHookCallback(window, _wndProcHookCallback);
 
-            Debug.WriteLine("TitleBar: Win32 hook successfully registered");
+            Debug.WriteLine("YikTitleBar: Win32 hook successfully registered");
 
             _disposeActions.Add(() =>
             {
@@ -278,19 +278,19 @@ public partial class TitleBar : UserControl, INotifyPropertyChanged
                     if (_wndProcHookCallback != null)
                     {
                         Win32Properties.RemoveWndProcHookCallback(window, _wndProcHookCallback);
-                        Debug.WriteLine("TitleBar: Win32 hook removed");
+                        Debug.WriteLine("YikTitleBar: Win32 hook removed");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"TitleBar: Error removing hook: {ex.Message}");
+                    Debug.WriteLine($"YikTitleBar: Error removing hook: {ex.Message}");
                 }
             });
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"TitleBar: Failed to enable Windows Snap Layout: {ex.Message}");
-            Debug.WriteLine($"TitleBar: Stack trace: {ex.StackTrace}");
+            Debug.WriteLine($"YikTitleBar: Failed to enable Windows Snap Layout: {ex.Message}");
+            Debug.WriteLine($"YikTitleBar: Stack trace: {ex.StackTrace}");
         }
     }
 
