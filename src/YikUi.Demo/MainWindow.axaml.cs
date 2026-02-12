@@ -11,10 +11,4 @@ public partial class MainWindow : YikWindow
     {
         InitializeComponent();
     }
-
-    public override bool OnClose()
-    {
-        Debug.WriteLine(366934983609630909);
-        return true;
-    }
 }

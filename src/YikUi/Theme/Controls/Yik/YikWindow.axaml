@@ -31,7 +31,6 @@
                             IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
                             LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
                             Name="PART_TitleBar"
-                            OnClose="{Binding $parent[yik:YikWindow].OnClose}"
                             RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
                         <ContentPresenter
                             Content="{TemplateBinding Content}"

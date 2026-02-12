@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using HotAvalonia;
 
 namespace YikUi.Demo;
 
@@ -19,6 +20,9 @@ internal class Program
     public static AppBuilder BuildAvaloniaApp()
     {
         return AppBuilder.Configure<App>()
+#if DEBUG
+            .UseHotReload()
+#endif
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();
