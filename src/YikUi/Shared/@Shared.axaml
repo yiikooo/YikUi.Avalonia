@@ -4,5 +4,6 @@
         <ResourceInclude Source="Themes/Dark.axaml" />
         <ResourceInclude Source="Themes/Mirage.axaml" />
         <ResourceInclude Source="Resource.axaml" />
+        <ResourceInclude Source="Icons.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

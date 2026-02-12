@@ -1,0 +1,103 @@
+<UserControl
+    mc:Ignorable="d"
+    x:Class="YikUi.Controls.TitleBar"
+    x:DataType="yik:TitleBar"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border
+        Background="Transparent"
+        Height="40"
+        Name="Root"
+        VerticalAlignment="Top">
+        <Grid
+            Background="Transparent"
+            Margin="8,0,8,0"
+            Name="MoveDragArea">
+            <TextBlock />
+            <TextBlock
+                FontFamily="{DynamicResource MiSans}"
+                FontSize="16"
+                HorizontalAlignment="Left"
+                Name="TitleText"
+                Text="{Binding Title}"
+                VerticalAlignment="Center" />
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <ContentControl Content="{Binding LeftContent}" />
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    Name="FunctionRoot"
+                    Orientation="Horizontal">
+                    <Button
+                        Classes="title-bar-button"
+                        Content="{DynamicResource Minimize}"
+                        HorizontalAlignment="Right"
+                        IsVisible="{Binding IsMinBtnShow}"
+                        Name="MinimizeButton"
+                        Padding="0,9,0,0"
+                        VerticalAlignment="Center" />
+                    <Button
+                        Classes="title-bar-button"
+                        Content="{DynamicResource Maximize}"
+                        HorizontalAlignment="Right"
+                        IsVisible="{Binding IsMaxBtnShow}"
+                        Name="MaximizeButton"
+                        VerticalAlignment="Center" />
+                    <Button
+                        Classes="title-bar-button close-button"
+                        Content="{DynamicResource Close}"
+                        HorizontalAlignment="Right"
+                        IsVisible="{Binding IsCloseBtnShow}"
+                        Name="CloseButton"
+                        VerticalAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+    <UserControl.Styles>
+        <Style Selector="Button.title-bar-button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Arrow" />
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="7"
+                        Height="24"
+                        Name="bd"
+                        Width="24">
+                        <Path
+                            Data="{TemplateBinding Content}"
+                            Fill="{DynamicResource ForegroundColor}"
+                            Height="10"
+                            HorizontalAlignment="Center"
+                            Margin="{TemplateBinding Padding}"
+                            Name="ico"
+                            Stretch="Uniform"
+                            VerticalAlignment="Center"
+                            Width="10" />
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Border">
+                    <Setter Property="Background" Value="{DynamicResource SelectionNormal}" />
+                </Style>
+                <Style Selector="^.close-button /template/ Border">
+                    <Setter Property="Background" Value="Red" />
+                </Style>
+                <Style Selector="^.close-button /template/ Border">
+                    <Style Selector="^ Path">
+                        <Setter Property="Fill" Value="White" />
+                    </Style>
+                </Style>
+            </Style>
+        </Style>
+    </UserControl.Styles>
+</UserControl>
