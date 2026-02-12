@@ -14,28 +14,13 @@
             Background="Transparent"
             Margin="0,0,5,0"
             Name="MoveDragArea">
-            <StackPanel
+            <ContentControl
+                Content="{Binding #RootControl.LeftContent}"
                 HorizontalAlignment="Left"
                 Margin="11,0,8,0"
-                Orientation="Horizontal"
-                VerticalAlignment="Center">
-                <Image
-                    Height="20"
-                    IsVisible="{Binding #RootControl.Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
-                    Margin="4,0,8,0"
-                    Name="IconImage"
-                    Source="{Binding #RootControl.Icon.PlatformImpl}"
-                    VerticalAlignment="Center"
-                    Width="20" />
-                <TextBlock
-                    FontFamily="{DynamicResource YikFontFamily}"
-                    FontSize="16"
-                    Name="TitleText"
-                    Text="{Binding #RootControl.Title}"
-                    VerticalAlignment="Center" />
-            </StackPanel>
+                VerticalAlignment="Center" />
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <ContentControl Content="{Binding #RootControl.LeftContent}" />
+                <ContentControl Content="{Binding #RootControl.RightContent}" />
                 <StackPanel
                     HorizontalAlignment="Right"
                     Name="FunctionRoot"

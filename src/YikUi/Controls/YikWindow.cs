@@ -88,24 +88,6 @@ public class YikWindow : Window
         set => SetValue(IconProperty, value);
     }
 
-    public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
-        AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnExitApp));
-
-    public bool IsCloseBtnExitApp
-    {
-        get => GetValue(IsCloseBtnExitAppProperty);
-        set => SetValue(IsCloseBtnExitAppProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsCloseBtnHideWindowProperty =
-        AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnHideWindow));
-
-    public bool IsCloseBtnHideWindow
-    {
-        get => GetValue(IsCloseBtnHideWindowProperty);
-        set => SetValue(IsCloseBtnHideWindowProperty, value);
-    }
-
     public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
         AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnShow), defaultValue: true);
 
@@ -133,6 +115,18 @@ public class YikWindow : Window
         set => SetValue(IsMinBtnShowProperty, value);
     }
 
+    /// <summary>
+    /// 关闭按钮点击时的回调。返回 true 表示阻止默认关闭行为，返回 false 或 null 表示执行默认关闭。
+    /// </summary>
+    public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
+        AvaloniaProperty.Register<YikWindow, Func<bool>?>(nameof(OnClose));
+
+    public Func<bool>? OnClose
+    {
+        get => GetValue(OnCloseProperty);
+        set => SetValue(OnCloseProperty, value);
+    }
+
     public static readonly StyledProperty<object?> TitleBarLeftContentProperty =
         AvaloniaProperty.Register<YikWindow, object?>(nameof(TitleBarLeftContent));
 
@@ -142,13 +136,13 @@ public class YikWindow : Window
         set => SetValue(TitleBarLeftContentProperty, value);
     }
 
-    public static readonly StyledProperty<Action?> TitleBarOnExitProperty =
-        AvaloniaProperty.Register<YikWindow, Action?>(nameof(TitleBarOnExit));
+    public static readonly StyledProperty<object?> TitleBarRightContentProperty =
+        AvaloniaProperty.Register<YikWindow, object?>(nameof(TitleBarRightContent));
 
-    public Action? TitleBarOnExit
+    public object? TitleBarRightContent
     {
-        get => GetValue(TitleBarOnExitProperty);
-        set => SetValue(TitleBarOnExitProperty, value);
+        get => GetValue(TitleBarRightContentProperty);
+        set => SetValue(TitleBarRightContentProperty, value);
     }
 
     public static readonly StyledProperty<Thickness> ContentMarginProperty =

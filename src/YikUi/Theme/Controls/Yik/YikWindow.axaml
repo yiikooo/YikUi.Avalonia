@@ -26,16 +26,13 @@
                     <DockPanel>
                         <yik:YikTitleBar
                             DockPanel.Dock="Top"
-                            Icon="{Binding $parent[yik:YikWindow].Icon}"
-                            IsCloseBtnExitApp="{Binding $parent[yik:YikWindow].IsCloseBtnExitApp}"
-                            IsCloseBtnHideWindow="{Binding $parent[yik:YikWindow].IsCloseBtnHideWindow}"
                             IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
                             IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
                             IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
                             LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
                             Name="PART_TitleBar"
-                            OnExit="{Binding $parent[yik:YikWindow].TitleBarOnExit}"
-                            Title="{Binding $parent[yik:YikWindow].Title}" />
+                            OnClose="{Binding $parent[yik:YikWindow].OnClose}"
+                            RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
                         <ContentPresenter
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"

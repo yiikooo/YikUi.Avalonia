@@ -10,7 +10,6 @@ namespace YikUi.Controls;
 
 public partial class YikTitleBar : UserControl
 {
-    private readonly List<Action> _disposeActions = new();
     private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
     private DateTime? _lastClickTime;
 
@@ -24,7 +23,7 @@ public partial class YikTitleBar : UserControl
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            AttachedToVisualTree += (s, e) =>
+            AttachedToVisualTree += (_, _) =>
             {
                 Debug.WriteLine("YikTitleBar: AttachedToVisualTree event fired");
                 EnableWindowsSnapLayout(MaximizeButton);
@@ -33,15 +32,6 @@ public partial class YikTitleBar : UserControl
     }
 
     #region Styled Properties
-
-    public static readonly StyledProperty<string?> TitleProperty =
-        AvaloniaProperty.Register<YikTitleBar, string?>(nameof(Title));
-
-    public string? Title
-    {
-        get => GetValue(TitleProperty);
-        set => SetValue(TitleProperty, value);
-    }
 
     public static readonly StyledProperty<object?> LeftContentProperty =
         AvaloniaProperty.Register<YikTitleBar, object?>(nameof(LeftContent));
@@ -52,22 +42,13 @@ public partial class YikTitleBar : UserControl
         set => SetValue(LeftContentProperty, value);
     }
 
-    public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
-        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnExitApp));
+    public static readonly StyledProperty<object?> RightContentProperty =
+        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(RightContent));
 
-    public bool IsCloseBtnExitApp
+    public object? RightContent
     {
-        get => GetValue(IsCloseBtnExitAppProperty);
-        set => SetValue(IsCloseBtnExitAppProperty, value);
-    }
-
-    public static readonly StyledProperty<bool> IsCloseBtnHideWindowProperty =
-        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnHideWindow));
-
-    public bool IsCloseBtnHideWindow
-    {
-        get => GetValue(IsCloseBtnHideWindowProperty);
-        set => SetValue(IsCloseBtnHideWindowProperty, value);
+        get => GetValue(RightContentProperty);
+        set => SetValue(RightContentProperty, value);
     }
 
     public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
@@ -96,27 +77,17 @@ public partial class YikTitleBar : UserControl
         get => GetValue(IsMinBtnShowProperty);
         set => SetValue(IsMinBtnShowProperty, value);
     }
+    
+    public static readonly StyledProperty<Func<bool>?> OnCloseProperty =
+        AvaloniaProperty.Register<YikTitleBar, Func<bool>?>(nameof(OnClose));
 
-    public static readonly StyledProperty<Action?> OnExitProperty =
-        AvaloniaProperty.Register<YikTitleBar, Action?>(nameof(OnExit));
-
-    public Action? OnExit
+    public Func<bool>? OnClose
     {
-        get => GetValue(OnExitProperty);
-        set => SetValue(OnExitProperty, value);
+        get => GetValue(OnCloseProperty);
+        set => SetValue(OnCloseProperty, value);
     }
-
-    public static readonly StyledProperty<WindowIcon?> IconProperty =
-        AvaloniaProperty.Register<YikTitleBar, WindowIcon?>(nameof(Icon));
-
-    public WindowIcon? Icon
-    {
-        get => GetValue(IconProperty);
-        set => SetValue(IconProperty, value);
-    }
-
+    
     #endregion
-
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
@@ -159,45 +130,21 @@ public partial class YikTitleBar : UserControl
     private void CloseButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
-        if (IsCloseBtnExitApp)
+
+        if (OnClose != null)
         {
-            OnExit?.Invoke();
+            var handled = OnClose.Invoke();
+            if (handled) return;
         }
-        else
-        {
-            if (button.GetVisualRoot() is not Window window) return;
-            if (IsCloseBtnHideWindow)
-            {
-                window.Hide();
-            }
-            else
-            {
-                CloseButton.Click -= CloseButton_Click;
-                MaximizeButton.Click -= MaximizeButton_Click;
-                MinimizeButton.Click -= MinimizeButton_Click;
-                MoveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
 
-                // Execute disposal actions (including Win32 hook cleanup)
-                foreach (var disposeAction in _disposeActions)
-                {
-                    try
-                    {
-                        disposeAction.Invoke();
-                    }
-                    catch
-                    {
-                        // Ignore disposal errors
-                    }
-                }
+        if (button.GetVisualRoot() is not Window window) return;
 
-                _disposeActions.Clear();
-
-                window.Close();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                GC.Collect();
-            }
-        }
+        CloseButton.Click -= CloseButton_Click;
+        MaximizeButton.Click -= MaximizeButton_Click;
+        MinimizeButton.Click -= MinimizeButton_Click;
+        MoveDragArea.PointerPressed -= MoveDragArea_PointerPressed;
+        
+        window.Close();
     }
 
     #region Windows Snap Layout Support
@@ -240,6 +187,21 @@ public partial class YikTitleBar : UserControl
 
         Debug.WriteLine($"YikTitleBar: Enabling Snap Layout for button");
 
+        try
+        {
+            _wndProcHookCallback = ProcHookCallback;
+            Win32Properties.AddWndProcHookCallback(window, _wndProcHookCallback);
+
+            Debug.WriteLine("YikTitleBar: Win32 hook successfully registered");
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"YikTitleBar: Failed to enable Windows Snap Layout: {ex.Message}");
+            Debug.WriteLine($"YikTitleBar: Stack trace: {ex.StackTrace}");
+        }
+
+        return;
+
         nint ProcHookCallback(nint hWnd, uint msg, nint wParam, nint lParam, ref bool handled)
         {
             if (msg == WM_NCHITTEST)
@@ -276,15 +238,11 @@ public partial class YikTitleBar : UserControl
                     Debug.WriteLine($"YikTitleBar: Returning {(result == HTMAXBUTTON ? "HTMAXBUTTON" : "HTCLIENT")}");
                     return result;
                 }
-                else
-                {
-                    if (pointerOnButton)
-                    {
-                        pointerOnButton = false;
-                        pointerOverSetter.SetValue(maximizeButton, false);
-                        Debug.WriteLine("YikTitleBar: Pointer left maximize button");
-                    }
-                }
+
+                if (!pointerOnButton) return 0;
+                pointerOnButton = false;
+                pointerOverSetter.SetValue(maximizeButton, false);
+                Debug.WriteLine("YikTitleBar: Pointer left maximize button");
             }
 
             return 0;
@@ -292,35 +250,6 @@ public partial class YikTitleBar : UserControl
 
         static int ToInt32(IntPtr ptr) =>
             IntPtr.Size == 4 ? ptr.ToInt32() : (int)(ptr.ToInt64() & 0xffffffff);
-
-        try
-        {
-            _wndProcHookCallback = new Win32Properties.CustomWndProcHookCallback(ProcHookCallback);
-            Win32Properties.AddWndProcHookCallback(window, _wndProcHookCallback);
-
-            Debug.WriteLine("YikTitleBar: Win32 hook successfully registered");
-
-            _disposeActions.Add(() =>
-            {
-                try
-                {
-                    if (_wndProcHookCallback != null)
-                    {
-                        Win32Properties.RemoveWndProcHookCallback(window, _wndProcHookCallback);
-                        Debug.WriteLine("YikTitleBar: Win32 hook removed");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"YikTitleBar: Error removing hook: {ex.Message}");
-                }
-            });
-        }
-        catch (Exception ex)
-        {
-            Debug.WriteLine($"YikTitleBar: Failed to enable Windows Snap Layout: {ex.Message}");
-            Debug.WriteLine($"YikTitleBar: Stack trace: {ex.StackTrace}");
-        }
     }
 
     #endregion

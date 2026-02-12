@@ -9,6 +9,14 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:YikWindow.TitleBarLeftContent>
+        <TextBlock Text="TitleBarLeftContent" />
+    </yik:YikWindow.TitleBarLeftContent>
+
+    <yik:YikWindow.TitleBarRightContent>
+        <Button Content="TitleBarRightContent" />
+    </yik:YikWindow.TitleBarRightContent>
+
     <Border Margin="10">
         <TextBlock Margin="5,0,0,0" Text="Hi Avalonia!" />
     </Border>
