@@ -1,0 +1,40 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Spacing="20">
+            <Border Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+            <Border Classes="Shadow" Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+            <Border Classes="Hover" Theme="{StaticResource CardBorder}">
+                <TextBlock>Hello</TextBlock>
+            </Border>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <BoxShadows x:Key="BorderCardBoxShadow">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <BoxShadows x:Key="BorderCardBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="Border" x:Key="CardBorder">
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource PanelBackgroundColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Margin" Value="4" />
+        <Style Selector="^.Shadow">
+            <Setter Property="BoxShadow" Value="{DynamicResource BorderCardBoxShadow}" />
+        </Style>
+        <Style Selector="^.Hover:pointerover">
+            <Setter Property="BoxShadow" Value="{DynamicResource BorderCardBoxShadow}" />
+        </Style>
+
+    </ControlTheme>
+</ResourceDictionary>

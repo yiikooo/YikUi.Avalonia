@@ -1,5 +1,5 @@
 <Solution>
     <Project Path="src\YikUi\YikUi.csproj" />
-    <Project Path="import/Semi.Avalonia/src/Semi.Avalonia/Semi.Avalonia.csproj" />
-    <Project Path="src\YikUi.Demo\YikUi.Demo.csproj" />
+    <Project Path="import/Semi.Avalonia/src/Semi.Avalonia/Z.Semi.Avalonia.csproj" />
+    <Project Path="src\YikUi.Demo\YikUi.Demo.csproj" DisplayName="Z.Semi"/>
 </Solution>
