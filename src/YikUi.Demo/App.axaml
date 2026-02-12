@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Application.Styles>
+        <FluentTheme />
         <yik:YikUiTheme />
     </Application.Styles>
 </Application>

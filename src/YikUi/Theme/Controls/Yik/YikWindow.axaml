@@ -22,7 +22,7 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:YikWindow">
-                <Border Background="{TemplateBinding Background}">
+                <Border Background="{TemplateBinding Background}" Name="PART_Root">
                     <DockPanel>
                         <yik:YikTitleBar
                             DockPanel.Dock="Top"
@@ -32,6 +32,7 @@
                             IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
                             IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
                             LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
+                            Name="PART_TitleBar"
                             OnExit="{Binding $parent[yik:YikWindow].TitleBarOnExit}"
                             Title="{Binding $parent[yik:YikWindow].Title}" />
                         <ContentPresenter
@@ -46,5 +47,8 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        <Style Selector="^ /template/ yik|YikTitleBar">
+            <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -1,16 +1,84 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Controls.Primitives;
 
 namespace YikUi.Controls;
 
 public class YikWindow : Window
 {
+    private YikTitleBar? _titleBar;
+    private Border? _rootBorder;
+    private Action<YikTitleBar>? _titleBarLoadedCallback;
+
+    public YikWindow()
+    {
+        PropertyChanged += (_, args) =>
+        {
+            if (args.Property != WindowStateProperty) return;
+            if (_rootBorder != null)
+            {
+                _rootBorder.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
+            }
+        };
+    }
+
     protected override Type StyleKeyOverride => typeof(YikWindow);
+
+    /// <summary>
+    /// 获取 TitleBar 控件引用。此属性在模板应用后才可用。
+    /// </summary>
+    public YikTitleBar? TitleBar => _titleBar;
+
+    /// <summary>
+    /// 获取根 Border 控件引用。此属性在模板应用后才可用。
+    /// </summary>
+    public Border? RootBorder => _rootBorder;
+
+    /// <summary>
+    /// 当 TitleBar 加载完成时触发的事件
+    /// </summary>
+    public event EventHandler<YikTitleBar>? TitleBarLoaded;
+
+    /// <summary>
+    /// 设置 TitleBar 加载完成后的回调。如果 TitleBar 已经加载，则立即执行回调。
+    /// </summary>
+    /// <param name="callback">回调函数，参数为 TitleBar 实例</param>
+    public void OnTitleBarLoaded(Action<YikTitleBar> callback)
+    {
+        if (_titleBar != null)
+        {
+            callback(_titleBar);
+        }
+        else
+        {
+            _titleBarLoadedCallback = callback;
+        }
+    }
+
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+
+        // 从模板中获取控件引用
+        _titleBar = e.NameScope.Find<YikTitleBar>("PART_TitleBar");
+        _rootBorder = e.NameScope.Find<Border>("PART_Root");
+
+        if (_titleBar != null)
+        {
+            TitleBarLoaded?.Invoke(this, _titleBar);
+            _titleBarLoadedCallback?.Invoke(_titleBar);
+            _titleBarLoadedCallback = null;
+        }
+
+        // 初始化根 Border 的 Margin
+        if (_rootBorder != null)
+        {
+            _rootBorder.Margin = new Thickness(WindowState == WindowState.Maximized ? 10 : 0);
+        }
+    }
 
     #region Styled Properties
 
-    // TitleBar properties
     public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
         AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnExitApp));
 

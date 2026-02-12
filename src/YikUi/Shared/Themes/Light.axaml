@@ -26,27 +26,6 @@
                 Color="#eaedf0"
                 Opacity="{DynamicResource BackGroundOpacity}"
                 x:Key="PopupBorderBrush" />
-
-            <SolidColorBrush
-                Color="#dadddf"
-                Opacity="{DynamicResource BackGroundOpacity}"
-                x:Key="SelectedTabBackgroundColor" />
-            <SolidColorBrush
-                Color="#e8e8e8"
-                Opacity="{DynamicResource BackGroundOpacity}"
-                x:Key="HoverTabBackgroundColor" />
-            <SolidColorBrush
-                Color="#f1f1f1"
-                Opacity="{DynamicResource BackGroundOpacity}"
-                x:Key="TabBackgroundColor" />
-            <SolidColorBrush
-                Color="#a1a1a1"
-                Opacity="{DynamicResource BackGroundOpacity}"
-                x:Key="TabTextColor" />
-            <SolidColorBrush
-                Color="#5c6773"
-                Opacity="{DynamicResource BackGroundOpacity}"
-                x:Key="SelectedTabTextColor" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>
