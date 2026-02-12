@@ -22,26 +22,48 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:YikWindow">
-                <Border Background="{TemplateBinding Background}" Name="PART_Root">
-                    <DockPanel>
-                        <yik:YikTitleBar
-                            DockPanel.Dock="Top"
-                            IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
-                            IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
-                            IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
-                            LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
-                            Name="PART_TitleBar"
-                            RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
-                        <ContentPresenter
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            DockPanel.Dock="Bottom"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Margin="{TemplateBinding Padding}"
-                            Name="PART_ContentPresenter"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                    </DockPanel>
-                </Border>
+                <Panel Background="{TemplateBinding Background}" Name="PART_Root">
+                    <VisualLayerManager>
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <DockPanel>
+                                <yik:YikTitleBar
+                                    DockPanel.Dock="Top"
+                                    IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
+                                    IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
+                                    IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
+                                    LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
+                                    Name="PART_TitleBar"
+                                    RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
+                                <ContentPresenter
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}"
+                                    Name="PART_ContentPresenter"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                <VisualLayerManager>
+                                    <Panel>
+                                        <u:OverlayDialogHost
+                                            Name="{x:Static u:UrsaWindow.PART_DialogHost}"
+                                            IsModalStatusReporter="True"
+                                            IsTopLevel="True" />
+                                    </Panel>
+                                </VisualLayerManager>
+                            </DockPanel>
+                        </VisualLayerManager.ChromeOverlayLayer>
+                        <Panel>
+                            <ContentPresenter
+                                Name="PART_ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+
+                        </Panel>
+                    </VisualLayerManager>
+                </Panel>
             </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ yik|YikTitleBar">
