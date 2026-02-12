@@ -1,7 +1,5 @@
 <yik:YikWindow
     CanResize="True"
-    DragDrop.AllowDrop="True"
-    IsHitTestVisible="True"
     MinHeight="400"
     MinWidth="600"
     Title="YikUi.Demo"
@@ -10,5 +8,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    Hi Avalonia!
+    <Border Margin="20">
+        <TextBlock Text="Hi Avalonia!" />
+    </Border>
 </yik:YikWindow>

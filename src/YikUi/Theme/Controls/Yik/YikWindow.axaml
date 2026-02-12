@@ -22,26 +22,28 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:YikWindow">
-                <DockPanel>
-                    <yik:YikTitleBar
-                        DockPanel.Dock="Top"
-                        IsCloseBtnExitApp="{Binding $parent[yik:YikWindow].IsCloseBtnExitApp}"
-                        IsCloseBtnHideWindow="{Binding $parent[yik:YikWindow].IsCloseBtnHideWindow}"
-                        IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
-                        IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
-                        IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
-                        LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
-                        OnExit="{Binding $parent[yik:YikWindow].TitleBarOnExit}"
-                        Title="{Binding $parent[yik:YikWindow].Title}" />
-                    <ContentPresenter
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                        DockPanel.Dock="Bottom"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Margin="{TemplateBinding Padding}"
-                        Name="PART_ContentPresenter"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                </DockPanel>
+                <Border Background="{TemplateBinding Background}">
+                    <DockPanel>
+                        <yik:YikTitleBar
+                            DockPanel.Dock="Top"
+                            IsCloseBtnExitApp="{Binding $parent[yik:YikWindow].IsCloseBtnExitApp}"
+                            IsCloseBtnHideWindow="{Binding $parent[yik:YikWindow].IsCloseBtnHideWindow}"
+                            IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
+                            IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
+                            IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
+                            LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
+                            OnExit="{Binding $parent[yik:YikWindow].TitleBarOnExit}"
+                            Title="{Binding $parent[yik:YikWindow].Title}" />
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            DockPanel.Dock="Bottom"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_ContentPresenter"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </DockPanel>
+                </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>

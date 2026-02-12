@@ -1,4 +1,5 @@
 using Avalonia.Controls.Chrome;
+using Avalonia.Media;
 using YikUi.Controls;
 
 namespace YikUi.Demo;

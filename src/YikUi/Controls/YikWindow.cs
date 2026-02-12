@@ -6,8 +6,8 @@ namespace YikUi.Controls;
 
 public class YikWindow : Window
 {
-    public YikTitleBar TitleBar => this.FindControl<YikTitleBar>("TitleBar");
-    
+    protected override Type StyleKeyOverride => typeof(YikWindow);
+
     #region Styled Properties
 
     // TitleBar properties
