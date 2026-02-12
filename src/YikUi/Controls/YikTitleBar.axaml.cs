@@ -106,34 +106,41 @@ public partial class YikTitleBar : UserControl
         set => SetValue(OnExitProperty, value);
     }
 
+    public static readonly StyledProperty<WindowIcon?> IconProperty =
+        AvaloniaProperty.Register<YikTitleBar, WindowIcon?>(nameof(Icon));
+
+    public WindowIcon? Icon
+    {
+        get => GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
+    }
+
     #endregion
 
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (e.Pointer.Type == PointerType.Mouse)
+        if (!e.GetCurrentPoint(this).Properties.IsLeftButtonPressed) return;
+        if (sender is Grid control)
         {
-            if (sender is Grid control)
-            {
-                var window = control.GetVisualRoot() as Window;
-                window?.BeginMoveDrag(e);
-            }
-
-            if (IsMaxBtnShow && _lastClickTime.HasValue && (DateTime.Now - _lastClickTime.Value).TotalMilliseconds < 300)
-            {
-                _lastClickTime = null;
-                if (this.GetVisualRoot() is Window window)
-                    window.WindowState = window.WindowState == WindowState.Maximized
-                        ? WindowState.Normal
-                        : WindowState.Maximized;
-            }
-            else
-            {
-                _lastClickTime = DateTime.Now;
-            }
-
-            e.Handled = true;
+            var window = control.GetVisualRoot() as Window;
+            window?.BeginMoveDrag(e);
         }
+
+        if (IsMaxBtnShow && _lastClickTime.HasValue && (DateTime.Now - _lastClickTime.Value).TotalMilliseconds < 300)
+        {
+            _lastClickTime = null;
+            if (this.GetVisualRoot() is Window window)
+                window.WindowState = window.WindowState == WindowState.Maximized
+                    ? WindowState.Normal
+                    : WindowState.Maximized;
+        }
+        else
+        {
+            _lastClickTime = DateTime.Now;
+        }
+
+        e.Handled = true;
     }
 
     private void MinimizeButton_Click(object? sender, RoutedEventArgs e)

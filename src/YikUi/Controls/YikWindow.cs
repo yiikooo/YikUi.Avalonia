@@ -15,10 +15,7 @@ public class YikWindow : Window
         PropertyChanged += (_, args) =>
         {
             if (args.Property != WindowStateProperty) return;
-            if (_rootBorder != null)
-            {
-                _rootBorder.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
-            }
+            _rootBorder?.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
         };
     }
 
@@ -78,6 +75,18 @@ public class YikWindow : Window
     }
 
     #region Styled Properties
+
+    /// <summary>
+    /// 窗口图标，接管 Avalonia 的 Icon 属性
+    /// </summary>
+    public static new readonly StyledProperty<WindowIcon?> IconProperty =
+        Window.IconProperty.AddOwner<YikWindow>();
+
+    public new WindowIcon? Icon
+    {
+        get => GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
+    }
 
     public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
         AvaloniaProperty.Register<YikWindow, bool>(nameof(IsCloseBtnExitApp));

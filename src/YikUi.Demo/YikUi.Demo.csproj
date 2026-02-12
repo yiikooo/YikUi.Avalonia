@@ -5,13 +5,26 @@
         <Nullable>enable</Nullable>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
+    <ItemGroup>
+      <Content Include="icon.ico" />
+    </ItemGroup>
+    <ItemGroup>
+      <AvaloniaResource Include="..\..\assets\icon.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </AvaloniaResource>
+      <None Remove="icon.in.ico" />
+      <AvaloniaResource Include="icon.in.ico" />
+    </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.11"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.11"/>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.11"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.11"/>
+        <PackageReference Include="Avalonia" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.11" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.11" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="11.3.11">
             <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
@@ -20,6 +33,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\YikUi\YikUi.csproj"/>
+        <ProjectReference Include="..\YikUi\YikUi.csproj" />
     </ItemGroup>
 </Project>

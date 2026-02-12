@@ -1,5 +1,6 @@
 <yik:YikWindow
     CanResize="True"
+    Icon="icon.in.ico"
     MinHeight="400"
     MinWidth="600"
     Title="YikUi.Demo"
