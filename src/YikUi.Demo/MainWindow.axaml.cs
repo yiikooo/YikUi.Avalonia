@@ -11,7 +11,7 @@ namespace YikUi.Demo;
 
 public partial class MainWindow : YikWindow
 {
-    private YikWindowToastManager toast;
+    private readonly YikWindowToastManager toast;
 
     public MainWindow()
     {
@@ -26,32 +26,40 @@ public partial class MainWindow : YikWindow
         switch (t)
         {
             case "Info":
-                Overlay.Notice("Info");
+                toast.Show("Info");
                 break;
             case "Success":
-                Overlay.Notice("Success", NotificationType.Success, new NotificationOptions
+                toast.Show("Success", new NotificationOptions
                 {
+                    Type = NotificationType.Success,
                     Expiration = i
                 });
                 break;
             case "Warn":
-                Overlay.Notice("Warn", NotificationType.Warning);
+                toast.Show("Warn", new NotificationOptions
+                {
+                    Type = NotificationType.Warning
+                });
                 break;
             case "Error":
-                Overlay.Notice("Error", NotificationType.Error);
+                toast.Show("Error", new NotificationOptions
+                {
+                    Type = NotificationType.Error
+                });
                 break;
             case "Long":
-                Overlay.Notice(
+                toast.Show(
                     "Avalonia 是一个基于 .NET 的跨平台 UI 框架，灵感来源于 WPF，可在 Windows、macOS、Linux、移动设备和 WebAssembly 上使用同一套 XAML 代码开发应用程序，适合桌面和移动端开发者探索跨平台解决方案。",
-                    NotificationType.Information,
                     new NotificationOptions
                     {
+                        Type = NotificationType.Information,
                         Expiration = i
                     });
                 break;
             case "Click":
-                Overlay.Notice("Avalonia", NotificationType.Information, new NotificationOptions
+                toast.Show("Avalonia", new NotificationOptions
                 {
+                    Type = NotificationType.Information,
                     OnClick = () => { Console.WriteLine("OnClick!"); }
                 });
                 break;
@@ -68,11 +76,11 @@ public partial class MainWindow : YikWindow
                 true)
         };
 
-        Overlay.Notice(
+        toast.Show(
             "这是一条带有操作按钮的通知",
-            NotificationType.Information,
             new NotificationOptions
             {
+                Type = NotificationType.Information,
                 OperateButtons = buttons
             }
         );
@@ -89,11 +97,11 @@ public partial class MainWindow : YikWindow
                 true)
         };
 
-        Overlay.Notice(
+        toast.Show(
             "这是一条按钮在同一行的通知",
-            NotificationType.Information,
             new NotificationOptions
             {
+                Type = NotificationType.Information,
                 OperateButtons = buttons,
                 IsButtonsInline = true,
                 Expiration = new TimeSpan(0, 2, 0, 0, 0)

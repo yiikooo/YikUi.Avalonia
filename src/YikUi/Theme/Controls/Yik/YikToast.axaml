@@ -15,26 +15,78 @@
         </Style>
     </ControlTheme>
 
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="#1C1F23" x:Key="ToastCardContentForeground" />
+            <SolidColorBrush Color="White" x:Key="ToastCardBackground" />
+            <BoxShadows x:Key="NotificationCardBoxShadows">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+            <SolidColorBrush Color="White" x:Key="NotificationCardLightBackground" />
+            <SolidColorBrush Color="#0064FA" x:Key="NotificationCardLightInformationBorderBrush" />
+            <SolidColorBrush Color="#EAF5FF" x:Key="NotificationCardLightInformationBackground" />
+            <SolidColorBrush Color="#3BB346" x:Key="NotificationCardLightSuccessBorderBrush" />
+            <SolidColorBrush Color="#ECF7EC" x:Key="NotificationCardLightSuccessBackground" />
+            <SolidColorBrush Color="#FC8800" x:Key="NotificationCardLightWarningBorderBrush" />
+            <SolidColorBrush Color="#FFF8EA" x:Key="NotificationCardLightWarningBackground" />
+            <SolidColorBrush Color="#F93920" x:Key="NotificationCardLightErrorBorderBrush" />
+            <SolidColorBrush Color="#FEF2ED" x:Key="NotificationCardLightErrorBackground" />
+            <SolidColorBrush Color="#0064FA" x:Key="NotificationCardInformationIconForeground" />
+            <SolidColorBrush Color="#3BB346" x:Key="NotificationCardSuccessIconForeground" />
+            <SolidColorBrush Color="#FC8800" x:Key="NotificationCardWarningIconForeground" />
+            <SolidColorBrush Color="#F93920" x:Key="NotificationCardErrorIconForeground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#F9F9F9" x:Key="ToastCardContentForeground" />
+            <SolidColorBrush Color="#43444A" x:Key="ToastCardBackground" />
+            <BoxShadows x:Key="NotificationCardBoxShadows">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+            <SolidColorBrush Color="#16161A" x:Key="NotificationCardLightBackground" />
+            <SolidColorBrush Color="#54A9FF" x:Key="NotificationCardLightInformationBorderBrush" />
+            <SolidColorBrush
+                Color="#54A9FF"
+                Opacity="0.2"
+                x:Key="NotificationCardLightInformationBackground" />
+            <SolidColorBrush Color="#5DC264" x:Key="NotificationCardLightSuccessBorderBrush" />
+            <SolidColorBrush
+                Color="#5DC264"
+                Opacity="0.2"
+                x:Key="NotificationCardLightSuccessBackground" />
+            <SolidColorBrush Color="#FFAE43" x:Key="NotificationCardLightWarningBorderBrush" />
+            <SolidColorBrush
+                Color="#FFAE43"
+                Opacity="0.2"
+                x:Key="NotificationCardLightWarningBackground" />
+            <SolidColorBrush Color="#FC725A" x:Key="NotificationCardLightErrorBorderBrush" />
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.2"
+                x:Key="NotificationCardLightErrorBackground" />
+            <SolidColorBrush Color="#54A9FF" x:Key="NotificationCardInformationIconForeground" />
+            <SolidColorBrush Color="#5DC264" x:Key="NotificationCardSuccessIconForeground" />
+            <SolidColorBrush Color="#FFAE43" x:Key="NotificationCardWarningIconForeground" />
+            <SolidColorBrush Color="#FC725A" x:Key="NotificationCardErrorIconForeground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+
     <ControlTheme TargetType="yik:YikToastCard" x:Key="{x:Type yik:YikToastCard}">
         <Setter Property="UseLayoutRounding" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="{DynamicResource ToastCardBorderThickness}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource ToastCardBackground}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CardCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:YikToastCard">
                 <LayoutTransformControl UseRenderTransform="True" x:Name="PART_LayoutTransformControl">
                     <Border
                         Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Margin="{DynamicResource ToastCardMargin}">
+                        Margin="12">
                         <Border
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             BoxShadow="{DynamicResource NotificationCardBoxShadows}"
                             CornerRadius="{TemplateBinding CornerRadius}"
-                            MinHeight="{DynamicResource ToastCardMinHeight}"
-                            Padding="{DynamicResource ToastCardPadding}"
+                            MinHeight="40"
+                            Padding="12,8"
                             VerticalAlignment="Center"
                             x:Name="PART_RootBorder">
                             <StackPanel VerticalAlignment="Center">
@@ -46,6 +98,7 @@
                                         VerticalAlignment="Center"
                                         x:Name="PART_InlineActionButtons">
                                         <Button
+                                            Cursor="hand"
                                             IsVisible="{TemplateBinding ShowCollapseButton}"
                                             Padding="6,5,6,6"
                                             Theme="{StaticResource TransparentButton}"
@@ -54,11 +107,13 @@
                                             x:Name="PART_CollapseButton">
                                             <PathIcon
                                                 Data="F1 M640,640z M0,0z M342.6,81.4C330.1,68.9,309.8,68.9,297.3,81.4L137.3,241.4C124.8,253.9 124.8,274.2 137.3,286.7 149.8,299.2 170.1,299.2 182.6,286.7L288,181.3 288,552C288,569.7 302.3,584 320,584 337.7,584 352,569.7 352,552L352,181.3 457.4,286.7C469.9,299.2 490.2,299.2 502.7,286.7 515.2,274.2 515.2,253.9 502.7,241.4L342.7,81.4z"
+                                                Foreground="{DynamicResource ForegroundColor}"
                                                 Height="15"
                                                 Margin="0,0,0,1"
                                                 Width="15" />
                                         </Button>
                                         <Button
+                                            Cursor="hand"
                                             IsVisible="{TemplateBinding ShowRemoveButton}"
                                             Padding="6"
                                             Theme="{StaticResource TransparentButton}"
@@ -67,15 +122,14 @@
                                             x:Name="PART_RemoveButton">
                                             <PathIcon
                                                 Data="F1 M384,512z M0,0z M55.1,73.4C42.6,60.9 22.3,60.9 9.8,73.4 -2.7,85.9 -2.7,106.2 9.8,118.7L147.2,256 9.9,393.4C-2.6,405.9 -2.6,426.2 9.9,438.7 22.4,451.2 42.7,451.2 55.2,438.7L192.5,301.3 329.9,438.6C342.4,451.1 362.7,451.1 375.2,438.6 387.7,426.1 387.7,405.8 375.2,393.3L237.8,256 375.1,118.6C387.6,106.1 387.6,85.8 375.1,73.3 362.6,60.8 342.3,60.8 329.8,73.3L192.5,210.7 55.1,73.4z"
+                                                Foreground="{DynamicResource ForegroundColor}"
                                                 Height="14"
                                                 Width="14" />
                                         </Button>
                                     </StackPanel>
-                                    <!--  内联按钮：停靠在右侧  -->
                                     <ItemsControl
                                         DockPanel.Dock="Right"
                                         ItemsSource="{TemplateBinding OperateButtons}"
-                                        Margin="{DynamicResource ToastCardButtonMargin}"
                                         VerticalAlignment="Center"
                                         x:Name="PART_InlineButtons">
                                         <ItemsControl.ItemsPanel>
@@ -97,7 +151,7 @@
                                     <DockPanel>
                                         <PathIcon
                                             Classes="Large"
-                                            Data="{DynamicResource NotificationCardInformationIconPathData}"
+                                            Data="{DynamicResource IconInfoCircle}"
                                             DockPanel.Dock="Left"
                                             IsVisible="{TemplateBinding ShowIcon}"
                                             Theme="{StaticResource InnerPathIcon}"
@@ -105,21 +159,21 @@
                                             x:Name="ToastIcon" />
                                         <ContentControl
                                             Content="{TemplateBinding Content}"
-                                            Margin="{DynamicResource ToastCardContentMargin}"
-                                            MaxWidth="{DynamicResource ToastCardContentMaxWidth}"
+                                            Margin="12,0"
+                                            MaxWidth="450"
                                             VerticalContentAlignment="Center"
                                             x:Name="PART_Content">
                                             <ContentControl.DataTemplates>
                                                 <DataTemplate DataType="yik:IToast">
                                                     <TextBlock
-                                                        FontWeight="{DynamicResource ToastCardContentFontWeight}"
+                                                        FontWeight="600"
                                                         Foreground="{DynamicResource ToastCardContentForeground}"
                                                         Text="{Binding Content}"
                                                         TextWrapping="Wrap" />
                                                 </DataTemplate>
                                                 <DataTemplate DataType="x:String">
                                                     <TextBlock
-                                                        FontWeight="{DynamicResource ToastCardContentFontWeight}"
+                                                        FontWeight="600"
                                                         Foreground="{DynamicResource ToastCardContentForeground}"
                                                         Text="{Binding}"
                                                         TextWrapping="Wrap" />
@@ -261,19 +315,19 @@
 
         <Style Selector="^:information /template/ PathIcon#ToastIcon">
             <Setter Property="Foreground" Value="{DynamicResource NotificationCardInformationIconForeground}" />
-            <Setter Property="Data" Value="{DynamicResource NotificationCardInformationIconPathData}" />
+            <Setter Property="Data" Value="{DynamicResource IconInfoCircle}" />
         </Style>
         <Style Selector="^:success /template/ PathIcon#ToastIcon">
             <Setter Property="Foreground" Value="{DynamicResource NotificationCardSuccessIconForeground}" />
-            <Setter Property="Data" Value="{DynamicResource NotificationCardSuccessIconPathData}" />
+            <Setter Property="Data" Value="{DynamicResource IconTickCircle}" />
         </Style>
         <Style Selector="^:warning /template/ PathIcon#ToastIcon">
             <Setter Property="Foreground" Value="{DynamicResource NotificationCardWarningIconForeground}" />
-            <Setter Property="Data" Value="{DynamicResource NotificationCardWarningIconPathData}" />
+            <Setter Property="Data" Value="{DynamicResource IconAlertTriangle}" />
         </Style>
         <Style Selector="^:error /template/ PathIcon#ToastIcon">
             <Setter Property="Foreground" Value="{DynamicResource NotificationCardErrorIconForeground}" />
-            <Setter Property="Data" Value="{DynamicResource NotificationCardErrorIconPathData}" />
+            <Setter Property="Data" Value="{DynamicResource IconAlertCircle}" />
         </Style>
 
         <Style Selector="^.Light">

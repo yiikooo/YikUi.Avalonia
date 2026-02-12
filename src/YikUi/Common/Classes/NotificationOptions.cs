@@ -6,8 +6,13 @@ namespace YikUi.Common.Classes;
 /// <summary>
 ///     通知选项
 /// </summary>
-public class NotificationOptions(Action? onClose = null)
+public class NotificationOptions
 {
+    public NotificationOptions(Action? onClose = null)
+    {
+        OnClose = onClose;
+    }
+
     /// <summary>
     ///     通知类型
     /// </summary>
@@ -26,7 +31,7 @@ public class NotificationOptions(Action? onClose = null)
     /// <summary>
     ///     关闭回调
     /// </summary>
-    public Action? OnClose { get; set; } = onClose;
+    public Action? OnClose { get; set; }
 
     /// <summary>
     ///     操作按钮

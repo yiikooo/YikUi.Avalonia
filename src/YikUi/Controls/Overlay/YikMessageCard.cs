@@ -43,13 +43,13 @@ public abstract class YikMessageCard : ContentControl
         AvaloniaProperty.Register<YikMessageCard, NotificationEntry?>(nameof(NotificationEntry));
 
     public static readonly StyledProperty<bool> ShowCollapseButtonProperty =
-        AvaloniaProperty.Register<YikMessageCard, bool>(nameof(ShowCollapseButton), true);
+        AvaloniaProperty.Register<YikMessageCard, bool>(nameof(ShowCollapseButton));
 
     public static readonly StyledProperty<bool> ShowRemoveButtonProperty =
         AvaloniaProperty.Register<YikMessageCard, bool>(nameof(ShowRemoveButton), true);
 
-    public static readonly StyledProperty<Action> OnRemoveProperty =
-        AvaloniaProperty.Register<YikMessageCard, Action>(nameof(OnRemove));
+    public static readonly StyledProperty<Action?> OnRemoveProperty =
+        AvaloniaProperty.Register<YikMessageCard, Action?>(nameof(OnRemove));
 
     public static readonly RoutedEvent<RoutedEventArgs> MessageClosedEvent =
         RoutedEvent.Register<YikMessageCard, RoutedEventArgs>(nameof(MessageClosed), RoutingStrategies.Bubble);
@@ -80,7 +80,7 @@ public abstract class YikMessageCard : ContentControl
         set => SetValue(IsClosedProperty, value);
     }
 
-    public Action OnRemove
+    public Action? OnRemove
     {
         get => GetValue(OnRemoveProperty);
         set => SetValue(OnRemoveProperty, value);
@@ -205,7 +205,7 @@ public abstract class YikMessageCard : ContentControl
         IsClosing = true;
         IsClosed = true;
 
-        OnRemove.Invoke();
+        OnRemove?.Invoke();
     }
 
     /// <summary>
@@ -230,7 +230,7 @@ public abstract class YikMessageCard : ContentControl
         IsClosing = true;
         IsClosed = true;
 
-        OnRemove.Invoke();
+        OnRemove?.Invoke();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs e)
