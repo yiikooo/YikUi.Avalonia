@@ -1,6 +1,7 @@
 <yik:YikWindow
     CanResize="True"
     DragDrop.AllowDrop="True"
+    ExtendClientAreaToDecorationsHint="True"
     FontFamily="{DynamicResource YikFontFamily}"
     FontWeight="{DynamicResource YikFontWeight}"
     IsHitTestVisible="True"
