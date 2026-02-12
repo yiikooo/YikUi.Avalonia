@@ -1,7 +1,7 @@
 <UserControl
     mc:Ignorable="d"
     x:Class="YikUi.Controls.YikTitleBar"
-    x:DataType="controls:YikTitleBar"
+    x:Name="RootControl"
     xmlns="https://github.com/avaloniaui"
     xmlns:controls="https://github.com/yiikooo/YikUi.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -10,22 +10,20 @@
     <Border
         Background="{DynamicResource WindowBackground}"
         Height="40"
-        Name="Root"
         VerticalAlignment="Top">
         <Grid
             Background="#00242424"
             Margin="8,0,8,0"
             Name="MoveDragArea">
-            <TextBlock />
             <TextBlock
                 FontFamily="{DynamicResource MiSans}"
                 FontSize="16"
                 HorizontalAlignment="Left"
                 Name="TitleText"
-                Text="{Binding Title}"
+                Text="{Binding #RootControl.Title}"
                 VerticalAlignment="Center" />
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <ContentControl Content="{Binding LeftContent}" />
+                <ContentControl Content="{Binding #RootControl.LeftContent}" />
                 <StackPanel
                     HorizontalAlignment="Right"
                     Name="FunctionRoot"
@@ -34,7 +32,7 @@
                         Classes="title-bar-button"
                         Content="{DynamicResource Minimize}"
                         HorizontalAlignment="Right"
-                        IsVisible="{Binding IsMinBtnShow}"
+                        IsVisible="{Binding #RootControl.IsMinBtnShow}"
                         Name="MinimizeButton"
                         Padding="0,9,0,0"
                         VerticalAlignment="Center" />
@@ -42,14 +40,14 @@
                         Classes="title-bar-button"
                         Content="{DynamicResource Maximize}"
                         HorizontalAlignment="Right"
-                        IsVisible="{Binding IsMaxBtnShow}"
+                        IsVisible="{Binding #RootControl.IsMaxBtnShow}"
                         Name="MaximizeButton"
                         VerticalAlignment="Center" />
                     <Button
                         Classes="title-bar-button close-button"
                         Content="{DynamicResource Close}"
                         HorizontalAlignment="Right"
-                        IsVisible="{Binding IsCloseBtnShow}"
+                        IsVisible="{Binding #RootControl.IsCloseBtnShow}"
                         Name="CloseButton"
                         VerticalAlignment="Center" />
                 </StackPanel>

@@ -1,6 +1,4 @@
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
@@ -10,15 +8,15 @@ using Avalonia.VisualTree;
 
 namespace YikUi.Controls;
 
-public partial class YikTitleBar : UserControl , INotifyPropertyChanged
+public partial class YikTitleBar : UserControl
 {
-    private readonly List<Action> _disposeActions = [];
+    private readonly List<Action> _disposeActions = new();
     private Win32Properties.CustomWndProcHookCallback? _wndProcHookCallback;
+    private DateTime? _lastClickTime;
 
     public YikTitleBar()
     {
         InitializeComponent();
-        DataContext = this;
         CloseButton.Click += CloseButton_Click;
         MaximizeButton.Click += MaximizeButton_Click;
         MinimizeButton.Click += MinimizeButton_Click;
@@ -33,51 +31,82 @@ public partial class YikTitleBar : UserControl , INotifyPropertyChanged
             };
         }
     }
-    
-    public string Title
+
+    #region Styled Properties
+
+    public static readonly StyledProperty<string?> TitleProperty =
+        AvaloniaProperty.Register<YikTitleBar, string?>(nameof(Title));
+
+    public string? Title
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
     }
 
-    public object LeftContent
+    public static readonly StyledProperty<object?> LeftContentProperty =
+        AvaloniaProperty.Register<YikTitleBar, object?>(nameof(LeftContent));
+
+    public object? LeftContent
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(LeftContentProperty);
+        set => SetValue(LeftContentProperty, value);
     }
+
+    public static readonly StyledProperty<bool> IsCloseBtnExitAppProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnExitApp));
 
     public bool IsCloseBtnExitApp
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(IsCloseBtnExitAppProperty);
+        set => SetValue(IsCloseBtnExitAppProperty, value);
     }
+
+    public static readonly StyledProperty<bool> IsCloseBtnHideWindowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnHideWindow));
 
     public bool IsCloseBtnHideWindow
     {
-        get;
-        set => SetField(ref field, value);
+        get => GetValue(IsCloseBtnHideWindowProperty);
+        set => SetValue(IsCloseBtnHideWindowProperty, value);
     }
+
+    public static readonly StyledProperty<bool> IsCloseBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsCloseBtnShow), defaultValue: true);
 
     public bool IsCloseBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
+        get => GetValue(IsCloseBtnShowProperty);
+        set => SetValue(IsCloseBtnShowProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsMaxBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMaxBtnShow), defaultValue: true);
 
     public bool IsMaxBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
+        get => GetValue(IsMaxBtnShowProperty);
+        set => SetValue(IsMaxBtnShowProperty, value);
+    }
+
+    public static readonly StyledProperty<bool> IsMinBtnShowProperty =
+        AvaloniaProperty.Register<YikTitleBar, bool>(nameof(IsMinBtnShow), defaultValue: true);
 
     public bool IsMinBtnShow
     {
-        get;
-        set => SetField(ref field, value);
-    } = true;
+        get => GetValue(IsMinBtnShowProperty);
+        set => SetValue(IsMinBtnShowProperty, value);
+    }
 
-    public DateTime? lastClickTime { get; set; }
-    public Action? OnExit { get; set; }
+    public static readonly StyledProperty<Action?> OnExitProperty =
+        AvaloniaProperty.Register<YikTitleBar, Action?>(nameof(OnExit));
+
+    public Action? OnExit
+    {
+        get => GetValue(OnExitProperty);
+        set => SetValue(OnExitProperty, value);
+    }
+
+    #endregion
 
 
     private void MoveDragArea_PointerPressed(object? sender, PointerPressedEventArgs e)
@@ -87,12 +116,12 @@ public partial class YikTitleBar : UserControl , INotifyPropertyChanged
             if (sender is Grid control)
             {
                 var window = control.GetVisualRoot() as Window;
-                window.BeginMoveDrag(e);
+                window?.BeginMoveDrag(e);
             }
 
-            if (IsMaxBtnShow && lastClickTime.HasValue && (DateTime.Now - lastClickTime.Value).TotalMilliseconds < 300)
+            if (IsMaxBtnShow && _lastClickTime.HasValue && (DateTime.Now - _lastClickTime.Value).TotalMilliseconds < 300)
             {
-                lastClickTime = null;
+                _lastClickTime = null;
                 if (this.GetVisualRoot() is Window window)
                     window.WindowState = window.WindowState == WindowState.Maximized
                         ? WindowState.Normal
@@ -100,7 +129,7 @@ public partial class YikTitleBar : UserControl , INotifyPropertyChanged
             }
             else
             {
-                lastClickTime = DateTime.Now;
+                _lastClickTime = DateTime.Now;
             }
 
             e.Handled = true;
@@ -125,7 +154,7 @@ public partial class YikTitleBar : UserControl , INotifyPropertyChanged
         if (sender is not Button button) return;
         if (IsCloseBtnExitApp)
         {
-            OnExit.Invoke();
+            OnExit?.Invoke();
         }
         else
         {
@@ -288,19 +317,4 @@ public partial class YikTitleBar : UserControl , INotifyPropertyChanged
     }
 
     #endregion
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
-    }
 }
