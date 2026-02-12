@@ -9,4 +9,5 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
+    <StyleInclude Source="Theme/@Index.axaml" />
 </Styles>

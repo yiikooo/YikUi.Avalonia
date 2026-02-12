@@ -10,7 +10,8 @@
     <Color x:Key="SystemAccentColorDark2">#1BD76A</Color>
     <Color x:Key="SystemAccentColorDark3">#1BD76A</Color>
     <system:Double x:Key="BackGroundOpacity">1</system:Double>
-    <FontFamily x:Key="MiSans">avares://YikUi/Public#MiSans</FontFamily>
-    <FontWeight x:Key="FontWeight">350</FontWeight>
-    <CornerRadius x:Key="CardCornerRadius">10</CornerRadius>
+    <FontFamily x:Key="YikFontFamily">avares://YikUi/Public#MiSans</FontFamily>
+    <FontWeight x:Key="YikFontWeight">350</FontWeight>
+    <system:Double x:Key="YikFontSize">14</system:Double>
+    <CornerRadius x:Key="YikCornerRadius">10</CornerRadius>
 </ResourceDictionary>
