@@ -32,7 +32,7 @@ public class ColorDarkenConverter : IValueConverter
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        throw new NotImplementedException();
+        return null;
     }
 
     private static Color DarkenColor(Color color, double percentage)
