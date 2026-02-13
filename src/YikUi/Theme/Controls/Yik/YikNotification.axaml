@@ -204,8 +204,11 @@
                                                         FontSize="14"
                                                         FontWeight="DemiBold"
                                                         Foreground="{DynamicResource NotificationCardTitleForeground}"
+                                                        MinHeight="{Binding $parent[ContentControl].Bounds.Height}"
+                                                        Padding="0,3,0,0"
                                                         Text="{Binding}"
-                                                        TextWrapping="Wrap" />
+                                                        TextWrapping="Wrap"
+                                                        VerticalAlignment="Top" />
                                                 </DataTemplate>
                                             </ContentControl.DataTemplates>
                                         </ContentControl>
