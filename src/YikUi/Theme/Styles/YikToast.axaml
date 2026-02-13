@@ -1,0 +1,32 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Style Selector="yik|YikToastCard.Colorful">
+        <Style Selector="^:information /template/ PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
+        </Style>
+        <Style Selector="^:success  /template/ PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
+        </Style>
+        <Style Selector="^:warning  /template/ PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
+        </Style>
+        <Style Selector="^:error  /template/ PathIcon">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:information HyperlinkButton">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
+        </Style>
+        <Style Selector="^:success HyperlinkButton">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
+        </Style>
+        <Style Selector="^:warning HyperlinkButton">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
+        </Style>
+        <Style Selector="^:error HyperlinkButton">
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
+        </Style>
+    </Style>
+</Styles>

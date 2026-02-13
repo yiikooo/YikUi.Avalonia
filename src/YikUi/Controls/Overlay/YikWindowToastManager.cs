@@ -84,6 +84,9 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
             ShowRemoveButton = options.IsCloseButtonVisible
         };
 
+        if (options.IsColorful)
+            options.Classes.Add("Colorful");
+
         if (options.Classes is not null)
             foreach (var @class in options.Classes)
                 toastControl.Classes.Add(@class);

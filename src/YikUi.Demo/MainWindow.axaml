@@ -57,6 +57,10 @@
                 Tag="Long" />
             <Button Click="NoticeWithButtons" Content="Notice With Buttons" />
             <Button Click="NoticeWithButtonsInline" Content="Notice With Buttons (Inline)" />
+            <yik:YikToastCard
+                Classes="Colorful Light"
+                Content="Hi 111"
+                NotificationType="Information" />
         </WrapPanel>
     </StackPanel>
 </yik:YikWindow>

@@ -98,7 +98,6 @@
                                         VerticalAlignment="Center"
                                         x:Name="PART_InlineActionButtons">
                                         <Button
-                                            Classes="colorful-button"
                                             Cursor="hand"
                                             IsVisible="{TemplateBinding ShowCollapseButton}"
                                             Padding="6,5,6,6"
@@ -106,14 +105,12 @@
                                             VerticalAlignment="Center"
                                             x:Name="PART_CollapseButton">
                                             <PathIcon
-                                                Classes="colorful-button"
                                                 Data="F1 M640,640z M0,0z M342.6,81.4C330.1,68.9,309.8,68.9,297.3,81.4L137.3,241.4C124.8,253.9 124.8,274.2 137.3,286.7 149.8,299.2 170.1,299.2 182.6,286.7L288,181.3 288,552C288,569.7 302.3,584 320,584 337.7,584 352,569.7 352,552L352,181.3 457.4,286.7C469.9,299.2 490.2,299.2 502.7,286.7 515.2,274.2 515.2,253.9 502.7,241.4L342.7,81.4z"
                                                 Height="15"
                                                 Margin="0,0,0,1"
                                                 Width="15" />
                                         </Button>
                                         <Button
-                                            Classes="colorful-button"
                                             Cursor="hand"
                                             IsVisible="{TemplateBinding ShowRemoveButton}"
                                             Padding="6"
@@ -121,7 +118,6 @@
                                             VerticalAlignment="Center"
                                             x:Name="PART_RemoveButton">
                                             <PathIcon
-                                                Classes="colorful-button"
                                                 Data="F1 M384,512z M0,0z M55.1,73.4C42.6,60.9 22.3,60.9 9.8,73.4 -2.7,85.9 -2.7,106.2 9.8,118.7L147.2,256 9.9,393.4C-2.6,405.9 -2.6,426.2 9.9,438.7 22.4,451.2 42.7,451.2 55.2,438.7L192.5,301.3 329.9,438.6C342.4,451.1 362.7,451.1 375.2,438.6 387.7,426.1 387.7,405.8 375.2,393.3L237.8,256 375.1,118.6C387.6,106.1 387.6,85.8 375.1,73.3 362.6,60.8 342.3,60.8 329.8,73.3L192.5,210.7 55.1,73.4z"
                                                 Height="14"
                                                 Width="14" />
@@ -140,22 +136,13 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate DataType="yik:OperateButtonEntry">
                                                 <HyperlinkButton
-                                                    Classes="colorful-button"
                                                     Command="{Binding Command}"
                                                     CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
                                                     Content="{Binding Content}"
-                                                    Padding="9,4,9,4">
-                                                    <HyperlinkButton.Styles>
-                                                        <Style Selector="HyperlinkButton /template/ TextBlock">
-                                                            <Setter Property="Foreground"
-                                                                    Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
-                                                        </Style>
-                                                    </HyperlinkButton.Styles>
-                                                </HyperlinkButton>
+                                                    Padding="9,4,9,4" />
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
                                     </ItemsControl>
-                                    <!--  图标和内容：填充剩余空间  -->
                                     <DockPanel>
                                         <PathIcon
                                             Classes="Large"
@@ -349,32 +336,17 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
                 <Setter Property="Background" Value="{DynamicResource NotificationCardLightInformationBackground}" />
             </Style>
-            <Style Selector="^:information /template/ PathIcon.colorful-button">
-                <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
-            </Style>
-
             <Style Selector="^:success /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
                 <Setter Property="Background" Value="{DynamicResource NotificationCardLightSuccessBackground}" />
             </Style>
-            <Style Selector="^:success  /template/ PathIcon.colorful-button">
-                <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
-            </Style>
-
             <Style Selector="^:warning /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
                 <Setter Property="Background" Value="{DynamicResource NotificationCardLightWarningBackground}" />
             </Style>
-            <Style Selector="^:warning  /template/ PathIcon.colorful-button">
-                <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
-            </Style>
-
             <Style Selector="^:error /template/ Border#PART_RootBorder">
                 <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
                 <Setter Property="Background" Value="{DynamicResource NotificationCardLightErrorBackground}" />
-            </Style>
-            <Style Selector="^:error  /template/ PathIcon.colorful-button">
-                <Setter Property="Foreground" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
             </Style>
         </Style>
     </ControlTheme>
