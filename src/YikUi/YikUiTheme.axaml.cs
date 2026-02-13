@@ -13,6 +13,7 @@ using YikUi.Common.Helpers;
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Common.Classes")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Common.Interfaces")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Common.Converter")]
+[assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Shared.Animations")]
 [assembly: XmlnsPrefix("https://github.com/yiikooo/YikUi.Avalonia", "yik")]
 
 namespace YikUi;
