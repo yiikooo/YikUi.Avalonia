@@ -27,4 +27,11 @@
         <Folder Include="Assets\"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Compile Update="Controls\ContentExpandControl.axaml.cs">
+            <SubType>Code</SubType>
+            <DependentUpon>ContentExpandControl.axaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
 </Project>

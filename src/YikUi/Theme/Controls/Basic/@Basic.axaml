@@ -4,5 +4,7 @@
         <ResourceInclude Source="Border.axaml" />
         <ResourceInclude Source="PathIcon.axaml" />
         <ResourceInclude Source="HyperlinkButton.axaml" />
+        <ResourceInclude Source="Expander.axaml" />
+        <ResourceInclude Source="ToggleButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
