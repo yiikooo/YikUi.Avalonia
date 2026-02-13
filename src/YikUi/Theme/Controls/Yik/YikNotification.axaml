@@ -1,0 +1,190 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <StackPanel>
+                <NotificationCard />
+                <NotificationCard>
+                    Hello, Semi.Avalonia!
+                </NotificationCard>
+                <NotificationCard NotificationType="Success">
+                    <Notification Title="Welcome" Message="Hello, Semi.Avalonia!" />
+                </NotificationCard>
+                <NotificationCard NotificationType="Warning" Classes="Light">
+                    <Notification Title="Welcome" />
+                </NotificationCard>
+                <NotificationCard NotificationType="Error" Classes="Light">
+                    <Notification Message="Hello, Semi.Avalonia!" />
+                </NotificationCard>
+            </StackPanel>
+        </ThemeVariantScope>
+    </Design.PreviewWith>
+    <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="BorderThickness" Value="{DynamicResource NotificationCardBorderThickness}" />
+        <Setter Property="Background" Value="{DynamicResource NotificationCardBackground}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource NotificationCardCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="NotificationCard">
+                <LayoutTransformControl Name="PART_LayoutTransformControl" UseRenderTransform="True">
+                    <Border
+                        Margin="{DynamicResource NotificationCardMargin}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Border
+                            Name="PART_RootBorder"
+                            Padding="{DynamicResource NotificationCardPadding}"
+                            BoxShadow="{DynamicResource NotificationCardBoxShadows}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <DockPanel MinWidth="{DynamicResource NotificationCardMinWidth}">
+                                <PathIcon
+                                    Name="NotificationIcon"
+                                    Theme="{DynamicResource InnerPathIcon}"
+                                    Width="{DynamicResource NotificationCardIconWidth}"
+                                    Height="{DynamicResource NotificationCardIconHeight}"
+                                    Margin="{DynamicResource NotificationCardIconMargin}"
+                                    VerticalAlignment="Top"
+                                    IsVisible="False"
+                                    Data="{DynamicResource NotificationCardInformationIconPathData}" />
+                                <ContentControl
+                                    Name="PART_Content"
+                                    Content="{TemplateBinding Content}">
+                                    <ContentControl.DataTemplates>
+                                        <DataTemplate DataType="INotification">
+                                            <StackPanel Spacing="{DynamicResource NotificationCardTitleSpacing}">
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardTitleForeground}"
+                                                    FontSize="{DynamicResource NotificationCardTitleFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardTitleFontWeight}"
+                                                    IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                                    Text="{Binding Title}" />
+                                                <SelectableTextBlock
+                                                    Foreground="{DynamicResource NotificationCardMessageForeground}"
+                                                    FontSize="{DynamicResource NotificationCardMessageFontSize}"
+                                                    FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
+                                                    IsVisible="{Binding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                                                    Text="{Binding Message}"
+                                                    TextWrapping="Wrap" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                        <DataTemplate DataType="x:String">
+                                            <SelectableTextBlock
+                                                Foreground="{DynamicResource NotificationCardMessageForeground}"
+                                                FontSize="{DynamicResource NotificationCardMessageFontSize}"
+                                                FontWeight="{DynamicResource NotificationCardMessageFontWeight}"
+                                                Text="{Binding}"
+                                                TextWrapping="Wrap" />
+                                        </DataTemplate>
+                                    </ContentControl.DataTemplates>
+                                </ContentControl>
+                            </DockPanel>
+                        </Border>
+                    </Border>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+
+        <ControlTheme.Animations>
+            <Animation
+                Easing="QuadraticEaseIn"
+                FillMode="Forward"
+                Duration="0:0:0.45">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Opacity" Value="0" />
+                    <Setter Property="TranslateTransform.Y" Value="20" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="0.85" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="0.85" />
+                </KeyFrame>
+                <KeyFrame Cue="30%">
+                    <Setter Property="TranslateTransform.Y" Value="-20" />
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="TranslateTransform.Y" Value="0" />
+                    <Setter Property="ScaleTransform.ScaleX" Value="1" />
+                    <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                </KeyFrame>
+            </Animation>
+        </ControlTheme.Animations>
+
+        <Style Selector="^[IsClosing=true] /template/ LayoutTransformControl#PART_LayoutTransformControl">
+            <Setter Property="RenderTransformOrigin" Value="50%,0%" />
+            <Style.Animations>
+                <Animation
+                    Easing="QuadraticEaseOut"
+                    FillMode="Forward"
+                    Duration="0:0:0.75">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="TranslateTransform.X" Value="0" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="70%">
+                        <Setter Property="TranslateTransform.X" Value="800" />
+                        <Setter Property="ScaleTransform.ScaleY" Value="1" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="ScaleTransform.ScaleY" Value="0" />
+                        <Setter Property="TranslateTransform.X" Value="800" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+
+        <Style Selector="^[IsClosing=true]">
+            <Style.Animations>
+                <Animation
+                    Easing="QuadraticEaseOut"
+                    FillMode="Forward"
+                    Duration="0:0:1.25">
+                    <KeyFrame Cue="100%">
+                        <Setter Property="IsClosed" Value="True" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+
+        <Style Selector="^:information /template/ PathIcon#NotificationIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardInformationIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardInformationIconPathData}" />
+        </Style>
+        <Style Selector="^:success /template/ PathIcon#NotificationIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardSuccessIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardSuccessIconPathData}" />
+        </Style>
+        <Style Selector="^:warning /template/ PathIcon#NotificationIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardWarningIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardWarningIconPathData}" />
+        </Style>
+        <Style Selector="^:error /template/ PathIcon#NotificationIcon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource NotificationCardErrorIconForeground}" />
+            <Setter Property="Data" Value="{DynamicResource NotificationCardErrorIconPathData}" />
+        </Style>
+
+        <Style Selector="^.Light">
+            <Setter Property="Background" Value="{DynamicResource NotificationCardLightBackground}" />
+            <Style Selector="^:information /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightInformationBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightInformationBackground}" />
+            </Style>
+            <Style Selector="^:success /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightSuccessBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightSuccessBackground}" />
+            </Style>
+            <Style Selector="^:warning /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightWarningBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightWarningBackground}" />
+            </Style>
+            <Style Selector="^:error /template/ Border#PART_RootBorder">
+                <Setter Property="BorderBrush" Value="{DynamicResource NotificationCardLightErrorBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource NotificationCardLightErrorBackground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
