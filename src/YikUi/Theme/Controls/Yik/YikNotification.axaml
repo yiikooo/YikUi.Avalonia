@@ -211,8 +211,7 @@
                                         </ContentControl>
                                     </DockPanel>
                                 </DockPanel>
-                                <ItemsControl ItemsSource="{TemplateBinding OperateButtons}"
-                                              x:Name="PART_OperateButtons">
+                                <ItemsControl ItemsSource="{TemplateBinding OperateButtons}" x:Name="PART_OperateButtons">
                                     <ItemsControl.Styles>
                                         <Style Selector="ItemsControl">
                                             <Setter Property="Margin" Value="0,8,0,0" />
