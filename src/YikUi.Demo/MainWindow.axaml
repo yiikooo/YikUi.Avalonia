@@ -90,7 +90,7 @@
                 Click="Notification"
                 Content="Notification Long Time"
                 Tag="Long" />
-            <!-- <Button Click="NotificationWithButtons" Content="Notification With Buttons" /> -->
+            <Button Click="NotificationWithButtons" Content="Notification With Buttons" />
         </WrapPanel>
 
         <TextBlock
@@ -106,10 +106,9 @@
                 NotificationType="Information" />
             <yik:YikNotificationCard
                 Classes="Colorful Light"
+                Content="Text"
                 Margin="5"
-                NotificationType="Success">
-                <TextBlock Text="Notification 卡片示例" />
-            </yik:YikNotificationCard>
+                NotificationType="Success" />
         </WrapPanel>
     </StackPanel>
 </yik:YikWindow>

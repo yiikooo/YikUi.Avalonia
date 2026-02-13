@@ -108,7 +108,7 @@
                                         DockPanel.Dock="Right"
                                         Orientation="Horizontal"
                                         Spacing="4"
-                                        VerticalAlignment="Center"
+                                        VerticalAlignment="Top"
                                         x:Name="PART_InlineActionButtons">
                                         <Button
                                             Cursor="hand"
@@ -162,12 +162,13 @@
                                             Data="{DynamicResource IconInfoCircle}"
                                             DockPanel.Dock="Left"
                                             IsVisible="{TemplateBinding ShowIcon}"
+                                            Margin="0,3,0,0"
                                             Theme="{StaticResource InnerPathIcon}"
-                                            VerticalAlignment="Center"
+                                            VerticalAlignment="Top"
                                             x:Name="ToastIcon" />
                                         <ContentControl
                                             Content="{TemplateBinding Content}"
-                                            Margin="12,0"
+                                            Margin="12,0,4,0"
                                             MaxWidth="450"
                                             VerticalContentAlignment="Center"
                                             x:Name="PART_Content">

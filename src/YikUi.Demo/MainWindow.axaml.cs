@@ -20,7 +20,7 @@ public partial class MainWindow : YikWindow
         toast = new YikWindowToastManager(GetTopLevel(this));
         notification = new YikWindowNotificationManager(GetTopLevel(this))
         {
-            Position = NotificationPosition.BottomRight
+            Position = NotificationPosition.TopRight
         };
     }
 
@@ -57,7 +57,7 @@ public partial class MainWindow : YikWindow
                     new NotificationOptions
                     {
                         Type = NotificationType.Information,
-                        Expiration = i
+                        Expiration = i, IsCollapseButtonVisible = true
                     });
                 break;
             case "Click":
@@ -119,7 +119,7 @@ public partial class MainWindow : YikWindow
         switch (t)
         {
             case "Info":
-                notification.Show("Info");
+                notification.Show("Info", new NotificationOptions() { Expiration = i });
                 break;
             case "Success":
                 notification.Show("Success", "Success", new NotificationOptions
@@ -136,7 +136,7 @@ public partial class MainWindow : YikWindow
             case "Error":
                 notification.Show("Error", new NotificationOptions
                 {
-                    Type = NotificationType.Error
+                    Type = NotificationType.Error, IsCollapseButtonVisible = true
                 });
                 break;
             case "Long":
@@ -145,7 +145,7 @@ public partial class MainWindow : YikWindow
                     new NotificationOptions
                     {
                         Type = NotificationType.Information,
-                        Expiration = i
+                        Expiration = i, IsCollapseButtonVisible = true
                     });
                 break;
             case "Click":
@@ -156,5 +156,25 @@ public partial class MainWindow : YikWindow
                 });
                 break;
         }
+    }
+
+    private void NotificationWithButtons(object? sender, RoutedEventArgs e)
+    {
+        var buttons = new ObservableCollection<OperateButtonEntry>
+        {
+            new("查看详情", _ => { Console.WriteLine("查看详情按钮被点击"); }),
+            new("关闭", _ => { Console.WriteLine("关闭按钮被点击"); }, true),
+            new("关闭并移除", _ => { Console.WriteLine("关闭并移除按钮被点击"); }, true,
+                true)
+        };
+
+        notification.Show(
+            "这是一条带有操作按钮的通知",
+            new NotificationOptions
+            {
+                Type = NotificationType.Information,
+                OperateButtons = buttons, IsButtonsInline = false
+            }
+        );
     }
 }
