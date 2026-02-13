@@ -2,5 +2,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceInclude Source="YikWindow.axaml" />
         <ResourceInclude Source="YikToast.axaml" />
+        <ResourceInclude Source="YikNotification.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

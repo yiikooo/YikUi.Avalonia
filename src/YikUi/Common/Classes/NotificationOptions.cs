@@ -10,6 +10,8 @@ public class NotificationOptions
         OnClose = onClose;
     }
 
+    public string? Title { get; init; } = "YikUi";
+    public object? Content { get; init; } = "YikUi";
     public NotificationType Type { get; init; } = NotificationType.Information;
     public TimeSpan Expiration { get; init; } = TimeSpan.FromSeconds(3);
     public Action? OnClick { get; init; }

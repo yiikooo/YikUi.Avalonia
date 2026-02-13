@@ -23,12 +23,10 @@ public class YikNotificationCard : YikMessageCard
         AvaloniaProperty.RegisterDirect<YikNotificationCard, NotificationPosition>(nameof(Position),
             o => o.Position, (o, v) => o.Position = v);
 
-    private NotificationPosition _position;
-
     public NotificationPosition Position
     {
-        get => _position;
-        set => SetAndRaise(PositionProperty, ref _position, value);
+        get;
+        set => SetAndRaise(PositionProperty, ref field, value);
     }
 
     protected override void OnAttachedToLogicalTree(LogicalTreeAttachmentEventArgs e)

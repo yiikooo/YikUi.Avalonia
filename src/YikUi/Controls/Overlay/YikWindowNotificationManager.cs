@@ -12,9 +12,6 @@ using INotificationManager = YikUi.Common.Interfaces.INotificationManager;
 
 namespace YikUi.Controls.Overlay;
 
-/// <summary>
-/// An <see cref="Common.Interfaces.INotificationManager"/> that displays notifications in a <see cref="Window"/>.
-/// </summary>
 [PseudoClasses(PC_TopLeft, PC_TopRight, PC_BottomLeft, PC_BottomRight, PC_TopCenter, PC_BottomCenter)]
 public class YikWindowNotificationManager : WindowMessageManager, INotificationManager
 {
@@ -25,9 +22,6 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
     public const string PC_TopCenter = ":topcenter";
     public const string PC_BottomCenter = ":bottomcenter";
 
-    /// <summary>
-    /// Defines the <see cref="Position"/> property.
-    /// </summary>
     public static readonly StyledProperty<NotificationPosition> PositionProperty =
         AvaloniaProperty.Register<YikWindowNotificationManager, NotificationPosition>(nameof(Position),
             NotificationPosition.TopRight);
@@ -38,18 +32,11 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
         VerticalAlignmentProperty.OverrideDefaultValue<YikWindowNotificationManager>(VerticalAlignment.Stretch);
     }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="YikWindowNotificationManager"/> class.
-    /// </summary>
     public YikWindowNotificationManager()
     {
         UpdatePseudoClasses(Position);
     }
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="YikWindowNotificationManager"/> class.
-    /// </summary>
-    /// <param name="host">The TopLevel that will host the control.</param>
     public YikWindowNotificationManager(TopLevel? host) : this()
     {
         if (host is not null)
@@ -63,10 +50,6 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
         UpdatePseudoClasses(Position);
     }
 
-    /// <summary>
-    /// Defines which corner of the screen notifications can be displayed in.
-    /// </summary>
-    /// <seealso cref="NotificationPosition"/>
     public NotificationPosition Position
     {
         get => GetValue(PositionProperty);
@@ -82,19 +65,11 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
             IsIconVisible = content.ShowIcon,
             IsCloseButtonVisible = content.ShowClose,
             OnClick = content.OnClick,
-            OnClose = content.OnClose
+            OnClose = content.OnClose,
+            Title = content.Title,
+            Content = content.Content
         };
-        Show(content, options);
-    }
-
-    public void Show(string msg, NotificationType type = NotificationType.Information)
-    {
-        var options = new NotificationOptions
-        {
-            Type = type,
-        };
-
-        Show(msg, options);
+        Show(options);
     }
 
     public static bool TryGetNotificationManager(Visual? visual, out YikWindowNotificationManager? manager)
@@ -106,23 +81,25 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
     public override void Show(object content)
     {
         if (content is INotification notification)
+        {
             Show(notification);
+        }
         else
-            Show(content, new NotificationOptions());
+        {
+            Show(new NotificationOptions()
+            {
+                Content = content
+            });
+        }
     }
 
-    /// <summary>
-    ///     显示 Notification 通知
-    /// </summary>
-    /// <param name="content">内容</param>
-    /// <param name="options">显示选项</param>
-    public async void Show(object content, NotificationOptions options)
+    public async void Show(NotificationOptions options)
     {
         Dispatcher.UIThread.VerifyAccess();
 
         var notificationControl = new YikNotificationCard
         {
-            Content = content,
+            Content = options.Content,
             NotificationType = options.Type,
             ShowIcon = options.IsIconVisible,
             OperateButtons = options.OperateButtons,
@@ -137,14 +114,19 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
             options.Classes.Add("Colorful");
 
         if (options.Classes is not null)
+        {
             foreach (var @class in options.Classes)
+            {
                 notificationControl.Classes.Add(@class);
+            }
+        }
 
         notificationControl.MessageClosed += (sender, _) =>
         {
             options.OnClose?.Invoke();
             _items?.Remove(sender);
         };
+
 
         notificationControl.PointerPressed += (_, _) =>
         {
@@ -157,15 +139,20 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
         {
             _items?.Add(notificationControl);
 
-            if (_items?.OfType<YikNotificationCard>().Count(i => !i.IsClosing) > MaxItems)
-                _items.OfType<YikNotificationCard>().First(i => !i.IsClosing).Close();
+            if (_items?.OfType<NotificationCard>().Count(i => !i.IsClosing) > MaxItems)
+            {
+                _items.OfType<NotificationCard>().First(i => !i.IsClosing).Close();
+            }
         });
 
-        if (options.Expiration == TimeSpan.Zero) return;
+        if (options.Expiration == TimeSpan.Zero)
+        {
+            return;
+        }
 
         await Task.Delay(options.Expiration);
 
-        notificationControl.CloseWithoutRemovingFromList();
+        notificationControl.Close();
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)

@@ -34,33 +34,82 @@
     </yik:YikWindow.TitleBarLeftContent>
 
     <StackPanel Margin="10">
-        <WrapPanel>
+        <TextBlock
+            FontSize="16"
+            FontWeight="Bold"
+            Margin="0,0,0,10"
+            Text="Toast 通知测试" />
+        <WrapPanel Margin="0,0,0,20">
             <Button
-                Click="Notice"
-                Content="Notice Info"
+                Click="Toast"
+                Content="Toast Info"
                 Tag="Info" />
             <Button
-                Click="Notice"
-                Content="Notice Warn"
+                Click="Toast"
+                Content="Toast Warn"
                 Tag="Warn" />
             <Button
-                Click="Notice"
-                Content="Notice Error"
+                Click="Toast"
+                Content="Toast Error"
                 Tag="Error" />
             <Button
-                Click="Notice"
-                Content="Notice Success"
+                Click="Toast"
+                Content="Toast Success"
                 Tag="Success" />
             <Button
-                Click="Notice"
-                Content="Notice Long Time"
+                Click="Toast"
+                Content="Toast Long Time"
                 Tag="Long" />
-            <Button Click="NoticeWithButtons" Content="Notice With Buttons" />
-            <Button Click="NoticeWithButtonsInline" Content="Notice With Buttons (Inline)" />
+            <Button Click="ToastWithButtons" Content="Toast With Buttons" />
+            <Button Click="ToastWithButtonsInline" Content="Toast With Buttons (Inline)" />
+        </WrapPanel>
+
+        <TextBlock
+            FontSize="16"
+            FontWeight="Bold"
+            Margin="0,0,0,10"
+            Text="Notification 通知测试" />
+        <WrapPanel Margin="0,0,0,20">
+            <Button
+                Click="Notification"
+                Content="Notification Info"
+                Tag="Info" />
+            <Button
+                Click="Notification"
+                Content="Notification Warn"
+                Tag="Warn" />
+            <Button
+                Click="Notification"
+                Content="Notification Error"
+                Tag="Error" />
+            <Button
+                Click="Notification"
+                Content="Notification Success"
+                Tag="Success" />
+            <Button
+                Click="Notification"
+                Content="Notification Long Time"
+                Tag="Long" />
+            <!-- <Button Click="NotificationWithButtons" Content="Notification With Buttons" /> -->
+        </WrapPanel>
+
+        <TextBlock
+            FontSize="16"
+            FontWeight="Bold"
+            Margin="0,0,0,10"
+            Text="预览卡片" />
+        <WrapPanel>
             <yik:YikToastCard
                 Classes="Colorful Light"
-                Content="Hi 111"
+                Content="Toast 卡片示例"
+                Margin="5"
                 NotificationType="Information" />
+            <yik:YikNotificationCard
+                Classes="Colorful Light"
+                Margin="5"
+                NotificationType="Success">
+                <TextBlock Text="Notification 卡片示例" />
+            </yik:YikNotificationCard>
         </WrapPanel>
     </StackPanel>
 </yik:YikWindow>

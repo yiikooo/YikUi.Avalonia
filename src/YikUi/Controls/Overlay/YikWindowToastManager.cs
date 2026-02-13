@@ -28,6 +28,7 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
     {
         var options = new NotificationOptions
         {
+            Content = content.Content,
             Type = content.Type,
             Expiration = content.Expiration,
             IsIconVisible = content.ShowIcon,
@@ -35,18 +36,18 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
             OnClick = content.OnClick,
             OnClose = content.OnClose
         };
-        Show(content, options);
+        Show(options);
     }
 
     public void Show(string msg, NotificationType type = NotificationType.Information)
     {
-        var toast = new Toast(msg, type);
         var toastOptions = new NotificationOptions
         {
+            Content = msg,
             Type = type,
         };
 
-        Show(toast, toastOptions);
+        Show(toastOptions);
     }
 
     public static bool TryGetToastManager(Visual? visual, out YikWindowToastManager? manager)
@@ -60,21 +61,19 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
         if (content is IToast toast)
             Show(toast);
         else
-            Show(content, new NotificationOptions());
+            Show(new NotificationOptions()
+            {
+                Content = content
+            });
     }
 
-    /// <summary>
-    ///     显示 Toast 通知
-    /// </summary>
-    /// <param name="content">内容</param>
-    /// <param name="options">显示选项</param>
-    public async void Show(object content, NotificationOptions options)
+    public async void Show(NotificationOptions options)
     {
         Dispatcher.UIThread.VerifyAccess();
 
         var toastControl = new YikToastCard
         {
-            Content = content,
+            Content = options.Content,
             NotificationType = options.Type,
             ShowIcon = options.IsIconVisible,
             OperateButtons = options.OperateButtons,
