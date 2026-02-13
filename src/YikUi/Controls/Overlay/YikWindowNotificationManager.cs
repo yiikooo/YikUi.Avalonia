@@ -93,13 +93,34 @@ public class YikWindowNotificationManager : WindowMessageManager, INotificationM
         }
     }
 
+    public void Show(string title, string msg, NotificationOptions? options = null)
+    {
+        options ??= new NotificationOptions();
+        options.Title = title;
+        options.Content = msg;
+        Show(options);
+    }
+
+    public void Show(string msg, NotificationOptions? options = null)
+    {
+        options ??= new NotificationOptions();
+        options.Content = msg;
+        Show(options);
+    }
+
     public async void Show(NotificationOptions options)
     {
         Dispatcher.UIThread.VerifyAccess();
 
         var notificationControl = new YikNotificationCard
         {
-            Content = options.Content,
+            Content = options is { Title: not null, Content: string msg }
+                ? new Notification
+                {
+                    Content = msg,
+                    Title = options.Title
+                }
+                : options.Content,
             NotificationType = options.Type,
             ShowIcon = options.IsIconVisible,
             OperateButtons = options.OperateButtons,

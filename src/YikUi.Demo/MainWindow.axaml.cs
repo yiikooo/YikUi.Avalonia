@@ -18,7 +18,10 @@ public partial class MainWindow : YikWindow
     {
         InitializeComponent();
         toast = new YikWindowToastManager(GetTopLevel(this));
-        notification = new YikWindowNotificationManager(GetTopLevel(this));
+        notification = new YikWindowNotificationManager(GetTopLevel(this))
+        {
+            Position = NotificationPosition.BottomRight
+        };
     }
 
     private void Toast(object? sender, RoutedEventArgs e)
@@ -119,25 +122,25 @@ public partial class MainWindow : YikWindow
                 notification.Show("Info");
                 break;
             case "Success":
-                toast.Show("Success", new NotificationOptions
+                notification.Show("Success", "Success", new NotificationOptions
                 {
                     Type = NotificationType.Success,
                 });
                 break;
             case "Warn":
-                toast.Show("Warn", new NotificationOptions
+                notification.Show("Warn", "Success", new NotificationOptions
                 {
                     Type = NotificationType.Warning
                 });
                 break;
             case "Error":
-                toast.Show("Error", new NotificationOptions
+                notification.Show("Error", new NotificationOptions
                 {
                     Type = NotificationType.Error
                 });
                 break;
             case "Long":
-                toast.Show(
+                notification.Show(
                     "Avalonia 是一个基于 .NET 的跨平台 UI 框架，灵感来源于 WPF，可在 Windows、macOS、Linux、移动设备和 WebAssembly 上使用同一套 XAML 代码开发应用程序，适合桌面和移动端开发者探索跨平台解决方案。",
                     new NotificationOptions
                     {
@@ -146,7 +149,7 @@ public partial class MainWindow : YikWindow
                     });
                 break;
             case "Click":
-                toast.Show("Avalonia", new NotificationOptions
+                notification.Show("Avalonia", new NotificationOptions
                 {
                     Type = NotificationType.Information,
                     OnClick = () => { Console.WriteLine("OnClick!"); }

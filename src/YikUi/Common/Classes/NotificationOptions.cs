@@ -10,19 +10,19 @@ public class NotificationOptions
         OnClose = onClose;
     }
 
-    public string? Title { get; init; } = "YikUi";
-    public object? Content { get; init; } = "YikUi";
-    public NotificationType Type { get; init; } = NotificationType.Information;
-    public TimeSpan Expiration { get; init; } = TimeSpan.FromSeconds(3);
-    public Action? OnClick { get; init; }
-    public Action? OnClose { get; init; }
-    public Action? OnRemove { get; init; }
-    public ObservableCollection<OperateButtonEntry>? OperateButtons { get; init; }
-    public bool IsButtonsInline { get; init; } = true;
-    public bool IsTouchClose { get; init; } = false;
-    public bool IsIconVisible { get; init; } = true;
-    public bool IsCloseButtonVisible { get; init; } = true;
-    public bool IsCollapseButtonVisible { get; init; } = false;
-    public bool IsColorful { get; init; } = true;
+    public string? Title { get; set; }
+    public object? Content { get; set; }
+    public NotificationType Type { get; set; } = NotificationType.Information;
+    public TimeSpan Expiration { get; set; } = TimeSpan.FromSeconds(3);
+    public Action? OnClick { get; set; }
+    public Action? OnClose { get; set; }
+    public Action? OnRemove { get; set; }
+    public ObservableCollection<OperateButtonEntry>? OperateButtons { get; set; }
+    public bool IsButtonsInline { get; set; } = true;
+    public bool IsTouchClose { get; set; } = false;
+    public bool IsIconVisible { get; set; } = true;
+    public bool IsCloseButtonVisible { get; set; } = true;
+    public bool IsCollapseButtonVisible { get; set; } = false;
+    public bool IsColorful { get; set; } = true;
     public Avalonia.Controls.Classes Classes { get; } = ["Light"];
 }

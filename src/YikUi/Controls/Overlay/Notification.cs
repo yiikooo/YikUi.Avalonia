@@ -1,14 +1,15 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Avalonia.Controls.Notifications;
 using Avalonia.Metadata;
-using YikUi.Common.Interfaces;
+using INotification = YikUi.Common.Interfaces.INotification;
 
 namespace YikUi.Controls.Overlay;
 
-public class Toast : IToast, INotifyPropertyChanged
+public class Notification : INotification, INotifyPropertyChanged
 {
-    public Toast(
+    public Notification(
+        string? title,
         string? content,
         NotificationType type = NotificationType.Information,
         TimeSpan? expiration = null,
@@ -16,6 +17,7 @@ public class Toast : IToast, INotifyPropertyChanged
         Action? onClick = null,
         Action? onClose = null)
     {
+        Title = title;
         Content = content;
         Type = type;
         Expiration = expiration ?? TimeSpan.FromSeconds(3);
@@ -24,13 +26,23 @@ public class Toast : IToast, INotifyPropertyChanged
         OnClose = onClose;
     }
 
-    public Toast() : this(null)
+    public Notification() : this(null, null)
     {
     }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
+    public string? Title
+    {
+        get;
+        set
+        {
+            if (field != value)
+            {
+                field = value;
+                OnPropertyChanged();
+            }
+        }
+    }
 
-    /// <inheritdoc />
     [Content]
     public string? Content
     {
@@ -45,15 +57,17 @@ public class Toast : IToast, INotifyPropertyChanged
 
     public NotificationType Type { get; set; }
 
+    public TimeSpan Expiration { get; set; }
+
     public bool ShowIcon { get; set; }
 
-    public bool ShowClose { get; set; }
-
-    public TimeSpan Expiration { get; set; }
+    public bool ShowClose { get; }
 
     public Action? OnClick { get; set; }
 
     public Action? OnClose { get; set; }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {

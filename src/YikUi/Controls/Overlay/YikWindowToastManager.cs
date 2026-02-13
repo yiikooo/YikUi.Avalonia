@@ -50,6 +50,12 @@ public class YikWindowToastManager : WindowMessageManager, IToastManager
         Show(toastOptions);
     }
 
+    public void Show(string msg, NotificationOptions options)
+    {
+        options.Content = msg;
+        Show(options);
+    }
+
     public static bool TryGetToastManager(Visual? visual, out YikWindowToastManager? manager)
     {
         manager = visual?.FindDescendantOfType<YikWindowToastManager>();
