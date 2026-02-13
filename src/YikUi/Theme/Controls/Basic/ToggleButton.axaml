@@ -1,4 +1,7 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:converter="using:YikUi.Common.Converter"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <StackPanel HorizontalAlignment="Left" Spacing="16">
             <WrapPanel ItemSpacing="16" LineSpacing="16">
@@ -8,22 +11,26 @@
                     Content="Disabled"
                     IsChecked="True"
                     IsEnabled="False" />
+                <ToggleButton Classes="Basic" Content="Basic Style" />
+                <ToggleButton
+                    Classes="Basic"
+                    Content="Basic Checked"
+                    IsChecked="True" />
             </WrapPanel>
         </StackPanel>
     </Design.PreviewWith>
 
+    <converter:ColorDarkenConverter Percentage="0.15" x:Key="ColorDarken15" />
+    <converter:ColorDarkenConverter Percentage="0.30" x:Key="ColorDarken30" />
+    <converter:ColorDarkenConverter Percentage="0.45" x:Key="ColorDarken45" />
+    <converter:ColorLightenConverter Percentage="0.15" x:Key="ColorLighten15" />
+    <converter:ColorLightenConverter Percentage="0.30" x:Key="ColorLighten30" />
+    <converter:ColorLightenConverter Percentage="0.45" x:Key="ColorLighten45" />
+
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush Color="#FFFFFF" x:Key="ForegroundColor" />
-            <SolidColorBrush Color="#0064FA" x:Key="ButtonSolidPrimaryBackground" />
-            <SolidColorBrush Color="#0064FA" x:Key="ButtonSolidPrimaryBorderBrush" />
-            <SolidColorBrush Color="#0062D6" x:Key="ButtonSolidPrimaryPointeroverBackground" />
-            <SolidColorBrush Color="#0062D6" x:Key="ButtonSolidPrimaryPointeroverBorderBrush" />
-            <SolidColorBrush Color="#FFFFFF" x:Key="ButtonSolidPrimaryPressedForeground" />
-            <SolidColorBrush Color="#004FB3" x:Key="ButtonSolidPrimaryPressedBackground" />
-            <SolidColorBrush Color="#004FB3" x:Key="ButtonSolidPrimaryPressedBorderBrush" />
             <SolidColorBrush Color="Transparent" x:Key="ButtonOutlineBackground" />
-            <SolidColorBrush Color="#0064FA" x:Key="ToggleButtonPrimaryIndeterminateBorderBrush" />
             <SolidColorBrush
                 Color="#2E3238"
                 Opacity="0.05"
@@ -40,20 +47,11 @@
                 Color="#1C1F23"
                 Opacity="0.08"
                 x:Key="ButtonOutlineBorderBrush" />
-            <SolidColorBrush Color="#98CDFD" x:Key="AdornerLayerBorderBrush" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
             <SolidColorBrush Color="#FFFFFF" x:Key="ForegroundColor" />
-            <SolidColorBrush Color="#54A9FF" x:Key="ButtonSolidPrimaryBackground" />
-            <SolidColorBrush Color="#54A9FF" x:Key="ButtonSolidPrimaryBorderBrush" />
-            <SolidColorBrush Color="#7FC1FF" x:Key="ButtonSolidPrimaryPointeroverBackground" />
-            <SolidColorBrush Color="#7FC1FF" x:Key="ButtonSolidPrimaryPointeroverBorderBrush" />
-            <SolidColorBrush Color="#FFFFFF" x:Key="ButtonSolidPrimaryPressedForeground" />
-            <SolidColorBrush Color="#A9D7FF" x:Key="ButtonSolidPrimaryPressedBackground" />
-            <SolidColorBrush Color="#A9D7FF" x:Key="ButtonSolidPrimaryPressedBorderBrush" />
             <SolidColorBrush Color="Transparent" x:Key="ButtonOutlineBackground" />
-            <SolidColorBrush Color="#54A9FF" x:Key="ToggleButtonPrimaryIndeterminateBorderBrush" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.12"
@@ -70,16 +68,11 @@
                 Color="#FFFFFF"
                 Opacity="0.08"
                 x:Key="ButtonOutlineBorderBrush" />
-            <SolidColorBrush
-                Color="#54A9FF"
-                Opacity="0.4"
-                x:Key="AdornerLayerBorderBrush" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
     <Thickness x:Key="AdornerLayerBorderThickness">2</Thickness>
     <CornerRadius x:Key="AdornerLayerCornerRadius">3</CornerRadius>
-
 
     <ControlTheme
         BasedOn="{StaticResource {x:Type Button}}"
@@ -93,31 +86,30 @@
                 </FocusAdornerTemplate>
             </Setter>
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryBorderBrush}" />
-
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColor}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPointeroverBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPointeroverBorderBrush}" />
+                <Setter Property="Background" Value="{DynamicResource SystemAccentColorLight1}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorLight1}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ButtonSolidPrimaryPressedForeground}" />
-                <Setter Property="Background" Value="{DynamicResource ButtonSolidPrimaryPressedBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonSolidPrimaryPressedBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark1}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorDark1}" />
             </Style>
         </Style>
         <Style Selector="^:indeterminate">
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
             </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
@@ -126,4 +118,60 @@
             </Style>
         </Style>
     </ControlTheme>
+
+    <!--  Basic 样式：无颜色提示，无背景色改变  -->
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type ToggleButton}}"
+        TargetType="ToggleButton"
+        x:Key="BasicToggleButton">
+
+        <Style Selector="^">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:indeterminate">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <!--  通过 Classes 选择器应用 Basic 样式  -->
+    <Style Selector="ToggleButton.Basic">
+        <Setter Property="Theme" Value="{StaticResource BasicToggleButton}" />
+    </Style>
 </ResourceDictionary>
