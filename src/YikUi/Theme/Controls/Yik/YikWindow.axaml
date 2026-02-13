@@ -59,7 +59,7 @@
         </Setter>
         <Style Selector="^">
             <Style Selector="^ yik|YikTitleBar#PART_TitleBar">
-                <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+                <Setter Property="Background" Value="{DynamicResource TitleBarBackgroundColor}" />
             </Style>
         </Style>
     </ControlTheme>

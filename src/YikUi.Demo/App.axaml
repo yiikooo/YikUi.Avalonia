@@ -6,6 +6,6 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Application.Styles>
         <FluentTheme />
-        <yik:YikUiTheme />
+        <yik:YikUiTheme AccentColor="#1BD76A" />
     </Application.Styles>
 </Application>

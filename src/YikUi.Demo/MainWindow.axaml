@@ -36,7 +36,6 @@
     <StackPanel Margin="10">
         <TextBlock
             FontSize="16"
-            FontWeight="Bold"
             Margin="0,0,0,10"
             Text="Toast 通知测试" />
         <WrapPanel Margin="0,0,0,20">
@@ -66,7 +65,6 @@
 
         <TextBlock
             FontSize="16"
-            FontWeight="Bold"
             Margin="0,0,0,10"
             Text="Notification 通知测试" />
         <WrapPanel Margin="0,0,0,20">
@@ -110,8 +108,8 @@
                 Margin="5"
                 NotificationType="Success" />
         </WrapPanel>
-        <Expander Background="{DynamicResource PanelBackgroundColor}">
-            <TextBlock Text="Font Awesome 7.2 is here with new icons and a new Pro+ pack • See what's new →  Start Search Icons Icons Docs Plans Support Podcast Font Awesome Icons Search the v7 Icons Collapse     Choose a version of Font Awesome  7.2.0 Icon Packs Show Classic style icons 22matching results Style Show solid style icons 19matching results Show regular style icons 3matching results Icon Type Show Filled style icons 19matching results Show Line style icons 3matching results Show Round style icons 22matching results Categories Show Arrows category icons 12matching results Show Buildings category icons 1matching results Show Coding category icons 2matching results Show Disaster + Crisis category icons 2matching results Show Editing category icons 1matching results Show Humanitarian category icons 2matching results Show Mathematics category icons 3matching results Show Media Playback category icons 3matching results Show Photos + Images category icons 1matching results Show Punctuation + Symbols category icons 1matching results Show Security category icons 1matching results Show Users + People category icons 1matching results 22 Icons Font AwesomeFont Awesome Go Make Something Awesome Font Awesome is the internet's icon library and toolkit used by millions of designers, developers, and content creators.  Made with  and  in Bentonville, Boston, Chicago, Grand Rapids, Joplin, Kansas City, Seattle, Tampa, and Vergennes.  Awesomeverse Web Awesome 11ty Podcast Awesome Blog Awesome Font Awesome Download Changelog All Versions Icon Requests Community GitHub YouTube Threads Awesome Swag Help Support Troubleshooting Contact Us Status License Terms of Service Privacy Policy Refunds © Fonticons, Inc." />
+        <Expander Background="{DynamicResource PanelBackgroundColor}" Header="Header">
+            <TextBlock Text="Font Awesome 7.2 is here with new icons and a new Pro+ pack • See what's new →  Start Search Icons Icons Docs Plans Support Podcast Font Awesome Icons Search the v7 Icons Collapse     Choose a version of Font Awesome  7.2.0 Icon Packs Show Classic style icons 22matching results Style Show solid style icons 19matching results Show regular style icons 3matching results Icon Type Show Filled style icons 19matching results Show Line style icons 3matching results Show Round style icons 22matching results Categories Show Arrows category icons 12matching results Show Buildings category icons 1matching results Show Coding category icons 2matching results Show Disaster + Crisis category icons 2matching results Show Editing category icons 1matching results Show Humanitarian category icons 2matching results Show Mathematics category icons 3matching results Show Media Playback category icons 3matching results Show Photos + Images category icons 1matching results Show Punctuation + Symbols category icons 1matching results Show Security category icons 1matching results Show Users + People category icons 1matching results 22 Icons Font AwesomeFont Awesome Go Make Something Awesome Font Awesome is the internet's icon library and toolkit used by millions of designers, developers, and content creators.  Made with  and  in Bentonville, Boston, Chicago, Grand Rapids, Joplin, Kansas City, Seattle, Tampa, and Vergennes.  Awesomeverse Web Awesome 11ty Podcast Awesome Blog Awesome Font Awesome Download Changelog All Versions Icon Requests Community GitHub YouTube Threads Awesome Swag Help Support Troubleshooting Contact Us Status License Terms of Service Privacy Policy Refunds © Fonticons, Inc." TextWrapping="Wrap" />
         </Expander>
 
         <ToggleButton Content="Default" />

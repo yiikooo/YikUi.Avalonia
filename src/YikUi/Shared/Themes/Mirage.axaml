@@ -29,6 +29,10 @@
                 Color="#161922"
                 Opacity="{DynamicResource BackGroundOpacity}"
                 x:Key="PopupBorderBrush" />
+            <SolidColorBrush
+                Color="#191d21"
+                Opacity="{DynamicResource BackGroundOpacity}"
+                x:Key="TitleBarBackgroundColor" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

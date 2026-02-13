@@ -1,0 +1,48 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Spacing="20">
+            <TextBlock Text="Test" Theme="{StaticResource TitleTextBlock}" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ControlTheme TargetType="TextBlock" x:Key="{x:Type TextBlock}">
+        <Style Selector="^.Underline">
+            <Setter Property="TextDecorations" Value="Underline" />
+        </Style>
+        <Style Selector="^.Delete">
+            <Setter Property="TextDecorations" Value="StrikeThrough" />
+        </Style>
+        <Style Selector="^.Underline.Delete">
+            <Setter Property="TextDecorations">
+                <TextDecorationCollection>
+                    <TextDecoration Location="Underline" />
+                    <TextDecoration Location="Strikethrough" />
+                </TextDecorationCollection>
+            </Setter>
+        </Style>
+    </ControlTheme>
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type TextBlock}}"
+        TargetType="TextBlock"
+        x:Key="TitleTextBlock">
+        <Setter Property="FontWeight" Value="{DynamicResource YikFontWeight}" />
+        <Style Selector="^.H1">
+            <Setter Property="FontSize" Value="32" />
+        </Style>
+        <Style Selector="^.H2">
+            <Setter Property="FontSize" Value="28" />
+        </Style>
+        <Style Selector="^.H3">
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        <Style Selector="^.H4">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style Selector="^.H5">
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style Selector="^.H6">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

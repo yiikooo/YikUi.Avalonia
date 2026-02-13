@@ -136,7 +136,7 @@ public partial class MainWindow : YikWindow
             case "Error":
                 notification.Show("Error", new NotificationOptions
                 {
-                    Type = NotificationType.Error, IsCollapseButtonVisible = true
+                    Type = NotificationType.Error, IsCollapseButtonVisible = true, Expiration = i
                 });
                 break;
             case "Long":
