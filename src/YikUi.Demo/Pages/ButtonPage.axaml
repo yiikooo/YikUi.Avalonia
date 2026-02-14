@@ -12,8 +12,8 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
         <ScrollViewer Padding="15">
-            <DockPanel LastChildFill="False">
-                <yik:GroupBorder DockPanel.Dock="Top" Header="Button">
+            <StackPanel Spacing="15">
+                <yik:GroupBorder Header="Button">
                     <WrapPanel
                         ItemSpacing="15"
                         LineSpacing="15"
@@ -39,10 +39,7 @@
                         </Button>
                     </WrapPanel>
                 </yik:GroupBorder>
-                <yik:GroupBorder
-                    DockPanel.Dock="Top"
-                    Header="HyperlinkButton"
-                    Margin="0,15,0,0">
+                <yik:GroupBorder Header="HyperlinkButton" Margin="0,15,0,0">
                     <WrapPanel
                         ItemSpacing="15"
                         LineSpacing="15"
@@ -69,10 +66,7 @@
                             VerticalAlignment="Center" />
                     </WrapPanel>
                 </yik:GroupBorder>
-                <yik:GroupBorder
-                    DockPanel.Dock="Top"
-                    Header="ToggleButton"
-                    Margin="0,15,0,0">
+                <yik:GroupBorder Header="ToggleButton" Margin="0,15,0,0">
                     <WrapPanel
                         ItemSpacing="15"
                         LineSpacing="15"
@@ -86,7 +80,7 @@
                         <ToggleButton Classes="Basic" Content="Classes: Basic" />
                     </WrapPanel>
                 </yik:GroupBorder>
-            </DockPanel>
+            </StackPanel>
         </ScrollViewer>
     </Border>
 </UserControl>

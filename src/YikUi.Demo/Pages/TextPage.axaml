@@ -9,9 +9,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
-        <ScrollViewer Padding="15">
-            <DockPanel LastChildFill="False">
-                <yik:GroupBorder DockPanel.Dock="Top" Header="TextBlock">
+        <ScrollViewer>
+            <StackPanel Margin="15" Spacing="15">
+                <yik:GroupBorder Header="TextBlock">
                     <Grid
                         ColumnDefinitions="250,*"
                         Margin="30"
@@ -193,10 +193,7 @@
                             VerticalAlignment="Center" />
                     </Grid>
                 </yik:GroupBorder>
-                <yik:GroupBorder
-                    DockPanel.Dock="Top"
-                    Header="SelectableTextBlock"
-                    Margin="0,15,0,0">
+                <yik:GroupBorder Header="SelectableTextBlock" Margin="0,15,0,0">
                     <Grid
                         ColumnDefinitions="250,*"
                         Margin="30"
@@ -378,7 +375,7 @@
                             VerticalAlignment="Center" />
                     </Grid>
                 </yik:GroupBorder>
-            </DockPanel>
+            </StackPanel>
         </ScrollViewer>
     </Border>
 </UserControl>
