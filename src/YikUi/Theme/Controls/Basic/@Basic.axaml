@@ -7,5 +7,8 @@
         <ResourceInclude Source="Expander.axaml" />
         <ResourceInclude Source="ToggleButton.axaml" />
         <ResourceInclude Source="TextBlock.axaml" />
+        <ResourceInclude Source="TextBox.axaml" />
+        <ResourceInclude Source="Menu.axaml" />
+        <ResourceInclude Source="ContextMenu.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

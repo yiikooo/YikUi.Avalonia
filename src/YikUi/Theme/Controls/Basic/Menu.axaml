@@ -141,10 +141,8 @@
                         Padding="0,4"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
-                                          ConverterParameter="0">
-                                <Binding Path="VerticalScrollBarVisibility"
-                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="0">
+                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -168,10 +166,8 @@
                         Padding="0,4"
                         RenderTransform="{x:Null}">
                         <RepeatButton.IsVisible>
-                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}"
-                                          ConverterParameter="100">
-                                <Binding Path="VerticalScrollBarVisibility"
-                                         RelativeSource="{RelativeSource TemplatedParent}" />
+                            <MultiBinding Converter="{x:Static converters:MenuScrollingVisibilityConverter.Instance}" ConverterParameter="100">
+                                <Binding Path="VerticalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Offset.Y" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Extent.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                                 <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
@@ -322,8 +318,7 @@
                             MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                             MinWidth="{DynamicResource MenuFlyoutMinWidth}"
                             Padding="{DynamicResource MenuFlyoutPadding}">
-                            <ScrollViewer CornerRadius="{DynamicResource YikCornerRadius}"
-                                          Theme="{StaticResource MenuScrollViewer}">
+                            <ScrollViewer CornerRadius="{DynamicResource YikCornerRadius}" Theme="{StaticResource MenuScrollViewer}">
                                 <ItemsPresenter
                                     Grid.IsSharedSizeScope="True"
                                     ItemsPanel="{TemplateBinding ItemsPanel}"
@@ -461,8 +456,7 @@
                                 MinHeight="{DynamicResource MenuFlyoutMinHeight}"
                                 MinWidth="{DynamicResource MenuFlyoutMinWidth}"
                                 Padding="{DynamicResource MenuFlyoutPadding}">
-                                <ScrollViewer CornerRadius="{DynamicResource YikCornerRadius}"
-                                              Theme="{StaticResource MenuScrollViewer}">
+                                <ScrollViewer CornerRadius="{DynamicResource YikCornerRadius}" Theme="{StaticResource MenuScrollViewer}">
                                     <ItemsPresenter
                                         Grid.IsSharedSizeScope="True"
                                         ItemsPanel="{TemplateBinding ItemsPanel}"

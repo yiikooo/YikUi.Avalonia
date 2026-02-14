@@ -114,5 +114,7 @@
 
         <ToggleButton Content="Default" />
         <ToggleButton Content="Disabled" IsEnabled="False" />
+
+        <TextBox Text="Hello" />
     </StackPanel>
 </yik:YikWindow>

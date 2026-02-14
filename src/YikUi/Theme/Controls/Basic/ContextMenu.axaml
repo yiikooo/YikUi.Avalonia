@@ -30,8 +30,7 @@
                     MaxWidth="{TemplateBinding MaxWidth}"
                     MinHeight="{TemplateBinding MinHeight}"
                     Padding="{TemplateBinding Padding}">
-                    <ScrollViewer CornerRadius="{TemplateBinding CornerRadius}"
-                                  Theme="{DynamicResource MenuScrollViewer}">
+                    <ScrollViewer CornerRadius="{TemplateBinding CornerRadius}" Theme="{DynamicResource MenuScrollViewer}">
                         <ItemsPresenter
                             Grid.IsSharedSizeScope="True"
                             ItemsPanel="{TemplateBinding ItemsPanel}"
