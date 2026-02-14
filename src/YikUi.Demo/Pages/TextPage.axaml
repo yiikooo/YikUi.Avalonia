@@ -10,156 +10,375 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
         <ScrollViewer Padding="15">
-            <StackPanel Spacing="15">
-                <yik:GroupBorder Header="TextBlock Styles">
+            <DockPanel LastChildFill="False">
+                <yik:GroupBorder DockPanel.Dock="Top" Header="TextBlock">
                     <Grid
-                        ColumnDefinitions="200,*"
-                        Margin="10"
-                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
-                        <!--  Header  -->
+                        ColumnDefinitions="250,*"
+                        Margin="30"
+                        RowDefinitions="40,40,40,40,50,45,40,35,30,25,40,40,40,40">
+                        <Border
+                            Background="{DynamicResource SelectionNormal}"
+                            CornerRadius="4"
+                            Grid.ColumnSpan="2"
+                            Margin="-15,-15,-15,15"
+                            Padding="20,10,10,10">
+                            <Grid ColumnDefinitions="250,*">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Grid.Column="0"
+                                    Text="Class Name"
+                                    VerticalAlignment="Center" />
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Grid.Column="1"
+                                    Text="Effect"
+                                    VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
                         <TextBlock
-                            FontWeight="Bold"
                             Grid.Column="0"
-                            Grid.Row="0"
-                            Text="Class Name" />
+                            Grid.Row="1"
+                            Text="-"
+                            VerticalAlignment="Center" />
                         <TextBlock
-                            FontWeight="Bold"
                             Grid.Column="1"
-                            Grid.Row="0"
-                            Text="Effect" />
+                            Grid.Row="1"
+                            Text="This is common text"
+                            VerticalAlignment="Center" />
                         <!--  Underline  -->
                         <TextBlock
                             Grid.Column="0"
-                            Grid.Row="1"
-                            Text=".Underline" />
+                            Grid.Row="2"
+                            Text=".Underline"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Underline"
                             Grid.Column="1"
-                            Grid.Row="1"
-                            Text="This is underlined text" />
+                            Grid.Row="2"
+                            Text="This is underlined text"
+                            VerticalAlignment="Center" />
                         <!--  Delete  -->
                         <TextBlock
                             Grid.Column="0"
-                            Grid.Row="2"
-                            Text=".Delete" />
+                            Grid.Row="3"
+                            Text=".Delete"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Delete"
                             Grid.Column="1"
-                            Grid.Row="2"
-                            Text="This is deleted text" />
-                        <!--  Underline.Delete  -->
-                        <TextBlock
-                            Grid.Column="0"
                             Grid.Row="3"
-                            Text=".Underline.Delete" />
-                        <TextBlock
-                            Classes="Underline Delete"
-                            Grid.Column="1"
-                            Grid.Row="3"
-                            Text="This is underlined and deleted text" />
+                            Text="This is deleted text"
+                            VerticalAlignment="Center" />
                         <!--  H1  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="4"
-                            Text=".H1" />
+                            Text=".H1"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H1"
                             Grid.Column="1"
                             Grid.Row="4"
-                            Text="H1 Heading" />
+                            Text="H1 Heading"
+                            VerticalAlignment="Center" />
                         <!--  H2  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="5"
-                            Text=".H2" />
+                            Text=".H2"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H2"
                             Grid.Column="1"
                             Grid.Row="5"
-                            Text="H2 Heading" />
+                            Text="H2 Heading"
+                            VerticalAlignment="Center" />
                         <!--  H3  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="6"
-                            Text=".H3" />
+                            Text=".H3"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H3"
                             Grid.Column="1"
                             Grid.Row="6"
-                            Text="H3 Heading" />
+                            Text="H3 Heading"
+                            VerticalAlignment="Center" />
                         <!--  H4  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="7"
-                            Text=".H4" />
+                            Text=".H4"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H4"
                             Grid.Column="1"
                             Grid.Row="7"
-                            Text="H4 Heading" />
+                            Text="H4 Heading"
+                            VerticalAlignment="Center" />
                         <!--  H5  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="8"
-                            Text=".H5" />
+                            Text=".H5"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H5"
                             Grid.Column="1"
                             Grid.Row="8"
-                            Text="H5 Heading" />
+                            Text="H5 Heading"
+                            VerticalAlignment="Center" />
                         <!--  H6  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="9"
-                            Text=".H6" />
+                            Text=".H6"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="H6"
                             Grid.Column="1"
                             Grid.Row="9"
-                            Text="H6 Heading" />
+                            Text="H6 Heading"
+                            VerticalAlignment="Center" />
                         <!--  Success  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="10"
-                            Text=".Success" />
+                            Text=".Success"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Success"
                             Grid.Column="1"
                             Grid.Row="10"
-                            Text="Success message" />
+                            Text="Success message"
+                            VerticalAlignment="Center" />
                         <!--  Warning  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="11"
-                            Text=".Warning" />
+                            Text=".Warning"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Warning"
                             Grid.Column="1"
                             Grid.Row="11"
-                            Text="Warning message" />
+                            Text="Warning message"
+                            VerticalAlignment="Center" />
                         <!--  Danger  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="12"
-                            Text=".Danger" />
+                            Text=".Danger"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Danger"
                             Grid.Column="1"
                             Grid.Row="12"
-                            Text="Danger message" />
+                            Text="Danger message"
+                            VerticalAlignment="Center" />
                         <!--  Accent  -->
                         <TextBlock
                             Grid.Column="0"
                             Grid.Row="13"
-                            Text=".Accent" />
+                            Text=".Accent"
+                            VerticalAlignment="Center" />
                         <TextBlock
                             Classes="Accent"
                             Grid.Column="1"
                             Grid.Row="13"
-                            Text="Accent color text" />
+                            Text="Accent color text"
+                            VerticalAlignment="Center" />
                     </Grid>
                 </yik:GroupBorder>
-            </StackPanel>
+                <yik:GroupBorder
+                    DockPanel.Dock="Top"
+                    Header="SelectableTextBlock"
+                    Margin="0,15,0,0">
+                    <Grid
+                        ColumnDefinitions="250,*"
+                        Margin="30"
+                        RowDefinitions="40,40,40,40,50,45,40,35,30,25,40,40,40,40">
+                        <Border
+                            Background="{DynamicResource SelectionNormal}"
+                            CornerRadius="4"
+                            Grid.ColumnSpan="2"
+                            Margin="-15,-15,-15,15"
+                            Padding="20,10,10,10">
+                            <Grid ColumnDefinitions="250,*">
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Grid.Column="0"
+                                    Text="Class Name"
+                                    VerticalAlignment="Center" />
+                                <TextBlock
+                                    FontSize="14"
+                                    FontWeight="Bold"
+                                    Grid.Column="1"
+                                    Text="Effect"
+                                    VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Text="-"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Text="This is common text"
+                            VerticalAlignment="Center" />
+                        <!--  Underline  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Text=".Underline"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Underline"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Text="This is underlined text"
+                            VerticalAlignment="Center" />
+                        <!--  Delete  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Text=".Delete"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Delete"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            Text="This is deleted text"
+                            VerticalAlignment="Center" />
+                        <!--  H1  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            Text=".H1"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H1"
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            Text="H1 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  H2  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="5"
+                            Text=".H2"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H2"
+                            Grid.Column="1"
+                            Grid.Row="5"
+                            Text="H2 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  H3  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="6"
+                            Text=".H3"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H3"
+                            Grid.Column="1"
+                            Grid.Row="6"
+                            Text="H3 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  H4  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="7"
+                            Text=".H4"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H4"
+                            Grid.Column="1"
+                            Grid.Row="7"
+                            Text="H4 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  H5  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="8"
+                            Text=".H5"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H5"
+                            Grid.Column="1"
+                            Grid.Row="8"
+                            Text="H5 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  H6  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="9"
+                            Text=".H6"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="H6"
+                            Grid.Column="1"
+                            Grid.Row="9"
+                            Text="H6 Heading"
+                            VerticalAlignment="Center" />
+                        <!--  Success  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="10"
+                            Text=".Success"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Success"
+                            Grid.Column="1"
+                            Grid.Row="10"
+                            Text="Success message"
+                            VerticalAlignment="Center" />
+                        <!--  Warning  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="11"
+                            Text=".Warning"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Warning"
+                            Grid.Column="1"
+                            Grid.Row="11"
+                            Text="Warning message"
+                            VerticalAlignment="Center" />
+                        <!--  Danger  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="12"
+                            Text=".Danger"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Danger"
+                            Grid.Column="1"
+                            Grid.Row="12"
+                            Text="Danger message"
+                            VerticalAlignment="Center" />
+                        <!--  Accent  -->
+                        <SelectableTextBlock
+                            Grid.Column="0"
+                            Grid.Row="13"
+                            Text=".Accent"
+                            VerticalAlignment="Center" />
+                        <SelectableTextBlock
+                            Classes="Accent"
+                            Grid.Column="1"
+                            Grid.Row="13"
+                            Text="Accent color text"
+                            VerticalAlignment="Center" />
+                    </Grid>
+                </yik:GroupBorder>
+            </DockPanel>
         </ScrollViewer>
     </Border>
 </UserControl>
