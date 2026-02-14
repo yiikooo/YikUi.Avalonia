@@ -13,6 +13,13 @@ public sealed class MainWindowModel : INotifyPropertyChanged
     {
         SelectedPage = Pages[0];
         Pages = Pages.OrderBy(x => x.Title).ToList();
+        foreach (var page in Pages)
+        {
+            if (page.Children is { Count: > 0 })
+            {
+                page.Children = page.Children.OrderBy(child => child.Title).ToList();
+            }
+        }
     }
 
     public Page SelectedPage
@@ -26,12 +33,41 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         new()
         {
             Title = "Button",
-            Content = new ButtonPage(),
+            Children =
+            [
+                new Page
+                {
+                    Title = "Button",
+                    Content = new ButtonPage(),
+                },
+                new Page
+                {
+                    Title = "HyperlinkButton",
+                    Content = new HyperlinkButtonPage(),
+                },
+                new Page
+                {
+                    Title = "ToggleButton",
+                    Content = new ToggleButtonPage(),
+                },
+            ]
         },
         new()
         {
-            Title = "Text",
-            Content = new TextPage(),
+            Title = "Basic",
+            Children =
+            [
+                new Page
+                {
+                    Title = "TextBlock",
+                    Content = new TextBlockPage(),
+                },
+                new Page
+                {
+                    Title = "SelectableTextBlock",
+                    Content = new SelectableTextBlockPage(),
+                },
+            ]
         }
     ];
 

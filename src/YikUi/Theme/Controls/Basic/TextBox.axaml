@@ -15,7 +15,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Cut}"
             Cursor="Hand"
-            Header="{DynamicResource STRING_MENU_CUT}"
+            Header="剪切"
             InputGesture="{x:Static TextBox.CutGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCut}">
             <MenuItem.Icon>
@@ -28,7 +28,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Copy}"
             Cursor="Hand"
-            Header="{DynamicResource STRING_MENU_COPY}"
+            Header="复制"
             InputGesture="{x:Static TextBox.CopyGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCopy}">
             <MenuItem.Icon>
@@ -41,7 +41,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Paste}"
             Cursor="Hand"
-            Header="{DynamicResource STRING_MENU_PASTE}"
+            Header="粘贴"
             InputGesture="{x:Static TextBox.PasteGesture}"
             IsEnabled="{Binding $parent[TextBox].CanPaste}">
             <MenuItem.Icon>

@@ -37,4 +37,11 @@
     <ItemGroup>
         <ProjectReference Include="..\YikUi\YikUi.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Pages\SelectableTextBlockPage.axaml.cs">
+            <DependentUpon>SelectableTextBlockPage.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+    </ItemGroup>
 </Project>

@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace YikUi.Demo.Pages;
 
-public partial class TextPage : UserControl
+public partial class ToggleButtonPage : UserControl
 {
-    public TextPage()
+    public ToggleButtonPage()
     {
         InitializeComponent();
     }

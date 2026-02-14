@@ -1,0 +1,49 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.ToggleButtonPage"
+    x:DataType="pages:ToggleButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
+                <yik:GroupBorder Header="ToggleButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <ToggleButton Content="ToggleButton" />
+                        <ToggleButton Content="Disabled" IsEnabled="False" />
+                        <ToggleButton
+                            Content="Disabled when checked"
+                            IsChecked="True"
+                            IsEnabled="False" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="TransparentToggleButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <ToggleButton Content="TransparentToggleButton" Theme="{StaticResource TransparentToggleButton}" />
+                        <ToggleButton
+                            Content="Disabled"
+                            IsEnabled="False"
+                            Theme="{StaticResource TransparentToggleButton}" />
+                        <ToggleButton
+                            Content="Disabled when checked"
+                            IsChecked="True"
+                            IsEnabled="False"
+                            Theme="{StaticResource TransparentToggleButton}" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

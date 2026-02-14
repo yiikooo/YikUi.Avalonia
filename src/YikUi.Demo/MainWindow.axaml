@@ -37,7 +37,7 @@
                 Margin="10"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
-                Width="200">
+                Width="220">
                 <yik:NavMenu.IconTemplate>
                     <DataTemplate DataType="x:String">
                         <PathIcon

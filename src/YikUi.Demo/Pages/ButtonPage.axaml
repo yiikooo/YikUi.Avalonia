@@ -11,21 +11,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
-        <ScrollViewer Padding="15">
-            <StackPanel Spacing="15">
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
                 <yik:GroupBorder Header="Button">
                     <WrapPanel
                         ItemSpacing="15"
                         LineSpacing="15"
                         Margin="15">
-                        <Button Command="{Binding Tip}" Content="Click me !" />
+                        <Button Command="{Binding Tip}" Content="Button" />
                         <Button
                             Command="{Binding Tip}"
                             Content="Disabled"
                             IsEnabled="False" />
                         <Button
+                            Classes="Danger"
                             Command="{Binding Tip}"
-                            Content="Theme: TransparentButton"
+                            Content="Danger Button" />
+                        <Button
+                            Classes="Danger"
+                            Content="Danger Disabled"
+                            IsEnabled="False" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="TransparentButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <Button
+                            Command="{Binding Tip}"
+                            Content="Button"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center" />
+                        <Button
+                            Content="Disabled"
+                            IsEnabled="False"
                             Theme="{StaticResource TransparentButton}"
                             VerticalAlignment="Center" />
                         <Button
@@ -37,47 +57,6 @@
                                 Foreground="#db5c5c"
                                 Width="16" />
                         </Button>
-                    </WrapPanel>
-                </yik:GroupBorder>
-                <yik:GroupBorder Header="HyperlinkButton" Margin="0,15,0,0">
-                    <WrapPanel
-                        ItemSpacing="15"
-                        LineSpacing="15"
-                        Margin="15">
-                        <HyperlinkButton Command="{Binding Tip}" Content="Click me !" />
-                        <HyperlinkButton
-                            Classes="Underline"
-                            Command="{Binding Tip}"
-                            Content="Classes: Underline" />
-                        <HyperlinkButton
-                            Classes="Delete"
-                            Command="{Binding Tip}"
-                            Content="Classes: Delete" />
-                        <HyperlinkButton
-                            Command="{Binding Tip}"
-                            Content="Theme: TransparentHyperlinkButton"
-                            Theme="{StaticResource TransparentHyperlinkButton}"
-                            VerticalAlignment="Center" />
-                        <HyperlinkButton
-                            Classes="UnderlineOnPointerover"
-                            Command="{Binding Tip}"
-                            Content="Classes: UnderlineOnPointerover"
-                            Theme="{StaticResource TransparentHyperlinkButton}"
-                            VerticalAlignment="Center" />
-                    </WrapPanel>
-                </yik:GroupBorder>
-                <yik:GroupBorder Header="ToggleButton" Margin="0,15,0,0">
-                    <WrapPanel
-                        ItemSpacing="15"
-                        LineSpacing="15"
-                        Margin="15">
-                        <ToggleButton Content="Default" />
-                        <ToggleButton Content="Disabled" IsEnabled="False" />
-                        <ToggleButton
-                            Content="Disabled"
-                            IsChecked="True"
-                            IsEnabled="False" />
-                        <ToggleButton Classes="Basic" Content="Classes: Basic" />
                     </WrapPanel>
                 </yik:GroupBorder>
             </StackPanel>

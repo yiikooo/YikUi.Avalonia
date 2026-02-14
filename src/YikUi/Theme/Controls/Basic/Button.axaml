@@ -25,6 +25,12 @@
                 Color="#1C1F23"
                 Opacity="0.35"
                 x:Key="ButtonDefaultDisabledForeground" />
+
+            <SolidColorBrush Color="#f93920" x:Key="DangerButtonDefaultBackground" />
+            <SolidColorBrush Color="#d52515" x:Key="DangerButtonDefaultPointeroverBackground" />
+            <SolidColorBrush Color="#b2140c" x:Key="DangerButtonDefaultPressedBackground" />
+            <SolidColorBrush Color="#feddd2" x:Key="DangerButtonDefaultDisabledForeground" />
+            <SolidColorBrush Color="#fdb7a5" x:Key="DangerButtonDefaultDisabledBackground" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -46,6 +52,18 @@
                 Color="#F9F9F9"
                 Opacity="0.35"
                 x:Key="ButtonDefaultDisabledForeground" />
+
+            <SolidColorBrush Color="#fc725a" x:Key="DangerButtonDefaultBackground" />
+            <SolidColorBrush Color="#fd9983" x:Key="DangerButtonDefaultPointeroverBackground" />
+            <SolidColorBrush Color="#fdbeac" x:Key="DangerButtonDefaultPressedBackground" />
+            <SolidColorBrush
+                Color="#fec7bd"
+                Opacity="0.4"
+                x:Key="DangerButtonDefaultDisabledForeground" />
+            <SolidColorBrush
+                Color="#fec7bd"
+                Opacity="0.3"
+                x:Key="DangerButtonDefaultDisabledBackground" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -103,6 +121,27 @@
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
+
+
+        <Style Selector="^.Danger /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="#f8f9fa" />
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultBackground}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^.Danger:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^.Danger:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^.Danger:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DangerButtonDefaultDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultDisabledBackground}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme TargetType="Button" x:Key="TransparentButton">
@@ -122,7 +161,7 @@
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Foreground" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
 

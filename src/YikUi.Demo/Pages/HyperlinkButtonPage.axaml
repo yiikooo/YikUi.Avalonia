@@ -1,0 +1,75 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.HyperlinkButtonPage"
+    x:DataType="pages:HyperlinkButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
+                <yik:GroupBorder Header="HyperlinkButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <HyperlinkButton Command="{Binding Tip}" Content="HyperlinkButton" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="HyperlinkButton with text styles">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <HyperlinkButton
+                            Classes="Underline"
+                            Command="{Binding Tip}"
+                            Content="Underline" />
+                        <HyperlinkButton
+                            Classes="Delete"
+                            Command="{Binding Tip}"
+                            Content="Delete" />
+                        <HyperlinkButton
+                            Classes="UnderlineOnPointerover"
+                            Command="{Binding Tip}"
+                            Content="UnderlineOnPointerover"
+                            VerticalAlignment="Center" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="TransparentHyperlinkButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <HyperlinkButton
+                            Command="{Binding Tip}"
+                            Content="TransparentHyperlinkButton"
+                            Theme="{StaticResource TransparentHyperlinkButton}"
+                            VerticalAlignment="Center" />
+                        <HyperlinkButton
+                            Classes="Underline"
+                            Command="{Binding Tip}"
+                            Content="Underline"
+                            Theme="{StaticResource TransparentHyperlinkButton}" />
+                        <HyperlinkButton
+                            Classes="Delete"
+                            Command="{Binding Tip}"
+                            Content="Delete"
+                            Theme="{StaticResource TransparentHyperlinkButton}" />
+                        <HyperlinkButton
+                            Classes="UnderlineOnPointerover"
+                            Command="{Binding Tip}"
+                            Content="UnderlineOnPointerover"
+                            Theme="{StaticResource TransparentHyperlinkButton}"
+                            VerticalAlignment="Center" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>
