@@ -11,7 +11,154 @@
     <Border>
         <ScrollViewer Padding="15">
             <StackPanel Spacing="15">
-                <yik:GroupBorder Header="TextBlock" />
+                <yik:GroupBorder Header="TextBlock Styles">
+                    <Grid
+                        ColumnDefinitions="200,*"
+                        Margin="10"
+                        RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                        <!--  Header  -->
+                        <TextBlock
+                            FontWeight="Bold"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            Text="Class Name" />
+                        <TextBlock
+                            FontWeight="Bold"
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Text="Effect" />
+                        <!--  Underline  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            Text=".Underline" />
+                        <TextBlock
+                            Classes="Underline"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Text="This is underlined text" />
+                        <!--  Delete  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Text=".Delete" />
+                        <TextBlock
+                            Classes="Delete"
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            Text="This is deleted text" />
+                        <!--  Underline.Delete  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Text=".Underline.Delete" />
+                        <TextBlock
+                            Classes="Underline Delete"
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            Text="This is underlined and deleted text" />
+                        <!--  H1  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            Text=".H1" />
+                        <TextBlock
+                            Classes="H1"
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            Text="H1 Heading" />
+                        <!--  H2  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="5"
+                            Text=".H2" />
+                        <TextBlock
+                            Classes="H2"
+                            Grid.Column="1"
+                            Grid.Row="5"
+                            Text="H2 Heading" />
+                        <!--  H3  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="6"
+                            Text=".H3" />
+                        <TextBlock
+                            Classes="H3"
+                            Grid.Column="1"
+                            Grid.Row="6"
+                            Text="H3 Heading" />
+                        <!--  H4  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="7"
+                            Text=".H4" />
+                        <TextBlock
+                            Classes="H4"
+                            Grid.Column="1"
+                            Grid.Row="7"
+                            Text="H4 Heading" />
+                        <!--  H5  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="8"
+                            Text=".H5" />
+                        <TextBlock
+                            Classes="H5"
+                            Grid.Column="1"
+                            Grid.Row="8"
+                            Text="H5 Heading" />
+                        <!--  H6  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="9"
+                            Text=".H6" />
+                        <TextBlock
+                            Classes="H6"
+                            Grid.Column="1"
+                            Grid.Row="9"
+                            Text="H6 Heading" />
+                        <!--  Success  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="10"
+                            Text=".Success" />
+                        <TextBlock
+                            Classes="Success"
+                            Grid.Column="1"
+                            Grid.Row="10"
+                            Text="Success message" />
+                        <!--  Warning  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="11"
+                            Text=".Warning" />
+                        <TextBlock
+                            Classes="Warning"
+                            Grid.Column="1"
+                            Grid.Row="11"
+                            Text="Warning message" />
+                        <!--  Danger  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="12"
+                            Text=".Danger" />
+                        <TextBlock
+                            Classes="Danger"
+                            Grid.Column="1"
+                            Grid.Row="12"
+                            Text="Danger message" />
+                        <!--  Accent  -->
+                        <TextBlock
+                            Grid.Column="0"
+                            Grid.Row="13"
+                            Text=".Accent" />
+                        <TextBlock
+                            Classes="Accent"
+                            Grid.Column="1"
+                            Grid.Row="13"
+                            Text="Accent color text" />
+                    </Grid>
+                </yik:GroupBorder>
             </StackPanel>
         </ScrollViewer>
     </Border>

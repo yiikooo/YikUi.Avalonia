@@ -8,6 +8,7 @@
         <ApplicationIcon>icon.ico</ApplicationIcon>
         <PackageIcon>icon.png</PackageIcon>
         <HotAvaloniaAutoEnable>false</HotAvaloniaAutoEnable>
+        <LangVersion>14.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <Content Include="icon.ico"/>

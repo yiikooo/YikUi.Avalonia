@@ -15,7 +15,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         Pages = Pages.OrderBy(x => x.Title).ToList();
     }
 
-    public Page SelectedPage { get; set; }
+    public Page SelectedPage
+    {
+        get;
+        set => SetField(ref field, value);
+    }
 
     public static List<Page> Pages { get; set; } =
     [
