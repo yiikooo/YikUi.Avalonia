@@ -2,4 +2,5 @@
     <StyleInclude Source="YikToast.axaml" />
     <StyleInclude Source="YikNotification.axaml" />
     <StyleInclude Source="ToggleButton.axaml" />
+    <StyleInclude Source="HyperlinkButton.axaml" />
 </Styles>

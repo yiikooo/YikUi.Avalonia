@@ -3,9 +3,84 @@
     d:DesignWidth="800"
     mc:Ignorable="d"
     x:Class="YikUi.Demo.Pages.ButtonPage"
+    x:DataType="pages:ButtonPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    Welcome to Avalonia!
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border>
+        <ScrollViewer Padding="15">
+            <StackPanel Spacing="15">
+                <yik:GroupBorder Header="Button">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <Button Command="{Binding Tip}" Content="Click me !" />
+                        <Button
+                            Command="{Binding Tip}"
+                            Content="Disabled"
+                            IsEnabled="False" />
+                        <Button
+                            Command="{Binding Tip}"
+                            Content="Theme: TransparentButton"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center" />
+                        <Button
+                            Command="{Binding Tip}"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center">
+                            <PathIcon
+                                Data="{DynamicResource AppleIcon}"
+                                Foreground="#db5c5c"
+                                Width="16" />
+                        </Button>
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="HyperlinkButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <HyperlinkButton Command="{Binding Tip}" Content="Click me !" />
+                        <HyperlinkButton
+                            Classes="Underline"
+                            Command="{Binding Tip}"
+                            Content="Classes: Underline" />
+                        <HyperlinkButton
+                            Classes="Delete"
+                            Command="{Binding Tip}"
+                            Content="Classes: Delete" />
+                        <HyperlinkButton
+                            Command="{Binding Tip}"
+                            Content="Theme: TransparentHyperlinkButton"
+                            Theme="{StaticResource TransparentHyperlinkButton}"
+                            VerticalAlignment="Center" />
+                        <HyperlinkButton
+                            Classes="UnderlineOnPointerover"
+                            Command="{Binding Tip}"
+                            Content="Classes: UnderlineOnPointerover"
+                            Theme="{StaticResource TransparentHyperlinkButton}"
+                            VerticalAlignment="Center" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="ToggleButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <ToggleButton Content="Default" />
+                        <ToggleButton Content="Disabled" IsEnabled="False" />
+                        <ToggleButton
+                            Content="Disabled"
+                            IsChecked="True"
+                            IsEnabled="False" />
+                        <ToggleButton Classes="Basic" Content="Classes: Basic" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
 </UserControl>

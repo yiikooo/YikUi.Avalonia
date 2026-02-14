@@ -1,0 +1,19 @@
+<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style Selector="HyperlinkButton.Underline TextBlock">
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+    <Style Selector="HyperlinkButton.Delete TextBlock">
+        <Setter Property="TextDecorations" Value="StrikeThrough" />
+    </Style>
+    <Style Selector="HyperlinkButton.Underline.Delete TextBlock">
+        <Setter Property="TextDecorations">
+            <TextDecorationCollection>
+                <TextDecoration Location="Underline" />
+                <TextDecoration Location="Strikethrough" />
+            </TextDecorationCollection>
+        </Setter>
+    </Style>
+    <Style Selector="HyperlinkButton.UnderlineOnPointerover:pointerover TextBlock">
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+</Styles>

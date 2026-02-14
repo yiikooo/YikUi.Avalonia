@@ -20,12 +20,6 @@
                 </TextDecorationCollection>
             </Setter>
         </Style>
-    </ControlTheme>
-    <ControlTheme
-        BasedOn="{StaticResource {x:Type TextBlock}}"
-        TargetType="TextBlock"
-        x:Key="TitleTextBlock">
-        <Setter Property="FontWeight" Value="{DynamicResource YikFontWeight}" />
         <Style Selector="^.H1">
             <Setter Property="FontSize" Value="32" />
         </Style>
@@ -43,6 +37,18 @@
         </Style>
         <Style Selector="^.H6">
             <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="#3bb346" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="#fc8800" />
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="#f93920" />
+        </Style>
+        <Style Selector="^.Accent">
+            <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -6,7 +6,7 @@ namespace YikUi.Demo;
 public partial class MainWindow : YikWindow
 {
     private readonly YikWindowNotificationManager notification;
-    private readonly YikWindowToastManager toast;
+    public readonly YikWindowToastManager toast;
 
     public MainWindow()
     {

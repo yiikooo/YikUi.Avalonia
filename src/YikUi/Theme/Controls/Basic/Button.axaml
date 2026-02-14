@@ -107,6 +107,7 @@
 
     <ControlTheme TargetType="Button" x:Key="TransparentButton">
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
 
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="Transparent" />

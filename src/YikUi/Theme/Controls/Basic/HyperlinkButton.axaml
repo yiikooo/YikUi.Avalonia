@@ -13,7 +13,7 @@
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="HyperlinkButtonForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="HyperlinkButtonForeground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColorDark3}" x:Key="HyperlinkButtonForegroundPointerOver" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="HyperlinkButtonForegroundPressed" />
             <SolidColorBrush Color="#5C000000" x:Key="HyperlinkButtonForegroundDisabled" />
@@ -27,7 +27,7 @@
             <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushDisabled" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight3}" x:Key="HyperlinkButtonForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="HyperlinkButtonForeground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColorLight3}" x:Key="HyperlinkButtonForegroundPointerOver" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColorLight2}" x:Key="HyperlinkButtonForegroundPressed" />
             <SolidColorBrush Color="#5DFFFFFF" x:Key="HyperlinkButtonForegroundDisabled" />
@@ -76,8 +76,7 @@
             <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
         </Style>
 
-
-        <Style Selector="^ /template/ TextBlock">
+        <Style Selector="^.Underline /template/ TextBlock">
             <Setter Property="TextDecorations" Value="{x:Null}" />
         </Style>
 
@@ -96,4 +95,26 @@
         </Style>
     </ControlTheme>
 
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type HyperlinkButton}}"
+        TargetType="HyperlinkButton"
+        x:Key="TransparentHyperlinkButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="0" />
+
+        <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

@@ -24,7 +24,7 @@ public class ClassHelper
         arg1.Classes.Clear();
         var nonPseudoClasses = styledElement.Classes.Where(c => !c.StartsWith(":"));
         arg1.Classes.AddRange(nonPseudoClasses);
-        styledElement.Classes.WeakSubscribe((o, e) => OnSourceClassesChanged(o, e, arg1));
+        styledElement.Classes.WeakSubscribe((o, e) => OnSourceClassesChanged(o!, e, arg1));
     }
 
     private static void OnSourceClassesChanged(object sender, NotifyCollectionChangedEventArgs e, StyledElement target)

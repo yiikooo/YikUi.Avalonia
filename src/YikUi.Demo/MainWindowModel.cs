@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Avalonia.Controls;
 using YikUi.Demo.Pages;
@@ -8,17 +9,27 @@ namespace YikUi.Demo;
 
 public sealed class MainWindowModel : INotifyPropertyChanged
 {
-    public Page SelectedPage { get; set; } = Pages[0];
+    public MainWindowModel()
+    {
+        SelectedPage = Pages[0];
+        Pages = Pages.OrderBy(x => x.Title).ToList();
+    }
 
-    public static List<Page> Pages { get; } =
+    public Page SelectedPage { get; set; }
+
+    public static List<Page> Pages { get; set; } =
     [
         new()
         {
             Title = "Button",
             Content = new ButtonPage(),
+        },
+        new()
+        {
+            Title = "Text",
+            Content = new TextPage(),
         }
     ];
-
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

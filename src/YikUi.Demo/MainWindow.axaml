@@ -54,6 +54,6 @@
                 </yik:NavMenu.ItemTemplate>
             </yik:NavMenu>
         </Border>
-        <ContentControl DockPanel.Dock="Right" />
+        <ContentControl Content="{Binding SelectedPage.Content}" DockPanel.Dock="Right" />
     </DockPanel>
 </yik:YikWindow>
