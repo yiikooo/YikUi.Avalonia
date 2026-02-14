@@ -95,7 +95,7 @@
     </ControlTheme>
 
     <ControlTemplate TargetType="yik:NavMenuItem" x:Key="DefaultNavMenuItemTemplate">
-        <Grid RowDefinitions="Auto, *">
+        <Grid Background="Transparent" RowDefinitions="Auto, *">
             <Border
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -105,26 +105,56 @@
                 HorizontalAlignment="Stretch"
                 MinHeight="32"
                 Name="PART_Border">
+                <Border.Margin>
+                    <MultiBinding Converter="{yik:NavMenuMarginConverter}">
+                        <Binding Path="SubMenuIndent" RelativeSource="{RelativeSource TemplatedParent}" />
+                        <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                        <Binding Path="IsHorizontalCollapsed" RelativeSource="{RelativeSource TemplatedParent}" />
+                    </MultiBinding>
+                </Border.Margin>
                 <Grid
+                    Background="Transparent"
                     HorizontalAlignment="Stretch"
                     Name="PART_RootGrid"
                     VerticalAlignment="Center">
-                    <Grid.Margin>
-                        <MultiBinding Converter="{yik:NavMenuMarginConverter}">
-                            <Binding Path="SubMenuIndent" RelativeSource="{RelativeSource TemplatedParent}" />
-                            <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
-                            <Binding Path="IsHorizontalCollapsed" RelativeSource="{RelativeSource TemplatedParent}" />
-                        </MultiBinding>
-                    </Grid.Margin>
                     <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition SharedSizeGroup="Icon" Width="Auto" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition SharedSizeGroup="Expander" Width="Auto" />
                     </Grid.ColumnDefinitions>
+                    <Rectangle
+                        Fill="{DynamicResource SystemAccentColor}"
+                        Height="16"
+                        HorizontalAlignment="Left"
+                        IsVisible="True"
+                        Margin="0,4,-2,4"
+                        Name="SelectionIndicator"
+                        Opacity="0"
+                        RadiusX="2"
+                        RadiusY="2"
+                        RenderTransform="scaleY(0)"
+                        UseLayoutRounding="False"
+                        VerticalAlignment="Center"
+                        Width="3">
+                        <Rectangle.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition
+                                    Duration="00:00:00.167"
+                                    Easing="0,0 0,1"
+                                    Property="RenderTransform" />
+                                <DoubleTransition
+                                    Duration="00:00:00.167"
+                                    Easing="0,0 0,1"
+                                    Property="Opacity" />
+                            </Transitions>
+                        </Rectangle.Transitions>
+                    </Rectangle>
                     <ContentPresenter
                         Background="Transparent"
                         Content="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
                         ContentTemplate="{Binding IconTemplate, RelativeSource={RelativeSource TemplatedParent}}"
+                        Grid.Column="1"
                         HorizontalAlignment="Left"
                         Name="PART_IconPresenter"
                         Padding="8" />
@@ -132,16 +162,16 @@
                         Background="Transparent"
                         Content="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}"
                         ContentTemplate="{Binding HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Name="PART_HeaderPresenter"
                         Padding="0,8,8,8" />
                     <PathIcon
-                        Data="M6.69 6.68A1.5 1.5 0 1 0 8.8 8.8L12 5.62l3.18 3.18a1.5 1.5 0 1 0 2.13-2.12l-4.25-4.24a1.5 1.5 0 0 0-2.12 0L6.7 6.68Z M17.3 17.32a1.5 1.5 0 0 0-2.13-2.12L12 18.38 8.81 15.2a1.5 1.5 0 1 0-2.12 2.12l4.24 4.24a1.5 1.5 0 0 0 2.12 0l4.25-4.24Z"
-                        Foreground="{DynamicResource NavigationMenuItemExpandIconForeground}"
-                        Grid.Column="2"
-                        Margin="4,0,8,0"
+                        Data="F1 M640,640z M0,0z M297.4,438.6C309.9,451.1,330.2,451.1,342.7,438.6L502.7,278.6C515.2,266.1 515.2,245.8 502.7,233.3 490.2,220.8 469.9,220.8 457.4,233.3L320,370.7 182.6,233.4C170.1,220.9 149.8,220.9 137.3,233.4 124.8,245.9 124.8,266.2 137.3,278.7L297.3,438.7z"
+                        Foreground="{DynamicResource ForegroundColor}"
+                        Grid.Column="3"
+                        Margin="4,0,10,0"
                         Name="PART_ExpanderIcon"
-                        Theme="{StaticResource InnerPathIcon}">
+                        Width="18">
                         <PathIcon.Transitions>
                             <Transitions>
                                 <TransformOperationsTransition Duration="0.2" Property="RenderTransform" />
@@ -150,6 +180,7 @@
                     </PathIcon>
                     <Popup
                         Grid.Column="0"
+                        Grid.ColumnSpan="4"
                         IsLightDismissEnabled="True"
                         Name="PART_Popup"
                         Placement="RightEdgeAlignedTop"
@@ -217,11 +248,13 @@
         </Setter>
         <Setter Property="Template" Value="{StaticResource DefaultNavMenuItemTemplate}" />
         <Style Selector="^:selected">
-            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" />
+            -->
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
         </Style>
-        <Style Selector="^:pointerover">
-            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+        <Style Selector="^:empty:pointerover">
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" />
+            -->
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
         </Style>
         <Style Selector="^:vertical-collapsed /template/ ItemsPresenter#PART_ItemsPresenter">
@@ -232,7 +265,7 @@
             <Setter Property="LayoutTransform" Value="scale(1,0)" />
         </Style>
         <Style Selector="^:vertical-collapsed /template/ PathIcon#PART_ExpanderIcon">
-            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+            <Setter Property="RenderTransform" Value="rotate(-90deg)" />
         </Style>
         <Style Selector="^:empty /template/ PathIcon#PART_ExpanderIcon">
             <Setter Property="IsVisible" Value="False" />
@@ -251,6 +284,10 @@
         <!-- </Style> -->
         <Style Selector="^:selected /template/ Border#PART_Border">
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+        <Style Selector="^:selected /template/ Rectangle#SelectionIndicator">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="scaleY(1)" />
         </Style>
         <!-- <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter"> -->
         <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
