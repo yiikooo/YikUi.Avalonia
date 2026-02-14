@@ -25,7 +25,7 @@
                     Name="PART_RootBorder">
                     <Border CornerRadius="{TemplateBinding CornerRadius}" Name="PART_InnerBorder">
                         <Panel>
-                            <yik:ContentExpandControl
+                            <yik:ContentExpander
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -77,7 +77,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:not(.no-transitions) /template/ yik|ContentExpandControl#PART_ContentExpand">
+        <Style Selector="^:not(.no-transitions) /template/ yik|ContentExpander#PART_ContentExpand">
             <Setter Property="Transitions">
                 <Transitions>
                     <DoubleTransition
@@ -96,11 +96,11 @@
             <Setter Property="ClipToBounds" Value="False" />
         </Style>
 
-        <Style Selector="^ /template/ yik|ContentExpandControl#PART_ContentExpand">
+        <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
             <Setter Property="Multiplier" Value="0" />
         </Style>
 
-        <Style Selector="^:expanded /template/ yik|ContentExpandControl#PART_ContentExpand">
+        <Style Selector="^:expanded /template/ yik|ContentExpander#PART_ContentExpand">
             <Setter Property="Multiplier" Value="1" />
         </Style>
 
@@ -109,7 +109,7 @@
         </Style>
 
         <Style Selector="^:up">
-            <Style Selector="^ /template/ yik|ContentExpandControl#PART_ContentExpand">
+            <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
                 <Setter Property="Margin" Value="0,0,0,48" />
@@ -125,7 +125,7 @@
         </Style>
 
         <Style Selector="^:down">
-            <Style Selector="^ /template/ yik|ContentExpandControl#PART_ContentExpand">
+            <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="VerticalAlignment" Value="Top" />
                 <Setter Property="Margin" Value="0,48,0,0" />
@@ -137,7 +137,7 @@
         </Style>
 
         <Style Selector="^:left">
-            <Style Selector="^ /template/ yik|ContentExpandControl#PART_ContentExpand">
+            <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Horizontal" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
                 <Setter Property="Margin" Value="0,0,48,0" />
@@ -150,7 +150,7 @@
         </Style>
 
         <Style Selector="^:right">
-            <Style Selector="^ /template/ yik|ContentExpandControl#PART_ContentExpand">
+            <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Horizontal" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="48,0,0,0" />

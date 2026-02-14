@@ -1,4 +1,4 @@
-﻿namespace YikUi.Controls.Overlay;
+﻿namespace YikUi.Controls;
 
 public class YikToastCard : YikMessageCard
 {

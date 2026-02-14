@@ -4,7 +4,7 @@ using Avalonia.Controls.Notifications;
 using Avalonia.Metadata;
 using YikUi.Common.Interfaces;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 public class Toast : IToast, INotifyPropertyChanged
 {

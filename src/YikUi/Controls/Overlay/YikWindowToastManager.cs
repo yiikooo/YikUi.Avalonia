@@ -7,7 +7,7 @@ using Avalonia.VisualTree;
 using YikUi.Common.Classes;
 using YikUi.Common.Interfaces;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 public class YikWindowToastManager : WindowMessageManager, IToastManager
 {

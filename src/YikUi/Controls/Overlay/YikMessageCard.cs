@@ -8,7 +8,7 @@ using Avalonia.LogicalTree;
 using YikUi.Common.Classes;
 using YikUi.Common.Interfaces;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 [PseudoClasses(PC_Information, PC_Success, PC_Warning, PC_Error)]
 public abstract class YikMessageCard : ContentControl

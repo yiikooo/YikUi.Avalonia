@@ -5,7 +5,6 @@ using Avalonia.Controls.Notifications;
 using Avalonia.Interactivity;
 using YikUi.Common.Classes;
 using YikUi.Controls;
-using YikUi.Controls.Overlay;
 
 namespace YikUi.Demo;
 

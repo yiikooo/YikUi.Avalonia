@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 internal record struct HostKey(string? Id, int? Hash);
 

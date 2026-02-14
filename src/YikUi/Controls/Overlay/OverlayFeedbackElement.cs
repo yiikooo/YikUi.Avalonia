@@ -9,7 +9,7 @@ using YikUi.Common.Classes;
 using YikUi.Common.Helpers;
 using YikUi.Common.Interfaces;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 public abstract class OverlayFeedbackElement : ContentControl
 {

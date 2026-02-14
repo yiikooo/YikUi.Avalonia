@@ -6,7 +6,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.VisualTree;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 /// <summary>
 ///     An <see cref="WindowMessageManager" /> that displays messages in a <see cref="Window" />.

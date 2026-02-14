@@ -2,7 +2,7 @@ using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
-using YikUi.Controls.Overlay;
+using YikUi.Controls;
 
 namespace YikUi.Common.Classes;
 

@@ -4,19 +4,19 @@ using Avalonia.Layout;
 
 namespace YikUi.Controls;
 
-public class ContentExpandControl : ContentControl
+public class ContentExpander : ContentControl
 {
     public static readonly StyledProperty<double> MultiplierProperty =
-        AvaloniaProperty.Register<ContentExpandControl, double>(nameof(Multiplier));
+        AvaloniaProperty.Register<ContentExpander, double>(nameof(Multiplier));
 
     public static readonly StyledProperty<Orientation> OrientationProperty =
-        AvaloniaProperty.Register<ContentExpandControl, Orientation>(nameof(Orientation));
+        AvaloniaProperty.Register<ContentExpander, Orientation>(nameof(Orientation));
 
-    static ContentExpandControl()
+    static ContentExpander()
     {
-        AffectsArrange<ContentExpandControl>(MultiplierProperty, OrientationProperty);
+        AffectsArrange<ContentExpander>(MultiplierProperty, OrientationProperty);
 
-        AffectsMeasure<ContentExpandControl>(MultiplierProperty, OrientationProperty);
+        AffectsMeasure<ContentExpander>(MultiplierProperty, OrientationProperty);
     }
 
     public double Multiplier

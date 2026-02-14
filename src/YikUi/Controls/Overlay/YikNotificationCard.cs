@@ -4,7 +4,7 @@ using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Notifications;
 using Avalonia.LogicalTree;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 /// <summary>
 /// Control that represents and displays a notification.

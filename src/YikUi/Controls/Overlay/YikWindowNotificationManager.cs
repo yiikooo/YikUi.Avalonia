@@ -10,7 +10,7 @@ using YikUi.Common.Classes;
 using INotification = YikUi.Common.Interfaces.INotification;
 using INotificationManager = YikUi.Common.Interfaces.INotificationManager;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 [PseudoClasses(PC_TopLeft, PC_TopRight, PC_BottomLeft, PC_BottomRight, PC_TopCenter, PC_BottomCenter)]
 public class YikWindowNotificationManager : WindowMessageManager, INotificationManager

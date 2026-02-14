@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Compile Update="Controls\ContentExpandControl.axaml.cs">
+        <Compile Update="Controls\ContentExpander.axaml.cs">
             <SubType>Code</SubType>
             <DependentUpon>ContentExpandControl.axaml</DependentUpon>
         </Compile>

@@ -8,7 +8,7 @@ using Avalonia.LogicalTree;
 using YikUi.Common.Classes;
 using YikUi.Common.Helpers;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 [TemplatePart(PART_CloseButton, typeof(Button))]
 [TemplatePart(PART_TitleArea, typeof(Panel))]

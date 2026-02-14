@@ -5,7 +5,7 @@ using Avalonia.VisualTree;
 using YikUi.Common.Classes;
 using YikUi.Common.Helpers;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 public partial class OverlayDialogHost
 {

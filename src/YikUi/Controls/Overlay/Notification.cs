@@ -4,7 +4,7 @@ using Avalonia.Controls.Notifications;
 using Avalonia.Metadata;
 using INotification = YikUi.Common.Interfaces.INotification;
 
-namespace YikUi.Controls.Overlay;
+namespace YikUi.Controls;
 
 public class Notification : INotification, INotifyPropertyChanged
 {
