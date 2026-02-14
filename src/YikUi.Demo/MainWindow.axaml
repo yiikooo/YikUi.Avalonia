@@ -36,6 +36,7 @@
                 ItemsSource="{Binding Pages}"
                 Margin="10"
                 SelectedItem="{Binding SelectedPage}"
+                SubMenuBinding="{Binding Children}"
                 Width="200">
                 <yik:NavMenu.IconTemplate>
                     <DataTemplate DataType="x:String">
@@ -48,7 +49,7 @@
                 </yik:NavMenu.IconTemplate>
                 <yik:NavMenu.ItemTemplate>
                     <DataTemplate DataType="demo:Page">
-                        <yik:NavMenuItem ItemsSource="{Binding Children}" />
+                        <yik:NavMenuItem />
                     </DataTemplate>
                 </yik:NavMenu.ItemTemplate>
             </yik:NavMenu>
