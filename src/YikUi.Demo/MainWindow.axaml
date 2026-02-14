@@ -34,87 +34,65 @@
     </yik:YikWindow.TitleBarLeftContent>
 
     <StackPanel Margin="10">
-        <TextBlock
-            FontSize="16"
-            Margin="0,0,0,10"
-            Text="Toast 通知测试" />
-        <WrapPanel Margin="0,0,0,20">
-            <Button
-                Click="Toast"
-                Content="Toast Info"
-                Tag="Info" />
-            <Button
-                Click="Toast"
-                Content="Toast Warn"
-                Tag="Warn" />
-            <Button
-                Click="Toast"
-                Content="Toast Error"
-                Tag="Error" />
-            <Button
-                Click="Toast"
-                Content="Toast Success"
-                Tag="Success" />
-            <Button
-                Click="Toast"
-                Content="Toast Long Time"
-                Tag="Long" />
-            <Button Click="ToastWithButtons" Content="Toast With Buttons" />
-            <Button Click="ToastWithButtonsInline" Content="Toast With Buttons (Inline)" />
-        </WrapPanel>
-
-        <TextBlock
-            FontSize="16"
-            Margin="0,0,0,10"
-            Text="Notification 通知测试" />
-        <WrapPanel Margin="0,0,0,20">
-            <Button
-                Click="Notification"
-                Content="Notification Info"
-                Tag="Info" />
-            <Button
-                Click="Notification"
-                Content="Notification Warn"
-                Tag="Warn" />
-            <Button
-                Click="Notification"
-                Content="Notification Error"
-                Tag="Error" />
-            <Button
-                Click="Notification"
-                Content="Notification Success"
-                Tag="Success" />
-            <Button
-                Click="Notification"
-                Content="Notification Long Time"
-                Tag="Long" />
-            <Button Click="NotificationWithButtons" Content="Notification With Buttons" />
-        </WrapPanel>
-
-        <TextBlock
-            FontSize="16"
-            FontWeight="Bold"
-            Margin="0,0,0,10"
-            Text="预览卡片" />
-        <WrapPanel>
-            <yik:YikToastCard
-                Classes="Colorful Light"
-                Content="Toast 卡片示例"
-                Margin="5"
-                NotificationType="Information" />
-            <yik:YikNotificationCard
-                Classes="Colorful Light"
-                Content="Text"
-                Margin="5"
-                NotificationType="Success" />
-        </WrapPanel>
-        <Expander Background="{DynamicResource PanelBackgroundColor}" Header="Header">
-            <TextBlock Text="Font Awesome 7.2 is here with new icons and a new Pro+ pack • See what's new →  Start Search Icons Icons Docs Plans Support Podcast Font Awesome Icons Search the v7 Icons Collapse     Choose a version of Font Awesome  7.2.0 Icon Packs Show Classic style icons 22matching results Style Show solid style icons 19matching results Show regular style icons 3matching results Icon Type Show Filled style icons 19matching results Show Line style icons 3matching results Show Round style icons 22matching results Categories Show Arrows category icons 12matching results Show Buildings category icons 1matching results Show Coding category icons 2matching results Show Disaster + Crisis category icons 2matching results Show Editing category icons 1matching results Show Humanitarian category icons 2matching results Show Mathematics category icons 3matching results Show Media Playback category icons 3matching results Show Photos + Images category icons 1matching results Show Punctuation + Symbols category icons 1matching results Show Security category icons 1matching results Show Users + People category icons 1matching results 22 Icons Font AwesomeFont Awesome Go Make Something Awesome Font Awesome is the internet's icon library and toolkit used by millions of designers, developers, and content creators.  Made with  and  in Bentonville, Boston, Chicago, Grand Rapids, Joplin, Kansas City, Seattle, Tampa, and Vergennes.  Awesomeverse Web Awesome 11ty Podcast Awesome Blog Awesome Font Awesome Download Changelog All Versions Icon Requests Community GitHub YouTube Threads Awesome Swag Help Support Troubleshooting Contact Us Status License Terms of Service Privacy Policy Refunds © Fonticons, Inc." TextWrapping="Wrap" />
-        </Expander>
-
-        <ToggleButton Content="Default" />
-        <ToggleButton Content="Disabled" IsEnabled="False" />
-
-        <TextBox Text="Hello" />
+        <yik:NavMenu>
+            <yik:NavMenu.Items>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+                <yik:NavMenuItem Header="Menu1">
+                    <yik:NavMenuItem.Icon>
+                        <PathIcon
+                            Data="M112 0C99.1 0 87.4 7.8 82.5 19.7l-66.7 160-13.3 32c-6.8 16.3 .9 35 17.2 41.8s35-.9 41.8-17.2L66.7 224l90.7 0 5.1 12.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8l-13.3-32-66.7-160C136.6 7.8 124.9 0 112 0zm18.7 160l-37.3 0L112 115.2 130.7 160zM256 32l0 96 0 96c0 17.7 14.3 32 32 32l80 0c44.2 0 80-35.8 80-80c0-23.1-9.8-43.8-25.4-58.4c6-11.2 9.4-24 9.4-37.6c0-44.2-35.8-80-80-80L288 0c-17.7 0-32 14.3-32 32zm96 64l-32 0 0-32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16zm-32 64l32 0 16 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-48 0 0-32zM566.6 310.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L352 434.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0l192-192z"
+                            Margin="2,0,0,0"
+                            Width="18" />
+                    </yik:NavMenuItem.Icon>
+                </yik:NavMenuItem>
+            </yik:NavMenu.Items>
+        </yik:NavMenu>
     </StackPanel>
 </yik:YikWindow>

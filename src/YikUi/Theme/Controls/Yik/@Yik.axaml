@@ -3,5 +3,6 @@
         <ResourceInclude Source="YikWindow.axaml" />
         <ResourceInclude Source="YikToast.axaml" />
         <ResourceInclude Source="YikNotification.axaml" />
+        <ResourceInclude Source="NavMenu.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

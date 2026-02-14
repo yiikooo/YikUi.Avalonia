@@ -4,6 +4,7 @@ using Avalonia.Media;
 using Avalonia.Metadata;
 using Avalonia.Styling;
 using YikUi.Common.Helpers;
+using YikUi.Shared.Animations;
 
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Controls")]
@@ -26,6 +27,7 @@ public class YikUiTheme : Styles
     public YikUiTheme()
     {
         AvaloniaXamlLoader.Load(this);
+        Resources.MergedDictionaries.Add(new NavMenuSizeAnimations());
         this.GetObservable(AccentColorProperty).Subscribe(color =>
         {
             if (color.HasValue)

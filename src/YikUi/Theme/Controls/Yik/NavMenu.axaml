@@ -1,0 +1,340 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="NavigationMenuItemExpandIconForeground">#1C1F23</Color>
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="NavigationMenuItemSeparatorBorderForeground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="ListBoxItemPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="ListBoxItemSelectedBackground" />
+            <Color x:Key="TextBlockQuaternaryForeground">#636363</Color>
+            <Color x:Key="ListBoxItemPointeroverForeground">#1C1F23</Color>
+            <!-- <Color x:Key="ListBoxItemPointeroverBackground">#F9F9F9</Color> -->
+            <Color x:Key="ListBoxItemSelectedForeground">#1C1F23</Color>
+            <!-- <Color x:Key="ListBoxItemSelectedBackground">#EAF5FF</Color> -->
+            <Color x:Key="ListBoxItemSelectedPointeroverBackground">#CBE7FE</Color>
+            <Color x:Key="MenuFlyoutBackground">#FFFFFF</Color>
+            <Color x:Key="MenuFlyoutBorderBrush">#E6E8EA</Color>
+            <BoxShadows x:Key="MenuFlyoutBorderBoxShadow">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <Color x:Key="NavigationMenuItemExpandIconForeground">#F9F9F9</Color>
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="NavigationMenuItemSeparatorBorderForeground" />
+            <Color x:Key="TextBlockQuaternaryForeground">#F9F9F9</Color>
+            <Color x:Key="ListBoxItemPointeroverForeground">#F9F9F9</Color>
+            <Color x:Key="ListBoxItemPointeroverBackground">#232429</Color>
+            <Color x:Key="ListBoxItemSelectedForeground">#F9F9F9</Color>
+            <Color x:Key="ListBoxItemSelectedBackground">#54A9FF</Color>
+            <Color x:Key="ListBoxItemSelectedPointeroverBackground">#7FC1FF</Color>
+            <Color x:Key="MenuFlyoutBackground">#43444A</Color>
+            <Color x:Key="MenuFlyoutBorderBrush">#F9F9F9</Color>
+            <BoxShadows x:Key="MenuFlyoutBorderBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="yik:NavMenu" x:Key="{x:Type yik:NavMenu}">
+        <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+        <Setter Property="SubMenuIndent" Value="24" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:NavMenu">
+                <Grid RowDefinitions="Auto, *, Auto">
+                    <ContentPresenter Content="{TemplateBinding Header}" />
+                    <ScrollViewer
+                        AllowAutoHide="True"
+                        Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer.Styles>
+                            <Style Selector="ScrollViewer /template/ ScrollBar">
+                                <Setter Property="Opacity" Value="0" />
+                            </Style>
+                            <Style Selector="ScrollViewer:pointerover">
+                                <Style Selector="^ /template/ ScrollBar#PART_HorizontalScrollBar">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Style>
+                                <Style Selector="^ /template/ ScrollBar#PART_VerticalScrollBar">
+                                    <Setter Property="Opacity" Value="1" />
+                                </Style>
+                            </Style>
+                        </ScrollViewer.Styles>
+                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />
+                    </ScrollViewer>
+                    <ContentPresenter Content="{TemplateBinding Footer}" Grid.Row="2" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:not(:horizontal-collapsed)">
+            <Setter Property="Width" Value="{Binding $self.ExpandWidth}" />
+        </Style>
+        <Style Selector="^:horizontal-collapsed">
+            <Setter Property="Width" Value="{Binding $self.CollapseWidth}" />
+            <Setter Property="Grid.IsSharedSizeScope" Value="False" />
+        </Style>
+        <Style Selector="^.enable_animation">
+            <Setter Property="yik:SizeAnimationHelper.TriggerAvaloniaProperty"
+                    Value="{x:Static yik:NavMenu.IsHorizontalCollapsedProperty}" />
+            <Setter Property="yik:SizeAnimationHelper.CreateAnimation"
+                    Value="{DynamicResource NavMenuWidthAnimationGenerator}" />
+            <Setter Property="yik:SizeAnimationHelper.EnableWHAnimation" Value="True" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTemplate TargetType="yik:NavMenuItem" x:Key="DefaultNavMenuItemTemplate">
+        <Grid RowDefinitions="Auto, *">
+            <Border
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                CornerRadius="{DynamicResource YikCornerRadius}"
+                Cursor="Hand"
+                Grid.Row="0"
+                HorizontalAlignment="Stretch"
+                MinHeight="32"
+                Name="PART_Border">
+                <Grid
+                    HorizontalAlignment="Stretch"
+                    Name="PART_RootGrid"
+                    VerticalAlignment="Center">
+                    <Grid.Margin>
+                        <MultiBinding Converter="{yik:NavMenuMarginConverter}">
+                            <Binding Path="SubMenuIndent" RelativeSource="{RelativeSource TemplatedParent}" />
+                            <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                            <Binding Path="IsHorizontalCollapsed" RelativeSource="{RelativeSource TemplatedParent}" />
+                        </MultiBinding>
+                    </Grid.Margin>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="Icon" Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition SharedSizeGroup="Expander" Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ContentPresenter
+                        Background="Transparent"
+                        Content="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
+                        ContentTemplate="{Binding IconTemplate, RelativeSource={RelativeSource TemplatedParent}}"
+                        HorizontalAlignment="Left"
+                        Name="PART_IconPresenter"
+                        Padding="8" />
+                    <ContentPresenter
+                        Background="Transparent"
+                        Content="{Binding Header, RelativeSource={RelativeSource TemplatedParent}}"
+                        ContentTemplate="{Binding HeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}"
+                        Grid.Column="1"
+                        Name="PART_HeaderPresenter"
+                        Padding="0,8,8,8" />
+                    <PathIcon
+                        Data="M6.69 6.68A1.5 1.5 0 1 0 8.8 8.8L12 5.62l3.18 3.18a1.5 1.5 0 1 0 2.13-2.12l-4.25-4.24a1.5 1.5 0 0 0-2.12 0L6.7 6.68Z M17.3 17.32a1.5 1.5 0 0 0-2.13-2.12L12 18.38 8.81 15.2a1.5 1.5 0 1 0-2.12 2.12l4.24 4.24a1.5 1.5 0 0 0 2.12 0l4.25-4.24Z"
+                        Foreground="{DynamicResource NavigationMenuItemExpandIconForeground}"
+                        Grid.Column="2"
+                        Margin="4,0,8,0"
+                        Name="PART_ExpanderIcon"
+                        Theme="{StaticResource InnerPathIcon}">
+                        <PathIcon.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition Duration="0.2" Property="RenderTransform" />
+                            </Transitions>
+                        </PathIcon.Transitions>
+                    </PathIcon>
+                    <Popup
+                        Grid.Column="0"
+                        IsLightDismissEnabled="True"
+                        Name="PART_Popup"
+                        Placement="RightEdgeAlignedTop"
+                        PlacementTarget="{Binding #PART_Border}">
+                        <Border
+                            Background="{DynamicResource MenuFlyoutBackground}"
+                            BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
+                            BorderThickness="1"
+                            BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
+                            CornerRadius="{DynamicResource YikCornerRadius}"
+                            HorizontalAlignment="Stretch"
+                            Margin="8"
+                            Padding="0,4">
+                            <StackPanel Name="PART_OverflowPanel" />
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+            <LayoutTransformControl Grid.Row="1" RenderTransformOrigin="0.5,0">
+                <ItemsPresenter
+                    Grid.IsSharedSizeScope="True"
+                    Grid.Row="1"
+                    ItemsPanel="{Binding ItemsPanel, RelativeSource={RelativeSource TemplatedParent}}"
+                    Margin="0,4,0,0"
+                    Name="PART_ItemsPresenter"
+                    Opacity="1"
+                    RenderTransformOrigin="0.5,0"
+                    VerticalAlignment="Top">
+                    <ItemsPresenter.Transitions>
+                        <Transitions>
+                            <DoubleTransition
+                                Duration="0.25"
+                                Easing="QuadraticEaseIn"
+                                Property="Height" />
+                            <DoubleTransition
+                                Duration="0.25"
+                                Easing="QuadraticEaseOut"
+                                Property="Opacity" />
+                            <TransformOperationsTransition
+                                Duration="0.25"
+                                Easing="QuadraticEaseInOut"
+                                Property="RenderTransform" />
+                        </Transitions>
+                    </ItemsPresenter.Transitions>
+                </ItemsPresenter>
+                <LayoutTransformControl.Transitions>
+                    <Transitions>
+                        <TransformOperationsTransition
+                            Delay="0.1"
+                            Duration="0.15"
+                            Easing="QuadraticEaseInOut"
+                            Property="LayoutTransform" />
+                    </Transitions>
+                </LayoutTransformControl.Transitions>
+            </LayoutTransformControl>
+        </Grid>
+    </ControlTemplate>
+    <ControlTheme TargetType="yik:NavMenuItem" x:Key="{x:Type yik:NavMenuItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="ItemsPanel">
+            <ItemsPanelTemplate>
+                <yik:OverflowStackPanel />
+            </ItemsPanelTemplate>
+        </Setter>
+        <Setter Property="Template" Value="{StaticResource DefaultNavMenuItemTemplate}" />
+        <Style Selector="^:selected">
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+        <Style Selector="^:vertical-collapsed /template/ ItemsPresenter#PART_ItemsPresenter">
+            <Setter Property="Height" Value="0" />
+            <Setter Property="Opacity" Value="0" />
+        </Style>
+        <Style Selector="^:vertical-collapsed /template/ LayoutTransformControl">
+            <Setter Property="LayoutTransform" Value="scale(1,0)" />
+        </Style>
+        <Style Selector="^:vertical-collapsed /template/ PathIcon#PART_ExpanderIcon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+        <Style Selector="^:empty /template/ PathIcon#PART_ExpanderIcon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^ /template/ Border#PART_Border:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemPointeroverBackground}" />
+        </Style>
+        <!-- <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter:pointerover"> -->
+        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPointeroverForeground}" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter"> -->
+        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPointeroverForeground}" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter"> -->
+        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+        <!-- </Style> -->
+        <Style Selector="^:selected /template/ Border#PART_Border">
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+        <!-- <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter"> -->
+        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
+        <!-- </Style> -->
+        <Style Selector="^:horizontal-collapsed:first-level">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Style Selector="^ /template/ Border#PART_Border">
+                <Setter Property="ToolTip.Tip">
+                    <Template>
+                        <ContentPresenter Content="{TemplateBinding yik:NavMenuItem.Header}"
+                                          ContentTemplate="{TemplateBinding yik:NavMenuItem.HeaderTemplate}" />
+                    </Template>
+                </Setter>
+                <Setter Property="ToolTip.ShowDelay" Value="0" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_Border:pointerover">
+                <Setter Property="Background" Value="{DynamicResource ListBoxItemPointeroverBackground}" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Grid.ColumnSpan" Value="3" />
+                <Setter Property="Margin" Value="0 8" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_ExpanderIcon">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+            <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+        </Style>
+        <Style Selector="^:horizontal-collapsed:not(:first-level)">
+            <Style Selector="^ /template/ PathIcon#PART_ExpanderIcon">
+                <Setter Property="RenderTransform" Value="rotate(90deg)" />
+            </Style>
+        </Style>
+        <Style Selector="^:horizontal-collapsed:first-level">
+            <Setter Property="Grid.IsSharedSizeScope" Value="True" />
+        </Style>
+        <Style Selector="^[IsSeparator=True]">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <StackPanel
+                        Cursor="No"
+                        Margin="4,0"
+                        Name="PART_RootPanel">
+                        <ContentPresenter
+                            Content="{TemplateBinding Header}"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Foreground="{DynamicResource TextBlockQuaternaryForeground}"
+                            HorizontalAlignment="Left"
+                            IsVisible="{TemplateBinding Header,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Margin="4,0"
+                            Name="PART_HeaderPresenter">
+                            <ContentPresenter.Styles>
+                                <Style Selector="TextBlock">
+                                    <Setter Property="FontSize" Value="12" />
+                                </Style>
+                            </ContentPresenter.Styles>
+                        </ContentPresenter>
+                        <Rectangle
+                            Fill="{DynamicResource NavigationMenuItemSeparatorBorderForeground}"
+                            Height="1"
+                            HorizontalAlignment="Stretch"
+                            Margin="0,2"
+                            Name="PART_SeparatorBorder" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter>
+            <Style Selector="^:horizontal-collapsed:first-level">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+                    <Setter Property="IsVisible" Value="False" />
+                </Style>
+                <Style Selector="^ /template/ Rectangle#PART_SeparatorBorder">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="Width" Value="12" />
+                </Style>
+            </Style>
+        </Style>
+    </ControlTheme>
+
+</ResourceDictionary>
