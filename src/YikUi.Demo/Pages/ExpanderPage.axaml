@@ -55,6 +55,45 @@
                         </Border>
                     </Expander>
                 </yik:GroupBorder>
+                <yik:GroupBorder Header="Expander horizontal">
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+                        <Expander
+                            Background="{DynamicResource PopupBackgroundColor}"
+                            ExpandDirection="Left"
+                            Header="Header text"
+                            HorizontalAlignment="Right"
+                            Margin="10">
+                            <Border
+                                Background="CornflowerBlue"
+                                Height="205"
+                                Width="205">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </Expander>
+                        <Expander
+                            Background="{DynamicResource PopupBackgroundColor}"
+                            ExpandDirection="Right"
+                            Grid.Column="1"
+                            Header="Header text"
+                            HorizontalAlignment="Left"
+                            Margin="10">
+                            <Border
+                                Background="CornflowerBlue"
+                                Height="205"
+                                Width="205">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </Expander>
+                    </Grid>
+                </yik:GroupBorder>
             </StackPanel>
         </ScrollViewer>
     </Border>

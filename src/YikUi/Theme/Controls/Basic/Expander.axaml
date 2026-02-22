@@ -57,7 +57,6 @@
                                         VerticalAlignment="Center">
                                         <DockPanel>
                                             <PathIcon
-                                                Data="{DynamicResource AngleDown}"
                                                 DockPanel.Dock="Right"
                                                 Height="10"
                                                 Margin="10,0,0,0"
@@ -84,6 +83,10 @@
                         Duration="0.5"
                         Easing="ExponentialEaseOut"
                         Property="Multiplier" />
+                    <DoubleTransition
+                        Duration="0.5"
+                        Easing="ExponentialEaseOut"
+                        Property="Opacity" />
                 </Transitions>
             </Setter>
         </Style>
@@ -98,17 +101,23 @@
 
         <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
             <Setter Property="Multiplier" Value="0" />
+            <Setter Property="Opacity" Value="0" />
         </Style>
 
         <Style Selector="^:expanded /template/ yik|ContentExpander#PART_ContentExpand">
             <Setter Property="Multiplier" Value="1" />
-        </Style>
-
-        <Style Selector="^:expanded /template/ PathIcon#PART_Icon">
-            <Setter Property="Data" Value="{DynamicResource AngleUp}" />
+            <Setter Property="Opacity" Value="1" />
         </Style>
 
         <Style Selector="^:up">
+            <Style Selector="^ /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleUp}" />
+            </Style>
+            <Style Selector="^:expanded /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleDown}" />
+            </Style>
+
+
             <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
@@ -125,6 +134,13 @@
         </Style>
 
         <Style Selector="^:down">
+            <Style Selector="^ /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleDown}" />
+            </Style>
+            <Style Selector="^:expanded /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleUp}" />
+            </Style>
+
             <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="VerticalAlignment" Value="Top" />
@@ -137,6 +153,12 @@
         </Style>
 
         <Style Selector="^:left">
+            <Style Selector="^ /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleDown}" />
+            </Style>
+            <Style Selector="^:expanded /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleUp}" />
+            </Style>
             <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Horizontal" />
                 <Setter Property="HorizontalAlignment" Value="Right" />
@@ -150,6 +172,12 @@
         </Style>
 
         <Style Selector="^:right">
+            <Style Selector="^ /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleUp}" />
+            </Style>
+            <Style Selector="^:expanded /template/ PathIcon#PART_Icon">
+                <Setter Property="Data" Value="{DynamicResource AngleDown}" />
+            </Style>
             <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="Orientation" Value="Horizontal" />
                 <Setter Property="HorizontalAlignment" Value="Left" />
