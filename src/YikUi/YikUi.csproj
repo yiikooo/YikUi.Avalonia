@@ -32,6 +32,10 @@
             <SubType>Code</SubType>
             <DependentUpon>ContentExpandControl.axaml</DependentUpon>
         </Compile>
+        <Compile Update="Controls\Window\YikTitleBar.axaml.cs">
+            <DependentUpon>YikTitleBar.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
 </Project>

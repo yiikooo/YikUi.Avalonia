@@ -13,5 +13,6 @@
         <ResourceInclude Source="Tooltip.axaml" />
         <ResourceInclude Source="ScrollViewer.axaml" />
         <ResourceInclude Source="SelectableTextBlock.axaml" />
+        <ResourceInclude Source="FlyoutPresenter.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

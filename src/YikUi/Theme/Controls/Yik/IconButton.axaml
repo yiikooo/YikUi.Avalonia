@@ -1,0 +1,214 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:BooleansToOpacityConverter x:Key="OpacityConverter" />
+
+    <x:Double x:Key="ButtonDefaultFontSize">14</x:Double>
+    <FontWeight x:Key="ButtonDefaultFontWeight">600</FontWeight>
+    <Thickness x:Key="ButtonDefaultPadding">12 0</Thickness>
+    <Thickness x:Key="ButtonLargePadding">16 0</Thickness>
+    <Thickness x:Key="ButtonSmallPadding">6 0</Thickness>
+    <x:Double x:Key="ButtonDefaultHeight">32</x:Double>
+    <x:Double x:Key="ButtonSmallHeight">24</x:Double>
+    <x:Double x:Key="ButtonLargeHeight">40</x:Double>
+    <Thickness x:Key="ButtonBorderThickness">1</Thickness>
+    <CornerRadius x:Key="ButtonCornerRadius">3</CornerRadius>
+
+    <!--  Theme-specific resources  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="#0064FA" x:Key="ButtonDefaultPrimaryForeground" />
+            <SolidColorBrush Color="#F93920" x:Key="ButtonDefaultDangerForeground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.35"
+                x:Key="ButtonDefaultDisabledForeground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="ButtonDefaultBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="ButtonDefaultPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.13"
+                x:Key="ButtonDefaultPressedBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultPressedBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultDisabledBorderBrush" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#54A9FF" x:Key="ButtonDefaultPrimaryForeground" />
+            <SolidColorBrush Color="#FC725A" x:Key="ButtonDefaultDangerForeground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.35"
+                x:Key="ButtonDefaultDisabledForeground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="ButtonDefaultBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="ButtonDefaultPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.20"
+                x:Key="ButtonDefaultPressedBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultPressedBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonDefaultDisabledBorderBrush" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="yik:IconButton" x:Key="{x:Type yik:IconButton}">
+        <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultPrimaryForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ButtonCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ButtonBorderThickness}" />
+        <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="FontSize" Value="{DynamicResource ButtonDefaultFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource ButtonDefaultFontWeight}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="MinHeight" Value="{DynamicResource ButtonDefaultHeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:IconButton">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}"
+                    TextElement.FontSize="{TemplateBinding FontSize}"
+                    TextElement.FontWeight="{TemplateBinding FontWeight}"
+                    UseLayoutRounding="False">
+                    <ReversibleStackPanel
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="{x:Static yik:IconButton.PART_RootPanel}"
+                        Orientation="Horizontal"
+                        Spacing="0"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <Panel Name="PART_IconRoot">
+                            <Panel.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                                    <Binding Path="IsLoading" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding
+                                        Converter="{x:Static ObjectConverters.IsNotNull}"
+                                        Path="Icon"
+                                        RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </Panel.IsVisible>
+                            <ContentPresenter
+                                Content="{TemplateBinding Icon}"
+                                ContentTemplate="{TemplateBinding IconTemplate}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Opacity="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=!IsLoading, Converter={StaticResource OpacityConverter}}">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="Geometry">
+                                        <PathIcon
+                                            Data="{Binding}"
+                                            Foreground="{TemplateBinding Foreground}"
+                                            Theme="{StaticResource InnerPathIcon}" />
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <yik:LoadingIcon
+                                Classes="Small"
+                                Foreground="{TemplateBinding Foreground}"
+                                IsLoading="{TemplateBinding IsLoading}"
+                                IsVisible="{TemplateBinding IsLoading}" />
+                        </Panel>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            HorizontalAlignment="Center"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Name="PART_ContentPresenter"
+                            VerticalAlignment="Center" />
+                    </ReversibleStackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDangerForeground}" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultDisabledBorderBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+
+        <Style Selector="^.accent:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColorLight1}" />
+        </Style>
+        <Style Selector="^.accent:pressed">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColorLight1}" />
+        </Style>
+        <Style Selector="^.accent">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColor}" />
+            <Style Selector="^ PathIcon">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
+            <Style Selector="^ TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:right /template/ ReversibleStackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="ReverseOrder" Value="True" />
+        </Style>
+
+        <Style Selector="^:left /template/ ReversibleStackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="ReverseOrder" Value="False" />
+        </Style>
+
+        <Style Selector="^:top /template/ ReversibleStackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="ReverseOrder" Value="False" />
+        </Style>
+
+        <Style Selector="^:bottom /template/ ReversibleStackPanel#PART_RootPanel">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="ReverseOrder" Value="True" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonLargeHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonLargePadding}" />
+        </Style>
+
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="{DynamicResource ButtonSmallHeight}" />
+            <Setter Property="Padding" Value="{DynamicResource ButtonSmallPadding}" />
+        </Style>
+
+        <Style Selector="^:empty-content">
+            <Setter Property="MinWidth" Value="{Binding $self.MinHeight}" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

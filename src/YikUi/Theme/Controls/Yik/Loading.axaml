@@ -1,0 +1,145 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <yik:LoadingIcon Classes="Large" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="#0064FA" x:Key="LoadingIconForeground" />
+            <SolidColorBrush
+                Color="#2e3238"
+                Opacity="0.05"
+                x:Key="LoadingMaskBackground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#54a9ff" x:Key="LoadingIconForeground" />
+            <SolidColorBrush
+                Color="#ffffff"
+                Opacity="0.12"
+                x:Key="LoadingMaskBackground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="yik:LoadingIcon" x:Key="{x:Type yik:LoadingIcon}">
+        <Setter Property="IsLoading" Value="True" />
+        <Setter Property="Foreground" Value="{DynamicResource LoadingIconForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:LoadingIcon">
+                <Arc
+                    Height="20"
+                    IsVisible="{TemplateBinding IsVisible}"
+                    Name="PART_Arc"
+                    StartAngle="0"
+                    StrokeJoin="Round"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    SweepAngle="300"
+                    Width="20">
+                    <Arc.Stroke>
+                        <ConicGradientBrush Angle="50">
+                            <GradientStops>
+                                <GradientStop Color="Transparent" Offset="0.4" />
+                                <GradientStop Color="{Binding Foreground, Converter={yik:BrushToColorConverter}, RelativeSource={RelativeSource TemplatedParent}}" Offset="0.8" />
+                                <GradientStop Color="{Binding Foreground, Converter={yik:BrushToColorConverter}, RelativeSource={RelativeSource TemplatedParent}}" Offset="1.0" />
+                            </GradientStops>
+                        </ConicGradientBrush>
+                    </Arc.Stroke>
+                </Arc>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^.Small /template/ Arc#PART_Arc">
+            <Setter Property="Width" Value="14" />
+            <Setter Property="Height" Value="14" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        <Style Selector="^.Large /template/ Arc#PART_Arc">
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="StrokeThickness" Value="5" />
+        </Style>
+        <Style Selector="^[IsLoading=True] /template/ Arc#PART_Arc">
+            <Style.Animations>
+                <Animation Duration="0:0:0.6" IterationCount="Infinite">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="RotateTransform.Angle" Value="0.0" />
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="RotateTransform.Angle" Value="360.0" />
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="yik:Loading" x:Key="{x:Type yik:Loading}">
+        <Setter Property="Background" Value="{DynamicResource LoadingMaskBackground}" />
+        <Setter Property="Indicator">
+            <Template>
+                <yik:LoadingIcon IsLoading="{Binding $parent[yik:Loading].IsLoading, Mode=TwoWay}" />
+            </Template>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:Loading">
+                <Panel IsVisible="{TemplateBinding IsLoading}">
+                    <yik:PureRectangle
+                        Background="{TemplateBinding Background}"
+                        HorizontalAlignment="Stretch"
+                        IsHitTestVisible="True"
+                        VerticalAlignment="Stretch" />
+                    <Grid
+                        HorizontalAlignment="Center"
+                        RowDefinitions="Auto, *"
+                        VerticalAlignment="Center">
+                        <ContentPresenter Content="{TemplateBinding Indicator}" HorizontalAlignment="Center" />
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Grid.Row="1"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Name="PART_ContentPresenter" />
+                    </Grid>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="yik:LoadingContainer" x:Key="{x:Type yik:LoadingContainer}">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="MessageForeground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource LoadingMaskBackground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Indicator">
+            <Template>
+                <yik:LoadingIcon IsLoading="{Binding $parent[yik:LoadingContainer].IsLoading, Mode=TwoWay}" />
+            </Template>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:LoadingContainer">
+                <Panel>
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="PART_ContentPresenter"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <yik:Loading
+                        Background="{TemplateBinding Background}"
+                        Content="{TemplateBinding LoadingMessage}"
+                        ContentTemplate="{TemplateBinding LoadingMessageTemplate}"
+                        Foreground="{TemplateBinding MessageForeground}"
+                        Indicator="{TemplateBinding Indicator}"
+                        IsLoading="{TemplateBinding IsLoading}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:loading /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Effect" Value="blur(5)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

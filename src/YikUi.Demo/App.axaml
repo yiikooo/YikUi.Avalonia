@@ -12,6 +12,7 @@
         </ResourceDictionary>
     </Application.Resources>
     <Application.Styles>
+        <FluentTheme />
         <yik:YikUiTheme AccentColor="#1BD76A" />
     </Application.Styles>
 </Application>
