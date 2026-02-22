@@ -1,0 +1,61 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.ExpanderPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
+                <yik:GroupBorder Header="Expander down">
+                    <Expander
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        Header="Header text"
+                        Margin="10">
+                        <DockPanel>
+                            <Rectangle
+                                DockPanel.Dock="Top"
+                                Fill="{DynamicResource LineColor}"
+                                Height="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top" />
+                            <Border
+                                Background="CornflowerBlue"
+                                DockPanel.Dock="Bottom"
+                                Height="205"
+                                Width="205">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </DockPanel>
+                    </Expander>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="Expander up">
+                    <Expander
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        ExpandDirection="Up"
+                        Header="Header text"
+                        Margin="10">
+                        <Border
+                            Background="CornflowerBlue"
+                            Height="205"
+                            Width="205">
+                            <TextBlock
+                                Foreground="White"
+                                HorizontalAlignment="Center"
+                                Text="Content"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </Expander>
+                </yik:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

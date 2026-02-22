@@ -68,6 +68,18 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Content = new SelectableTextBlockPage(),
                 },
             ]
+        },
+        new()
+        {
+            Title = "Show",
+            Children =
+            [
+                new Page
+                {
+                    Title = "Expander",
+                    Content = new ExpanderPage(),
+                },
+            ]
         }
     ];
 

@@ -4,7 +4,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <ControlTheme TargetType="yik:GroupBorder" x:Key="{x:Type yik:GroupBorder}">
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PanelBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource LineColor}" />
         <Setter Property="Background" Value="{DynamicResource PanelBackgroundColor}" />
         <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="Template">
