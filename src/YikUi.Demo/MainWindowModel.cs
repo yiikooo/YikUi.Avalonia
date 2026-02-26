@@ -12,7 +12,6 @@ public sealed class MainWindowModel : INotifyPropertyChanged
     public MainWindowModel()
     {
         SelectedPage = Pages[0];
-        Pages = Pages.OrderBy(x => x.Title).ToList();
         foreach (var page in Pages)
         {
             if (page.Children is { Count: > 0 })
@@ -30,6 +29,33 @@ public sealed class MainWindowModel : INotifyPropertyChanged
 
     public static List<Page> Pages { get; set; } =
     [
+        new()
+        {
+            Title = "Overview",
+            Content = new Overview()
+        },
+        new()
+        {
+            Title = "Basic",
+            Children =
+            [
+                new Page
+                {
+                    Title = "TextBlock",
+                    Content = new TextBlockPage(),
+                },
+                new Page
+                {
+                    Title = "SelectableTextBlock",
+                    Content = new SelectableTextBlockPage(),
+                },
+                new Page
+                {
+                    Title = "GroupBorder",
+                    Content = new GroupBorderPage(),
+                },
+            ]
+        },
         new()
         {
             Title = "Button",
@@ -50,22 +76,10 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "ToggleButton",
                     Content = new ToggleButtonPage(),
                 },
-            ]
-        },
-        new()
-        {
-            Title = "Basic",
-            Children =
-            [
                 new Page
                 {
-                    Title = "TextBlock",
-                    Content = new TextBlockPage(),
-                },
-                new Page
-                {
-                    Title = "SelectableTextBlock",
-                    Content = new SelectableTextBlockPage(),
+                    Title = "CheckBox",
+                    Content = new CheckBoxPage(),
                 },
             ]
         },

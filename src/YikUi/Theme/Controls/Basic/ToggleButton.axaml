@@ -42,7 +42,7 @@
             <SolidColorBrush
                 Color="#1C1F23"
                 Opacity="0.35"
-                x:Key="ButtonDefaultDisabledForeground" />
+                x:Key="TButtonDefaultDisabledForeground" />
             <SolidColorBrush
                 Color="#1C1F23"
                 Opacity="0.08"
@@ -62,8 +62,8 @@
                 x:Key="ButtonOutlinePressedBackground" />
             <SolidColorBrush
                 Color="#F9F9F9"
-                Opacity="0.35"
-                x:Key="ButtonDefaultDisabledForeground" />
+                Opacity="0.75"
+                x:Key="TButtonDefaultDisabledForeground" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.08"
@@ -97,31 +97,15 @@
                 <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark1}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColorDark1}" />
             </Style>
-        </Style>
-        <Style Selector="^:indeterminate">
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
-            </Style>
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
-                <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+                <Setter Property="Foreground" Value="{DynamicResource TButtonDefaultDisabledForeground}" />
             </Style>
         </Style>
     </ControlTheme>
 
 
     <ControlTheme
-        BasedOn="{StaticResource {x:Type ToggleButton}}"
+        BasedOn="{StaticResource {x:Type Button}}"
         TargetType="ToggleButton"
         x:Key="TransparentToggleButton">
 
@@ -129,53 +113,22 @@
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+            </Style>
         </Style>
 
-        <Style Selector="^:checked">
+        <Style Selector="^:disabled">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-        </Style>
-
-        <Style Selector="^:unchecked">
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-        </Style>
-
-        <Style Selector="^:indeterminate">
-            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
-            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-            </Style>
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

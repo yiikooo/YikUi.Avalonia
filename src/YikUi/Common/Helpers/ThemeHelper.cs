@@ -6,7 +6,7 @@ namespace YikUi.Common.Helpers;
 
 public static class ThemeHelper
 {
-    public static void SetAccentColor(Color accentColor)
+    public static void SetThemeColor(Color accentColor)
     {
         var app = Application.Current;
         if (app?.Resources == null) return;
@@ -28,11 +28,11 @@ public static class ThemeHelper
             ColorDarkenConverter.Darken45.Convert(accentColor, typeof(Color), null, null);
     }
 
-    public static void SetAccentColor(string hexColor)
+    public static void SetThemeColor(string hexColor)
     {
         if (Color.TryParse(hexColor, out var color))
         {
-            SetAccentColor(color);
+            SetThemeColor(color);
         }
     }
 }

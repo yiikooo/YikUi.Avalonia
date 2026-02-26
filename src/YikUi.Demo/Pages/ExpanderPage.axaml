@@ -25,9 +25,10 @@
                                 VerticalAlignment="Top" />
                             <Border
                                 Background="CornflowerBlue"
-                                DockPanel.Dock="Bottom"
-                                Height="205"
-                                Width="205">
+                                CornerRadius="{DynamicResource YikCornerRadius}"
+                                Height="120"
+                                Margin="15"
+                                Width="230">
                                 <TextBlock
                                     Foreground="White"
                                     HorizontalAlignment="Center"
@@ -45,8 +46,10 @@
                         Margin="10">
                         <Border
                             Background="CornflowerBlue"
-                            Height="205"
-                            Width="205">
+                            CornerRadius="{DynamicResource YikCornerRadius}"
+                            Height="120"
+                            Margin="15"
+                            Width="230">
                             <TextBlock
                                 Foreground="White"
                                 HorizontalAlignment="Center"

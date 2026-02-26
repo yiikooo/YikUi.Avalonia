@@ -21,34 +21,34 @@ namespace YikUi;
 
 public class YikUiTheme : Styles
 {
-    public static readonly StyledProperty<Color?> AccentColorProperty =
-        AvaloniaProperty.Register<YikUiTheme, Color?>(nameof(AccentColor), Color.Parse("#1BD76A"));
+    public static readonly StyledProperty<Color?> ThemeColorProperty =
+        AvaloniaProperty.Register<YikUiTheme, Color?>(nameof(ThemeColor), Color.Parse("#1890ff"));
 
     public YikUiTheme()
     {
         AvaloniaXamlLoader.Load(this);
         Resources.MergedDictionaries.Add(new NavMenuSizeAnimations());
-        this.GetObservable(AccentColorProperty).Subscribe(color =>
+        this.GetObservable(ThemeColorProperty).Subscribe(color =>
         {
             if (color.HasValue)
             {
-                ThemeHelper.SetAccentColor(color.Value);
+                ThemeHelper.SetThemeColor(color.Value);
             }
         });
     }
 
-    public Color? AccentColor
+    public Color? ThemeColor
     {
-        get => GetValue(AccentColorProperty);
-        set => SetValue(AccentColorProperty, value);
+        get => GetValue(ThemeColorProperty);
+        set => SetValue(ThemeColorProperty, value);
     }
 
     public void SetAccentColor(Color color)
     {
-        AccentColor = color;
+        ThemeColor = color;
     }
 
-    public void SetAccentColor(string hexColor)
+    public void SetThemeColor(string hexColor)
     {
         if (Color.TryParse(hexColor, out var color))
         {

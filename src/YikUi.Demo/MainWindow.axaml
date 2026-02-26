@@ -27,8 +27,10 @@
     <DockPanel>
         <Border
             Background="{DynamicResource PanelBackgroundColor}"
-            BorderBrush="{DynamicResource PanelBorderBrush}"
-            BorderThickness="0,0,1,0">
+            BorderBrush="{DynamicResource LineColor}"
+            BorderThickness="1"
+            CornerRadius="{DynamicResource YikCornerRadius}"
+            Margin="15,15,-5,15">
             <yik:NavMenu
                 DockPanel.Dock="Left"
                 HeaderBinding="{Binding Title}"

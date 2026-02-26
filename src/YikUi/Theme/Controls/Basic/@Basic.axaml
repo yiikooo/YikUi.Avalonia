@@ -14,5 +14,6 @@
         <ResourceInclude Source="ScrollViewer.axaml" />
         <ResourceInclude Source="SelectableTextBlock.axaml" />
         <ResourceInclude Source="FlyoutPresenter.axaml" />
+        <ResourceInclude Source="CheckBox.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
