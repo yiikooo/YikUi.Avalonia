@@ -68,6 +68,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "RadioButton",
+                    Content = new RadioButtonPage(),
+                },
+                new Page
+                {
                     Title = "HyperlinkButton",
                     Content = new HyperlinkButtonPage(),
                 },

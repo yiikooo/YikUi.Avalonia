@@ -1,0 +1,640 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <ThemeVariantScope RequestedThemeVariant="Dark">
+            <StackPanel Background="{DynamicResource SemiBackground0Color}">
+                <RadioButton>Hello</RadioButton>
+                <RadioButton>Hello</RadioButton>
+                <RadioButton Theme="{DynamicResource CardRadioButton}">Hello</RadioButton>
+                <RadioButton Theme="{DynamicResource PureCardRadioButton}">Hello</RadioButton>
+            </StackPanel>
+        </ThemeVariantScope>
+    </Design.PreviewWith>
+
+    <x:Double x:Key="RadioButtonIconRadius">16</x:Double>
+    <x:Double x:Key="RadioButtonGlyphRadius">6</x:Double>
+    <x:Double x:Key="RadioButtonFontSize">14</x:Double>
+    <Thickness x:Key="RadioButtonIconMargin">0 2 0 0</Thickness>
+    <x:Double x:Key="RadioButtonUncheckIconDefaultThickness">1</x:Double>
+    <Thickness x:Key="RadioButtonContentMargin">8 0 0 0</Thickness>
+    <CornerRadius x:Key="RadioButtonBoxCornerRadius">3</CornerRadius>
+    <CornerRadius x:Key="RadioButtonGroupCornerRadius">3</CornerRadius>
+    <CornerRadius x:Key="RadioButtonButtonCornerRadius">3</CornerRadius>
+    <FontWeight x:Key="RadioButtonButtonFontWeight">600</FontWeight>
+    <Thickness x:Key="RadioButtonButtonSmallPadding">16 2</Thickness>
+    <Thickness x:Key="RadioButtonButtonDefaultPadding">16 4</Thickness>
+    <Thickness x:Key="RadioButtonButtonLargePadding">24 6</Thickness>
+    <x:Double x:Key="RadioButtonButtonSmallFontSize">12</x:Double>
+    <x:Double x:Key="RadioButtonButtonDefaultFontSize">12</x:Double>
+    <x:Double x:Key="RadioButtonButtonLargeFontSize">14</x:Double>
+    <Thickness x:Key="RadioButtonCardPadding">12</Thickness>
+    <CornerRadius x:Key="RadioButtonCardCornerRadius">3</CornerRadius>
+    <Thickness x:Key="RadioButtonBorderThickness">1</Thickness>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="RadioButtonDisabledForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonUncheckIconDefaultBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.05"
+                x:Key="RadioButtonUncheckIconPointeroverBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.09"
+                x:Key="RadioButtonUncheckIconPressedBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.05"
+                x:Key="RadioButtonUncheckIconDisabledBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="RadioButtonUncheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonUncheckIconPressedBorderBrush" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.08"
+                x:Key="RadioButtonUncheckIconDisabledBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconDefaultBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPressedBackground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorDark2}"
+                Opacity="0.35"
+                x:Key="RadioButtonCheckIconDisabledBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorDark2}"
+                Opacity="0.35"
+                x:Key="RadioButtonCheckIconDisabledBorderBrush" />
+            <SolidColorBrush Color="White" x:Key="RadioButtonCheckGlyphFill" />
+            <SolidColorBrush Color="#000000" x:Key="RadioButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonDefaultBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="RadioButtonDefaultBorderBrush" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.05"
+                x:Key="RadioButtonGroupBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.8"
+                x:Key="RadioButtonButtonUncheckedForeground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.09"
+                x:Key="RadioButtonButtonUncheckedPointeroverBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="RadioButtonButtonUncheckedDisabledForeground" />
+            <SolidColorBrush Color="#F8F9FA" x:Key="RadioButtonButtonCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="RadioButtonButtonCheckedDisabledForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBorderBrush" />
+            <SolidColorBrush Color="#EAF5FF" x:Key="RadioButtonCardCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckPressedBorderBrush" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.05"
+                x:Key="RadioButtonCardUncheckPointeroverBackground" />
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.09"
+                x:Key="RadioButtonCardUncheckPressedBackground" />
+            <SolidColorBrush Color="#F8F9FA" x:Key="SemiBackground0Color" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="RadioButtonDisabledForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonUncheckIconDefaultBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.12"
+                x:Key="RadioButtonUncheckIconPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.16"
+                x:Key="RadioButtonUncheckIconPressedBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.12"
+                x:Key="RadioButtonUncheckIconDisabledBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="RadioButtonUncheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonUncheckIconPressedBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.08"
+                x:Key="RadioButtonUncheckIconDisabledBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconDefaultBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPressedBackground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorDark2}"
+                Opacity="0.35"
+                x:Key="RadioButtonCheckIconDisabledBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCheckIconPressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorDark2}"
+                Opacity="0.35"
+                x:Key="RadioButtonCheckIconDisabledBorderBrush" />
+            <SolidColorBrush Color="White" x:Key="RadioButtonCheckGlyphFill" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="RadioButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonDefaultBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="RadioButtonDefaultBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.12"
+                x:Key="RadioButtonGroupBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.8"
+                x:Key="RadioButtonButtonUncheckedForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.16"
+                x:Key="RadioButtonButtonUncheckedPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="RadioButtonButtonUncheckedDisabledForeground" />
+            <SolidColorBrush Color="#1F2937" x:Key="RadioButtonButtonCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="RadioButtonButtonCheckedDisabledForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBorderBrush" />
+            <SolidColorBrush Color="#1F2937" x:Key="RadioButtonCardCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
+                             x:Key="RadioButtonCardCheckPressedBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.12"
+                x:Key="RadioButtonCardUncheckPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.16"
+                x:Key="RadioButtonCardUncheckPressedBackground" />
+            <SolidColorBrush Color="#1F2937" x:Key="SemiBackground0Color" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="RadioButton" x:Key="{x:Type RadioButton}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonDefaultBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonDefaultBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="RootBorder">
+                    <Grid ColumnDefinitions="Auto,*">
+                        <Panel
+                            Grid.Column="0"
+                            Name="PART_GlyphPanel"
+                            TemplatedControl.IsTemplateFocusTarget="True"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse
+                                Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
+                                Height="{DynamicResource RadioButtonIconRadius}"
+                                Name="OuterEllipse"
+                                Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
+                                StrokeThickness="{DynamicResource RadioButtonUncheckIconDefaultThickness}"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource RadioButtonIconRadius}" />
+                            <Ellipse
+                                Fill="{DynamicResource RadioButtonCheckGlyphFill}"
+                                Height="{DynamicResource RadioButtonGlyphRadius}"
+                                Name="CheckGlyph"
+                                Stroke="{DynamicResource RadioButtonCheckGlyphFill}"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource RadioButtonGlyphRadius}" />
+                        </Panel>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Grid.Column="1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Margin="{DynamicResource RadioButtonContentMargin}"
+                            Name="PART_ContentPresenter"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
+            <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDefaultBackground}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDisabledBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDisabledBackground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+
+            <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDefaultBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDefaultBackground}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Panel#PART_GlyphPanel">
+                <Setter Property="Opacity" Value="0.75" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="Border" x:Key="RadioButtonGroupBorder">
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonGroupBackground}" />
+    </ControlTheme>
+
+    <ControlTheme TargetType="RadioButton" x:Key="ButtonRadioButton">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonButtonDefaultPadding}" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontWeight" Value="{DynamicResource RadioButtonButtonFontWeight}" />
+        <Setter Property="FontSize" Value="{DynamicResource RadioButtonButtonDefaultFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonUncheckedForeground}" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Margin="{TemplateBinding Margin}"
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    TextElement.FontSize="{TemplateBinding FontSize}"
+                    TextElement.FontWeight="{TemplateBinding FontWeight}"
+                    UseLayoutRounding="False"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+        <Style Selector="^:unchecked">
+            <Setter Property="Background" Value="Transparent" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonButtonUncheckedPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonUncheckedDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background" Value="{DynamicResource RadioButtonButtonCheckedBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonCheckedForeground}" />
+            <Style Selector="^:disabled">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonCheckedDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="FontSize" Value="{DynamicResource RadioButtonButtonSmallFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource RadioButtonButtonSmallPadding}" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="FontSize" Value="{DynamicResource RadioButtonButtonLargeFontSize}" />
+            <Setter Property="Padding" Value="{DynamicResource RadioButtonButtonLargePadding}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="RadioButton" x:Key="CardRadioButton">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonCardPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="RootBorder"
+                    Padding="{TemplateBinding Padding}">
+                    <Grid
+                        ColumnDefinitions="Auto,*"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <Panel
+                            Grid.Column="0"
+                            Margin="{DynamicResource RadioButtonIconMargin}"
+                            Name="PART_GlyphPanel"
+                            VerticalAlignment="Top">
+                            <Ellipse
+                                Fill="{DynamicResource RadioButtonUncheckIconDefaultBackground}"
+                                Height="{DynamicResource RadioButtonIconRadius}"
+                                Name="OuterEllipse"
+                                Stroke="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}"
+                                StrokeThickness="1"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource RadioButtonIconRadius}" />
+
+                            <Ellipse
+                                Fill="{DynamicResource RadioButtonCheckGlyphFill}"
+                                Height="{DynamicResource RadioButtonGlyphRadius}"
+                                Name="CheckGlyph"
+                                Stroke="{DynamicResource RadioButtonCheckGlyphFill}"
+                                UseLayoutRounding="False"
+                                Width="{DynamicResource RadioButtonGlyphRadius}" />
+                        </Panel>
+
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Grid.Column="1"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            IsVisible="{TemplateBinding Content,
+                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Margin="{DynamicResource RadioButtonContentMargin}"
+                            Name="PART_ContentPresenter"
+                            TextWrapping="Wrap"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
+            <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDefaultBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDefaultBackground}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPointeroverBorderBrush}" />
+                </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconPressedBorderBrush}" />
+                </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
+                </Style>
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonUncheckIconDisabledBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonUncheckIconDisabledBackground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Ellipse#CheckGlyph">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+
+            <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDefaultBorderBrush}" />
+                <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDefaultBackground}" />
+            </Style>
+            <Style Selector="^ /template/ Border#RootBorder">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPointeroverBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPointeroverBackground}" />
+                </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
+                </Style>
+            </Style>
+            <Style Selector="^:pressed">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconPressedBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconPressedBackground}" />
+                </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
+                </Style>
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Ellipse#OuterEllipse">
+                    <Setter Property="Stroke" Value="{DynamicResource RadioButtonCheckIconDisabledBorderBrush}" />
+                    <Setter Property="Fill" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                </Style>
+                <Style Selector="^ /template/ Border#RootBorder">
+                    <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                    <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                </Style>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Panel#PART_GlyphPanel">
+                <Setter Property="Opacity" Value="0.75" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="RadioButton" x:Key="PureCardRadioButton">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="{DynamicResource RadioButtonCardPadding}" />
+        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource RadioButtonCardDefaultBackground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    TextWrapping="Wrap"
+                    UseLayoutRounding="False"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardUncheckPressedBackground}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+            </Style>
+        </Style>
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckDefaultBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCardCheckPressedBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource RadioButtonCheckIconDisabledBackground}" />
+                <Setter Property="Background" Value="{DynamicResource RadioButtonCardCheckedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource RadioButtonDisabledForeground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
