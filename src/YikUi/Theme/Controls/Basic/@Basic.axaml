@@ -16,5 +16,6 @@
         <ResourceInclude Source="FlyoutPresenter.axaml" />
         <ResourceInclude Source="CheckBox.axaml" />
         <ResourceInclude Source="RadioButton.axaml" />
+        <ResourceInclude Source="ToggleSwitch.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

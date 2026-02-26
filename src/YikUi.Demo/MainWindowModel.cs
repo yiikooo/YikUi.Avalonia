@@ -68,6 +68,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "ToggleSwitch",
+                    Content = new ToggleSwitchPage(),
+                },
+                new Page
+                {
                     Title = "RadioButton",
                     Content = new RadioButtonPage(),
                 },

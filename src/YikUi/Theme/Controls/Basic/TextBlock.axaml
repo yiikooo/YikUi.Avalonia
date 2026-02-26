@@ -5,6 +5,21 @@
         </StackPanel>
     </Design.PreviewWith>
 
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="DisabledForegroundColor" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.35"
+                x:Key="DisabledForegroundColor" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
     <ControlTheme TargetType="TextBlock" x:Key="{x:Type TextBlock}">
         <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
         <Setter Property="Transitions">
@@ -60,6 +75,9 @@
         </Style>
         <Style Selector="^.Accent">
             <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

@@ -1,16 +1,22 @@
 ﻿using System.Globalization;
+using Avalonia.Data.Converters;
 
 namespace YikUi.Common.Converter;
 
-public class BooleansToOpacityConverter : MarkupValueConverter
+public class BooleansToOpacityConverter : IValueConverter
 {
-    public override object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+    public object Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        if (value is bool b)
-        {
-            return b ? 1.0 : 0.0;
-        }
+        if (value is not bool b) return 1.0;
+        var isInverted = parameter?.ToString() == "!" || parameter?.ToString() == "Inverse";
 
-        return 1;
+        var finalValue = isInverted ? !b : b;
+
+        return finalValue ? 1.0 : 0.0;
+    }
+
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        return null;
     }
 }
