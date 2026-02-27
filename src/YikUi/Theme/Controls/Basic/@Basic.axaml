@@ -27,5 +27,6 @@
         <ResourceInclude Source="ButtonSpinner.axaml" />
         <ResourceInclude Source="NumericUpDown.axaml" />
         <ResourceInclude Source="Slider.axaml" />
+        <ResourceInclude Source="ManagedFileChooser.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

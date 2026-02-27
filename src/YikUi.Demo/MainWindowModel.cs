@@ -118,6 +118,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "Slider",
                     Content = new SliderPage(),
                 },
+                new Page
+                {
+                    Title = "ManagedFileChooser",
+                    Content = new ManagedFileChooserPage(),
+                },
             ]
         },
         new()

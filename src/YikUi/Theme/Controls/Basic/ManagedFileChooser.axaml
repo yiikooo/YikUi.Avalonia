@@ -1,0 +1,242 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:cvt="using:Avalonia.Controls.Converters"
+    xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
+    xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs"
+    xmlns:language="clr-namespace:YikUi.Common.Language"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Design.PreviewWith>
+        <Border
+            Height="500"
+            Padding="20"
+            Width="800">
+            <dialogs:ManagedFileChooser />
+        </Border>
+    </Design.PreviewWith>
+
+    <yik:KeyToPathConverter x:Key="Icons">
+        <StreamGeometry x:Key="Icon_Folder">M19,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H19A2,2 0 0,1 21,8H21L4,8V18L6.14,10H23.21L20.93,18.5C20.7,19.37 19.92,20 19,20Z</StreamGeometry>
+        <StreamGeometry x:Key="Icon_File">M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z</StreamGeometry>
+        <StreamGeometry x:Key="Icon_Volume">M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2M12,4A6,6 0 0,0 6,10C6,13.31 8.69,16 12.1,16L11.22,13.77C10.95,13.29 11.11,12.68 11.59,12.4L12.45,11.9C12.93,11.63 13.54,11.79 13.82,12.27L15.74,14.69C17.12,13.59 18,11.9 18,10A6,6 0 0,0 12,4M12,9A1,1 0 0,1 13,10A1,1 0 0,1 12,11A1,1 0 0,1 11,10A1,1 0 0,1 12,9M7,18A1,1 0 0,0 6,19A1,1 0 0,0 7,20A1,1 0 0,0 8,19A1,1 0 0,0 7,18M12.09,13.27L14.58,19.58L17.17,18.08L12.95,12.77L12.09,13.27Z</StreamGeometry>
+    </yik:KeyToPathConverter>
+    <ControlTheme TargetType="dialogs:ManagedFileChooser" x:Key="{x:Type dialogs:ManagedFileChooser}">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="dialogs:ManagedFileChooser" x:DataType="internal:ManagedFileChooserViewModel">
+                <DockPanel>
+                    <Border
+                        DockPanel.Dock="Left"
+                        Margin="8"
+                        Padding="4"
+                        Theme="{DynamicResource CardBorder}">
+                        <ListBox
+                            Focusable="False"
+                            ItemsSource="{Binding QuickLinks}"
+                            Name="PART_QuickLinks"
+                            SelectedIndex="{Binding QuickLinksSelectedIndex}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                        <PathIcon
+                                            Data="{Binding IconKey, Converter={StaticResource Icons}}"
+                                            Foreground="{DynamicResource ForegroundColor}"
+                                            Theme="{DynamicResource InnerPathIcon}" />
+                                        <TextBlock Foreground="{DynamicResource ForegroundColor}"
+                                                   Text="{Binding DisplayName}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Border>
+                    <DockPanel
+                        DockPanel.Dock="Top"
+                        Margin="8,8,8,0"
+                        Name="NavBar"
+                        VerticalAlignment="Center">
+                        <Button Command="{Binding GoUp}" DockPanel.Dock="Left">
+                            <PathIcon
+                                Data="F1 M384,512z M0,0z M214.6,9.4C202.1,-3.1,181.8,-3.1,169.3,9.4L9.30000000000001,169.4C-3.19999999999999,181.9 -3.19999999999999,202.2 9.30000000000001,214.7 21.8,227.2 42.1,227.2 54.6,214.7L160,109.3 160,480C160,497.7 174.3,512 192,512 209.7,512 224,497.7 224,480L224,109.3 329.4,214.7C341.9,227.2 362.2,227.2 374.7,214.7 387.2,202.2 387.2,181.9 374.7,169.4L214.7,9.40000000000003z"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                Height="12" />
+                        </Button>
+                        <TextBox Name="Location" Text="{Binding Location}">
+                            <TextBox.KeyBindings>
+                                <KeyBinding Command="{Binding EnterPressed}" Gesture="Enter" />
+                            </TextBox.KeyBindings>
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Bottom" Margin="8,0,8,8">
+                        <DockPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+                            <ComboBox
+                                DockPanel.Dock="Right"
+                                IsVisible="{Binding ShowFilters}"
+                                ItemsSource="{Binding Filters}"
+                                Margin="8,0,0,0"
+                                SelectedItem="{Binding SelectedFilter}" />
+                            <TextBox
+                                IsVisible="{Binding !SelectingFolder}"
+                                Text="{Binding FileName}"
+                                Watermark="{Binding Source={x:Static language:LangManager.Current}, Path=FileName}" />
+                        </DockPanel>
+                        <CheckBox
+                            Content="{Binding Source={x:Static language:LangManager.Current}, Path=ShowHiddenFiles}"
+                            DockPanel.Dock="Left"
+                            IsChecked="{Binding ShowHiddenFiles}"
+                            VerticalAlignment="Center" />
+                        <UniformGrid
+                            HorizontalAlignment="Right"
+                            Name="Finalize"
+                            Rows="1">
+                            <Button
+                                Classes="Primary"
+                                Command="{Binding Ok}"
+                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Confirm}"
+                                Margin="8,0,0,0" />
+                            <Button
+                                Classes="Danger"
+                                Command="{Binding Cancel}"
+                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Cancel}"
+                                Margin="8,0,0,0" />
+                        </UniformGrid>
+                    </DockPanel>
+                    <Border
+                        Margin="8"
+                        Padding="8"
+                        Theme="{DynamicResource CardBorder}">
+                        <DockPanel Grid.IsSharedSizeScope="True">
+                            <Grid
+                                ClipToBounds="True"
+                                DockPanel.Dock="Top"
+                                HorizontalAlignment="Stretch">
+                                <Grid.Styles>
+                                    <Style Selector="TextBlock">
+                                        <Setter Property="Height" Value="24" />
+                                        <Setter Property="VerticalAlignment" Value="Center" />
+                                        <Setter Property="Margin" Value="8 0 0 0 " />
+                                    </Style>
+                                </Grid.Styles>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="Icon" Width="20" />
+                                    <ColumnDefinition SharedSizeGroup="Splitter" Width="16" />
+                                    <ColumnDefinition SharedSizeGroup="Name" Width="275" />
+                                    <ColumnDefinition SharedSizeGroup="Splitter" Width="16" />
+                                    <ColumnDefinition SharedSizeGroup="Modified" Width="200" />
+                                    <ColumnDefinition SharedSizeGroup="Splitter" Width="16" />
+                                    <ColumnDefinition SharedSizeGroup="Type" Width="150" />
+                                    <ColumnDefinition SharedSizeGroup="Splitter" Width="16" />
+                                    <ColumnDefinition SharedSizeGroup="Size" Width="200" />
+                                </Grid.ColumnDefinitions>
+                                <GridSplitter Grid.Column="1" Width="1" />
+                                <TextBlock Grid.Column="2"
+                                           Text="{Binding Source={x:Static language:LangManager.Current}, Path=Name}" />
+                                <GridSplitter Grid.Column="3" Width="1" />
+                                <TextBlock Grid.Column="4"
+                                           Text="{Binding Source={x:Static language:LangManager.Current}, Path=UpdateAt}" />
+                                <GridSplitter Grid.Column="5" Width="1" />
+                                <TextBlock Grid.Column="6"
+                                           Text="{Binding Source={x:Static language:LangManager.Current}, Path=Type}" />
+                                <GridSplitter Grid.Column="7" Width="1" />
+                                <TextBlock Grid.Column="8"
+                                           Text="{Binding Source={x:Static language:LangManager.Current}, Path=Size}" />
+                            </Grid>
+                            <ListBox
+                                ItemsSource="{Binding Items}"
+                                Name="PART_Files"
+                                SelectedItems="{Binding SelectedItems}"
+                                SelectionMode="{Binding SelectionMode}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Background="Transparent">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition SharedSizeGroup="Icon" />
+                                                <ColumnDefinition SharedSizeGroup="Splitter" />
+                                                <ColumnDefinition SharedSizeGroup="Name" />
+                                                <ColumnDefinition SharedSizeGroup="Splitter" />
+                                                <ColumnDefinition SharedSizeGroup="Modified" />
+                                                <ColumnDefinition SharedSizeGroup="Splitter" />
+                                                <ColumnDefinition SharedSizeGroup="Type" />
+                                                <ColumnDefinition SharedSizeGroup="Splitter" />
+                                                <ColumnDefinition SharedSizeGroup="Size" />
+                                            </Grid.ColumnDefinitions>
+                                            <PathIcon
+                                                Data="{Binding IconKey, Converter={StaticResource Icons}}"
+                                                Foreground="{DynamicResource ForegroundColor}"
+                                                Theme="{DynamicResource InnerPathIcon}" />
+                                            <TextBlock
+                                                Foreground="{DynamicResource ForegroundColor}"
+                                                Grid.Column="2"
+                                                Text="{Binding DisplayName}" />
+                                            <TextBlock
+                                                Foreground="{DynamicResource ForegroundColor}"
+                                                Grid.Column="4"
+                                                Text="{Binding Modified}" />
+                                            <TextBlock
+                                                Foreground="{DynamicResource ForegroundColor}"
+                                                Grid.Column="6"
+                                                Text="{Binding Type}" />
+                                            <TextBlock Foreground="{DynamicResource ForegroundColor}" Grid.Column="8">
+                                                <TextBlock.Text>
+                                                    <Binding Path="Size">
+                                                        <Binding.Converter>
+                                                            <internal:FileSizeStringConverter />
+                                                        </Binding.Converter>
+                                                    </Binding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="dialogs:ManagedFileChooserOverwritePrompt"
+                  x:Key="{x:Type dialogs:ManagedFileChooserOverwritePrompt}">
+        <Setter Property="MaxWidth" Value="400" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}">
+                    <StackPanel Spacing="10">
+                        <TextBlock TextWrapping="Wrap">
+                            <TextBlock.Text>
+                                <MultiBinding>
+                                    <MultiBinding.Converter>
+                                        <cvt:StringFormatConverter />
+                                    </MultiBinding.Converter>
+                                    <Binding Path="FileAlreadyExists" Source="{x:Static language:LangManager.Current}" />
+                                    <TemplateBinding Property="FileName" />
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <StackPanel
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <Button
+                                Command="{Binding Confirm, RelativeSource={RelativeSource TemplatedParent}}"
+                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Confirm}"
+                                HorizontalContentAlignment="Center"
+                                IsDefault="True"
+                                Theme="{StaticResource SolidButton}" />
+                            <Button
+                                Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
+                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Cancel}"
+                                HorizontalContentAlignment="Center"
+                                IsCancel="True" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

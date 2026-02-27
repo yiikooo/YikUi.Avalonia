@@ -40,7 +40,7 @@
                 Margin="10,10,4,10"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
-                Width="220">
+                Width="230">
                 <yik:NavMenu.Styles>
                     <Style Selector="yik|NavMenu /template/ ItemsPresenter#PART_ItemsPresenter">
                         <Setter Property="Margin" Value="0,0,6,0" />

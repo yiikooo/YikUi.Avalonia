@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Dialogs;
 using HotAvalonia;
 
 namespace YikUi.Demo;
@@ -24,6 +25,7 @@ internal class Program
             .UseHotReload()
 #endif
             .UsePlatformDetect()
+            .UseManagedSystemDialogs()
             .WithInterFont()
             .LogToTrace();
     }

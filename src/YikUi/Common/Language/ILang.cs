@@ -15,4 +15,5 @@ public interface ILang
     public string Cancel { get; }
     public string Confirm { get; }
     public string ShowHiddenFiles { get; }
+    public string FileAlreadyExists { get; }
 }
