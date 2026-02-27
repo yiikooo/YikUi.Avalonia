@@ -12,6 +12,7 @@
         </ResourceDictionary>
     </Application.Resources>
     <Application.Styles>
+        <SimpleTheme />
         <yik:YikUiTheme ThemeColor="#1BD76A" />
     </Application.Styles>
 </Application>
