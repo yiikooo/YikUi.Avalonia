@@ -3,7 +3,6 @@
     xmlns:cvt="using:Avalonia.Controls.Converters"
     xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
     xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs"
-    xmlns:language="clr-namespace:YikUi.Common.Language"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Design.PreviewWith>
@@ -88,10 +87,10 @@
                                     FontSize="14"
                                     IsVisible="{Binding !SelectingFolder}"
                                     Text="{Binding FileName}"
-                                    Watermark="{Binding Source={x:Static language:LangManager.Current}, Path=FileName}" />
+                                    Watermark="{DynamicResource Lang.FileName}" />
                             </DockPanel>
                             <CheckBox
-                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=ShowHiddenFiles}"
+                                Content="{DynamicResource Lang.ShowHiddenFiles}"
                                 DockPanel.Dock="Left"
                                 FontFamily="{DynamicResource YikFontFamily}"
                                 FontSize="13"
@@ -105,14 +104,14 @@
                                 <Button
                                     Classes="Primary"
                                     Command="{Binding Ok}"
-                                    Content="{Binding Source={x:Static language:LangManager.Current}, Path=Confirm}"
+                                    Content="{DynamicResource Lang.Confirm}"
                                     FontFamily="{DynamicResource YikFontFamily}"
                                     FontSize="13"
                                     Margin="8,0,0,0" />
                                 <Button
                                     Classes="Danger"
                                     Command="{Binding Cancel}"
-                                    Content="{Binding Source={x:Static language:LangManager.Current}, Path=Cancel}"
+                                    Content="{DynamicResource Lang.Cancel}"
                                     FontFamily="{DynamicResource YikFontFamily}"
                                     FontSize="13"
                                     Margin="8,0,0,0" />
@@ -151,22 +150,22 @@
                                     <TextBlock
                                         FontSize="13"
                                         Grid.Column="2"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Name}" />
+                                        Text="{DynamicResource Lang.Name}" />
                                     <GridSplitter Grid.Column="3" Width="1" />
                                     <TextBlock
                                         FontSize="13"
                                         Grid.Column="4"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=UpdateAt}" />
+                                        Text="{DynamicResource Lang.UpdateAt}" />
                                     <GridSplitter Grid.Column="5" Width="1" />
                                     <TextBlock
                                         FontSize="13"
                                         Grid.Column="6"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Type}" />
+                                        Text="{DynamicResource Lang.Type}" />
                                     <GridSplitter Grid.Column="7" Width="1" />
                                     <TextBlock
                                         FontSize="13"
                                         Grid.Column="8"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Size}" />
+                                        Text="{DynamicResource Lang.Size}" />
                                 </Grid>
                                 <ListBox
                                     FontSize="14"
@@ -246,7 +245,7 @@
                                     <MultiBinding.Converter>
                                         <cvt:StringFormatConverter />
                                     </MultiBinding.Converter>
-                                    <Binding Path="FileAlreadyExists" Source="{x:Static language:LangManager.Current}" />
+                                    <DynamicResource ResourceKey="Lang.FileAlreadyExists" />
                                     <TemplateBinding Property="FileName" />
                                 </MultiBinding>
                             </TextBlock.Text>
@@ -257,14 +256,14 @@
                             Spacing="10">
                             <Button
                                 Command="{Binding Confirm, RelativeSource={RelativeSource TemplatedParent}}"
-                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Confirm}"
+                                Content="{DynamicResource Lang.Confirm}"
                                 FontFamily="{DynamicResource YikFontFamily}"
                                 FontSize="13"
                                 HorizontalContentAlignment="Center"
                                 IsDefault="True" />
                             <Button
                                 Command="{Binding Cancel, RelativeSource={RelativeSource TemplatedParent}}"
-                                Content="{Binding Source={x:Static language:LangManager.Current}, Path=Cancel}"
+                                Content="{DynamicResource Lang.Cancel}"
                                 FontFamily="{DynamicResource YikFontFamily}"
                                 FontSize="13"
                                 HorizontalContentAlignment="Center"

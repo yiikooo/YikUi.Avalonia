@@ -1,6 +1,6 @@
 <ResourceDictionary
+    x:CompileBindings="False"
     xmlns="https://github.com/avaloniaui"
-    xmlns:language="clr-namespace:YikUi.Common.Language"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
@@ -321,7 +321,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_DayTextBlock"
                                         Padding="12,0"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Day}"
+                                        Text="{DynamicResource Lang.Day}"
                                         VerticalAlignment="Center" />
                                     <TextBlock
                                         FontFamily="{TemplateBinding FontFamily}"
@@ -330,7 +330,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_MonthTextBlock"
                                         Padding="12,0"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Month}"
+                                        Text="{DynamicResource Lang.Month}"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center" />
                                     <TextBlock
@@ -340,7 +340,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_YearTextBlock"
                                         Padding="12,0"
-                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Year}"
+                                        Text="{DynamicResource Lang.Year}"
                                         VerticalAlignment="Center" />
                                     <Rectangle
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}"

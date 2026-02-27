@@ -1,25 +1,38 @@
+using System.ComponentModel;
+using System.Reflection;
+using Avalonia;
 using YikUi.Common.Language.Langs;
 
 namespace YikUi.Common.Language;
 
-public static class LangManager
+public class LangManager : INotifyPropertyChanged
 {
-    public static ILang Current
+    private ILang _current = new LangZhCn();
+
+    private LangManager()
     {
-        get;
+        UpdateResources();
+    }
+
+    public static LangManager Instance { get; } = new();
+
+    public ILang Current
+    {
+        get => _current;
         set
         {
-            if (field == value) return;
-            field = value;
-            LanguageChanged?.Invoke(null, value);
+            if (_current == value) return;
+            _current = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Current)));
+            UpdateResources();
         }
-    } = new LangZhCn();
+    }
 
-    public static event EventHandler<ILang>? LanguageChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     public static void SetLanguage(Languages lang)
     {
-        Current = lang switch
+        Instance.Current = lang switch
         {
             Languages.zh_cn => new LangZhCn(),
             Languages.en_us => new LangEnUs(),
@@ -29,6 +42,28 @@ public static class LangManager
 
     public static void SetLanguage(ILang customLang)
     {
-        Current = customLang ?? throw new ArgumentNullException(nameof(customLang));
+        Instance.Current = customLang;
+    }
+
+    private void UpdateResources()
+    {
+        if (Application.Current == null) return;
+
+        var properties = typeof(ILang).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        foreach (var prop in properties)
+        {
+            var key = $"Lang.{prop.Name}";
+            var value = prop.GetValue(_current)?.ToString() ?? string.Empty;
+
+            if (Application.Current.Resources.ContainsKey(key))
+            {
+                Application.Current.Resources[key] = value;
+            }
+            else
+            {
+                Application.Current.Resources.Add(key, value);
+            }
+        }
     }
 }

@@ -47,5 +47,9 @@
             <DependentUpon>ScrollViewerPage.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Pages\SettingPage.axaml.cs">
+            <DependentUpon>SettingPage.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 </Project>

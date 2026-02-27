@@ -32,7 +32,12 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         new()
         {
             Title = "Overview",
-            Content = new Overview()
+            Content = new OverviewPage()
+        },
+        new()
+        {
+            Title = "Setting",
+            Content = new SettingPage()
         },
         new()
         {

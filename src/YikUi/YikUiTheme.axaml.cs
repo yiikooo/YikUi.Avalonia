@@ -22,8 +22,8 @@ namespace YikUi;
 
 public class YikUiTheme : Styles
 {
-    public static readonly StyledProperty<Color?> ThemeColorProperty =
-        AvaloniaProperty.Register<YikUiTheme, Color?>(nameof(ThemeColor), Color.Parse("#1890ff"));
+    public static readonly StyledProperty<Color> ThemeColorProperty =
+        AvaloniaProperty.Register<YikUiTheme, Color>(nameof(ThemeColor), Color.Parse("#1890ff"));
 
     public static readonly StyledProperty<Languages?> LanguageProperty =
         AvaloniaProperty.Register<YikUiTheme, Languages?>(nameof(Language));
@@ -33,32 +33,30 @@ public class YikUiTheme : Styles
 
     public YikUiTheme()
     {
-        AvaloniaXamlLoader.Load(this);
         Resources.MergedDictionaries.Add(new NavMenuSizeAnimations());
 
-        this.GetObservable(ThemeColorProperty).Subscribe(color =>
-        {
-            if (color.HasValue)
-            {
-                ThemeHelper.SetThemeColor(color.Value);
-            }
-        });
+        if (CustomLanguage != null)
+            LangManager.SetLanguage(CustomLanguage);
+        else if (Language != null)
+            LangManager.SetLanguage(Language.Value);
+        else
+            LangManager.SetLanguage(Languages.zh_cn);
+
+        this.GetObservable(ThemeColorProperty).Subscribe(ThemeHelper.SetThemeColor);
 
         this.GetObservable(LanguageProperty).Subscribe(lang =>
         {
             if (lang.HasValue)
-            {
                 LangManager.SetLanguage(lang.Value);
-            }
         });
 
         this.GetObservable(CustomLanguageProperty).Subscribe(customLang =>
         {
             if (customLang != null)
-            {
                 LangManager.SetLanguage(customLang);
-            }
         });
+
+        AvaloniaXamlLoader.Load(this);
     }
 
     public Color? ThemeColor
@@ -79,7 +77,7 @@ public class YikUiTheme : Styles
         set => SetValue(CustomLanguageProperty, value);
     }
 
-    public void SetAccentColor(Color color)
+    public void SetThemeColor(Color color)
     {
         ThemeColor = color;
     }
@@ -88,7 +86,7 @@ public class YikUiTheme : Styles
     {
         if (Color.TryParse(hexColor, out var color))
         {
-            SetAccentColor(color);
+            SetThemeColor(color);
         }
     }
 
@@ -97,7 +95,7 @@ public class YikUiTheme : Styles
         Language = lang;
     }
 
-    public void SetCustomLanguage(ILang customLang)
+    public void SetLanguage(ILang customLang)
     {
         CustomLanguage = customLang;
     }
