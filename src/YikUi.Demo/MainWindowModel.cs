@@ -127,6 +127,23 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         },
         new()
         {
+            Title = "Time",
+            Children =
+            [
+                new Page
+                {
+                    Title = "Calendar",
+                    Content = new CalendarPage(),
+                },
+                new Page
+                {
+                    Title = "CalendarDatePicker",
+                    Content = new CalendarDatePickerPage(),
+                },
+            ]
+        },
+        new()
+        {
             Title = "Show",
             Children =
             [

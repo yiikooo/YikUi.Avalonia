@@ -2,11 +2,6 @@ namespace YikUi.Common.Language.Langs;
 
 public class LangEnUs : ILang
 {
-    public string Desktop => "Desktop";
-    public string Documents => "Documents";
-    public string Music => "Music";
-    public string Pictures => "Pictures";
-    public string Videos => "Videos";
     public string Name => "Name";
     public string FileName => "File Name";
     public string UpdateAt => "Date Modified";

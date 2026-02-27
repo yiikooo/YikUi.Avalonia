@@ -290,7 +290,7 @@
                                         CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                         CaretBrush="{TemplateBinding CaretBrush}"
                                         CaretIndex="{TemplateBinding CaretIndex}"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        HorizontalAlignment="Stretch"
                                         LineHeight="{TemplateBinding LineHeight}"
                                         Name="PART_TextPresenter"
                                         PasswordChar="{TemplateBinding PasswordChar}"
@@ -313,12 +313,16 @@
                             </ScrollViewer>
                             <Button
                                 Command="{Binding $parent[TextBox].Clear}"
-                                Content="M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.04-6.14a1.5 1.5 0 0 1-2.13.04l-2.87-2.78L9.26 17A1.5 1.5 0 0 1 7.1 14.9l2.78-2.87L7 9.26A1.5 1.5 0 1 1 9.1 7.1l2.87 2.78L14.74 7A1.5 1.5 0 0 1 16.9 9.1l-2.78 2.87L17 14.74c.6.58.61 1.53.04 2.12Z "
                                 Focusable="False"
                                 Grid.Column="2"
                                 IsVisible="False"
                                 Name="PART_ClearButton"
-                                Theme="{StaticResource InnerIconButton}" />
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="{DynamicResource Close}"
+                                    Height="11"
+                                    Width="16" />
+                            </Button>
                             <ToggleButton
                                 Grid.Column="3"
                                 IsChecked="{TemplateBinding RevealPassword,
@@ -496,7 +500,7 @@
                                 <TextPresenter
                                     CaretBrush="{TemplateBinding CaretBrush}"
                                     CaretIndex="{TemplateBinding CaretIndex}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    HorizontalAlignment="Stretch"
                                     Name="PART_TextPresenter"
                                     PasswordChar="{TemplateBinding PasswordChar}"
                                     RevealPassword="{TemplateBinding RevealPassword}"
@@ -590,7 +594,7 @@
                                         CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
                                         CaretBrush="{TemplateBinding CaretBrush}"
                                         CaretIndex="{TemplateBinding CaretIndex}"
-                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        HorizontalAlignment="Stretch"
                                         LineHeight="{TemplateBinding LineHeight}"
                                         Name="PART_TextPresenter"
                                         PasswordChar="{TemplateBinding PasswordChar}"
@@ -608,12 +612,16 @@
                             </ScrollViewer>
                             <Button
                                 Command="{Binding $parent[TextBox].Clear}"
-                                Content="{DynamicResource IconButtonClearData}"
                                 Focusable="False"
                                 Grid.Column="2"
                                 IsVisible="False"
                                 Name="PART_ClearButton"
-                                Theme="{StaticResource InnerIconButton}" />
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="{DynamicResource Close}"
+                                    Height="11"
+                                    Width="16" />
+                            </Button>
                             <ToggleButton
                                 Grid.Column="3"
                                 IsChecked="{TemplateBinding RevealPassword,

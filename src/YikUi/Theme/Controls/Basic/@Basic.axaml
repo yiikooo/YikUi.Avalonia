@@ -29,5 +29,7 @@
         <ResourceInclude Source="Slider.axaml" />
         <ResourceInclude Source="ManagedFileChooser.axaml" />
         <ResourceInclude Source="ListBox.axaml" />
+        <ResourceInclude Source="Calendar.axaml" />
+        <ResourceInclude Source="CalendarDatePicker.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
