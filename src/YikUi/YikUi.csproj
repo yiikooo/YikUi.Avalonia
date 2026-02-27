@@ -25,6 +25,7 @@
 
     <ItemGroup>
         <Folder Include="Assets\"/>
+        <Folder Include="Common\Language\Langs\"/>
     </ItemGroup>
 
     <ItemGroup>
