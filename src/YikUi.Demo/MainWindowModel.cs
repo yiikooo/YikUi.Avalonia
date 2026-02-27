@@ -135,6 +135,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "Expander",
                     Content = new ExpanderPage(),
                 },
+                new Page
+                {
+                    Title = "ListBox",
+                    Content = new ListBoxPage(),
+                },
             ]
         },
         new()

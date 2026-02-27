@@ -28,5 +28,6 @@
         <ResourceInclude Source="NumericUpDown.axaml" />
         <ResourceInclude Source="Slider.axaml" />
         <ResourceInclude Source="ManagedFileChooser.axaml" />
+        <ResourceInclude Source="ListBox.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
