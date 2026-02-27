@@ -5,4 +5,5 @@
     <StyleInclude Source="ToggleButton.axaml" />
     <StyleInclude Source="HyperlinkButton.axaml" />
     <StyleInclude Source="ScrollViewer.axaml" />
+    <StyleInclude Source="PopupAnimation.axaml" />
 </Styles>

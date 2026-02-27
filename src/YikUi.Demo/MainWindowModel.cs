@@ -137,6 +137,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "ScrollViewer",
                     Content = new ScrollViewerPage(),
                 },
+                new Page
+                {
+                    Title = "ThemeVariantScope",
+                    Content = new ThemeVariantScopePage(),
+                },
             ]
         }
     ];

@@ -53,30 +53,22 @@
                 Color="#000000"
                 Opacity="0.35"
                 x:Key="RadioButtonUncheckIconDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonUncheckIconPressedBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonUncheckIconPressedBorderBrush" />
             <SolidColorBrush
                 Color="#000000"
                 Opacity="0.08"
                 x:Key="RadioButtonUncheckIconDisabledBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconDefaultBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconDefaultBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPressedBackground" />
             <SolidColorBrush
                 Color="{DynamicResource SystemAccentColorDark2}"
                 Opacity="0.35"
                 x:Key="RadioButtonCheckIconDisabledBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPressedBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPressedBorderBrush" />
             <SolidColorBrush
                 Color="{DynamicResource SystemAccentColorDark2}"
                 Opacity="0.35"
@@ -104,22 +96,24 @@
                 Color="#000000"
                 Opacity="0.35"
                 x:Key="RadioButtonButtonUncheckedDisabledForeground" />
-            <SolidColorBrush Color="#F8F9FA" x:Key="RadioButtonButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.1"
+                x:Key="RadioButtonButtonCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonButtonCheckedForeground" />
             <SolidColorBrush
                 Color="#000000"
                 Opacity="0.35"
                 x:Key="RadioButtonButtonCheckedDisabledForeground" />
             <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBackground" />
             <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBorderBrush" />
-            <SolidColorBrush Color="#EAF5FF" x:Key="RadioButtonCardCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckPressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.1"
+                x:Key="RadioButtonCardCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckPressedBorderBrush" />
             <SolidColorBrush
                 Color="#000000"
                 Opacity="0.05"
@@ -152,30 +146,22 @@
                 Color="#FFFFFF"
                 Opacity="0.35"
                 x:Key="RadioButtonUncheckIconDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonUncheckIconPressedBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonUncheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonUncheckIconPressedBorderBrush" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.08"
                 x:Key="RadioButtonUncheckIconDisabledBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconDefaultBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconDefaultBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPressedBackground" />
             <SolidColorBrush
                 Color="{DynamicResource SystemAccentColorDark2}"
                 Opacity="0.35"
                 x:Key="RadioButtonCheckIconDisabledBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCheckIconPressedBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCheckIconPressedBorderBrush" />
             <SolidColorBrush
                 Color="{DynamicResource SystemAccentColorDark2}"
                 Opacity="0.35"
@@ -203,22 +189,24 @@
                 Color="#FFFFFF"
                 Opacity="0.35"
                 x:Key="RadioButtonButtonUncheckedDisabledForeground" />
-            <SolidColorBrush Color="#1F2937" x:Key="RadioButtonButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.1"
+                x:Key="RadioButtonButtonCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonButtonCheckedForeground" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.35"
                 x:Key="RadioButtonButtonCheckedDisabledForeground" />
             <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBackground" />
             <SolidColorBrush Color="Transparent" x:Key="RadioButtonCardDefaultBorderBrush" />
-            <SolidColorBrush Color="#1F2937" x:Key="RadioButtonCardCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckDefaultBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="RadioButtonCardCheckPressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.1"
+                x:Key="RadioButtonCardCheckedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckDefaultBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckPointeroverBorderBrush" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonCardCheckPressedBorderBrush" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.12"

@@ -20,6 +20,9 @@
         <Style Selector="^.Active /template/ Path#PART_Path">
             <Setter Property="Fill" Value="{TemplateBinding BorderBrush}" />
         </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
+        </Style>
     </ControlTheme>
 
     <ControlTheme TargetType="PathIcon" x:Key="InnerPathIcon">

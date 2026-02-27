@@ -10,46 +10,43 @@
     xmlns:pages="clr-namespace:YikUi.Demo.Pages"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <Border>
-        <ScrollViewer Margin="0,0,5,0">
-            <StackPanel Margin="15,15,10,15" Spacing="15">
-                <yik:GroupBorder Header="AutoCompleteBox" Padding="15">
-                    <StackPanel HorizontalAlignment="Left" Spacing="20">
-                        <StackPanel.Styles>
-                            <Style Selector="AutoCompleteBox">
-                                <Setter Property="Width" Value="300" />
-                                <Setter Property="ItemsSource">
-                                    <Binding Path="States" />
-                                </Setter>
-                                <Setter Property="ItemTemplate">
-                                    <DataTemplate DataType="pages:StateData">
-                                        <TextBlock Text="{Binding Name}" />
-                                    </DataTemplate>
-                                </Setter>
-                            </Style>
-                        </StackPanel.Styles>
-                        <AutoCompleteBox ValueMemberBinding="{Binding Name, DataType=pages:StateData}" Watermark="Please select a State" />
-                        <AutoCompleteBox
-                            IsEnabled="False"
-                            ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
-                            Watermark="Disabled" />
-                        <AutoCompleteBox
-                            InnerLeftContent="https://"
-                            InnerRightContent=".com"
-                            ValueMemberBinding="{Binding Name, DataType=pages:StateData}" />
-                        <AutoCompleteBox
-                            Classes="Bordered"
-                            ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
-                            Watermark="Bordered"
-                            Width="300" />
-                        <AutoCompleteBox
-                            Classes="BorderedOnFocus"
-                            ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
-                            Watermark="BorderedOnFocus"
-                            Width="300" />
-                    </StackPanel>
-                </yik:GroupBorder>
-            </StackPanel>
-        </ScrollViewer>
-    </Border>
+    <yik:GroupBorder
+        Header="AutoCompleteBox"
+        Margin="15"
+        Padding="15">
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="AutoCompleteBox">
+                    <Setter Property="Width" Value="300" />
+                    <Setter Property="ItemsSource">
+                        <Binding Path="States" />
+                    </Setter>
+                    <Setter Property="ItemTemplate">
+                        <DataTemplate DataType="pages:StateData">
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+            <AutoCompleteBox ValueMemberBinding="{Binding Name, DataType=pages:StateData}" Watermark="Please select a State" />
+            <AutoCompleteBox
+                IsEnabled="False"
+                ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
+                Watermark="Disabled" />
+            <AutoCompleteBox
+                InnerLeftContent="https://"
+                InnerRightContent=".com"
+                ValueMemberBinding="{Binding Name, DataType=pages:StateData}" />
+            <AutoCompleteBox
+                Classes="Bordered"
+                ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
+                Watermark="Bordered"
+                Width="300" />
+            <AutoCompleteBox
+                Classes="BorderedOnFocus"
+                ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
+                Watermark="BorderedOnFocus"
+                Width="300" />
+        </StackPanel>
+    </yik:GroupBorder>
 </UserControl>

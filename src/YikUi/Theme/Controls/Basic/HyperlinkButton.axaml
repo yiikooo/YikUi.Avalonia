@@ -45,6 +45,7 @@
 
     <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
         <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource HyperlinkButtonBorderThemeThickness}" />
         <Setter Property="Padding" Value="11,5,11,6" />
@@ -68,15 +69,12 @@
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                     Name="ContentPresenter"
                     Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^">
-            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
-        </Style>
-
-        <Style Selector="^.Underline /template/ TextBlock">
+        <Style Selector="^.Underline /template/ AccessText">
             <Setter Property="TextDecorations" Value="{x:Null}" />
         </Style>
 

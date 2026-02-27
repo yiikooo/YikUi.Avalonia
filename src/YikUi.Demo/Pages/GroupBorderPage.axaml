@@ -8,24 +8,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <Border>
-        <ScrollViewer Margin="0,0,5,0">
-            <StackPanel Margin="15,15,10,15" Spacing="15">
-                <yik:GroupBorder Header="GroupBorder">
-                    <Border
-                        Background="CornflowerBlue"
-                        CornerRadius="{DynamicResource YikCornerRadius}"
-                        Height="120"
-                        Margin="15"
-                        Width="230">
-                        <TextBlock
-                            Foreground="White"
-                            HorizontalAlignment="Center"
-                            Text="Content"
-                            VerticalAlignment="Center" />
-                    </Border>
-                </yik:GroupBorder>
-            </StackPanel>
-        </ScrollViewer>
-    </Border>
+    <yik:GroupBorder Header="GroupBorder" Margin="15">
+        <Border
+            Background="CornflowerBlue"
+            CornerRadius="{DynamicResource YikCornerRadius}"
+            Height="120"
+            Margin="15"
+            Width="230">
+            <TextBlock
+                Foreground="White"
+                HorizontalAlignment="Center"
+                Text="Content"
+                VerticalAlignment="Center" />
+        </Border>
+    </yik:GroupBorder>
 </UserControl>

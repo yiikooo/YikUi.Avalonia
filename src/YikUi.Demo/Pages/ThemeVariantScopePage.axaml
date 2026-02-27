@@ -1,0 +1,79 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.ThemeVariantScopePage"
+    x:DataType="pages:ThemeVariantScopePage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="ScrollViewer"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="15">
+                <StackPanel Spacing="15">
+                    <StackPanel Orientation="Horizontal" Spacing="15">
+                        <RadioButton
+                            Content="Default"
+                            IsCheckedChanged="OnIsCheckedChanged"
+                            Name="Default"
+                            Theme="{DynamicResource PureCardRadioButton}"
+                            Width="110" />
+                        <RadioButton
+                            Content="Light"
+                            IsCheckedChanged="OnIsCheckedChanged"
+                            Name="Light"
+                            Theme="{DynamicResource PureCardRadioButton}"
+                            Width="110" />
+                        <RadioButton
+                            Content="Dark"
+                            IsChecked="True"
+                            IsCheckedChanged="OnIsCheckedChanged"
+                            Name="Dark"
+                            Theme="{DynamicResource PureCardRadioButton}"
+                            Width="110" />
+                    </StackPanel>
+                </StackPanel>
+                <Border
+                    Background="{DynamicResource PopupBackgroundColor}"
+                    BorderBrush="{DynamicResource PopupBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{DynamicResource YikCornerRadius}"
+                    Padding="15">
+                    <StackPanel Spacing="10">
+                        <TextBlock HorizontalAlignment="Left" Text="Ctrl + Q to change default theme variant." />
+                        <TextBox
+                            HorizontalAlignment="Left"
+                            Text="Input"
+                            Width="300" />
+                        <Button Content="Button" HorizontalAlignment="Left" />
+                        <HyperlinkButton Content="HyperlinkButton" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </Border>
+                <ThemeVariantScope RequestedThemeVariant="{Binding SelectedThemeVariant}">
+                    <Border
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        BorderBrush="{DynamicResource PopupBorderBrush}"
+                        BorderThickness="1"
+                        CornerRadius="{DynamicResource YikCornerRadius}"
+                        Padding="15">
+                        <StackPanel Spacing="10">
+                            <TextBlock HorizontalAlignment="Left" Text="Ctrl + Q to change default theme variant." />
+                            <TextBox
+                                HorizontalAlignment="Left"
+                                Text="Input"
+                                Width="300" />
+                            <Button Content="Button" HorizontalAlignment="Left" />
+                            <HyperlinkButton Content="HyperlinkButton" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </Border>
+                </ThemeVariantScope>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

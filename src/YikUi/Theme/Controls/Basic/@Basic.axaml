@@ -23,5 +23,6 @@
         <ResourceInclude Source="AutoCompleteBox.axaml" />
         <ResourceInclude Source="DataValidationErrors.axaml" />
         <ResourceInclude Source="GridSplitter.axaml" />
+        <ResourceInclude Source="ThemeVariantScope.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

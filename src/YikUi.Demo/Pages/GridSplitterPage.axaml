@@ -8,44 +8,43 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <Border>
-        <StackPanel Margin="15,15,15,15" Spacing="15">
-            <yik:GroupBorder Header="GridSplitter" Padding="15">
-                <ScrollViewer>
-                    <StackPanel HorizontalAlignment="Left" Spacing="20">
-                        <Grid
-                            Height="300"
-                            RowDefinitions="*, Auto, *"
-                            Width="300">
-                            <Border
-                                Background="{DynamicResource PanelBorderBrush}"
-                                CornerRadius="10"
-                                HorizontalAlignment="Stretch" />
-                            <GridSplitter Grid.Row="1" ShowsPreview="True" />
-                            <Border
-                                Background="{DynamicResource PanelBorderBrush}"
-                                CornerRadius="10"
-                                Grid.Row="2"
-                                HorizontalAlignment="Stretch" />
-                        </Grid>
-                        <Grid
-                            ColumnDefinitions="*, Auto, *"
-                            Height="300"
-                            Width="300">
-                            <Border
-                                Background="{DynamicResource PanelBorderBrush}"
-                                CornerRadius="10"
-                                HorizontalAlignment="Stretch" />
-                            <GridSplitter Grid.Column="1" ShowsPreview="True" />
-                            <Border
-                                Background="{DynamicResource PanelBorderBrush}"
-                                CornerRadius="10"
-                                Grid.Column="2"
-                                HorizontalAlignment="Stretch" />
-                        </Grid>
-                    </StackPanel>
-                </ScrollViewer>
-            </yik:GroupBorder>
-        </StackPanel>
-    </Border>
+    <yik:GroupBorder
+        Header="GridSplitter"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <Grid
+                    Height="300"
+                    RowDefinitions="*, Auto, *"
+                    Width="300">
+                    <Border
+                        Background="{DynamicResource PanelBorderBrush}"
+                        CornerRadius="10"
+                        HorizontalAlignment="Stretch" />
+                    <GridSplitter Grid.Row="1" ShowsPreview="True" />
+                    <Border
+                        Background="{DynamicResource PanelBorderBrush}"
+                        CornerRadius="10"
+                        Grid.Row="2"
+                        HorizontalAlignment="Stretch" />
+                </Grid>
+                <Grid
+                    ColumnDefinitions="*, Auto, *"
+                    Height="300"
+                    Width="300">
+                    <Border
+                        Background="{DynamicResource PanelBorderBrush}"
+                        CornerRadius="10"
+                        HorizontalAlignment="Stretch" />
+                    <GridSplitter Grid.Column="1" ShowsPreview="True" />
+                    <Border
+                        Background="{DynamicResource PanelBorderBrush}"
+                        CornerRadius="10"
+                        Grid.Column="2"
+                        HorizontalAlignment="Stretch" />
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
 </UserControl>
