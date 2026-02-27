@@ -32,6 +32,7 @@
             CornerRadius="{DynamicResource YikCornerRadius}"
             Margin="15,15,-5,15">
             <yik:NavMenu
+                Classes="FlatScrollBar"
                 DockPanel.Dock="Left"
                 HeaderBinding="{Binding Title}"
                 IconBinding="{Binding Icon}"

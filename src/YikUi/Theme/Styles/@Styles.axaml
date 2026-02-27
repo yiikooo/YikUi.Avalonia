@@ -4,4 +4,5 @@
     <StyleInclude Source="YikNotification.axaml" />
     <StyleInclude Source="ToggleButton.axaml" />
     <StyleInclude Source="HyperlinkButton.axaml" />
+    <StyleInclude Source="ScrollViewer.axaml" />
 </Styles>

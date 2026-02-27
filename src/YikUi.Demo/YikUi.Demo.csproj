@@ -43,5 +43,9 @@
             <DependentUpon>SelectableTextBlockPage.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Pages\ScrollViewerPage.axaml.cs">
+            <DependentUpon>ScrollViewerPage.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 </Project>

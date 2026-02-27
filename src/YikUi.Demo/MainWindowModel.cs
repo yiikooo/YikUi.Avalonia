@@ -132,6 +132,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "GridSplitter",
                     Content = new GridSplitterPage(),
                 },
+                new Page
+                {
+                    Title = "ScrollViewer",
+                    Content = new ScrollViewerPage(),
+                },
             ]
         }
     ];
