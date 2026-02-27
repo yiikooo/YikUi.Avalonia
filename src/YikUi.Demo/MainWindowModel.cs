@@ -95,6 +95,23 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         },
         new()
         {
+            Title = "Input",
+            Children =
+            [
+                new Page
+                {
+                    Title = "TextBox",
+                    Content = new TextBoxPage(),
+                },
+                new Page
+                {
+                    Title = "AutoCompleteBox",
+                    Content = new AutoCompleteBoxPage(),
+                },
+            ]
+        },
+        new()
+        {
             Title = "Show",
             Children =
             [

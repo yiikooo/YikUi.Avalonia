@@ -19,14 +19,14 @@
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush
-                Color="#0041C5"
+                Color="#1890ff"
                 Opacity="0.8"
                 x:Key="TextBoxSelectionBackground" />
             <SolidColorBrush Color="White" x:Key="TextBoxSelectionForeground" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
             <SolidColorBrush
-                Color="#0041C5"
+                Color="#1890ff"
                 Opacity="0.8"
                 x:Key="TextBoxSelectionBackground" />
             <SolidColorBrush Color="White" x:Key="TextBoxSelectionForeground" />

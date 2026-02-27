@@ -36,7 +36,7 @@
                     </StackPanel>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="CardCheckBox" Padding="5">
-                    <StackPanel Spacing="15">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel.Styles>
                                 <Style Selector="CheckBox">
@@ -64,10 +64,10 @@
                                 IsThreeState="True"
                                 Theme="{DynamicResource CardCheckBox}" />
                         </StackPanel>
-                    </StackPanel>
+                    </ScrollViewer>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="PureCardCheckBox" Padding="5">
-                    <StackPanel Spacing="15">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel.Styles>
                                 <Style Selector="CheckBox">
@@ -95,7 +95,7 @@
                                 IsThreeState="True"
                                 Theme="{DynamicResource PureCardCheckBox}" />
                         </StackPanel>
-                    </StackPanel>
+                    </ScrollViewer>
                 </yik:GroupBorder>
             </StackPanel>
         </ScrollViewer>

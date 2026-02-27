@@ -36,6 +36,10 @@
             <DependentUpon>YikTitleBar.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Controls\GlassCard.cs">
+            <DependentUpon>GlassCard.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
 </Project>
