@@ -22,5 +22,6 @@
         <ResourceInclude Source="Separator.axaml" />
         <ResourceInclude Source="AutoCompleteBox.axaml" />
         <ResourceInclude Source="DataValidationErrors.axaml" />
+        <ResourceInclude Source="GridSplitter.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

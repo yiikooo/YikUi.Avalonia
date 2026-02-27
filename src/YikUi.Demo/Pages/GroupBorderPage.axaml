@@ -11,7 +11,7 @@
     <Border>
         <ScrollViewer Margin="0,0,5,0">
             <StackPanel Margin="15,15,10,15" Spacing="15">
-                <yik:GroupBorder Header="Header">
+                <yik:GroupBorder Header="GroupBorder">
                     <Border
                         Background="CornflowerBlue"
                         CornerRadius="{DynamicResource YikCornerRadius}"

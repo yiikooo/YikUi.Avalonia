@@ -36,10 +36,15 @@
                 HeaderBinding="{Binding Title}"
                 IconBinding="{Binding Icon}"
                 ItemsSource="{Binding Pages}"
-                Margin="10"
+                Margin="10,10,4,10"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
                 Width="220">
+                <yik:NavMenu.Styles>
+                    <Style Selector="yik|NavMenu /template/ ItemsPresenter#PART_ItemsPresenter">
+                        <Setter Property="Margin" Value="0,0,6,0" />
+                    </Style>
+                </yik:NavMenu.Styles>
                 <yik:NavMenu.IconTemplate>
                     <DataTemplate DataType="x:String">
                         <PathIcon

@@ -49,11 +49,6 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "SelectableTextBlock",
                     Content = new SelectableTextBlockPage(),
                 },
-                new Page
-                {
-                    Title = "GroupBorder",
-                    Content = new GroupBorderPage(),
-                },
             ]
         },
         new()
@@ -119,6 +114,23 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "Expander",
                     Content = new ExpanderPage(),
+                },
+            ]
+        },
+        new()
+        {
+            Title = "Layout",
+            Children =
+            [
+                new Page
+                {
+                    Title = "GroupBorder",
+                    Content = new GroupBorderPage(),
+                },
+                new Page
+                {
+                    Title = "GridSplitter",
+                    Content = new GridSplitterPage(),
                 },
             ]
         }
