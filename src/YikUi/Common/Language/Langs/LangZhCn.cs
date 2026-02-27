@@ -11,4 +11,7 @@ public class LangZhCn : ILang
     public string Confirm => "确认";
     public string ShowHiddenFiles => "显示隐藏文件";
     public string FileAlreadyExists => "文件已存在";
+    public string Day => "日";
+    public string Month => "月";
+    public string Year => "年";
 }

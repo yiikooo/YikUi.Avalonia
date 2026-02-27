@@ -11,4 +11,7 @@ public class LangEnUs : ILang
     public string Confirm => "Confirm";
     public string ShowHiddenFiles => "Show Hidden Files";
     public string FileAlreadyExists => "File Already Exists";
+    public string Day => "day";
+    public string Month => "month";
+    public string Year => "year";
 }

@@ -1,15 +1,148 @@
-<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:language="clr-namespace:YikUi.Common.Language"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
             <DatePickerPresenter />
         </Border>
     </Design.PreviewWith>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <!--  DateTimePicker Colors  -->
+            <SolidColorBrush Color="White" x:Key="DateTimePickerPopupBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerPopupBorderBrush" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="DateTimePickerSeparatorBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="DateTimePickerButtonBackground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="DateTimePickerButtonForeground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="DateTimePickerIconForeground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="DateTimePickerEmptyForeground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="DateTimePickerButtonPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonDisabledBorderBrush" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.02"
+                x:Key="DateTimePickerButtonDisabledBackground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.35"
+                x:Key="DateTimePickerButtonDisabledIconForeground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="DateTimePickerFlyoutButtonForeground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="DateTimePickerFlyoutButtonPointeroverForeground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="DateTimePickerFlyoutButtonPressedForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerFlyoutButtonBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="DateTimePickerFlyoutButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.13"
+                x:Key="DateTimePickerFlyoutButtonPressedBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerListItemBackground" />
+            <!-- <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows> -->
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <!--  DateTimePicker Colors  -->
+            <SolidColorBrush Color="#43444A" x:Key="DateTimePickerPopupBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerPopupBorderBrush" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="DateTimePickerSeparatorBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonBorderBrush" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="DateTimePickerButtonBackground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="DateTimePickerButtonForeground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="DateTimePickerIconForeground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="DateTimePickerEmptyForeground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="DateTimePickerButtonPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonDisabledBorderBrush" />
+            <SolidColorBrush
+                Color="#E6E8EA"
+                Opacity="0.04"
+                x:Key="DateTimePickerButtonDisabledBackground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.35"
+                x:Key="DateTimePickerButtonDisabledIconForeground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="DateTimePickerFlyoutButtonForeground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="DateTimePickerFlyoutButtonPointeroverForeground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="DateTimePickerFlyoutButtonPressedForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerFlyoutButtonBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="DateTimePickerFlyoutButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.20"
+                x:Key="DateTimePickerFlyoutButtonPressedBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerListItemBackground" />
+            <!-- <BoxShadows x:Key="DateTimePickerFlyoutBoxShadow">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows> -->
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <!--  Non-theme specific resources  -->
+    <CornerRadius x:Key="DateTimePickerPopupCornerRadius">6</CornerRadius>
+    <x:Double x:Key="DateTimePickerListBoxItemHeight">36</x:Double>
+    <Thickness x:Key="DateTimePickerFlyoutPadding">0</Thickness>
+    <Thickness x:Key="DateTimePickerFlyoutBorderMargin">8</Thickness>
+    <x:Double x:Key="DateTimePickerButtonSmallHeight">24</x:Double>
+    <x:Double x:Key="DateTimePickerButtonDefaultHeight">32</x:Double>
+    <x:Double x:Key="DateTimePickerButtonLargeHeight">40</x:Double>
+    <Thickness x:Key="DateTimePickerButtonBorderThickness">1</Thickness>
+    <CornerRadius x:Key="DateTimePickerButtonCornerRadius">3</CornerRadius>
+
+    <!--  Icon Glyphs  -->
+    <StreamGeometry x:Key="DateTimePickerButtonUpGlyph">m2.17 17.4 9.02-12.3a1 1 0 0 1 1.62 0l9.02 12.3a1 1 0 0 1-.8 1.6H2.97a1 1 0 0 1-.8-1.6Z</StreamGeometry>
+    <StreamGeometry x:Key="DateTimePickerButtonDownGlyph">m21.83 6.6-9.02 12.3a1 1 0 0 1-1.62 0L2.17 6.6a1 1 0 0 1 .8-1.6h18.06a1 1 0 0 1 .8 1.6Z</StreamGeometry>
+    <StreamGeometry x:Key="DateTimePickerAcceptGlyph">M21.35 4.27c.68.47.86 1.4.38 2.08l-10 14.5a1.5 1.5 0 0 1-2.33.17l-6.5-7a1.5 1.5 0 0 1 2.2-2.04l5.23 5.63 8.94-12.96a1.5 1.5 0 0 1 2.08-.38Z</StreamGeometry>
+    <StreamGeometry x:Key="DateTimePickerDismissGlyph">M17.66 19.78a1.5 1.5 0 0 0 2.12-2.12L14.12 12l5.66-5.66a1.5 1.5 0 0 0-2.12-2.12L12 9.88 6.34 4.22a1.5 1.5 0 1 0-2.12 2.12L9.88 12l-5.66 5.66a1.5 1.5 0 0 0 2.12 2.12L12 14.12l5.66 5.66Z</StreamGeometry>
+    <StreamGeometry x:Key="DatePickerIconGlyph">M4 20V8h16v12H4ZM2 4c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm4 6.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2ZM11 15a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Zm4-4.5c0-.28.22-.5.5-.5h2c.28 0 .5.22.5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2Zm.5 4.5a.5.5 0 0 0-.5.5v2c0 .28.22.5.5.5h2a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-2Z</StreamGeometry>
+
     <ControlTheme TargetType="DatePickerPresenter" x:Key="{x:Type DatePickerPresenter}">
         <Setter Property="Width" Value="296" />
         <Setter Property="MinWidth" Value="296" />
         <Setter Property="MaxHeight" Value="300" />
-        <Setter Property="Background" Value="{DynamicResource DateTimePickerPopupBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerPopupBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerPopupCornerRadius}" />
         <Setter Property="Template">
@@ -26,13 +159,14 @@
                     Padding="{DynamicResource DateTimePickerFlyoutPadding}">
                     <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid Name="ContentPanel" RowDefinitions="*,Auto">
-                            <Grid Name="PART_PickerContainer">
+                            <Grid ColumnDefinitions="*,1,*,1,*" Name="PART_PickerContainer">
+
                                 <Grid.Styles>
                                     <Style Selector="DateTimePickerPanel &gt; ListBoxItem">
                                         <Setter Property="Theme" Value="{StaticResource DateTimePickerItem}" />
                                     </Style>
                                 </Grid.Styles>
-                                <!--  Column Definitions set in code, ignore here  -->
+
                                 <Panel Name="PART_MonthHost">
                                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
@@ -44,18 +178,43 @@
                                     <RepeatButton Name="PART_MonthUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                     <RepeatButton Name="PART_MonthDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
-                                <Panel Name="PART_DayHost">
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
-                                        <DateTimePickerPanel
-                                            ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
-                                            Name="PART_DaySelector"
-                                            PanelType="Day"
-                                            ShouldLoop="True" />
-                                    </ScrollViewer>
-                                    <RepeatButton Name="PART_DayUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                    <RepeatButton Name="PART_DayDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+
+
+                                <Panel Grid.Column="2" Name="PART_DayHost">
+                                    <Border BorderBrush="{DynamicResource DateTimePickerSeparatorBackground}"
+                                            BorderThickness="1,0,0,0">
+                                        <Panel>
+                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                          VerticalScrollBarVisibility="Hidden">
+                                                <DateTimePickerPanel
+                                                    ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
+                                                    Name="PART_DaySelector"
+                                                    PanelType="Day"
+                                                    ShouldLoop="True" />
+                                            </ScrollViewer>
+                                            <RepeatButton Name="PART_DayUpButton"
+                                                          Theme="{StaticResource DateTimePickerUpButton}" />
+                                            <RepeatButton Name="PART_DayDownButton"
+                                                          Theme="{StaticResource DateTimePickerDownButton}" />
+                                        </Panel>
+                                    </Border>
                                 </Panel>
-                                <Panel Name="PART_YearHost">
+
+                                <Rectangle
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                                    Grid.Column="4"
+                                    HorizontalAlignment="Center"
+                                    Name="PART_SecondSpacer"
+                                    VerticalAlignment="Stretch" />
+                                <Rectangle
+                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    Name="PART_FirstSpacer"
+                                    VerticalAlignment="Stretch"
+                                    Width="1" />
+
+                                <Panel Grid.Column="4" Name="PART_YearHost">
                                     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
                                             ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
@@ -66,18 +225,6 @@
                                     <RepeatButton Name="PART_YearUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
                                     <RepeatButton Name="PART_YearDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
-                                <Rectangle
-                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}"
-                                    Grid.Column="1"
-                                    HorizontalAlignment="Center"
-                                    Name="PART_FirstSpacer"
-                                    Width="1" />
-                                <Rectangle
-                                    Fill="{DynamicResource DateTimePickerSeparatorBackground}"
-                                    Grid.Column="3"
-                                    HorizontalAlignment="Center"
-                                    Name="PART_SecondSpacer"
-                                    Width="1" />
                             </Grid>
 
                             <Grid
@@ -87,7 +234,9 @@
                                 <Button
                                     Grid.Column="0"
                                     HorizontalAlignment="Stretch"
+                                    Margin="2,3,2,2"
                                     Name="PART_AcceptButton"
+                                    Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
                                     <PathIcon Data="{DynamicResource DateTimePickerAcceptGlyph}" Theme="{StaticResource InnerPathIcon}" />
@@ -99,7 +248,9 @@
                                 <Button
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
+                                    Margin="2,3,2,2"
                                     Name="PART_DismissButton"
+                                    Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
                                     <PathIcon Data="{DynamicResource DateTimePickerDismissGlyph}" Theme="{StaticResource InnerPathIcon}" />
@@ -170,7 +321,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_DayTextBlock"
                                         Padding="12,0"
-                                        Text="{DynamicResource STRING_DATEPICKER_DAY_TEXT}"
+                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Day}"
                                         VerticalAlignment="Center" />
                                     <TextBlock
                                         FontFamily="{TemplateBinding FontFamily}"
@@ -179,7 +330,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_MonthTextBlock"
                                         Padding="12,0"
-                                        Text="{DynamicResource STRING_DATEPICKER_MONTH_TEXT}"
+                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Month}"
                                         TextAlignment="Left"
                                         VerticalAlignment="Center" />
                                     <TextBlock
@@ -189,7 +340,7 @@
                                         HorizontalAlignment="Center"
                                         Name="PART_YearTextBlock"
                                         Padding="12,0"
-                                        Text="{DynamicResource STRING_DATEPICKER_YEAR_TEXT}"
+                                        Text="{Binding Source={x:Static language:LangManager.Current}, Path=Year}"
                                         VerticalAlignment="Center" />
                                     <Rectangle
                                         Fill="{DynamicResource DateTimePickerSeparatorBackground}"

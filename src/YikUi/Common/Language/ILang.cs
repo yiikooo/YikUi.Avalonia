@@ -11,4 +11,7 @@ public interface ILang
     public string Confirm { get; }
     public string ShowHiddenFiles { get; }
     public string FileAlreadyExists { get; }
+    public string Day { get; }
+    public string Month { get; }
+    public string Year { get; }
 }

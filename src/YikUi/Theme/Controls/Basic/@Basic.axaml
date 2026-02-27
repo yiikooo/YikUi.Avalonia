@@ -31,5 +31,8 @@
         <ResourceInclude Source="ListBox.axaml" />
         <ResourceInclude Source="Calendar.axaml" />
         <ResourceInclude Source="CalendarDatePicker.axaml" />
+        <ResourceInclude Source="DateTimePickerShared.axaml" />
+        <ResourceInclude Source="TimePicker.axaml" />
+        <ResourceInclude Source="DatePicker.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

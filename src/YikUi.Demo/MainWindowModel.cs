@@ -140,6 +140,16 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "CalendarDatePicker",
                     Content = new CalendarDatePickerPage(),
                 },
+                new Page
+                {
+                    Title = "DatePicker",
+                    Content = new DatePickerPage(),
+                },
+                new Page
+                {
+                    Title = "TimePicker",
+                    Content = new TimePickerPage(),
+                },
             ]
         },
         new()
