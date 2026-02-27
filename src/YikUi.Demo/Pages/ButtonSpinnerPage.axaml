@@ -1,0 +1,51 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.ButtonSpinnerPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="ButtonSpinner"
+        Margin="15"
+        Padding="15">
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel Orientation="Horizontal">
+                <ToggleSwitch
+                    Content="Show Button Spinner"
+                    IsChecked="True"
+                    Name="showSpinCheck" />
+                <ToggleSwitch
+                    Content="Allow Spin"
+                    IsChecked="True"
+                    Name="allowSpinCheck" />
+            </StackPanel>
+            <ButtonSpinner
+                AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+                BorderThickness="1"
+                Height="30"
+                ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+                Spin="OnSpin">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="avalonia"
+                    VerticalAlignment="Center" />
+            </ButtonSpinner>
+            <ButtonSpinner
+                AllowSpin="{Binding #allowSpinCheck.IsChecked}"
+                BorderThickness="1"
+                ButtonSpinnerLocation="Left"
+                Height="30"
+                ShowButtonSpinner="{Binding #showSpinCheck.IsChecked}"
+                Spin="OnSpin">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="avalonia"
+                    VerticalAlignment="Center" />
+            </ButtonSpinner>
+        </StackPanel>
+    </yik:GroupBorder>
+</UserControl>

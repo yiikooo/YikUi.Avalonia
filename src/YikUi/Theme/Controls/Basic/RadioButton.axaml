@@ -86,10 +86,6 @@
                 x:Key="RadioButtonGroupBackground" />
             <SolidColorBrush
                 Color="#000000"
-                Opacity="0.8"
-                x:Key="RadioButtonButtonUncheckedForeground" />
-            <SolidColorBrush
-                Color="#000000"
                 Opacity="0.09"
                 x:Key="RadioButtonButtonUncheckedPointeroverBackground" />
             <SolidColorBrush
@@ -100,7 +96,8 @@
                 Color="{DynamicResource SystemAccentColor}"
                 Opacity="0.1"
                 x:Key="RadioButtonButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}"
+                             x:Key="RadioButtonButtonCheckedForeground" />
             <SolidColorBrush
                 Color="#000000"
                 Opacity="0.35"
@@ -179,10 +176,6 @@
                 x:Key="RadioButtonGroupBackground" />
             <SolidColorBrush
                 Color="#FFFFFF"
-                Opacity="0.8"
-                x:Key="RadioButtonButtonUncheckedForeground" />
-            <SolidColorBrush
-                Color="#FFFFFF"
                 Opacity="0.16"
                 x:Key="RadioButtonButtonUncheckedPointeroverBackground" />
             <SolidColorBrush
@@ -193,7 +186,8 @@
                 Color="{DynamicResource SystemAccentColor}"
                 Opacity="0.1"
                 x:Key="RadioButtonButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}" x:Key="RadioButtonButtonCheckedForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}"
+                             x:Key="RadioButtonButtonCheckedForeground" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.35"
@@ -356,7 +350,7 @@
         <Setter Property="Margin" Value="2" />
         <Setter Property="FontWeight" Value="{DynamicResource RadioButtonButtonFontWeight}" />
         <Setter Property="FontSize" Value="{DynamicResource RadioButtonButtonDefaultFontSize}" />
-        <Setter Property="Foreground" Value="{DynamicResource RadioButtonButtonUncheckedForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Template">

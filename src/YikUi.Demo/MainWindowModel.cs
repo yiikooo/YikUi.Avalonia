@@ -103,6 +103,16 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "AutoCompleteBox",
                     Content = new AutoCompleteBoxPage(),
                 },
+                new Page
+                {
+                    Title = "ButtonSpinnerPage",
+                    Content = new ButtonSpinnerPage(),
+                },
+                new Page
+                {
+                    Title = "NumericUpDown",
+                    Content = new NumericUpDownPage(),
+                },
             ]
         },
         new()

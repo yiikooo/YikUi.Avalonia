@@ -80,7 +80,10 @@
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
-            <SolidColorBrush Color="#051C1F23" x:Key="TextBoxDefaultBackground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.05"
+                x:Key="TextBoxDefaultBackground" />
             <SolidColorBrush Color="Transparent" x:Key="TextBoxDefaultBorderBrush" />
             <SolidColorBrush
                 Color="{DynamicResource SystemAccentColorDark2}"
@@ -518,7 +521,15 @@
             </ControlTemplate>
         </Setter>
 
+        <Style Selector="^ /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
         <Style Selector="^:pointerover /template/ Border#PART_ContentPresenterBorder">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:focus /template/ Border#PART_ContentPresenterBorder">
             <Setter Property="Background" Value="Transparent" />
         </Style>
     </ControlTheme>
@@ -545,7 +556,7 @@
                                 Foreground="{DynamicResource TextBoxInnerForeground}"
                                 Grid.Column="0"
                                 IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                Padding="{DynamicResource TextBoxInnerLeftContentPadding}"
+                                Padding="0,0,8,0"
                                 VerticalAlignment="Center" />
                             <ScrollViewer
                                 AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
@@ -616,7 +627,7 @@
                                 Foreground="{DynamicResource TextBoxInnerForeground}"
                                 Grid.Column="4"
                                 IsVisible="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                Padding="{DynamicResource TextBoxInnerRightContentPadding}"
+                                Padding="8,0,0,0"
                                 VerticalAlignment="Center" />
                         </Grid>
                     </Border>

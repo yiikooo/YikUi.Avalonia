@@ -24,5 +24,7 @@
         <ResourceInclude Source="DataValidationErrors.axaml" />
         <ResourceInclude Source="GridSplitter.axaml" />
         <ResourceInclude Source="ThemeVariantScope.axaml" />
+        <ResourceInclude Source="ButtonSpinner.axaml" />
+        <ResourceInclude Source="NumericUpDown.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
