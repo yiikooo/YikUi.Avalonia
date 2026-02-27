@@ -113,6 +113,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "NumericUpDown",
                     Content = new NumericUpDownPage(),
                 },
+                new Page
+                {
+                    Title = "Slider",
+                    Content = new SliderPage(),
+                },
             ]
         },
         new()

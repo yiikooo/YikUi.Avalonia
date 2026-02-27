@@ -26,5 +26,6 @@
         <ResourceInclude Source="ThemeVariantScope.axaml" />
         <ResourceInclude Source="ButtonSpinner.axaml" />
         <ResourceInclude Source="NumericUpDown.axaml" />
+        <ResourceInclude Source="Slider.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
