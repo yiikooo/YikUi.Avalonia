@@ -1,12 +1,20 @@
 namespace YikUi.Common.Classes;
 
-public class ResultDisposable(IDisposable? disposable, bool result) : IDisposable
+public class ResultDisposable : IDisposable
 {
-    public bool Result { get; } = result;
+    private readonly IDisposable? _disposable;
+
+    public ResultDisposable(IDisposable? disposable, bool result)
+    {
+        _disposable = disposable;
+        Result = result;
+    }
+
+    public bool Result { get; }
 
     public void Dispose()
     {
-        disposable?.Dispose();
+        _disposable?.Dispose();
     }
 }
 

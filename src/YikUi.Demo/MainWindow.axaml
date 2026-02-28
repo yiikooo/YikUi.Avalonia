@@ -6,6 +6,7 @@
     Title="YikUi.Demo"
     WindowStartupLocation="CenterScreen"
     x:Class="YikUi.Demo.MainWindow"
+    x:CompileBindings="False"
     x:DataType="demo:MainWindowModel"
     xmlns="https://github.com/avaloniaui"
     xmlns:demo="clr-namespace:YikUi.Demo"
