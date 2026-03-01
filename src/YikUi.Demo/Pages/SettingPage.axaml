@@ -22,7 +22,7 @@
                 <TextBox
                     KeyDown="InputElement_OnKeyDown"
                     Name="ThemeColor"
-                    Watermark="Enter hex color" />
+                    PlaceholderText="Enter hex color" />
             </StackPanel>
         </ScrollViewer>
     </yik:GroupBorder>

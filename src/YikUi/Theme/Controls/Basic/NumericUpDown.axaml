@@ -61,12 +61,12 @@
                             IsReadOnly="{TemplateBinding IsReadOnly}"
                             MinHeight="{TemplateBinding MinHeight}"
                             Name="PART_TextBox"
+                            PlaceholderText="{TemplateBinding Watermark}"
                             Text="{TemplateBinding Text}"
                             TextWrapping="NoWrap"
                             Theme="{DynamicResource NonErrorTextBox}"
                             VerticalAlignment="Stretch"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Watermark="{TemplateBinding Watermark}" />
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </ButtonSpinner>
                 </DataValidationErrors>
             </ControlTemplate>

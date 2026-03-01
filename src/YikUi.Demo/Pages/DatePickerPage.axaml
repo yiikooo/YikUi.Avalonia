@@ -17,12 +17,14 @@
                 <DatePicker />
                 <DatePicker Classes="ClearButton" />
                 <DatePicker DayFormat="d (ddd)" YearVisible="False" />
+                <DatePicker DayVisible="False" />
+                <DatePicker MonthVisible="False" />
+                <DatePicker DayVisible="False" MonthVisible="False" />
+                <DatePicker DayVisible="False" YearVisible="False" />
+                <DatePicker MonthVisible="False" YearVisible="False" />
                 <DatePicker IsEnabled="False" />
-                <StackPanel Orientation="Horizontal">
-                    <DatePicker IsEnabled="False" />
-                    <DatePicker Classes="Bordered" />
-                    <DatePicker Classes="Bordered" IsEnabled="False" />
-                </StackPanel>
+                <DatePicker Classes="Bordered" />
+                <DatePicker Classes="BorderedOnFocus" />
             </StackPanel>
         </ScrollViewer>
     </yik:GroupBorder>

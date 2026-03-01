@@ -145,11 +145,13 @@
                     Width="{TemplateBinding Width}">
                     <PathIcon
                         Data="{DynamicResource NoEye}"
+                        Foreground="{DynamicResource InnerForegroundColor}"
                         IsVisible="{TemplateBinding IsChecked,
                                                     Converter={x:Static BoolConverters.Not}}"
                         Width="16" />
                     <PathIcon
                         Data="{DynamicResource Eye}"
+                        Foreground="{DynamicResource InnerForegroundColor}"
                         IsVisible="{TemplateBinding IsChecked}"
                         Width="16" />
                 </Panel>

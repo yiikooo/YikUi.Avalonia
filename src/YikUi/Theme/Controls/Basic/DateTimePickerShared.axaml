@@ -120,7 +120,6 @@
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonPointeroverBorderBrush}" />
         </Style>
 
         <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
@@ -135,7 +134,6 @@
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointeroverBackground}" />
-                <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
             <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
@@ -162,6 +160,13 @@
         <Style Selector="^:selected">
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
+
+        <Style Selector="^:selected /template/ Rectangle#SelectionIndicator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:selected) /template/ Rectangle#SelectionIndicator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
     </ControlTheme>
 
     <!--  This is used for both the accept/dismiss & buttons in the presenter  -->
@@ -169,15 +174,12 @@
         <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonForeground}" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonBackground}" />
         <Setter Property="Padding" Value="0 ,3" />
-        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="CornerRadius" Value="0" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <ControlTemplate TargetType="Button">
-                <Border
-                    Background="{TemplateBinding Background}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Margin="2">
+                <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
                     <ContentPresenter
                         Background="{TemplateBinding Background}"
                         Content="{TemplateBinding Content}"

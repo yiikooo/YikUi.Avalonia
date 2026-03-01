@@ -1,11 +1,13 @@
 <UserControl
     mc:Ignorable="d"
     x:Class="YikUi.Controls.YikTitleBar"
+    x:DataType="yik:YikTitleBar"
     x:Name="RootControl"
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border
         Background="Transparent"
         Height="36"
@@ -64,7 +66,7 @@
                         Name="bd"
                         Width="24">
                         <Path
-                            Data="{TemplateBinding Content}"
+                            Data="{Binding Content}"
                             Fill="{DynamicResource ForegroundColor}"
                             Height="10"
                             HorizontalAlignment="Center"

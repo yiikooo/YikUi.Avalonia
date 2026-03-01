@@ -75,8 +75,7 @@
                 Opacity="0.3"
                 x:Key="CalendarItemCalendarDayButtonSelectedBackground" />
             <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarDayButtonSelectedForeground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColor}"
-                             x:Key="CalendarItemCalendarDayButtonTodayForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="CalendarItemCalendarDayButtonTodayForeground" />
             <SolidColorBrush
                 Color="#111827"
                 Opacity="0.05"
@@ -148,13 +147,9 @@
                 Color="#FFFFFF"
                 Opacity="0.2"
                 x:Key="CalendarItemCalendarDayButtonPressedBackground" />
-            <SolidColorBrush
-                Color="{DynamicResource SystemAccentColor}"
-                Opacity="0.3"
-                x:Key="CalendarItemCalendarDayButtonSelectedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="CalendarItemCalendarDayButtonSelectedBackground" />
             <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarDayButtonSelectedForeground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColor}"
-                             x:Key="CalendarItemCalendarDayButtonTodayForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="CalendarItemCalendarDayButtonTodayForeground" />
             <SolidColorBrush
                 Color="#FFFFFF"
                 Opacity="0.12"
@@ -179,7 +174,7 @@
         <Setter Property="Background" Value="{DynamicResource CalendarBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CalendarCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Template">
@@ -192,7 +187,7 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        CornerRadius="{DynamicResource YikCornerRadius}"
                         HeaderBackground="{TemplateBinding HeaderBackground}"
                         Name="PART_CalendarItem" />
                 </StackPanel>
@@ -222,7 +217,7 @@
                     Background="{TemplateBinding Background}"
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
+                    CornerRadius="10"
                     Padding="16">
                     <Grid
                         HorizontalAlignment="Stretch"

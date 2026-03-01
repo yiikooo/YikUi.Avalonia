@@ -31,7 +31,7 @@
                     Width="200" />
                 <CalendarDatePicker
                     Margin="0,0,0,8"
-                    Watermark="Watermark"
+                    PlaceholderText="Watermark"
                     Width="200" />
             </StackPanel>
         </ScrollViewer>

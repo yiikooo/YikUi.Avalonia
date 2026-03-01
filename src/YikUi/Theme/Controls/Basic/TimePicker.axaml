@@ -107,9 +107,12 @@
                                 Grid.Row="1"
                                 Name="AcceptDismissGrid">
                                 <Button
+                                    CornerRadius="{DynamicResource YikCornerRadius}"
                                     Grid.Column="0"
                                     HorizontalAlignment="Stretch"
+                                    Margin="3,4,3,3"
                                     Name="PART_AcceptButton"
+                                    Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
                                     <PathIcon Data="{DynamicResource DateTimePickerAcceptGlyph}" Theme="{StaticResource InnerPathIcon}" />
@@ -119,9 +122,12 @@
                                     Grid.Column="1"
                                     Width="1" />
                                 <Button
+                                    CornerRadius="{DynamicResource YikCornerRadius}"
                                     Grid.Column="2"
                                     HorizontalAlignment="Stretch"
+                                    Margin="3,4,3,3"
                                     Name="PART_DismissButton"
+                                    Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
                                     <PathIcon Data="{DynamicResource DateTimePickerDismissGlyph}" Theme="{StaticResource InnerPathIcon}" />
