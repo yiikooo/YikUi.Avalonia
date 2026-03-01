@@ -228,7 +228,7 @@
         <Style Selector="^:separator">
             <Setter Property="Template">
                 <ControlTemplate>
-                    <Separator Margin="0" />
+                    <Separator Margin="0,3" />
                 </ControlTemplate>
             </Setter>
         </Style>

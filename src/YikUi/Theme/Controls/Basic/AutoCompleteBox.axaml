@@ -28,12 +28,10 @@
     <Thickness x:Key="AutoCompleteBoxPopupBorderThickness">1</Thickness>
     <CornerRadius x:Key="AutoCompleteBoxPopupCornerRadius">6</CornerRadius>
     <Thickness x:Key="AutoCompleteBoxPopupMargin">4</Thickness>
-    <Thickness x:Key="AutoCompleteBoxPopupPadding">0 4</Thickness>
 
     <ControlTheme TargetType="AutoCompleteBox" x:Key="{x:Type AutoCompleteBox}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="32" />
-        <Setter Property="MaxDropDownHeight" Value="32" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
                 <DataValidationErrors>
@@ -60,11 +58,11 @@
                                 CornerRadius="{DynamicResource YikCornerRadius}"
                                 HorizontalAlignment="Stretch"
                                 Margin="4"
-                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                Padding="0,4">
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ListBox
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    Margin="0,-2"
                                     Name="PART_SelectingItemsControl"
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
@@ -100,11 +98,11 @@
                                 CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}"
                                 HorizontalAlignment="Stretch"
                                 Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
-                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                Padding="{DynamicResource AutoCompleteBoxPopupPadding}">
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ListBox
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    Margin="0,-2"
                                     Name="PART_SelectingItemsControl"
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.IsScrollChainingEnabled="False"
@@ -140,11 +138,11 @@
                                 CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}"
                                 HorizontalAlignment="Stretch"
                                 Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
-                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
-                                Padding="{DynamicResource AutoCompleteBoxPopupPadding}">
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ListBox
                                     Foreground="{TemplateBinding Foreground}"
                                     ItemTemplate="{TemplateBinding ItemTemplate}"
+                                    Margin="0,-2"
                                     Name="PART_SelectingItemsControl"
                                     ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                     ScrollViewer.IsScrollChainingEnabled="False"

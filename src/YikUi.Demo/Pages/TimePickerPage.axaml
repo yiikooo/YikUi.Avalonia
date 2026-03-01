@@ -9,23 +9,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <yik:GroupBorder
-        Header="Calendar"
+        Header="TimePicker"
         Margin="15"
         Padding="15">
         <ScrollViewer>
             <StackPanel Spacing="20">
-
                 <TimePicker />
                 <TimePicker UseSeconds="True" />
                 <TimePicker Classes="ClearButton" />
                 <TimePicker MinuteIncrement="15" />
                 <TimePicker ClockIdentifier="24HourClock" />
-                <TimePicker ClockIdentifier="12HourClock" IsEnabled="False" />
-                <StackPanel Orientation="Horizontal">
-                    <TimePicker IsEnabled="False" />
-                    <TimePicker Classes="Bordered" />
-                    <TimePicker Classes="Bordered" IsEnabled="False" />
-                </StackPanel>
+                <TimePicker ClockIdentifier="12HourClock" />
+                <TimePicker IsEnabled="False" />
+                <TimePicker Classes="Bordered" />
+                <TimePicker Classes="BorderedOnFocus" />
             </StackPanel>
         </ScrollViewer>
     </yik:GroupBorder>

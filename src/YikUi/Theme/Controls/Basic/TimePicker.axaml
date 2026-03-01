@@ -1,7 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
-        <Border Padding="20">
-            <TimePickerPresenter />
+        <Border Padding="200">
+            <TimePicker Classes="ClearButton" UseSeconds="True" />
         </Border>
     </Design.PreviewWith>
     <ControlTheme TargetType="TimePickerPresenter" x:Key="{x:Type TimePickerPresenter}">
@@ -9,10 +9,10 @@
         <Setter Property="MinWidth" Value="242" />
         <Setter Property="MaxHeight" Value="300" />
         <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Background" Value="{DynamicResource DateTimePickerPopupBackground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerPopupBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerPopupCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="TimePickerPresenter">
                 <Border
@@ -35,51 +35,63 @@
                                 </Grid.Styles>
                                 <!--  Ignore col defs here, set in code  -->
                                 <Panel Grid.Column="0" Name="PART_HourHost">
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
                                             ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                             Name="PART_HourSelector"
                                             PanelType="Hour"
                                             ShouldLoop="True" />
                                     </ScrollViewer>
-                                    <RepeatButton Name="PART_HourUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                    <RepeatButton Name="PART_HourDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                    <RepeatButton Name="PART_HourUpButton"
+                                                  Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_HourDownButton"
+                                                  Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
 
                                 <Panel Grid.Column="2" Name="PART_MinuteHost">
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
                                             ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                             Name="PART_MinuteSelector"
                                             PanelType="Minute"
                                             ShouldLoop="True" />
                                     </ScrollViewer>
-                                    <RepeatButton Name="PART_MinuteUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                    <RepeatButton Name="PART_MinuteDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                    <RepeatButton Name="PART_MinuteUpButton"
+                                                  Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_MinuteDownButton"
+                                                  Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
 
                                 <Panel Grid.Column="4" Name="PART_SecondHost">
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
                                             ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                             Name="PART_SecondSelector"
                                             PanelType="Second"
                                             ShouldLoop="True" />
                                     </ScrollViewer>
-                                    <RepeatButton Name="PART_SecondUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                    <RepeatButton Name="PART_SecondDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                    <RepeatButton Name="PART_SecondUpButton"
+                                                  Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_SecondDownButton"
+                                                  Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
 
                                 <Panel Grid.Column="6" Name="PART_PeriodHost">
-                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                                    <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                                  VerticalScrollBarVisibility="Hidden">
                                         <DateTimePickerPanel
                                             ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                             Name="PART_PeriodSelector"
                                             PanelType="TimePeriod"
                                             ShouldLoop="False" />
                                     </ScrollViewer>
-                                    <RepeatButton Name="PART_PeriodUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
-                                    <RepeatButton Name="PART_PeriodDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
+                                    <RepeatButton Name="PART_PeriodUpButton"
+                                                  Theme="{StaticResource DateTimePickerUpButton}" />
+                                    <RepeatButton Name="PART_PeriodDownButton"
+                                                  Theme="{StaticResource DateTimePickerDownButton}" />
                                 </Panel>
 
                                 <Rectangle
@@ -115,7 +127,8 @@
                                     Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
-                                    <PathIcon Data="{DynamicResource DateTimePickerAcceptGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                    <PathIcon Data="{DynamicResource DateTimePickerAcceptGlyph}"
+                                              Theme="{StaticResource InnerPathIcon}" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
@@ -130,7 +143,8 @@
                                     Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
-                                    <PathIcon Data="{DynamicResource DateTimePickerDismissGlyph}" Theme="{StaticResource InnerPathIcon}" />
+                                    <PathIcon Data="{DynamicResource DateTimePickerDismissGlyph}"
+                                              Theme="{StaticResource InnerPathIcon}" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
@@ -157,7 +171,7 @@
         <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource DateTimePickerButtonBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource DateTimePickerButtonCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonDefaultHeight}" />
@@ -201,7 +215,7 @@
                                             HorizontalAlignment="Center"
                                             Name="PART_HourTextBlock"
                                             Padding="12,0"
-                                            Text="{DynamicResource STRING_TIMEPICKER_HOUR_TEXT}"
+                                            Text="{DynamicResource Lang.Hour}"
                                             VerticalAlignment="Center" />
                                     </Border>
 
@@ -224,7 +238,7 @@
                                             HorizontalAlignment="Center"
                                             Name="PART_MinuteTextBlock"
                                             Padding="12,0"
-                                            Text="{DynamicResource STRING_TIMEPICKER_MINUTE_TEXT}"
+                                            Text="{DynamicResource Lang.Minute}"
                                             VerticalAlignment="Center" />
                                     </Border>
 
@@ -247,7 +261,7 @@
                                             HorizontalAlignment="Center"
                                             Name="PART_SecondTextBlock"
                                             Padding="12,0"
-                                            Text="{DynamicResource STRING_TIMEPICKER_SECOND_TEXT}"
+                                            Text="{DynamicResource Lang.Second}"
                                             VerticalAlignment="Center" />
                                     </Border>
 
@@ -298,13 +312,18 @@
 
                         <Button
                             Command="{Binding $parent[TimePicker].Clear}"
-                            Content="{DynamicResource IconButtonClearData}"
                             Focusable="False"
                             Grid.Column="1"
                             IsVisible="False"
                             Margin="0,0,9,0"
                             Name="ClearButton"
-                            Theme="{DynamicResource InnerIconButton}" />
+                            Theme="{DynamicResource TransparentButton}">
+                            <PathIcon
+                                Data="{DynamicResource Close}"
+                                Foreground="{DynamicResource InnerForegroundColor}"
+                                Height="11"
+                                Width="16" />
+                        </Button>
                     </Grid>
                 </DataValidationErrors>
             </ControlTemplate>
@@ -327,11 +346,29 @@
             <Setter Property="Foreground" Value="{DynamicResource DateTimePickerEmptyForeground}" />
         </Style>
 
-        <Style Selector="^.Large">
-            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonLargeHeight}" />
+        <Style Selector="^.Bordered">
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Style Selector="^:pointerover">
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
+            <Style Selector="^:focus">
+                <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+                <Setter Property="BorderThickness" Value="1" />
+            </Style>
         </Style>
-        <Style Selector="^.Small">
-            <Setter Property="MinHeight" Value="{DynamicResource DateTimePickerButtonSmallHeight}" />
+        <Style Selector="^.BorderedOnFocus:focus">
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="^.BorderedOnFocus:focus-within">
+            <Setter Property="BorderBrush" Value="{DynamicResource SystemAccentColor}" />
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

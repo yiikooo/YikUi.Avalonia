@@ -14,4 +14,7 @@ public interface ILang
     public string Day { get; }
     public string Month { get; }
     public string Year { get; }
+    public string Hour { get; }
+    public string Minute { get; }
+    public string Second { get; }
 }

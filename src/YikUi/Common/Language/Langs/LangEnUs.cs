@@ -14,4 +14,7 @@ public class LangEnUs : ILang
     public string Day => "day";
     public string Month => "month";
     public string Year => "year";
+    public string Hour => "hour";
+    public string Minute => "minute";
+    public string Second => "second";
 }

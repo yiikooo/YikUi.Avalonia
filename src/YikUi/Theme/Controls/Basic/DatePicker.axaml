@@ -118,7 +118,7 @@
     </ResourceDictionary.ThemeDictionaries>
 
     <!--  Non-theme specific resources  -->
-    <CornerRadius x:Key="DateTimePickerPopupCornerRadius">6</CornerRadius>
+    <CornerRadius x:Key="DateTimePickerPopupCornerRadius">10</CornerRadius>
     <x:Double x:Key="DateTimePickerListBoxItemHeight">36</x:Double>
     <Thickness x:Key="DateTimePickerFlyoutPadding">0</Thickness>
     <Thickness x:Key="DateTimePickerFlyoutBorderMargin">8</Thickness>

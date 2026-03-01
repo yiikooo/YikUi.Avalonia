@@ -14,4 +14,7 @@ public class LangZhCn : ILang
     public string Day => "日";
     public string Month => "月";
     public string Year => "年";
+    public string Hour => "时";
+    public string Minute => "分";
+    public string Second => "秒";
 }
