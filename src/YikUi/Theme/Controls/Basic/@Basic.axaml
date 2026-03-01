@@ -42,5 +42,6 @@
         <ResourceInclude Source="TransitioningContentControl.axaml" />
         <ResourceInclude Source="TitleBar.axaml" />
         <ResourceInclude Source="Popup.axaml" />
+        <ResourceInclude Source="ComboBox.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

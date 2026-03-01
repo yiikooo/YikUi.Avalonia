@@ -100,6 +100,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
             [
                 new Page
                 {
+                    Title = "ComboBox",
+                    Content = new ComboBoxPage(),
+                },
+                new Page
+                {
                     Title = "TextBox",
                     Content = new TextBoxPage(),
                 },
