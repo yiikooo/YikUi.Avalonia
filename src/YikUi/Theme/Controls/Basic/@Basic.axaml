@@ -45,5 +45,6 @@
         <ResourceInclude Source="Carousel.axaml" />
         <ResourceInclude Source="ContextMenu.axaml" />
         <ResourceInclude Source="Label.axaml" />
+        <ResourceInclude Source="HeaderedContentControl.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
