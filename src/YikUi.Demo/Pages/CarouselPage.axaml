@@ -1,0 +1,80 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.CarouselPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <UserControl.Styles>
+        <Style Selector="Carousel">
+            <Setter Property="Height" Value="200" />
+            <Style Selector="^ TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="#1C1F23" />
+            </Style>
+        </Style>
+        <Style Selector="RadioButton">
+            <Setter Property="Theme" Value="{DynamicResource ButtonRadioButton}" />
+        </Style>
+    </UserControl.Styles>
+    <yik:GroupBorder
+        Header="Calendar"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <Carousel
+                    Classes.Center="{Binding #CenterButton.IsChecked}"
+                    Classes.Columnar="{Binding #ColumnarButton.IsChecked}"
+                    Classes.Dot="{Binding #DotButton.IsChecked}"
+                    Classes.Left="{Binding #LeftButton.IsChecked}"
+                    Classes.Line="{Binding #LineButton.IsChecked}"
+                    Classes.Right="{Binding #RightButton.IsChecked}"
+                    Theme="{DynamicResource FullCarousel}">
+                    <Border Background="#EAF5FF">
+                        <TextBlock Text="Text 1" />
+                    </Border>
+                    <Border Background="#F9F9F9">
+                        <TextBlock Text="Text 2" />
+                    </Border>
+                    <Border Background="#FFF8EA">
+                        <TextBlock Text="Text 3" />
+                    </Border>
+                    <Border Background="#FEF2ED">
+                        <TextBlock Text="Text 4" />
+                    </Border>
+                </Carousel>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Type" VerticalAlignment="Center" />
+                    <Border Theme="{DynamicResource RadioButtonGroupBorder}">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton
+                                Content="Dot"
+                                IsChecked="True"
+                                Name="DotButton" />
+                            <RadioButton Content="Columnar" Name="ColumnarButton" />
+                            <RadioButton Content="Line" Name="LineButton" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <TextBlock Text="Position" VerticalAlignment="Center" />
+                    <Border Theme="{DynamicResource RadioButtonGroupBorder}">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton
+                                Content="Left"
+                                IsChecked="True"
+                                Name="LeftButton" />
+                            <RadioButton Content="Center" Name="CenterButton" />
+                            <RadioButton Content="Right" Name="RightButton" />
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

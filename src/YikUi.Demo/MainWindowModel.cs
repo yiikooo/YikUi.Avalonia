@@ -177,6 +177,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "ListBox",
                     Content = new ListBoxPage(),
                 },
+                new Page
+                {
+                    Title = "Carousel",
+                    Content = new CarouselPage(),
+                },
             ]
         },
         new()
