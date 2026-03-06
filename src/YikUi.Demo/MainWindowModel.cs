@@ -100,11 +100,6 @@ public sealed class MainWindowModel : INotifyPropertyChanged
             [
                 new Page
                 {
-                    Title = "Menu",
-                    Content = new MenuPage(),
-                },
-                new Page
-                {
                     Title = "ComboBox",
                     Content = new ComboBoxPage(),
                 },
@@ -137,6 +132,23 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "ManagedFileChooser",
                     Content = new ManagedFileChooserPage(),
+                },
+            ]
+        },
+        new()
+        {
+            Title = "Menu",
+            Children =
+            [
+                new Page
+                {
+                    Title = "Menu",
+                    Content = new MenuPage(),
+                },
+                new Page
+                {
+                    Title = "NavMenu",
+                    Content = new NavMenuPage(),
                 },
             ]
         },

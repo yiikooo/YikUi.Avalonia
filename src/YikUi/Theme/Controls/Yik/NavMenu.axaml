@@ -281,6 +281,20 @@
             <Setter Property="RenderTransform" Value="scaleY(1)" />
         </Style>
 
+        <Style Selector="^:horizontal-collapsed">
+            <Setter Property="MinWidth" Value="35" />
+            <Style Selector="^ /template/ ContentPresenter#PART_IconPresenter">
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </Style>
+
+        <Style Selector="^">
+            <Setter Property="Margin" Value="0,2" />
+        </Style>
+        <Style Selector="^:empty /template/ yik|ContentExpander#PART_ContentExpand">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
         <Style Selector="^:horizontal-collapsed:first-level">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Grid.IsSharedSizeScope" Value="True" />
