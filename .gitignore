@@ -7,7 +7,7 @@ riderModule.iml
 .vs/
 .idea/
 
-Mirel.sln.DotSettings.user
+YikUI.sln.DotSettings.user
 
 bin/
 obj/
@@ -17,5 +17,3 @@ obj/
 *.bin
 *.user
 promet.md
-
-/z.import
