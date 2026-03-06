@@ -196,6 +196,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "ToolTip",
+                    Content = new ToolTipPage(),
+                },
+                new Page
+                {
                     Title = "Expander",
                     Content = new ExpanderPage(),
                 },
