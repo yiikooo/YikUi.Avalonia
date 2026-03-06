@@ -1,0 +1,67 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <system:Double x:Key="RefreshVisualizerIconSize">24</system:Double>
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="Transparent" x:Key="RefreshVisualizerIconBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="RefreshVisualizerIconForeground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="Transparent" x:Key="RefreshVisualizerIconBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="RefreshVisualizerIconForeground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="RefreshContainer" x:Key="{x:Type RefreshContainer}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <ContentPresenter
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="PART_ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <Grid Name="PART_RefreshVisualizerPresenter" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="RefreshVisualizer" x:Key="{x:Type RefreshVisualizer}">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Background" Value="{DynamicResource RefreshVisualizerIconBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource RefreshVisualizerIconForeground}" />
+        <Setter Property="Content">
+            <Template>
+                <Arc
+                    Height="{DynamicResource RefreshVisualizerIconSize}"
+                    Name="PART_Icon"
+                    StartAngle="0"
+                    Stroke="{DynamicResource RefreshVisualizerIconForeground}"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    SweepAngle="270"
+                    Width="{DynamicResource RefreshVisualizerIconSize}" />
+            </Template>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid
+                    Background="{TemplateBinding Background}"
+                    MinHeight="80"
+                    Name="PART_Root" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>
