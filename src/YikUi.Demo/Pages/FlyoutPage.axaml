@@ -1,0 +1,135 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.FlyoutPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <UserControl.Styles>
+        <Style Selector="Button">
+            <Setter Property="Margin" Value="8" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+    </UserControl.Styles>
+    <yik:GroupBorder
+        Header="Flyout"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <Grid
+                ColumnDefinitions="*, *, *, *, *"
+                HorizontalAlignment="Center"
+                RowDefinitions="*, *, *, *, *, *"
+                VerticalAlignment="Center">
+                <Button
+                    Content="Top Left"
+                    Grid.Column="1"
+                    Grid.Row="0">
+                    <Button.Flyout>
+                        <Flyout Content="TopEdgeAlignedLeft" Placement="TopEdgeAlignedLeft" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Top"
+                    Grid.Column="2"
+                    Grid.Row="0">
+                    <Button.Flyout>
+                        <Flyout Content="Top" Placement="Top" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Top Right"
+                    Grid.Column="3"
+                    Grid.Row="0">
+                    <Button.Flyout>
+                        <Flyout Content="TopEdgeAlignedRight" Placement="TopEdgeAlignedRight" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Left Top"
+                    Grid.Column="0"
+                    Grid.Row="1">
+                    <Button.Flyout>
+                        <Flyout Content="LeftEdgeAlignedTop" Placement="LeftEdgeAlignedTop" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Right Top"
+                    Grid.Column="4"
+                    Grid.Row="1">
+                    <Button.Flyout>
+                        <Flyout Content="RightEdgeAlignedTop" Placement="RightEdgeAlignedTop" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Left"
+                    Grid.Column="0"
+                    Grid.Row="2">
+                    <Button.Flyout>
+                        <Flyout Content="Left" Placement="Left" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Right"
+                    Grid.Column="4"
+                    Grid.Row="2">
+                    <Button.Flyout>
+                        <Flyout Content="Right" Placement="Right" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Left Bottom"
+                    Grid.Column="0"
+                    Grid.Row="3">
+                    <Button.Flyout>
+                        <Flyout Content="LeftEdgeAlignedBottom" Placement="LeftEdgeAlignedBottom" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Right Bottom"
+                    Grid.Column="4"
+                    Grid.Row="3">
+                    <Button.Flyout>
+                        <Flyout Content="RightEdgeAlignedBottom" Placement="RightEdgeAlignedBottom" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Bottom Left"
+                    Grid.Column="1"
+                    Grid.Row="4">
+                    <Button.Flyout>
+                        <Flyout Content="BottomEdgeAlignedLeft" Placement="BottomEdgeAlignedLeft" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Bottom"
+                    Grid.Column="2"
+                    Grid.Row="4">
+                    <Button.Flyout>
+                        <Flyout Content="Bottom" Placement="Bottom" />
+                    </Button.Flyout>
+                </Button>
+                <Button
+                    Content="Bottom Right"
+                    Grid.Column="3"
+                    Grid.Row="4">
+                    <Button.Flyout>
+                        <Flyout Content="BottomEdgeAlignedRight" Placement="BottomEdgeAlignedRight" />
+                    </Button.Flyout>
+                </Button>
+
+                <Button
+                    Content="Center"
+                    Grid.Column="2"
+                    Grid.Row="2">
+                    <Button.Flyout>
+                        <Flyout Content="Center" Placement="Center" />
+                    </Button.Flyout>
+                </Button>
+            </Grid>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

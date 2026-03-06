@@ -46,8 +46,13 @@ public sealed class MainWindowModel : INotifyPropertyChanged
             [
                 new Page
                 {
+                    Title = "Label",
+                    Content = new LabelPage(),
+                },
+                new Page
+                {
                     Title = "TextBlock",
-                    Content = new TextBlockPage(),
+                    Content = new TextBoxPage(),
                 },
                 new Page
                 {
@@ -184,6 +189,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
             Title = "Show",
             Children =
             [
+                new Page
+                {
+                    Title = "Flyout",
+                    Content = new FlyoutPage(),
+                },
                 new Page
                 {
                     Title = "Expander",

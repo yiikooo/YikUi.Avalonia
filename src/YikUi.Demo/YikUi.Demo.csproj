@@ -49,5 +49,9 @@
             <DependentUpon>SettingPage.axaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Update="Pages\LabelPage.axaml.cs">
+            <DependentUpon>LabelPage.axaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 </Project>
