@@ -43,5 +43,6 @@
         <ResourceInclude Source="TitleBar.axaml" />
         <ResourceInclude Source="Popup.axaml" />
         <ResourceInclude Source="ComboBox.axaml" />
+        <ResourceInclude Source="Carousel.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

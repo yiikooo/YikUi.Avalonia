@@ -19,7 +19,16 @@
                             <ContentPresenter Content="{TemplateBinding Header}" Grid.Row="0">
                                 <ContentPresenter.DataTemplates>
                                     <DataTemplate DataType="x:String">
-                                        <TextBlock Margin="14,10" Text="{Binding}" />
+                                        <Panel>
+                                            <SelectableTextBlock
+                                                Margin="14,10"
+                                                Name="SelectableText"
+                                                Text="{Binding}" />
+                                            <TextBlock
+                                                Margin="14,10"
+                                                Name="Text"
+                                                Text="{Binding}" />
+                                        </Panel>
                                     </DataTemplate>
                                 </ContentPresenter.DataTemplates>
                             </ContentPresenter>

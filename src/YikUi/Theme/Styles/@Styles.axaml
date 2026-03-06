@@ -7,4 +7,5 @@
     <StyleInclude Source="ScrollViewer.axaml" />
     <StyleInclude Source="PopupAnimation.axaml" />
     <StyleInclude Source="Menu.axaml" />
+    <StyleInclude Source="GroupBorder.axaml" />
 </Styles>

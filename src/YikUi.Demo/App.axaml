@@ -13,5 +13,6 @@
     </Application.Resources>
     <Application.Styles>
         <yik:YikUiTheme ThemeColor="#1BD76A" />
+        <StyleInclude Source="Styles.axaml" />
     </Application.Styles>
 </Application>
