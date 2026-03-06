@@ -2,4 +2,13 @@
     <Style Selector="MenuFlyoutPresenter Separator">
         <Setter Property="Margin" Value="0,4" />
     </Style>
+    <Style Selector="ContextMenu Separator">
+        <Setter Property="Margin" Value="0,4" />
+    </Style>
+    <Style Selector="Menu Separator">
+        <Setter Property="Margin" Value="0,4" />
+    </Style>
+    <Style Selector="MenuItem Separator">
+        <Setter Property="Margin" Value="0,4" />
+    </Style>
 </Styles>

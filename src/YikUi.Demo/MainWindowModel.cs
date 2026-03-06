@@ -174,6 +174,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "Menu",
+                    Content = new MenuPage(),
+                },
+                new Page
+                {
                     Title = "ListBox",
                     Content = new ListBoxPage(),
                 },

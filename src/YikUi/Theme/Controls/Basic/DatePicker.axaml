@@ -2,7 +2,7 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- <DatePickerPresenter YearVisible="False" /> -->
-            <DatePicker Classes="BorderedOnFocus" />
+            <DatePickerPresenter Classes="BorderedOnFocus" />
         </Border>
     </Design.PreviewWith>
 
@@ -237,6 +237,7 @@
                                 <Button
                                     CornerRadius="{DynamicResource YikCornerRadius}"
                                     Grid.Column="0"
+                                    Height="30"
                                     HorizontalAlignment="Stretch"
                                     Margin="3,4,3,3"
                                     Name="PART_AcceptButton"
@@ -246,7 +247,7 @@
                                     <PathIcon
                                         Data="{DynamicResource DateTimePickerAcceptGlyph}"
                                         Foreground="{DynamicResource InnerForegroundColor}"
-                                        Theme="{StaticResource InnerPathIcon}" />
+                                        Width="14" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
@@ -256,6 +257,7 @@
                                 <Button
                                     CornerRadius="{DynamicResource YikCornerRadius}"
                                     Grid.Column="2"
+                                    Height="30"
                                     HorizontalAlignment="Stretch"
                                     Margin="3,4,3,3"
                                     Name="PART_DismissButton"
@@ -265,7 +267,8 @@
                                     <PathIcon
                                         Data="{DynamicResource DateTimePickerDismissGlyph}"
                                         Foreground="{DynamicResource InnerForegroundColor}"
-                                        Theme="{StaticResource InnerPathIcon}" />
+                                        Theme="{StaticResource InnerPathIcon}"
+                                        Width="14" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"

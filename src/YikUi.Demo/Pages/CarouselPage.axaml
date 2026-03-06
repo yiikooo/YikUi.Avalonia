@@ -22,7 +22,7 @@
         </Style>
     </UserControl.Styles>
     <yik:GroupBorder
-        Header="Calendar"
+        Header="Carousel"
         Margin="15"
         Padding="15">
         <ScrollViewer>

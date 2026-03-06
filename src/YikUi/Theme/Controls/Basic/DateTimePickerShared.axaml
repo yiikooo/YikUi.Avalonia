@@ -213,12 +213,12 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsVisible" Value="False" />
-        <Setter Property="Padding" Value="0 4" />
+        <Setter Property="Padding" Value="0 1" />
         <Setter Property="Content">
             <Template>
                 <PathIcon
-                    Classes="ExtraSmall"
                     Data="{DynamicResource DateTimePickerButtonUpGlyph}"
+                    Height="8"
                     HorizontalAlignment="Center"
                     Theme="{StaticResource InnerPathIcon}"
                     VerticalAlignment="Center" />
@@ -234,12 +234,12 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsVisible" Value="False" />
-        <Setter Property="Padding" Value="0 4" />
+        <Setter Property="Padding" Value="0 1" />
         <Setter Property="Content">
             <Template>
                 <PathIcon
-                    Classes="ExtraSmall"
                     Data="{DynamicResource DateTimePickerButtonDownGlyph}"
+                    Height="8"
                     HorizontalAlignment="Center"
                     Theme="{StaticResource InnerPathIcon}"
                     VerticalAlignment="Center" />

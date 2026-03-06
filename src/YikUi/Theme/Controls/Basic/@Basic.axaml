@@ -8,7 +8,6 @@
         <ResourceInclude Source="ToggleButton.axaml" />
         <ResourceInclude Source="TextBlock.axaml" />
         <ResourceInclude Source="TextBox.axaml" />
-        <ResourceInclude Source="ContextMenu.axaml" />
         <ResourceInclude Source="Tooltip.axaml" />
         <ResourceInclude Source="ScrollViewer.axaml" />
         <ResourceInclude Source="SelectableTextBlock.axaml" />
@@ -44,5 +43,6 @@
         <ResourceInclude Source="Popup.axaml" />
         <ResourceInclude Source="ComboBox.axaml" />
         <ResourceInclude Source="Carousel.axaml" />
+        <ResourceInclude Source="ContextMenu.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

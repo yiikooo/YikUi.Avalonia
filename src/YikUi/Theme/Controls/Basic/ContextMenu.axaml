@@ -1,47 +1,69 @@
-<ResourceDictionary
-    x:CompileBindings="True"
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <ControlTheme TargetType="ContextMenu" x:Key="{x:Type ContextMenu}">
-        <Setter Property="Background" Value="{DynamicResource PanelBackgroundColor}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MenuFlyoutBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{DynamicResource MenuFlyoutBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource MenuFlyoutCornerRadius}" />
-        <Setter Property="MaxWidth" Value="{DynamicResource MenuFlyoutMaxWidth}" />
-        <Setter Property="MinHeight" Value="{DynamicResource MenuFlyoutMinHeight}" />
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="ContextMenu" x:Key="SukiContextMenuStyle">
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="Focusable" Value="True" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="FontSize" Value="{DynamicResource MenuFlyoutFontSize}" />
-        <Setter Property="FontWeight" Value="{DynamicResource MenuFlyoutFontWeight}" />
-        <Setter Property="WindowManagerAddShadowHint" Value="False" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="CornerRadius" Value="14" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="ContextMenu">
-                <Border
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                    Margin="4"
-                    MaxWidth="{TemplateBinding MaxWidth}"
-                    MinHeight="{TemplateBinding MinHeight}"
-                    Padding="{TemplateBinding Padding}">
-                    <ScrollViewer CornerRadius="{TemplateBinding CornerRadius}" Theme="{DynamicResource MenuScrollViewer}">
-                        <ItemsPresenter
-                            Grid.IsSharedSizeScope="True"
-                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                            KeyboardNavigation.TabNavigation="Continue"
-                            Name="PART_ItemsPresenter" />
-                    </ScrollViewer>
-                </Border>
+            <ControlTemplate>
+                <!--  Tiny margin helps prevent mouse-over immediately  -->
+                <LayoutTransformControl
+                    Margin="1,0,0,0"
+                    Name="PART_LayoutTransform"
+                    RenderTransformOrigin="0%, 0%">
+                    <Panel>
+                        <Border CornerRadius="{TemplateBinding CornerRadius}" Margin="16" />
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="True"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Margin="15">
+                            <Panel Margin="4">
+                                <ItemsPresenter
+                                    HorizontalAlignment="Left"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}"
+                                    KeyboardNavigation.TabNavigation="Continue"
+                                    Name="PART_ItemsPresenter"
+                                    VerticalAlignment="Center" />
+                            </Panel>
+                        </Border>
+                    </Panel>
+                </LayoutTransformControl>
             </ControlTemplate>
         </Setter>
-        <Styles>
-            <yik:YikPopupAnimations />
-        </Styles>
+        <!-- <Style Selector="^[IsOpen=True] /template/ LayoutTransformControl#PART_LayoutTransform"> -->
+        <!--     <Style.Animations> -->
+        <!--  <Animation  -->
+        <!--  Duration="0:0:0.3"  -->
+        <!--  Easing="{StaticResource MenuEasing}"  -->
+        <!--  FillMode="Forward">  -->
+        <!--             <KeyFrame Cue="0%"> -->
+        <!--                 <Setter Property="ScaleTransform.ScaleY" Value="0.92" /> -->
+        <!--                 <Setter Property="ScaleTransform.ScaleX" Value="0.92" /> -->
+        <!--             </KeyFrame> -->
+        <!--             <KeyFrame Cue="100%"> -->
+        <!--                 <Setter Property="ScaleTransform.ScaleY" Value="1" /> -->
+        <!--                 <Setter Property="ScaleTransform.ScaleX" Value="1" /> -->
+        <!--             </KeyFrame> -->
+        <!--         </Animation> -->
+        <!--         <Animation Duration="0:0:0.25" FillMode="Forward"> -->
+        <!--             <KeyFrame Cue="0%"> -->
+        <!--                 <Setter Property="Opacity" Value="0" /> -->
+        <!--             </KeyFrame> -->
+        <!--             <KeyFrame Cue="100%"> -->
+        <!--                 <Setter Property="Opacity" Value="1" /> -->
+        <!--             </KeyFrame> -->
+        <!--         </Animation> -->
+        <!--     </Style.Animations> -->
+        <!-- </Style> -->
     </ControlTheme>
+    <ControlTheme
+        BasedOn="{StaticResource SukiContextMenuStyle}"
+        TargetType="ContextMenu"
+        x:Key="{x:Type ContextMenu}" />
 </ResourceDictionary>

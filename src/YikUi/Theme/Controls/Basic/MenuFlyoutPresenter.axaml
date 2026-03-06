@@ -24,7 +24,7 @@
         <Setter Property="Padding" Value="0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="CornerRadius" Value="11" />
+        <Setter Property="CornerRadius" Value="14" />
         <Setter Property="Template">
             <ControlTemplate TargetType="MenuFlyoutPresenter">
                 <Border

@@ -2,66 +2,6 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:converter="https://github.com/yiikooo/YikUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Design.PreviewWith>
-        <StackPanel
-            Height="800"
-            Spacing="20"
-            Width="800">
-            <StackPanel.Styles>
-                <Style Selector="Carousel">
-                    <Setter Property="Height" Value="200" />
-                </Style>
-                <Style Selector="TextBlock">
-                    <Setter Property="HorizontalAlignment" Value="Center" />
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="Foreground" Value="#1C1F23" />
-                </Style>
-            </StackPanel.Styles>
-            <Carousel Theme="{DynamicResource FullCarousel}">
-                <Border Background="#EAF5FF">
-                    <TextBlock Text="Text 1" />
-                </Border>
-                <Border Background="#F9F9F9">
-                    <TextBlock Text="Text 2" />
-                </Border>
-                <Border Background="#FFF8EA">
-                    <TextBlock Text="Text 3" />
-                </Border>
-                <Border Background="#FEF2ED">
-                    <TextBlock Text="Text 4" />
-                </Border>
-            </Carousel>
-            <Carousel Classes="Line" Theme="{DynamicResource FullCarousel}">
-                <Border Background="#EAF5FF">
-                    <TextBlock Text="Text 1" />
-                </Border>
-                <Border Background="#F9F9F9">
-                    <TextBlock Text="Text 2" />
-                </Border>
-                <Border Background="#FFF8EA">
-                    <TextBlock Text="Text 3" />
-                </Border>
-                <Border Background="#FEF2ED">
-                    <TextBlock Text="Text 4" />
-                </Border>
-            </Carousel>
-            <Carousel Classes="Columnar Left" Theme="{DynamicResource FullCarousel}">
-                <Border Background="#EAF5FF">
-                    <TextBlock Text="Text 1" />
-                </Border>
-                <Border Background="#F9F9F9">
-                    <TextBlock Text="Text 2" />
-                </Border>
-                <Border Background="#FFF8EA">
-                    <TextBlock Text="Text 3" />
-                </Border>
-                <Border Background="#FEF2ED">
-                    <TextBlock Text="Text 4" />
-                </Border>
-            </Carousel>
-        </StackPanel>
-    </Design.PreviewWith>
-
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush
@@ -198,8 +138,9 @@
         <Setter Property="Margin" Value="2 0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
-                <Rectangle
-                    Fill="{TemplateBinding Foreground}"
+                <Border
+                    Background="{TemplateBinding Foreground}"
+                    CornerRadius="99"
                     Height="{DynamicResource CarouselIndicatorLineHeight}"
                     Name="Container" />
             </ControlTemplate>
@@ -215,21 +156,22 @@
         <Setter Property="Margin" Value="2 0" />
         <Setter Property="Template">
             <ControlTemplate TargetType="ListBoxItem">
-                <Rectangle
-                    Fill="{TemplateBinding Foreground}"
+                <Border
+                    Background="{TemplateBinding Foreground}"
+                    CornerRadius="99"
                     Height="{DynamicResource CarouselIndicatorColumnarHeight}"
                     Name="Container"
                     VerticalAlignment="Bottom"
                     Width="{DynamicResource CarouselIndicatorColumnarWidth}">
-                    <Rectangle.Transitions>
+                    <Border.Transitions>
                         <Transitions>
                             <DoubleTransition Duration="0:0:0.2" Property="Height" />
                         </Transitions>
-                    </Rectangle.Transitions>
-                </Rectangle>
+                    </Border.Transitions>
+                </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:selected /template/ Rectangle#Container">
+        <Style Selector="^:selected /template/ Border#Container">
             <Setter Property="Height" Value="{DynamicResource CarouselIndicatorColumnarSelectedHeight}" />
         </Style>
     </ControlTheme>

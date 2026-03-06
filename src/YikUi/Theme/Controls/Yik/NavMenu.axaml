@@ -129,6 +129,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition SharedSizeGroup="Expander" Width="Auto" />
                     </Grid.ColumnDefinitions>
+
                     <Rectangle
                         Fill="{DynamicResource SystemAccentColor}"
                         Height="16"
@@ -156,6 +157,7 @@
                             </Transitions>
                         </Rectangle.Transitions>
                     </Rectangle>
+
                     <ContentPresenter
                         Background="Transparent"
                         Content="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
@@ -171,6 +173,7 @@
                         Grid.Column="2"
                         Name="PART_HeaderPresenter"
                         Padding="0,8,8,8" />
+
                     <PathIcon
                         Data="F1 M640,640z M0,0z M297.4,438.6C309.9,451.1,330.2,451.1,342.7,438.6L502.7,278.6C515.2,266.1 515.2,245.8 502.7,233.3 490.2,220.8 469.9,220.8 457.4,233.3L320,370.7 182.6,233.4C170.1,220.9 149.8,220.9 137.3,233.4 124.8,245.9 124.8,266.2 137.3,278.7L297.3,438.7z"
                         Foreground="{DynamicResource ForegroundColor}"
@@ -184,6 +187,7 @@
                             </Transitions>
                         </PathIcon.Transitions>
                     </PathIcon>
+
                     <Popup
                         Grid.Column="0"
                         Grid.ColumnSpan="4"
@@ -205,36 +209,21 @@
                     </Popup>
                 </Grid>
             </Border>
-            <LayoutTransformControl Grid.Row="1" RenderTransformOrigin="0.5,0">
+
+            <yik:ContentExpander
+                Grid.Row="1"
+                Name="PART_ContentExpand"
+                Orientation="Vertical"
+                VerticalAlignment="Top">
                 <ItemsPresenter
                     Grid.IsSharedSizeScope="True"
-                    Grid.Row="1"
                     ItemsPanel="{Binding ItemsPanel, RelativeSource={RelativeSource TemplatedParent}}"
                     Margin="0,4,0,0"
-                    Name="PART_ItemsPresenter"
-                    Opacity="1"
-                    RenderTransformOrigin="0.5,0"
-                    VerticalAlignment="Top">
-                    <ItemsPresenter.Transitions>
-                        <Transitions>
-                            <DoubleTransition
-                                Duration="0:0:0.15"
-                                Easing="ExponentialEaseOut"
-                                Property="Opacity" />
-                        </Transitions>
-                    </ItemsPresenter.Transitions>
-                </ItemsPresenter>
-                <LayoutTransformControl.Transitions>
-                    <Transitions>
-                        <TransformOperationsTransition
-                            Duration="0:0:0.15"
-                            Easing="ExponentialEaseOut"
-                            Property="LayoutTransform" />
-                    </Transitions>
-                </LayoutTransformControl.Transitions>
-            </LayoutTransformControl>
+                    Name="PART_ItemsPresenter" />
+            </yik:ContentExpander>
         </Grid>
     </ControlTemplate>
+
     <ControlTheme TargetType="yik:NavMenuItem" x:Key="{x:Type yik:NavMenuItem}">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -244,41 +233,46 @@
             </ItemsPanelTemplate>
         </Setter>
         <Setter Property="Template" Value="{StaticResource DefaultNavMenuItemTemplate}" />
+
         <Style Selector="^:selected">
-            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" />
-            -->
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
         </Style>
         <Style Selector="^:empty:pointerover">
-            <!-- <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" />
-            -->
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
         </Style>
-        <Style Selector="^:vertical-collapsed /template/ ItemsPresenter#PART_ItemsPresenter">
-            <Setter Property="Height" Value="0" />
+
+        <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
+            <Setter Property="Multiplier" Value="1" />
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <DoubleTransition
+                        Duration="0:0:0.3"
+                        Easing="ExponentialEaseOut"
+                        Property="Multiplier" />
+                    <DoubleTransition
+                        Duration="0:0:0.3"
+                        Easing="ExponentialEaseOut"
+                        Property="Opacity" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:vertical-collapsed /template/ yik|ContentExpander#PART_ContentExpand">
+            <Setter Property="Multiplier" Value="0" />
             <Setter Property="Opacity" Value="0" />
         </Style>
-        <Style Selector="^:vertical-collapsed /template/ LayoutTransformControl">
-            <Setter Property="LayoutTransform" Value="scale(1,0)" />
-        </Style>
+
         <Style Selector="^:vertical-collapsed /template/ PathIcon#PART_ExpanderIcon">
             <Setter Property="RenderTransform" Value="rotate(-90deg)" />
         </Style>
         <Style Selector="^:empty /template/ PathIcon#PART_ExpanderIcon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
+
         <Style Selector="^ /template/ Border#PART_Border:pointerover">
             <Setter Property="Background" Value="{DynamicResource ListBoxItemPointeroverBackground}" />
         </Style>
-        <!-- <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter:pointerover"> -->
-        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPointeroverForeground}" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter"> -->
-        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemPointeroverForeground}" /> -->
-        <!-- </Style> -->
-        <!-- <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter"> -->
-        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
-        <!-- </Style> -->
         <Style Selector="^:selected /template/ Border#PART_Border">
             <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
         </Style>
@@ -286,11 +280,10 @@
             <Setter Property="Opacity" Value="1" />
             <Setter Property="RenderTransform" Value="scaleY(1)" />
         </Style>
-        <!-- <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter"> -->
-        <!--     <Setter Property="Foreground" Value="{DynamicResource ListBoxItemSelectedForeground}" /> -->
-        <!-- </Style> -->
+
         <Style Selector="^:horizontal-collapsed:first-level">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Grid.IsSharedSizeScope" Value="True" />
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="ToolTip.Tip">
                     <Template>
@@ -315,18 +308,17 @@
             <Style Selector="^ /template/ PathIcon#PART_ExpanderIcon">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
-            <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+            <Style Selector="^ /template/ yik|ContentExpander#PART_ContentExpand">
                 <Setter Property="IsVisible" Value="False" />
             </Style>
         </Style>
+
         <Style Selector="^:horizontal-collapsed:not(:first-level)">
             <Style Selector="^ /template/ PathIcon#PART_ExpanderIcon">
                 <Setter Property="RenderTransform" Value="rotate(90deg)" />
             </Style>
         </Style>
-        <Style Selector="^:horizontal-collapsed:first-level">
-            <Setter Property="Grid.IsSharedSizeScope" Value="True" />
-        </Style>
+
         <Style Selector="^[IsSeparator=True]">
             <Setter Property="Template">
                 <ControlTemplate>
@@ -370,5 +362,4 @@
             </Style>
         </Style>
     </ControlTheme>
-
 </ResourceDictionary>
