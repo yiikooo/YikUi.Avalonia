@@ -50,6 +50,7 @@
                     <ItemsControl.Styles>
                         <Style Selector="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
+                            <Setter Property="Foreground" Value="{DynamicResource DataValidationErrorsForeground}" />
                         </Style>
                     </ItemsControl.Styles>
                 </ItemsControl>

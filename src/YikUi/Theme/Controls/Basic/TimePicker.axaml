@@ -127,8 +127,12 @@
                                     Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
-                                    <PathIcon Data="{DynamicResource DateTimePickerAcceptGlyph}"
-                                              Theme="{StaticResource InnerPathIcon}" />
+                                    <PathIcon
+                                        Data="{DynamicResource DateTimePickerAcceptGlyph}"
+                                        Foreground="{DynamicResource InnerForegroundColor}"
+                                        Height="15"
+                                        Theme="{StaticResource InnerPathIcon}"
+                                        Width="12" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
@@ -143,8 +147,12 @@
                                     Padding="0,6"
                                     Theme="{StaticResource DateTimePickerButton}"
                                     VerticalAlignment="Stretch">
-                                    <PathIcon Data="{DynamicResource DateTimePickerDismissGlyph}"
-                                              Theme="{StaticResource InnerPathIcon}" />
+                                    <PathIcon
+                                        Data="{DynamicResource DateTimePickerDismissGlyph}"
+                                        Foreground="{DynamicResource InnerForegroundColor}"
+                                        Height="15"
+                                        Theme="{StaticResource InnerPathIcon}"
+                                        Width="15" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"

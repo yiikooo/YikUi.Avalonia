@@ -203,6 +203,18 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         },
         new()
         {
+            Title = "Feedback",
+            Children =
+            [
+                new Page
+                {
+                    Title = "DataValidationErrors",
+                    Content = new DataValidationErrorsPage(),
+                }
+            ]
+        },
+        new()
+        {
             Title = "Layout",
             Children =
             [

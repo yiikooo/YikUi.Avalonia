@@ -247,7 +247,8 @@
                                     <PathIcon
                                         Data="{DynamicResource DateTimePickerAcceptGlyph}"
                                         Foreground="{DynamicResource InnerForegroundColor}"
-                                        Width="14" />
+                                        Height="15"
+                                        Width="12" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
@@ -267,8 +268,9 @@
                                     <PathIcon
                                         Data="{DynamicResource DateTimePickerDismissGlyph}"
                                         Foreground="{DynamicResource InnerForegroundColor}"
+                                        Height="15"
                                         Theme="{StaticResource InnerPathIcon}"
-                                        Width="14" />
+                                        Width="15" />
                                 </Button>
                                 <Rectangle
                                     Fill="{DynamicResource DateTimePickerSeparatorBackground}"
