@@ -427,6 +427,7 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="MaxDropDownHeight" Value="209" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
@@ -535,8 +536,10 @@
                                     HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
                                     IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                     VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                                    <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                    Name="PART_ItemsPresenter" />
+                                    <Border Margin="4">
+                                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        Name="PART_ItemsPresenter" />
+                                    </Border>
                                 </ScrollViewer>
                             </Border>
                         </Popup>

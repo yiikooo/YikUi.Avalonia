@@ -34,6 +34,7 @@
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Margin="4"
                     Name="LayoutRoot"
+                    Padding="4"
                     UseLayoutRounding="False">
                     <ScrollViewer
                         CornerRadius="{TemplateBinding CornerRadius}"

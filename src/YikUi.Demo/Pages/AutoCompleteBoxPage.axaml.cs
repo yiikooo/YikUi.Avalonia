@@ -11,64 +11,43 @@ public partial class AutoCompleteBoxPage : UserControl
         DataContext = this;
     }
 
-    public ObservableCollection<StateData> States { get; set; } =
+    public ObservableCollection<Data> DataList { get; set; } =
     [
-        new("Alabama", "AL", "Montgomery"),
-        new("Alaska", "AK", "Juneau"),
-        new("Arizona", "AZ", "Phoenix"),
-        new("Arkansas", "AR", "Little Rock"),
-        new("California", "CA", "Sacramento"),
-        new("Colorado", "CO", "Denver"),
-        new("Connecticut", "CT", "Hartford"),
-        new("Delaware", "DE", "Dover"),
-        new("Florida", "FL", "Tallahassee"),
-        new("Georgia", "GA", "Atlanta"),
-        new("Hawaii", "HI", "Honolulu"),
-        new("Idaho", "ID", "Boise"),
-        new("Illinois", "IL", "Springfield"),
-        new("Indiana", "IN", "Indianapolis"),
-        new("Iowa", "IA", "Des Moines"),
-        new("Kansas", "KS", "Topeka"),
-        new("Kentucky", "KY", "Frankfort"),
-        new("Louisiana", "LA", "Baton Rouge"),
-        new("Maine", "ME", "Augusta"),
-        new("Maryland", "MD", "Annapolis"),
-        new("Massachusetts", "MA", "Boston"),
-        new("Michigan", "MI", "Lansing"),
-        new("Minnesota", "MN", "St. Paul"),
-        new("Mississippi", "MS", "Jackson"),
-        new("Missouri", "MO", "Jefferson City"),
-        new("Montana", "MT", "Helena"),
-        new("Nebraska", "NE", "Lincoln"),
-        new("Nevada", "NV", "Carson City"),
-        new("New Hampshire", "NH", "Concord"),
-        new("New Jersey", "NJ", "Trenton"),
-        new("New Mexico", "NM", "Santa Fe"),
-        new("New York", "NY", "Albany"),
-        new("North Carolina", "NC", "Raleigh"),
-        new("North Dakota", "ND", "Bismarck"),
-        new("Ohio", "OH", "Columbus"),
-        new("Oklahoma", "OK", "Oklahoma City"),
-        new("Oregon", "OR", "Salem"),
-        new("Pennsylvania", "PA", "Harrisburg"),
-        new("Rhode Island", "RI", "Providence"),
-        new("South Carolina", "SC", "Columbia"),
-        new("South Dakota", "SD", "Pierre"),
-        new("Tennessee", "TN", "Nashville"),
-        new("Texas", "TX", "Austin"),
-        new("Utah", "UT", "Salt Lake City"),
-        new("Vermont", "VT", "Montpelier"),
-        new("Virginia", "VA", "Richmond"),
-        new("Washington", "WA", "Olympia"),
-        new("West Virginia", "WV", "Charleston"),
-        new("Wisconsin", "WI", "Madison"),
-        new("Wyoming", "WY", "Cheyenne")
+        new("Apple", "A"), new("Anchor", "A"), new("Abyss", "A"), new("Arctic", "A"), new("Agency", "A"),
+        new("Aspect", "A"), new("Amount", "A"), new("Action", "A"), new("Artist", "A"), new("Advice", "A"),
+
+        new("Banana", "B"), new("Bridge", "B"), new("Bottle", "B"),
+        new("Cactus", "C"), new("Camera", "C"), new("Castle", "C"), new("Coffee", "C"), new("Crystal", "C"),
+        new("Danger", "D"), new("Desert", "D"),
+        new("Eagle", "E"), new("Engine", "E"), new("Energy", "E"), new("Editor", "E"),
+        new("Forest", "F"), new("Factor", "F"), new("Flavor", "F"),
+        new("Garden", "G"), new("Galaxy", "G"), new("Guitar", "G"), new("Gently", "G"), new("Garage", "G"),
+        new("Hammer", "H"), new("Height", "H"), new("Health", "H"),
+        new("Island", "I"), new("Impact", "I"), new("Income", "I"), new("Injury", "I"),
+        new("Jungle", "J"), new("Junior", "J"), new("Journey", "J"),
+        new("Knight", "K"),
+        new("Laptop", "L"), new("Legend", "L"), new("Liquid", "L"), new("Luxury", "L"), new("Lyrics", "L"),
+        new("Market", "M"), new("Memory", "M"), new("Museum", "M"), new("Mirror", "M"),
+        new("Nature", "N"), new("Notice", "N"), new("Number", "N"),
+        new("Object", "O"), new("Office", "O"), new("Option", "O"), new("Oxygen", "O"),
+        new("Parent", "P"), new("Planet", "P"), new("Player", "P"), new("Police", "P"), new("Public", "P"),
+        new("Purple", "P"),
+        new("Quartz", "Q"), new("Quench", "Q"),
+        new("Rabbit", "R"), new("Random", "R"), new("Record", "R"), new("Repair", "R"), new("Report", "R"),
+        new("School", "S"), new("Series", "S"), new("Silver", "S"), new("Simple", "S"), new("Social", "S"),
+        new("Status", "S"), new("System", "S"),
+        new("Target", "T"), new("Theory", "T"), new("Ticket", "T"), new("Travel", "T"),
+        new("Unique", "U"), new("Update", "U"), new("Urgent", "U"),
+        new("Valley", "V"), new("Vector", "V"), new("Visual", "V"),
+        new("Window", "W"), new("Worker", "W"), new("Writer", "W"), new("Weight", "W"),
+        new("Xenon", "X"), new("Xylophone", "X"),
+        new("Yellow", "Y"), new("Yearly", "Y"),
+        new("Zodiac", "Z"), new("Zenith", "Z"), new("Zigzag", "Z")
     ];
 }
 
-public class StateData(string name, string abbreviation, string capital)
+public class Data(string name, string data)
 {
     public string Name { get; private set; } = name;
-    public string Abbreviation { get; private set; } = abbreviation;
-    public string Capital { get; private set; } = capital;
+    public string Tag { get; private set; } = data;
 }

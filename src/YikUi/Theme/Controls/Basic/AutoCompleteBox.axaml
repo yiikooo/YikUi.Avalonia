@@ -32,6 +32,7 @@
     <ControlTheme TargetType="AutoCompleteBox" x:Key="{x:Type AutoCompleteBox}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="32" />
+        <Setter Property="MaxDropDownHeight" Value="209" />
         <Setter Property="Template">
             <ControlTemplate TargetType="AutoCompleteBox">
                 <DataValidationErrors>
@@ -59,13 +60,15 @@
                                 HorizontalAlignment="Stretch"
                                 Margin="4"
                                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
-                                <ListBox
-                                    Foreground="{TemplateBinding Foreground}"
-                                    ItemTemplate="{TemplateBinding ItemTemplate}"
-                                    Margin="0,-2"
-                                    Name="PART_SelectingItemsControl"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                                    ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                                <ScrollViewer>
+                                    <ListBox
+                                        Foreground="{TemplateBinding Foreground}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                        Margin="4,2"
+                                        Name="PART_SelectingItemsControl"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Disabled" />
+                                </ScrollViewer>
                             </Border>
                         </Popup>
                     </Panel>

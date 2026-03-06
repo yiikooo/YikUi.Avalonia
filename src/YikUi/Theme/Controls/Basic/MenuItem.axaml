@@ -98,7 +98,10 @@
                                 Margin="5,-2"
                                 Width="0" />
 
-                            <Border DockPanel.Dock="Right" Width="24">
+                            <Border
+                                DockPanel.Dock="Right"
+                                Margin="10,0,0,0"
+                                Width="12">
                                 <PathIcon
                                     Classes="Flippable"
                                     Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
@@ -115,7 +118,7 @@
                                 DockPanel.Dock="Right"
                                 Foreground="{DynamicResource SukiMuteText}"
                                 IsVisible="{Binding InputGesture, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                Margin="20,0,0,0"
+                                Margin="12,0,0,0"
                                 Name="PART_InputGestureText"
                                 Text="{TemplateBinding InputGesture,
                                                        Converter={StaticResource KeyGestureConverter}}"

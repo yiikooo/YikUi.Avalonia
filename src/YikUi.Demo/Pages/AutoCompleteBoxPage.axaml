@@ -19,33 +19,33 @@
                 <Style Selector="AutoCompleteBox">
                     <Setter Property="Width" Value="300" />
                     <Setter Property="ItemsSource">
-                        <Binding Path="States" />
+                        <Binding Path="DataList" />
                     </Setter>
                     <Setter Property="ItemTemplate">
-                        <DataTemplate DataType="pages:StateData">
+                        <DataTemplate DataType="pages:Data">
                             <TextBlock Text="{Binding Name}" />
                         </DataTemplate>
                     </Setter>
                 </Style>
             </StackPanel.Styles>
-            <AutoCompleteBox PlaceholderText="Please select a State" ValueMemberBinding="{Binding Name, DataType=pages:StateData}" />
+            <AutoCompleteBox PlaceholderText="Please input" ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
             <AutoCompleteBox
                 IsEnabled="False"
                 PlaceholderText="Disabled"
-                ValueMemberBinding="{Binding Name, DataType=pages:StateData}" />
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
             <AutoCompleteBox
                 InnerLeftContent="https://"
                 InnerRightContent=".com"
-                ValueMemberBinding="{Binding Name, DataType=pages:StateData}" />
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
             <AutoCompleteBox
                 Classes="Bordered"
                 PlaceholderText="Bordered"
-                ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}"
                 Width="300" />
             <AutoCompleteBox
                 Classes="BorderedOnFocus"
                 PlaceholderText="BorderedOnFocus"
-                ValueMemberBinding="{Binding Name, DataType=pages:StateData}"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}"
                 Width="300" />
         </StackPanel>
     </yik:GroupBorder>
