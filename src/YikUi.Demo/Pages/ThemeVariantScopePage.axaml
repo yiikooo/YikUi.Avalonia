@@ -51,6 +51,7 @@
                             HorizontalAlignment="Left"
                             Text="Input"
                             Width="300" />
+                        <CalendarDatePicker Width="200" />
                         <Button Content="Button" HorizontalAlignment="Left" />
                         <HyperlinkButton Content="HyperlinkButton" HorizontalAlignment="Left" />
                     </StackPanel>
@@ -68,6 +69,7 @@
                                 HorizontalAlignment="Left"
                                 Text="Input"
                                 Width="300" />
+                            <CalendarDatePicker Width="200" />
                             <Button Content="Button" HorizontalAlignment="Left" />
                             <HyperlinkButton Content="HyperlinkButton" HorizontalAlignment="Left" />
                         </StackPanel>

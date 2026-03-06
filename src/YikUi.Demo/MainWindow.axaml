@@ -40,10 +40,14 @@
                 Margin="10,10,4,10"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
-                Width="230">
+                Width="230"
+                x:Name="NavMenu">
                 <yik:NavMenu.Styles>
                     <Style Selector="yik|NavMenu /template/ ItemsPresenter#PART_ItemsPresenter">
                         <Setter Property="Margin" Value="0,0,6,0" />
+                    </Style>
+                    <Style Selector="yik|NavMenuItem:first-level">
+                        <Setter Property="IsVerticalCollapsed" Value="True" />
                     </Style>
                 </yik:NavMenu.Styles>
                 <yik:NavMenu.IconTemplate>
@@ -57,7 +61,7 @@
                 </yik:NavMenu.IconTemplate>
                 <yik:NavMenu.ItemTemplate>
                     <DataTemplate DataType="demo:Page">
-                        <yik:NavMenuItem />
+                        <yik:NavMenuItem IsVerticalCollapsed="True" />
                     </DataTemplate>
                 </yik:NavMenu.ItemTemplate>
             </yik:NavMenu>

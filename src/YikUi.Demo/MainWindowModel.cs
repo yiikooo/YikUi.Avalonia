@@ -100,6 +100,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
             [
                 new Page
                 {
+                    Title = "Menu",
+                    Content = new MenuPage(),
+                },
+                new Page
+                {
                     Title = "ComboBox",
                     Content = new ComboBoxPage(),
                 },
@@ -171,11 +176,6 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "Expander",
                     Content = new ExpanderPage(),
-                },
-                new Page
-                {
-                    Title = "Menu",
-                    Content = new MenuPage(),
                 },
                 new Page
                 {
