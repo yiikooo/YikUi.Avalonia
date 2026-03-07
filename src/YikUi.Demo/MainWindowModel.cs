@@ -113,6 +113,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "ColorPicker",
+                    Content = new ColorPickerPage(),
+                },
+                new Page
+                {
                     Title = "TextBox",
                     Content = new TextBoxPage(),
                 },

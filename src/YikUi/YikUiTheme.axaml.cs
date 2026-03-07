@@ -16,6 +16,7 @@ using YikUi.Shared.Animations;
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Common.Interfaces")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Common.Converter")]
 [assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Shared.Animations")]
+[assembly: XmlnsDefinition("https://github.com/yiikooo/YikUi.Avalonia", "YikUi.Theme.Controls.ColorPicker")]
 [assembly: XmlnsPrefix("https://github.com/yiikooo/YikUi.Avalonia", "yik")]
 
 namespace YikUi;
