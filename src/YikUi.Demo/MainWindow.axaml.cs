@@ -10,7 +10,7 @@ namespace YikUi.Demo;
 
 public partial class MainWindow : YikWindow
 {
-    private readonly YikWindowNotificationManager notification;
+    public readonly YikWindowNotificationManager notification;
     public readonly YikWindowToastManager toast;
 
     public MainWindow()
@@ -41,9 +41,16 @@ public partial class MainWindow : YikWindow
     }
 }
 
-public class ActionCommand(Action execute) : ICommand
+public class ActionCommand : ICommand
 {
+    private readonly Action _execute;
+
+    public ActionCommand(Action execute)
+    {
+        _execute = execute;
+    }
+
     public bool CanExecute(object? parameter) => true;
-    public void Execute(object? parameter) => execute();
+    public void Execute(object? parameter) => _execute();
     public event EventHandler? CanExecuteChanged;
 }

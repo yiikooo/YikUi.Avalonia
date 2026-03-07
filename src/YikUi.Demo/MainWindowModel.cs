@@ -255,6 +255,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "Toast",
                     Content = new ToastPage(),
+                },
+                new Page
+                {
+                    Title = "Notification",
+                    Content = new NotificationPage(),
                 }
             ]
         },

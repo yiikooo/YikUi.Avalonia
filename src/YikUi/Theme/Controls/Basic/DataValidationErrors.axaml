@@ -114,7 +114,9 @@
                     <PathIcon
                         Data="M4.13 4.13a11.1 11.1 0 0 1 15.74 0 11.1 11.1 0 0 1 0 15.74 11.1 11.1 0 0 1-15.74 0 11.1 11.1 0 0 1 0-15.74Zm1.6 1.6a8.84 8.84 0 0 1 12.55 0 8.84 8.84 0 0 1 0 12.55 8.84 8.84 0 0 1-12.56 0 8.84 8.84 0 0 1 0-12.56Z         M12 18.5a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z         M12 4.88c.62 0 1.13.5 1.13 1.12v8a1.13 1.13 0 0 1-2.26 0V6c0-.62.5-1.13 1.13-1.13Z"
                         Foreground="{DynamicResource DataValidationErrorsForeground}"
-                        Theme="{StaticResource InnerPathIcon}" />
+                        Height="18"
+                        Theme="{StaticResource InnerPathIcon}"
+                        Width="18" />
                 </Panel>
             </DataTemplate>
         </Setter>

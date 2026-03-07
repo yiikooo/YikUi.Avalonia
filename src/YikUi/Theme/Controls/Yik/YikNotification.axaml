@@ -170,13 +170,14 @@
                                     </StackPanel>
                                     <DockPanel>
                                         <PathIcon
-                                            Classes="Large"
                                             Data="{DynamicResource NotificationCardInformationIconPathData}"
                                             DockPanel.Dock="Left"
+                                            Height="20"
                                             IsVisible="{TemplateBinding ShowIcon}"
                                             Margin="0,3,12,0"
                                             Theme="{StaticResource InnerPathIcon}"
                                             VerticalAlignment="Top"
+                                            Width="20"
                                             x:Name="NotificationIcon" />
                                         <ContentControl
                                             Content="{TemplateBinding Content}"
