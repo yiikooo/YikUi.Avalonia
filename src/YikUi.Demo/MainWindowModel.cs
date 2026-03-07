@@ -250,6 +250,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "RefreshContainer",
                     Content = new RefreshContainerPage(),
+                },
+                new Page
+                {
+                    Title = "Toast",
+                    Content = new ToastPage(),
                 }
             ]
         },

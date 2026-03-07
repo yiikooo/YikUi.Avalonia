@@ -158,13 +158,14 @@
                                     </ItemsControl>
                                     <DockPanel>
                                         <PathIcon
-                                            Classes="Large"
                                             Data="{DynamicResource IconInfoCircle}"
                                             DockPanel.Dock="Left"
+                                            Height="20"
                                             IsVisible="{TemplateBinding ShowIcon}"
                                             Margin="0,3,0,0"
                                             Theme="{StaticResource InnerPathIcon}"
                                             VerticalAlignment="Top"
+                                            Width="20"
                                             x:Name="ToastIcon" />
                                         <ContentControl
                                             Content="{TemplateBinding Content}"
