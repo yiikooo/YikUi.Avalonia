@@ -201,6 +201,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "ProgressBar",
+                    Content = new ProgressBarPage(),
+                },
+                new Page
+                {
                     Title = "Expander",
                     Content = new ExpanderPage(),
                 },

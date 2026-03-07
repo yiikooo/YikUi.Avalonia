@@ -1,0 +1,172 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.ProgressBarPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="ProgressBar"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <ProgressBar
+                        Height="100"
+                        Maximum="{Binding #slider.Maximum}"
+                        Minimum="{Binding #slider.Minimum}"
+                        ShowProgressText="True"
+                        Theme="{DynamicResource ProgressRing}"
+                        Value="{Binding #slider.Value}"
+                        Width="100" />
+                    <ProgressBar
+                        BorderThickness="16"
+                        Height="100"
+                        IsIndeterminate="True"
+                        Maximum="{Binding #slider.Maximum}"
+                        Minimum="{Binding #slider.Minimum}"
+                        ShowProgressText="True"
+                        Theme="{DynamicResource ProgressRing}"
+                        Width="100" />
+                </StackPanel>
+                <Slider
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    Name="slider"
+                    TickFrequency="10"
+                    Width="300" />
+                <ProgressBar
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="{Binding #slider.Value}"
+                    Width="200" />
+                <ProgressBar
+                    IsIndeterminate="True"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="20"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Left"
+                    IsIndeterminate="True"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="20"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Left"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="20"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Right"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="20"
+                    Width="200" />
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    Spacing="20">
+                    <ProgressBar
+                        Classes="Left"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="True"
+                        Value="20" />
+                    <ProgressBar
+                        Classes="Right"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="True"
+                        Value="20" />
+                    <ProgressBar
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="True"
+                        Value="20" />
+                    <ProgressBar
+                        Classes="Left"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="False"
+                        Value="20" />
+                    <ProgressBar
+                        IsIndeterminate="True"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="True"
+                        Value="20" />
+                    <ProgressBar
+                        IsIndeterminate="True"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        ShowProgressText="False"
+                        Value="20" />
+                </StackPanel>
+                <ProgressBar
+                    Classes="Primary"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Secondary"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Tertiary"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Success"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Warning"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+                <ProgressBar
+                    Classes="Danger"
+                    Maximum="100"
+                    Minimum="0"
+                    ShowProgressText="True"
+                    Value="60"
+                    Width="200" />
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>
