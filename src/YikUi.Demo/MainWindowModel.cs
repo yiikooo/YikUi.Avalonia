@@ -226,6 +226,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "TreeView",
+                    Content = new TreeViewPage(),
+                },
+                new Page
+                {
                     Title = "Carousel",
                     Content = new CarouselPage(),
                 },

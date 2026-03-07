@@ -8,11 +8,7 @@
     </ControlTheme>
 
     <ControlTheme TargetType="Border" x:Key="AdornerLayerBorder">
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="BorderBrush" Value="{DynamicResource LineColor}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
-        <Style Selector="^.Solid">
-            <Setter Property="BorderBrush" Value="{DynamicResource LineColor}" />
-        </Style>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="Black" />
     </ControlTheme>
 </ResourceDictionary>

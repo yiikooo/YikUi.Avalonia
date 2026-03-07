@@ -1,0 +1,210 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Design.PreviewWith>
+        <StackPanel
+            Height="200"
+            Margin="20"
+            Spacing="20">
+            <TreeView>
+                <TreeViewItem Header="Level 1">
+                    <TreeViewItem Header="Level 2" />
+                    <TreeViewItem Header="Level 2" />
+                    <TreeViewItem Header="Level 2">
+                        <TreeViewItem Header="Level 3" />
+                        <TreeViewItem Header="Level 3" />
+                    </TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <StreamGeometry x:Key="SemiIconTreeTriangleRight">
+        m9.66 3.44 8.97 7.8a1 1 0 0 1 0 1.51l-8.97 7.81A1 1 0 0 1 8 19.81V4.19a1 1 0 0 1 1.66-.75Z
+    </StreamGeometry>
+    <StaticResource ResourceKey="SemiIconTreeTriangleRight" x:Key="ExpanderIconData" />
+    <x:Double x:Key="TreeViewItemIndent">20</x:Double>
+    <Thickness x:Key="TreeViewItemIconMargin">8 0</Thickness>
+    <Thickness x:Key="TreeViewItemPadding">0 4 8 4</Thickness>
+    <CornerRadius x:Key="SemiBorderRadiusSmall">3</CornerRadius>
+    <StaticResource ResourceKey="SemiBorderRadiusSmall" x:Key="TreeViewItemDefaultCornerRadius" />
+
+    <ControlTheme TargetType="TreeView" x:Key="{x:Type TreeView}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="8 0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TreeView">
+                <Border
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer
+                        AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                        Background="{TemplateBinding Background}"
+                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                        IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}">
+                        <ItemsPresenter
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_ItemsPresenter" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="ToggleButton" x:Key="ToggleButtonTreeViewItemIconButton">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ToggleButton">
+                <Border
+                    Background="Transparent"
+                    Height="{TemplateBinding Height}"
+                    HorizontalAlignment="Stretch"
+                    Padding="{TemplateBinding Padding}"
+                    VerticalAlignment="Stretch"
+                    Width="{TemplateBinding Width}">
+                    <PathIcon
+                        Data="F1 M256,512z M0,0z M247.1,233.4C259.6,245.9,259.6,266.2,247.1,278.7L87.1,438.7C74.6,451.2 54.3,451.2 41.8,438.7 29.3,426.2 29.3,405.9 41.8,393.4L179.2,256 41.9,118.6C29.4,106.1 29.4,85.8 41.9,73.3 54.4,60.8 74.7,60.8 87.2,73.3L247.2,233.3z"
+                        Foreground="{DynamicResource ForegroundColor}"
+                        Height="15"
+                        Margin="4,0,0,0"
+                        Name="PART_ExpandIconPath">
+                        <PathIcon.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition Duration="0.1" Property="RenderTransform" />
+                            </Transitions>
+                        </PathIcon.Transitions>
+                    </PathIcon>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked /template/ PathIcon#PART_ExpandIconPath">
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
+        </Style>
+        <Style Selector="^:pointerover /template/ PathIcon#PART_ExpandIconPath">
+            <Setter Property="Foreground" Value="{DynamicResource InnerForegroundColor}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="TreeViewItem" x:Key="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TreeViewItem">
+                <StackPanel>
+                    <Border
+                        Focusable="True"
+                        Margin="0,2"
+                        Name="PART_LayoutRoot">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Focusable="True"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Name="PART_Header"
+                            Padding="0,3"
+                            TemplatedControl.IsTemplateFocusTarget="True">
+                            <Border.Margin>
+                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                    <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <DynamicResource ResourceKey="TreeViewItemIndent" />
+                                </MultiBinding>
+                            </Border.Margin>
+                            <Grid>
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <ToggleButton
+                                        Focusable="False"
+                                        Grid.Column="0"
+                                        IsChecked="{TemplateBinding IsExpanded,
+                                                                    Mode=TwoWay}"
+                                        Name="PART_ExpandCollapseChevron"
+                                        Padding="{DynamicResource TreeViewItemIconMargin}"
+                                        Theme="{StaticResource ToggleButtonTreeViewItemIconButton}" />
+                                    <ContentPresenter
+                                        Content="{TemplateBinding Header}"
+                                        ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                        Focusable="False"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                        Margin="{TemplateBinding Padding}"
+                                        Name="PART_HeaderPresenter"
+                                        Padding="{DynamicResource TreeViewItemPadding}"
+                                        VerticalAlignment="{TemplateBinding VerticalAlignment}" />
+                                </Grid>
+                                <Rectangle
+                                    Fill="{DynamicResource SystemAccentColor}"
+                                    Height="16"
+                                    HorizontalAlignment="Left"
+                                    IsVisible="True"
+                                    Margin="0,4,-2,4"
+                                    Name="SelectionIndicator"
+                                    Opacity="0"
+                                    RadiusX="2"
+                                    RadiusY="2"
+                                    RenderTransform="scaleY(0)"
+                                    UseLayoutRounding="False"
+                                    VerticalAlignment="Center"
+                                    Width="3">
+                                    <Rectangle.Transitions>
+                                        <Transitions>
+                                            <TransformOperationsTransition
+                                                Duration="00:00:00.167"
+                                                Easing="0,0 0,1"
+                                                Property="RenderTransform" />
+                                            <DoubleTransition
+                                                Duration="00:00:00.167"
+                                                Easing="0,0 0,1"
+                                                Property="Opacity" />
+                                        </Transitions>
+                                    </Rectangle.Transitions>
+                                </Rectangle>
+                            </Grid>
+                        </Border>
+                    </Border>
+                    <ItemsPresenter
+                        IsVisible="{TemplateBinding IsExpanded}"
+                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                        Name="PART_ItemsPresenter" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ Border#PART_Header:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#PART_Header">
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+
+        <Style Selector="^:empty /template/ ToggleButton#PART_ExpandCollapseChevron">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+        <Style Selector="^:selected /template/ Rectangle#SelectionIndicator">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="scaleY(1)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
