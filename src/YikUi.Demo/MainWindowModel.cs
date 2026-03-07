@@ -319,7 +319,7 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         OnPropertyChanged(propertyName);
     }
 
-    private void ToggleTheme(string? theme = null)
+    public void ToggleTheme(string? theme = null)
     {
         if (Application.Current != null && theme != null)
         {
@@ -338,7 +338,7 @@ public sealed class MainWindowModel : INotifyPropertyChanged
     }
 
 
-    private void ToggleLang(string? l = null)
+    public void ToggleLang(string? l = null)
     {
         if (l == null) return;
 

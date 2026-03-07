@@ -92,11 +92,5 @@
                 </Style>
             </Style>
         </Style>
-        <Style Selector="Button.big-title-bar-icon">
-            <Style Selector="^ Path">
-                <Setter Property="Width" Value="12" />
-                <Setter Property="Height" Value="12" />
-            </Style>
-        </Style>
     </UserControl.Styles>
 </UserControl>

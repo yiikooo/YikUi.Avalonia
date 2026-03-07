@@ -206,8 +206,7 @@
                             MinWidth="242"
                             Name="PART_FlyoutButton"
                             Theme="{StaticResource DateTimePickerFlyoutButton}"
-                            VerticalAlignment="Stretch"
-                            Width="242">
+                            VerticalAlignment="Stretch">
                             <Grid ColumnDefinitions="*, Auto">
                                 <Grid Grid.Column="0" Name="PART_FlyoutButtonContentGrid">
                                     <!--  Ignore col defs here, set in code  -->

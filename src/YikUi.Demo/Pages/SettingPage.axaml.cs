@@ -12,6 +12,10 @@ public partial class SettingPage : PageModelBase
     public SettingPage()
     {
         InitializeComponent();
+        Application.Current!.ActualThemeVariantChanged += (_, _) =>
+        {
+            SelectedThemeVariant = Application.Current.RequestedThemeVariant ?? ThemeVariant.Default;
+        };
         DataContext = this;
     }
 
@@ -20,7 +24,7 @@ public partial class SettingPage : PageModelBase
         set
         {
             SetField(ref field, value);
-            Application.Current.RequestedThemeVariant = value;
+            Application.Current!.RequestedThemeVariant = value;
         }
         get;
     } = ThemeVariant.Default;
