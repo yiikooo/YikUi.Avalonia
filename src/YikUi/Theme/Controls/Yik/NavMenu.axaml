@@ -285,11 +285,10 @@
                             Background="{DynamicResource MenuFlyoutBackground}"
                             BorderBrush="{DynamicResource MenuFlyoutBorderBrush}"
                             BorderThickness="1"
-                            BoxShadow="{DynamicResource MenuFlyoutBorderBoxShadow}"
                             CornerRadius="{DynamicResource YikCornerRadius}"
                             HorizontalAlignment="Stretch"
                             Margin="8"
-                            Padding="0,4">
+                            Padding="4,4,5,4">
                             <StackPanel Name="PART_OverflowPanel" />
                         </Border>
                     </Popup>
