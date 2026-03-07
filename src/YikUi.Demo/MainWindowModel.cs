@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Styling;
+using YikUi.Common.Language;
 using YikUi.Demo.Pages;
 
 namespace YikUi.Demo;
@@ -314,6 +317,35 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         if (EqualityComparer<T>.Default.Equals(field, value)) return;
         field = value;
         OnPropertyChanged(propertyName);
+    }
+
+    private void ToggleTheme(string? theme = null)
+    {
+        if (Application.Current != null && theme != null)
+        {
+            Application.Current.RequestedThemeVariant =
+                Application.Current.ActualThemeVariant == ThemeVariant.Dark
+                    ? ThemeVariant.Light
+                    : ThemeVariant.Dark;
+        }
+
+        if (theme == "a")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Default;
+        else if (theme == "l")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Light;
+        else if (theme == "d")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
+    }
+
+
+    private void ToggleLang(string? l = null)
+    {
+        if (l == null) return;
+
+        if (l == "c")
+            LangManager.SetLanguage(Languages.zh_cn);
+        else if (l == "e")
+            LangManager.SetLanguage(Languages.en_us);
     }
 }
 

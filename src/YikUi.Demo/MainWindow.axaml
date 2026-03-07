@@ -24,6 +24,51 @@
                 VerticalAlignment="Center" />
         </StackPanel>
     </yik:YikWindow.TitleBarLeftContent>
+    <yik:YikWindow.TitleBarRightContent>
+        <StackPanel Name="TitleBarContainer" Orientation="Horizontal">
+            <Button
+                Classes="title-bar-button big-title-bar-icon"
+                Content="F1 M 1.25 8.671875 L 15.732422 8.671875 L 13.491211 10.913086 C 13.00293 11.401367 13.00293 12.192383 13.491211 12.680664 C 13.735352 12.924805 14.055138 13.046875 14.375 13.046875 C 14.694862 13.046875 15.014648 12.924805 15.258789 12.680664 L 19.633789 8.305664 C 20.12207 7.817383 20.12207 7.026367 19.633789 6.538086 L 15.258789 2.163086 C 14.770508 1.674805 13.979492 1.674805 13.491211 2.163086 C 13.00293 2.651367 13.00293 3.442383 13.491211 3.930664 L 15.732422 6.171875 L 1.25 6.171875 C 0.559044 6.171875 0 6.730919 0 7.421875 C 0 8.112831 0.559044 8.671875 1.25 8.671875 Z M 18.75 14.921875 L 4.267578 14.921875 L 6.508789 12.680664 C 6.99707 12.192383 6.99707 11.401367 6.508789 10.913086 C 6.020508 10.424805 5.229492 10.424805 4.741211 10.913086 L 0.366211 15.288086 C -0.12207 15.776367 -0.12207 16.567383 0.366211 17.055664 L 4.741211 21.430664 C 4.985352 21.674805 5.305138 21.796875 5.625 21.796875 C 5.944862 21.796875 6.264648 21.674805 6.508789 21.430664 C 6.99707 20.942383 6.99707 20.151367 6.508789 19.663086 L 4.267578 17.421875 L 18.75 17.421875 C 19.440956 17.421875 20 16.862831 20 16.171875 C 20 15.480919 19.440956 14.921875 18.75 14.921875 Z "
+                VerticalAlignment="Center">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuItem Header="Themes" InputGesture="Ctrl+Q">
+                            <MenuItem
+                                Command="{Binding ToggleTheme}"
+                                CommandParameter="a"
+                                Header="Default" />
+                            <MenuItem
+                                Command="{Binding ToggleTheme}"
+                                CommandParameter="l"
+                                Header="Light" />
+                            <MenuItem
+                                Command="{Binding ToggleTheme}"
+                                CommandParameter="d"
+                                Header="Dark" />
+                        </MenuItem>
+                        <MenuItem Header="Language">
+                            <MenuItem
+                                Command="{Binding ToggleLang}"
+                                CommandParameter="c"
+                                Header="简体中文" />
+                            <MenuItem
+                                Command="{Binding ToggleLang}"
+                                CommandParameter="e"
+                                Header="English" />
+                        </MenuItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+            <Separator
+                Background="{DynamicResource ForegroundColor}"
+                Foreground="{DynamicResource ForegroundColor}"
+                Height="16"
+                Margin="5,0,5,0"
+                Name="Separator"
+                VerticalAlignment="Center"
+                Width="1" />
+        </StackPanel>
+    </yik:YikWindow.TitleBarRightContent>
     <DockPanel>
         <Border
             Background="{DynamicResource PanelBackgroundColor}"

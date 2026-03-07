@@ -25,19 +25,26 @@ public partial class MainWindow : YikWindow
         KeyBindings.Add(new KeyBinding
         {
             Gesture = KeyGesture.Parse("Ctrl+Q"),
-            Command = new ActionCommand(ToggleTheme)
+            Command = new ActionCommand(() => ToggleTheme())
         });
     }
 
-    private void ToggleTheme()
+    private void ToggleTheme(string? theme = null)
     {
-        if (Application.Current != null)
+        if (Application.Current != null && theme != null)
         {
             Application.Current.RequestedThemeVariant =
                 Application.Current.ActualThemeVariant == ThemeVariant.Dark
                     ? ThemeVariant.Light
                     : ThemeVariant.Dark;
         }
+
+        if (theme == "a")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Default;
+        else if (theme == "l")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Light;
+        else if (theme == "d")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
     }
 }
 

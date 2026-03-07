@@ -10,7 +10,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
         <ScrollViewer Margin="0,0,5,0">
-            <StackPanel Margin="15,15,10,15" Spacing="15">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
                 <yik:GroupBorder Header="TabControlStyles" Padding="15">
                     <StackPanel Spacing="15">
                         <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
@@ -24,13 +24,11 @@
                                 <Dock>Top</Dock>
                             </ListBox>
                         </Border>
-                        <ToggleSwitch Content="ReverseSeparator (only left-right place of the default theme)"
-                                      Name="reverse" />
+                        <ToggleSwitch Content="ReverseSeparator (only left-right place of the default theme)" Name="reverse" />
                     </StackPanel>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="TabControl" Padding="15">
-                    <TabControl Classes.ReverseSeparator="{Binding #reverse.IsChecked}"
-                                TabStripPlacement="{Binding #place.SelectedValue}">
+                    <TabControl Classes.ReverseSeparator="{Binding #reverse.IsChecked}" TabStripPlacement="{Binding #place.SelectedValue}">
                         <TabItem Content="Hello 1" Header="Tab 1" />
                         <TabItem Content="Hello 2" Header="Tab 2" />
                         <TabItem Content="Hello 3" Header="Tab 3" />
@@ -42,8 +40,7 @@
                     </TabControl>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="LineTabControl" Padding="15">
-                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}"
-                                Theme="{StaticResource LineTabControl}">
+                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource LineTabControl}">
                         <TabItem Content="Hello 1" Header="Tab 1" />
                         <TabItem Content="Hello 2" Header="Tab 2" />
                         <TabItem Content="Hello 3" Header="Tab 3" />
@@ -55,8 +52,7 @@
                     </TabControl>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="CardTabControl" Padding="15">
-                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}"
-                                Theme="{StaticResource CardTabControl}">
+                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource CardTabControl}">
                         <TabItem Content="Hello 1" Header="Tab 1" />
                         <TabItem Content="Hello 2" Header="Tab 2" />
                         <TabItem Content="Hello 3" Header="Tab 3" />
@@ -68,8 +64,7 @@
                     </TabControl>
                 </yik:GroupBorder>
                 <yik:GroupBorder Header="ButtonTabControl" Padding="15">
-                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}"
-                                Theme="{StaticResource ButtonTabControl}">
+                    <TabControl TabStripPlacement="{Binding #place.SelectedValue}" Theme="{StaticResource ButtonTabControl}">
                         <TabItem Content="Hello 1" Header="Tab 1" />
                         <TabItem Content="Hello 2" Header="Tab 2" />
                         <TabItem Content="Hello 3" Header="Tab 3" />

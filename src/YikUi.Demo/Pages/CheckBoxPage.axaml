@@ -10,7 +10,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
         <ScrollViewer Margin="0,0,5,0">
-            <StackPanel Margin="15,15,10,15" Spacing="15">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
                 <yik:GroupBorder Header="CheckBox" Padding="15">
                     <StackPanel Spacing="15">
                         <StackPanel Orientation="Horizontal" Spacing="10">

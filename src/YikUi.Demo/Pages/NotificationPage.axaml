@@ -12,7 +12,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border>
         <ScrollViewer Margin="0,0,5,0">
-            <StackPanel Margin="15,15,10,15" Spacing="15">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
 
                 <!--  位置调整  -->
                 <yik:GroupBorder Header="通知位置">
