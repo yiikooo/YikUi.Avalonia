@@ -155,6 +155,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "NavMenu",
                     Content = new NavMenuPage(),
                 },
+                new Page
+                {
+                    Title = "TabStrip",
+                    Content = new TabStripPage(),
+                },
             ]
         },
         new()

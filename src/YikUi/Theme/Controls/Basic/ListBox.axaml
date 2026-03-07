@@ -266,10 +266,10 @@
     </ControlTheme>
     <ControlTheme TargetType="ListBoxItem" x:Key="ButtonRadioGroupListBoxItem">
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Padding" Value="{DynamicResource RadioButtonButtonDefaultPadding}" />
+        <Setter Property="Padding" Value="16,4" />
         <Setter Property="Margin" Value="2" />
         <Setter Property="FontWeight" Value="{DynamicResource RadioButtonButtonFontWeight}" />
-        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Cursor" Value="Hand" />

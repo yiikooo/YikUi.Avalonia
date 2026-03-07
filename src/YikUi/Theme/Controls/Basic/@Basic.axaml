@@ -49,5 +49,8 @@
         <ResourceInclude Source="ProgressBar.axaml" />
         <ResourceInclude Source="RefreshContainer.axaml" />
         <ResourceInclude Source="SplitView.axaml" />
+        <ResourceInclude Source="TabItem.axaml" />
+        <ResourceInclude Source="TabStrip.axaml" />
+        <ResourceInclude Source="TabControl.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
