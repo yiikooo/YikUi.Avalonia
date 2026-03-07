@@ -34,10 +34,13 @@
             <yik:NavMenu
                 Classes="FlatScrollBar"
                 DockPanel.Dock="Left"
+                EnableSearch="True"
                 HeaderBinding="{Binding Title}"
                 IconBinding="{Binding Icon}"
                 ItemsSource="{Binding Pages}"
                 Margin="10,10,4,10"
+                SearchPlaceholderText="Search..."
+                SearchPlacement="Top"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
                 Width="230"

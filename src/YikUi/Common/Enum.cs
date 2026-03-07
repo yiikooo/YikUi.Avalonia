@@ -36,3 +36,9 @@ public enum Position
     Right,
     Bottom
 }
+
+public enum SearchBoxPlacement
+{
+    Top,
+    Bottom
+}

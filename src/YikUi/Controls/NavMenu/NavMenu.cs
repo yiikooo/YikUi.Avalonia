@@ -10,6 +10,7 @@ using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 using Avalonia.Metadata;
 using Avalonia.VisualTree;
+using YikUi.Common;
 using YikUi.Common.Helpers;
 
 namespace YikUi.Controls;
@@ -71,6 +72,20 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
     public static readonly AttachedProperty<bool> CanToggleProperty =
         AvaloniaProperty.RegisterAttached<NavMenu, InputElement, bool>("CanToggle");
 
+    public static readonly StyledProperty<bool> EnableSearchProperty = AvaloniaProperty.Register<NavMenu, bool>(
+        nameof(EnableSearch));
+
+    public static readonly StyledProperty<SearchBoxPlacement> SearchPlacementProperty =
+        AvaloniaProperty.Register<NavMenu, SearchBoxPlacement>(
+            nameof(SearchPlacement), SearchBoxPlacement.Top);
+
+    public static readonly StyledProperty<string> SearchTextProperty = AvaloniaProperty.Register<NavMenu, string>(
+        nameof(SearchText), string.Empty);
+
+    public static readonly StyledProperty<string> SearchPlaceholderTextProperty =
+        AvaloniaProperty.Register<NavMenu, string>(
+            nameof(SearchText), string.Empty);
+
     public static readonly RoutedEvent<SelectionChangedEventArgs> SelectionChangedEvent =
         RoutedEvent.Register<NavMenu, SelectionChangedEventArgs>(nameof(SelectionChanged), RoutingStrategies.Bubble);
 
@@ -82,12 +97,14 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
     private bool _isSelectionFromUI = false;
 
     private ItemsPresenter? _itemsPresenter = null;
+    private TextBox? _searchBox = null;
 
     static NavMenu()
     {
         SelectedItemProperty.Changed.AddClassHandler<NavMenu, object?>((o, e) => o.OnSelectedItemChange(e));
         IsHorizontalCollapsedProperty.AffectsPseudoClass<NavMenu>(PC_HorizontalCollapsed);
         CanToggleProperty.Changed.AddClassHandler<InputElement, bool>(OnInputRegisteredAsToggle);
+        SearchTextProperty.Changed.AddClassHandler<NavMenu, string>((o, e) => o.OnSearchTextChanged(e));
     }
 
     public object? SelectedItem
@@ -179,6 +196,30 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
         set => SetValue(CollapseWidthProperty, value);
     }
 
+    public bool EnableSearch
+    {
+        get => GetValue(EnableSearchProperty);
+        set => SetValue(EnableSearchProperty, value);
+    }
+
+    public SearchBoxPlacement SearchPlacement
+    {
+        get => GetValue(SearchPlacementProperty);
+        set => SetValue(SearchPlacementProperty, value);
+    }
+
+    public string SearchText
+    {
+        get => GetValue(SearchTextProperty);
+        set => SetValue(SearchTextProperty, value);
+    }
+
+    public string SearchPlaceholderText
+    {
+        get => GetValue(SearchPlaceholderTextProperty);
+        set => SetValue(SearchPlaceholderTextProperty, value);
+    }
+
     (bool handled, IInputElement? next) ICustomKeyboardNavigation.GetNext(IInputElement element,
         NavigationDirection direction)
     {
@@ -257,6 +298,12 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
         _itemsPresenter = e.NameScope.Find<ItemsPresenter>(PART_ItemsPresenter);
         if (_itemsPresenter is not null)
             KeyboardNavigation.SetTabNavigation(_itemsPresenter, KeyboardNavigationMode.Once);
+
+        _searchBox = e.NameScope.Find<TextBox>("PART_SearchBox");
+        if (_searchBox is not null)
+        {
+            _searchBox.TextChanged += OnSearchBoxTextChanged;
+        }
     }
 
     protected override void OnLoaded(RoutedEventArgs e)
@@ -525,5 +572,73 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
         }
 
         return result;
+    }
+
+    private void OnSearchBoxTextChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (sender is TextBox textBox)
+        {
+            SetCurrentValue(SearchTextProperty, textBox.Text ?? string.Empty);
+        }
+    }
+
+    private void OnSearchTextChanged(AvaloniaPropertyChangedEventArgs<string> args)
+    {
+        var searchText = args.NewValue.Value?.Trim().ToLower() ?? string.Empty;
+        FilterMenuItems(searchText);
+    }
+
+    private void FilterMenuItems(string searchText)
+    {
+        foreach (var child in LogicalChildren)
+        {
+            if (child is NavMenuItem item)
+            {
+                FilterMenuItem(item, searchText);
+            }
+        }
+    }
+
+    private bool FilterMenuItem(NavMenuItem item, string searchText)
+    {
+        if (string.IsNullOrEmpty(searchText))
+        {
+            item.IsVisible = true;
+            var children = item.GetLogicalChildren().OfType<NavMenuItem>();
+            foreach (var childItem in children)
+            {
+                FilterMenuItem(childItem, searchText);
+            }
+
+            return true;
+        }
+
+        bool hasVisibleChildren = false;
+        var childItems = item.GetLogicalChildren().OfType<NavMenuItem>();
+        foreach (var childItem in childItems)
+        {
+            if (FilterMenuItem(childItem, searchText))
+            {
+                hasVisibleChildren = true;
+            }
+        }
+
+        if (item.ItemCount == 0)
+        {
+            var headerText = item.Header?.ToString()?.ToLower() ?? string.Empty;
+            bool matches = headerText.Contains(searchText);
+            item.IsVisible = matches;
+            return matches;
+        }
+        else
+        {
+            item.IsVisible = hasVisibleChildren;
+            if (hasVisibleChildren && item.IsVerticalCollapsed)
+            {
+                item.SetCurrentValue(NavMenuItem.IsVerticalCollapsedProperty, false);
+            }
+
+            return hasVisibleChildren;
+        }
     }
 }
