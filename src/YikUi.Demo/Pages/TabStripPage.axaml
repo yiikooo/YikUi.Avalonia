@@ -10,38 +10,46 @@
     xmlns:pages="clr-namespace:YikUi.Demo.Pages"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <yik:GroupBorder
-        Header="TabStrip"
-        Margin="15"
-        Padding="15">
-        <ScrollViewer>
-            <StackPanel>
-                <DockPanel>
-                    <Border
-                        DockPanel.Dock="Top"
-                        HorizontalAlignment="Left"
-                        Theme="{StaticResource RadioButtonGroupBorder}">
-                        <ListBox
-                            ItemsSource="{Binding TabStripThemes}"
-                            SelectedItem="{Binding SelectedTheme}"
-                            Theme="{DynamicResource ButtonRadioGroupListBox}" />
-                    </Border>
-                    <StackPanel>
-                        <Border Theme="{StaticResource CardBorder}">
-                            <TabStrip Theme="{Binding SelectedTheme.Theme}">
-                                <TabStripItem Content="Tab 1" />
-                                <TabStripItem Content="Tab 2" />
-                                <TabStripItem Content="Tab 3" />
-                                <TabStripItem Content="中文中文" />
-                                <TabStripItem Content="Tab 4" IsEnabled="False" />
-                            </TabStrip>
-                        </Border>
-                        <Border Theme="{StaticResource CardBorder}">
-                            <TabStrip ItemsSource="{Binding Items}" Theme="{Binding SelectedTheme.Theme}" />
-                        </Border>
-                    </StackPanel>
-                </DockPanel>
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
+                <yik:GroupBorder Header="TabStrip" Padding="15">
+                    <TabStrip>
+                        <TabStripItem Content="Tab 1" />
+                        <TabStripItem Content="Tab 2" />
+                        <TabStripItem Content="Tab 3" />
+                        <TabStripItem Content="中文中文" />
+                        <TabStripItem Content="Tab 4" IsEnabled="False" />
+                    </TabStrip>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="LineTabStrip" Padding="15">
+                    <TabStrip Theme="{StaticResource LineTabStrip}">
+                        <TabStripItem Content="Tab 1" />
+                        <TabStripItem Content="Tab 2" />
+                        <TabStripItem Content="Tab 3" />
+                        <TabStripItem Content="中文中文" />
+                        <TabStripItem Content="Tab 4" IsEnabled="False" />
+                    </TabStrip>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="CardTabStrip" Padding="15">
+                    <TabStrip Theme="{StaticResource CardTabStrip}">
+                        <TabStripItem Content="Tab 1" />
+                        <TabStripItem Content="Tab 2" />
+                        <TabStripItem Content="Tab 3" />
+                        <TabStripItem Content="中文中文" />
+                        <TabStripItem Content="Tab 4" IsEnabled="False" />
+                    </TabStrip>
+                </yik:GroupBorder>
+                <yik:GroupBorder Header="ButtonTabStrip" Padding="15">
+                    <TabStrip Theme="{StaticResource ButtonTabStrip}">
+                        <TabStripItem Content="Tab 1" />
+                        <TabStripItem Content="Tab 2" />
+                        <TabStripItem Content="Tab 3" />
+                        <TabStripItem Content="中文中文" />
+                        <TabStripItem Content="Tab 4" IsEnabled="False" />
+                    </TabStrip>
+                </yik:GroupBorder>
             </StackPanel>
         </ScrollViewer>
-    </yik:GroupBorder>
+    </Border>
 </UserControl>

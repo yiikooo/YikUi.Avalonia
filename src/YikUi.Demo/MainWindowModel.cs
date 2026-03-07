@@ -160,6 +160,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "TabStrip",
                     Content = new TabStripPage(),
                 },
+                new Page
+                {
+                    Title = "TabControl",
+                    Content = new TabControlPage(),
+                },
             ]
         },
         new()
