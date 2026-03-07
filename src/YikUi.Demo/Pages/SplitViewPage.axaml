@@ -1,0 +1,172 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.SplitViewPage"
+    x:DataType="pages:SplitViewPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="SplitView"
+        Margin="15"
+        Padding="15">
+        <Border ClipToBounds="True" CornerRadius="10">
+            <Grid ColumnDefinitions="*,400">
+                <Border
+                    Grid.Column="1"
+                    Margin="10,0,0,0"
+                    VerticalAlignment="Top">
+                    <Grid
+                        ColumnDefinitions="Auto, *"
+                        RowDefinitions="*, *, *, *, *, *"
+                        RowSpacing="15">
+                        <Label
+                            Content="IsPaneOpen"
+                            Grid.Column="0"
+                            Grid.Row="0"
+                            VerticalAlignment="Center" />
+                        <ToggleSwitch
+                            Grid.Column="1"
+                            Grid.Row="0"
+                            Name="PaneOpenButton" />
+
+                        <Label
+                            Content="UseLightDismissOverlayMode"
+                            Grid.Column="0"
+                            Grid.Row="1"
+                            VerticalAlignment="Center" />
+                        <ToggleSwitch
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            Name="UseLightDismissOverlayModeButton" />
+
+                        <Label
+                            Content="Placement"
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            VerticalAlignment="Center" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Grid.Row="2"
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{x:Static pages:SplitViewPage.Placements}"
+                            Name="PanelPlacementSelector"
+                            SelectedItem="{x:Static SplitViewPanePlacement.Left}" />
+                        <Label
+                            Content="DisplayMode"
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            VerticalAlignment="Center" />
+                        <ComboBox
+                            Grid.Column="1"
+                            Grid.Row="3"
+                            HorizontalAlignment="Stretch"
+                            ItemsSource="{x:Static pages:SplitViewPage.DisplayModes}"
+                            Name="DisplayModeSelector"
+                            SelectedItem="{x:Static SplitViewDisplayMode.CompactInline}" />
+
+                        <Label
+                            Content="{Binding #CompactPaneLengthSlider.Value, StringFormat='{}CompactPaneLength: {0}'}"
+                            Grid.Column="0"
+                            Grid.Row="4"
+                            VerticalAlignment="Center" />
+                        <Slider
+                            Grid.Column="1"
+                            Grid.Row="4"
+                            IsSnapToTickEnabled="True"
+                            Maximum="128"
+                            Minimum="0"
+                            Name="CompactPaneLengthSlider"
+                            TickFrequency="1"
+                            Value="48" />
+
+                        <Label
+                            Content="{Binding #OpenPaneLengthSlider.Value, StringFormat='{}OpenPaneLength: {0}'}"
+                            Grid.Column="0"
+                            Grid.Row="5"
+                            VerticalAlignment="Center" />
+                        <Slider
+                            Grid.Column="1"
+                            Grid.Row="5"
+                            IsSnapToTickEnabled="True"
+                            Maximum="500"
+                            Minimum="128"
+                            Name="OpenPaneLengthSlider"
+                            TickFrequency="1"
+                            Value="256" />
+                    </Grid>
+                </Border>
+                <SplitView
+                    CompactPaneLength="{Binding #CompactPaneLengthSlider.Value}"
+                    DisplayMode="{Binding #DisplayModeSelector.SelectedItem}"
+                    Grid.Column="0"
+                    IsPaneOpen="{Binding #PaneOpenButton.IsChecked, Mode=TwoWay}"
+                    Name="SplitView"
+                    OpenPaneLength="{Binding #OpenPaneLengthSlider.Value}"
+                    PanePlacement="{Binding #PanelPlacementSelector.SelectedItem}"
+                    UseLightDismissOverlayMode="{Binding #UseLightDismissOverlayModeButton.IsChecked}">
+                    <SplitView.Pane>
+                        <Grid RowDefinitions="Auto,*,Auto">
+                            <StackPanel
+                                Grid.Row="0"
+                                Margin="8,12"
+                                Orientation="Horizontal">
+                                <ToggleSwitch IsChecked="{Binding #SplitView.IsPaneOpen}"
+                                              Theme="{DynamicResource IconBorderlessToggleSwitch}">
+                                    <StreamGeometry>
+                                        F1 M448,512z M0,0z M0,96C0,78.3,14.3,64,32,64L416,64C433.7,64 448,78.3 448,96 448,113.7 433.7,128 416,128L32,128C14.3,128,0,113.7,0,96z M0,256C0,238.3,14.3,224,32,224L416,224C433.7,224 448,238.3 448,256 448,273.7 433.7,288 416,288L32,288C14.3,288,0,273.7,0,256z M448,416C448,433.7,433.7,448,416,448L32,448C14.3,448 0,433.7 0,416 0,398.3 14.3,384 32,384L416,384C433.7,384,448,398.3,448,416z
+                                    </StreamGeometry>
+                                </ToggleSwitch>
+                                <TextBlock
+                                    FontWeight="Bold"
+                                    Margin="8,0"
+                                    Name="PaneHeader"
+                                    Text="Header"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+
+                            <ScrollViewer Classes="Flat" Grid.Row="1">
+                                <ListBox ItemsSource="{Binding Songs}" Margin="5">
+                                    <ListBox.Styles>
+                                        <Style Selector="TextBlock">
+                                            <Setter Property="TextWrapping" Value="NoWrap" />
+                                        </Style>
+                                    </ListBox.Styles>
+                                </ListBox>
+                            </ScrollViewer>
+
+                        </Grid>
+                    </SplitView.Pane>
+
+                    <Panel>
+                        <Panel.Styles>
+                            <Style Selector="Image#AlbumCover">
+                                <Style.Animations>
+                                    <Animation Duration="0:0:40" IterationCount="Infinite">
+                                        <KeyFrame Cue="0%">
+                                            <Setter Property="RotateTransform.Angle" Value="0" />
+                                        </KeyFrame>
+                                        <KeyFrame Cue="100%">
+                                            <Setter Property="RotateTransform.Angle" Value="360" />
+                                        </KeyFrame>
+                                    </Animation>
+                                </Style.Animations>
+                            </Style>
+                        </Panel.Styles>
+                        <Border Background="CornflowerBlue">
+                            <TextBlock
+                                Foreground="White"
+                                HorizontalAlignment="Center"
+                                Text="Content"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </Panel>
+                </SplitView>
+            </Grid>
+        </Border>
+    </yik:GroupBorder>
+</UserControl>

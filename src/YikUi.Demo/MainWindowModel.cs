@@ -268,6 +268,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "HeaderedContent",
                     Content = new HeaderedContentPage(),
                 },
+                new Page
+                {
+                    Title = "SplitView",
+                    Content = new SplitViewPage(),
+                },
             ]
         }
     ];
