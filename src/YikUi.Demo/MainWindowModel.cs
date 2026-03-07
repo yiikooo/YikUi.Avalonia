@@ -230,6 +230,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "DataValidationErrors",
                     Content = new DataValidationErrorsPage(),
+                },
+                new Page
+                {
+                    Title = "RefreshContainer",
+                    Content = new RefreshContainerPage(),
                 }
             ]
         },
@@ -257,6 +262,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 {
                     Title = "ThemeVariantScope",
                     Content = new ThemeVariantScopePage(),
+                },
+                new Page
+                {
+                    Title = "HeaderedContent",
+                    Content = new HeaderedContentPage(),
                 },
             ]
         }
