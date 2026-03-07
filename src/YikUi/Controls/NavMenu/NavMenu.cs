@@ -316,6 +316,22 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
     {
         if (e.Handled) return;
 
+        // Alt+C: Collapse all expandable items
+        if (e.Key == Key.C && e.KeyModifiers.HasFlag(KeyModifiers.Alt))
+        {
+            CollapseAllItems();
+            e.Handled = true;
+            return;
+        }
+
+        // Alt+O: Expand all expandable items
+        if (e.Key == Key.O && e.KeyModifiers.HasFlag(KeyModifiers.Alt))
+        {
+            ExpandAllItems();
+            e.Handled = true;
+            return;
+        }
+
         var source = GetContainerFromEventSource(e.Source);
         if (GetNextItem(source, e.Key) is { } target)
         {
@@ -639,6 +655,62 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
             }
 
             return hasVisibleChildren;
+        }
+    }
+
+    /// <summary>
+    /// Collapse all expandable menu items (Alt+C)
+    /// </summary>
+    public void CollapseAllItems()
+    {
+        foreach (var child in LogicalChildren)
+        {
+            if (child is NavMenuItem item)
+            {
+                CollapseMenuItem(item);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Expand all expandable menu items (Alt+O)
+    /// </summary>
+    public void ExpandAllItems()
+    {
+        foreach (var child in LogicalChildren)
+        {
+            if (child is NavMenuItem item)
+            {
+                ExpandMenuItem(item);
+            }
+        }
+    }
+
+    private void CollapseMenuItem(NavMenuItem item)
+    {
+        if (item.ItemCount > 0)
+        {
+            item.SetCurrentValue(NavMenuItem.IsVerticalCollapsedProperty, true);
+        }
+
+        var children = item.GetLogicalChildren().OfType<NavMenuItem>();
+        foreach (var childItem in children)
+        {
+            CollapseMenuItem(childItem);
+        }
+    }
+
+    private void ExpandMenuItem(NavMenuItem item)
+    {
+        if (item.ItemCount > 0)
+        {
+            item.SetCurrentValue(NavMenuItem.IsVerticalCollapsedProperty, false);
+        }
+
+        var children = item.GetLogicalChildren().OfType<NavMenuItem>();
+        foreach (var childItem in children)
+        {
+            ExpandMenuItem(childItem);
         }
     }
 }
