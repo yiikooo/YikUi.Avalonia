@@ -43,7 +43,7 @@ public static class AvaloniaPropertyExtension
         where TControl : Control
         where TArgs : RoutedEventArgs, new()
     {
-        PseudoClassesExtensions.Set(control.Classes, pseudoClass, args.NewValue.Value);
+        PseudolassesExtensions.Set(control.Classes, pseudoClass, args.NewValue.Value);
         if (routedEvent is not null) control.RaiseEvent(new TArgs { RoutedEvent = routedEvent });
     }
 

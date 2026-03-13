@@ -35,15 +35,15 @@
                     Width="300" />
                 <TextBox
                     Classes="Bordered"
-                    PlaceholderText="Bordered"
+                    Watermark="Bordered"
                     Width="300" />
                 <TextBox
                     Classes="BorderedOnFocus"
-                    PlaceholderText="BorderedOnFocus"
+                    Watermark="BorderedOnFocus"
                     Width="300" />
                 <TextBox
                     Classes="TextArea"
-                    PlaceholderText="TextArea TextBox"
+                    Watermark="TextArea TextBox"
                     Width="300" />
                 <TextBox
                     Classes="TextArea ClearButton"
@@ -52,8 +52,8 @@
                 <TextBox
                     InnerLeftContent="https://"
                     InnerRightContent=".com"
-                    PlaceholderText="Lookless TextBox"
                     Theme="{StaticResource LooklessTextBox}"
+                    Watermark="Lookless TextBox"
                     Width="300" />
             </StackPanel>
         </ScrollViewer>

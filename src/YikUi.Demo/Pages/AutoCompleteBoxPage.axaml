@@ -28,24 +28,24 @@
                     </Setter>
                 </Style>
             </StackPanel.Styles>
-            <AutoCompleteBox PlaceholderText="Please input" ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
+            <AutoCompleteBox ValueMemberBinding="{Binding Name, DataType=pages:Data}" Watermark="Please input" />
             <AutoCompleteBox
                 IsEnabled="False"
-                PlaceholderText="Disabled"
-                ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}"
+                Watermark="Disabled" />
             <AutoCompleteBox
                 InnerLeftContent="https://"
                 InnerRightContent=".com"
                 ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
             <AutoCompleteBox
                 Classes="Bordered"
-                PlaceholderText="Bordered"
                 ValueMemberBinding="{Binding Name, DataType=pages:Data}"
+                Watermark="Bordered"
                 Width="300" />
             <AutoCompleteBox
                 Classes="BorderedOnFocus"
-                PlaceholderText="BorderedOnFocus"
                 ValueMemberBinding="{Binding Name, DataType=pages:Data}"
+                Watermark="BorderedOnFocus"
                 Width="300" />
         </StackPanel>
     </yik:GroupBorder>

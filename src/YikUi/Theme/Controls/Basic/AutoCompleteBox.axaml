@@ -43,9 +43,9 @@
                             InnerRightContent="{TemplateBinding InnerRightContent}"
                             MinHeight="{TemplateBinding MinHeight}"
                             Name="PART_TextBox"
-                            PlaceholderText="{TemplateBinding Watermark}"
                             Theme="{DynamicResource NonErrorTextBox}"
-                            VerticalAlignment="Stretch" />
+                            VerticalAlignment="Stretch"
+                            Watermark="{TemplateBinding Watermark}" />
                         <Popup
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
@@ -85,8 +85,8 @@
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             MinHeight="0"
                             Name="PART_TextBox"
-                            PlaceholderText="{TemplateBinding Watermark}"
-                            VerticalAlignment="Stretch" />
+                            VerticalAlignment="Stretch"
+                            Watermark="{TemplateBinding Watermark}" />
                         <Popup
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"
@@ -125,8 +125,8 @@
                             DataValidationErrors.Errors="{TemplateBinding (DataValidationErrors.Errors)}"
                             MinHeight="0"
                             Name="PART_TextBox"
-                            PlaceholderText="{TemplateBinding Watermark}"
-                            VerticalAlignment="Stretch" />
+                            VerticalAlignment="Stretch"
+                            Watermark="{TemplateBinding Watermark}" />
                         <Popup
                             InheritsTransform="True"
                             IsLightDismissEnabled="True"

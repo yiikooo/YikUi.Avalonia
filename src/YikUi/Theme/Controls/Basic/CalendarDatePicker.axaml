@@ -170,11 +170,11 @@
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="PART_TextBox"
-                                PlaceholderText="{TemplateBinding Watermark}"
                                 Theme="{DynamicResource NonErrorTextBox}"
-                                UseFloatingPlaceholder="{TemplateBinding UseFloatingWatermark}"
+                                UseFloatingWatermark="{TemplateBinding UseFloatingWatermark}"
                                 VerticalAlignment="Stretch"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Watermark="{TemplateBinding Watermark}">
                                 <TextBox.Styles>
                                     <Style
                                         Selector="TextBox#PART_TextBox:pointerover /template/ Border#PART_ContentPresenterBorder">

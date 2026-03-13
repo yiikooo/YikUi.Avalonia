@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
-    xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
 
     <Design.PreviewWith>
         <StackPanel
@@ -121,7 +121,7 @@
                             Padding="0,3"
                             TemplatedControl.IsTemplateFocusTarget="True">
                             <Border.Margin>
-                                <MultiBinding Converter="{x:Static converters:TreeViewItemIndentConverter.Instance}">
+                                <MultiBinding Converter="{x:Static yik:TreeViewItemIndentConverter.Instance}">
                                     <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
                                     <DynamicResource ResourceKey="TreeViewItemIndent" />
                                 </MultiBinding>

@@ -47,8 +47,7 @@
                                                 Height="16"
                                                 Margin="0,0,6,0"
                                                 Width="16" />
-                                            <TextBlock Foreground="{DynamicResource ForegroundColor}"
-                                                       Text="{Binding DisplayName}" />
+                                            <TextBlock Foreground="{DynamicResource ForegroundColor}" Text="{Binding DisplayName}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -86,8 +85,8 @@
                                 <TextBox
                                     FontSize="14"
                                     IsVisible="{Binding !SelectingFolder}"
-                                    PlaceholderText="{DynamicResource Lang.FileName}"
-                                    Text="{Binding FileName}" />
+                                    Text="{Binding FileName}"
+                                    Watermark="{DynamicResource Lang.FileName}" />
                             </DockPanel>
                             <CheckBox
                                 Content="{DynamicResource Lang.ShowHiddenFiles}"
@@ -204,8 +203,7 @@
                                                     Foreground="{DynamicResource ForegroundColor}"
                                                     Grid.Column="6"
                                                     Text="{Binding Type}" />
-                                                <TextBlock Foreground="{DynamicResource ForegroundColor}"
-                                                           Grid.Column="8">
+                                                <TextBlock Foreground="{DynamicResource ForegroundColor}" Grid.Column="8">
                                                     <TextBlock.Text>
                                                         <Binding Path="Size">
                                                             <Binding.Converter>
@@ -226,8 +224,7 @@
         </Setter>
     </ControlTheme>
 
-    <ControlTheme TargetType="dialogs:ManagedFileChooserOverwritePrompt"
-                  x:Key="{x:Type dialogs:ManagedFileChooserOverwritePrompt}">
+    <ControlTheme TargetType="dialogs:ManagedFileChooserOverwritePrompt" x:Key="{x:Type dialogs:ManagedFileChooserOverwritePrompt}">
         <Setter Property="MaxWidth" Value="400" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Template">
