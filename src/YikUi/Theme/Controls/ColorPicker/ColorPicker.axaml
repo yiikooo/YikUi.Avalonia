@@ -77,10 +77,8 @@
                 x:Key="ColorViewRadioButtonPressedBackground" />
             <SolidColorBrush Color="White" x:Key="ColorViewRadioButtonCheckedForeground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewRadioButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}"
-                             x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}"
-                             x:Key="ColorViewRadioButtonCheckedPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="ColorViewRadioButtonCheckedPressedBackground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewTabItemSelectedForeground" />
             <SolidColorBrush Color="Black" x:Key="ColorSliderDefaultBorderBrush" />
             <SolidColorBrush Color="White" x:Key="ColorSliderLightBorderBrush" />
@@ -107,10 +105,8 @@
                 x:Key="ColorViewRadioButtonPressedBackground" />
             <SolidColorBrush Color="White" x:Key="ColorViewRadioButtonCheckedForeground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewRadioButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
-                             x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
-                             x:Key="ColorViewRadioButtonCheckedPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="ColorViewRadioButtonCheckedPressedBackground" />
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewTabItemSelectedForeground" />
             <SolidColorBrush Color="Black" x:Key="ColorSliderDefaultBorderBrush" />
             <SolidColorBrush Color="White" x:Key="ColorSliderLightBorderBrush" />
@@ -134,15 +130,13 @@
                 <Panel>
                     <Border
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius,
-                                                       Converter={StaticResource LeftCornerRadiusFilterConverter}}"
-                        Margin="1,1,0,1" />
+                        CornerRadius="8,6,6,8"
+                        Margin="2,2,0,2" />
                     <Border
                         Background="{TemplateBinding HsvColor,
                                                      Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius,
-                                                       Converter={StaticResource LeftCornerRadiusFilterConverter}}"
-                        Margin="1,1,0,1" />
+                        CornerRadius="8,6,6,8"
+                        Margin="2,2,0,2" />
                 </Panel>
             </Template>
         </Setter>
@@ -155,7 +149,7 @@
                     ClipToBounds="True"
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
+                    CornerRadius="{DynamicResource YikCornerRadius}"
                     Height="{TemplateBinding Height}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -169,10 +163,12 @@
                         <Style Selector="FlyoutPresenter.nopadding">
                             <Setter Property="Padding" Value="0" />
                         </Style>
+                        <Style Selector="PathIcon#DropDownGlyph">
+                            <Setter Property="Margin" Value="3,0,0,0" />
+                        </Style>
                     </DropDownButton.Styles>
                     <DropDownButton.Flyout>
-                        <Flyout FlyoutPresenterClasses="nopadding"
-                                Placement="{DynamicResource ColorPickerFlyoutPlacement}">
+                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource ColorPickerFlyoutPlacement}">
                             <Grid
                                 Height="300"
                                 Name="RootGrid"
@@ -202,8 +198,7 @@
                                             <Setter Property="MinHeight" Value="32" />
                                         </Style>
                                         <Style Selector="TabItem:selected">
-                                            <Setter Property="Foreground"
-                                                    Value="{DynamicResource ColorViewTabItemSelectedForeground}" />
+                                            <Setter Property="Foreground" Value="{DynamicResource ColorViewTabItemSelectedForeground}" />
                                         </Style>
                                     </TabControl.Styles>
                                     <TabControl.ItemsPanel>
@@ -268,8 +263,7 @@
                                                 VerticalAlignment="Stretch">
                                                 <ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible"
-                                                                 RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </ColorSlider.IsVisible>
                                             </ColorSlider>
@@ -307,8 +301,7 @@
                                             </ListBox.ItemTemplate>
                                             <ListBox.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <UniformGrid
-                                                        Columns="{Binding $parent[ColorView].PaletteColumnCount}" />
+                                                    <UniformGrid Columns="{Binding $parent[ColorView].PaletteColumnCount}" />
                                                 </ItemsPanelTemplate>
                                             </ListBox.ItemsPanel>
                                         </ListBox>
@@ -331,8 +324,7 @@
                                                 <Style Selector="NumericUpDown">
                                                     <Setter Property="InnerLeftContent">
                                                         <Template>
-                                                            <TextBlock Text="{Binding $parent[NumericUpDown].Tag}"
-                                                                       Width="12" />
+                                                            <TextBlock Text="{Binding $parent[NumericUpDown].Tag}" Width="12" />
                                                         </Template>
                                                     </Setter>
                                                 </Style>
@@ -373,8 +365,7 @@
                                                 Grid.Row="0">
                                                 <!--  RadioButtonGroup  -->
                                                 <Border CornerRadius="3" Padding="2">
-                                                    <Border IsVisible="{TemplateBinding IsColorModelVisible}"
-                                                            Theme="{StaticResource RadioButtonGroupBorder}">
+                                                    <Border IsVisible="{TemplateBinding IsColorModelVisible}" Theme="{StaticResource RadioButtonGroupBorder}">
                                                         <StackPanel Orientation="Horizontal">
                                                             <RadioButton
                                                                 Content="RGB"
@@ -517,10 +508,8 @@
                                                 Width="{DynamicResource ColorViewNumericUpDownWidth}">
                                                 <NumericUpDown.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible"
-                                                                 RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <Binding Path="IsComponentTextInputVisible"
-                                                                 RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsComponentTextInputVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </NumericUpDown.IsVisible>
                                             </NumericUpDown>
@@ -541,10 +530,8 @@
                                                 VerticalAlignment="Center">
                                                 <ColorSlider.IsVisible>
                                                     <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                                        <Binding Path="IsAlphaVisible"
-                                                                 RelativeSource="{RelativeSource TemplatedParent}" />
-                                                        <Binding Path="IsComponentSliderVisible"
-                                                                 RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsAlphaVisible" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding Path="IsComponentSliderVisible" RelativeSource="{RelativeSource TemplatedParent}" />
                                                     </MultiBinding>
                                                 </ColorSlider.IsVisible>
                                             </ColorSlider>
@@ -581,19 +568,19 @@
                 <Grid ColumnDefinitions="Auto, *">
                     <Border
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        CornerRadius="8,6,6,8"
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
-                        Margin="1,1,0,1"
+                        Margin="2,2,0,2"
                         VerticalAlignment="Stretch"
                         Width="{Binding $self.Bounds.Height}" />
                     <Border
                         Background="{TemplateBinding HsvColor,
                                                      Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        CornerRadius="8,6,6,8"
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
-                        Margin="1,1,0,1"
+                        Margin="2,2,0,2"
                         VerticalAlignment="Stretch"
                         Width="{Binding $self.Bounds.Height}" />
                     <TextBlock
@@ -619,7 +606,7 @@
                 <DropDownButton
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
+                    CornerRadius="{DynamicResource YikCornerRadius}"
                     Height="{TemplateBinding Height}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -635,8 +622,7 @@
                         </Style>
                     </DropDownButton.Styles>
                     <DropDownButton.Flyout>
-                        <Flyout FlyoutPresenterClasses="nopadding"
-                                Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
+                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
 
                             <!--
                                 The following is copy-pasted from the ColorView's control template.
@@ -792,19 +778,19 @@
                 <Grid ColumnDefinitions="Auto, *">
                     <Border
                         Background="{DynamicResource ColorControlCheckeredBackgroundBrush}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        CornerRadius="8,6,6,8"
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
-                        Margin="1,1,0,1"
+                        Margin="2,2,0,2"
                         VerticalAlignment="Stretch"
                         Width="{Binding $self.Bounds.Height}" />
                     <Border
                         Background="{TemplateBinding HsvColor,
                                                      Converter={StaticResource ToBrushConverter}}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
+                        CornerRadius="8,6,6,8"
                         Grid.Column="0"
                         HorizontalAlignment="Stretch"
-                        Margin="1,1,0,1"
+                        Margin="2,2,0,2"
                         VerticalAlignment="Stretch"
                         Width="{Binding $self.Bounds.Height}" />
                     <TextBlock

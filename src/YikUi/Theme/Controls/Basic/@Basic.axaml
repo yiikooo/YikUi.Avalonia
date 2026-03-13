@@ -53,5 +53,7 @@
         <ResourceInclude Source="TabStrip.axaml" />
         <ResourceInclude Source="TabControl.axaml" />
         <ResourceInclude Source="TreeView.axaml" />
+        <ResourceInclude Source="DropDownButton.axaml" />
+        <ResourceInclude Source="SplitButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

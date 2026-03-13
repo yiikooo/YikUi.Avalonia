@@ -99,6 +99,16 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                     Title = "CheckBox",
                     Content = new CheckBoxPage(),
                 },
+                new Page
+                {
+                    Title = "DropDownButton",
+                    Content = new DropDownButtonPage(),
+                },
+                new Page
+                {
+                    Title = "SplitButton",
+                    Content = new SplitButtonPage(),
+                },
             ]
         },
         new()
