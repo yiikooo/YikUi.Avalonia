@@ -4,7 +4,7 @@ using Avalonia.Utilities;
 
 namespace YikUi.Theme.Controls.ColorPicker;
 
-public class ColorDarkPalette : IColorPalette
+public class YikColorDarkPalette : IColorPalette
 {
     private static readonly Color[,] Colors = new Color[,]
     {

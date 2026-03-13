@@ -15,7 +15,11 @@ public partial class MainWindow : YikWindow
 
     public MainWindow()
     {
+#if DEBUG
+        InitializeComponent(attachDevTools: false);
+#else
         InitializeComponent();
+#endif
         DataContext = new MainWindowModel();
         toast = new YikWindowToastManager(GetTopLevel(this));
         notification = new YikWindowNotificationManager(GetTopLevel(this))

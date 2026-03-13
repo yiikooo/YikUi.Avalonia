@@ -116,8 +116,7 @@
             <!--  DataValidationErrorsPointeroverBackground  -->
             <Color x:Key="SemiRed1Color">#FCE0D9</Color>
             <SolidColorBrush Color="{StaticResource SemiRed1Color}" x:Key="SemiColorDangerLightPointerover" />
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
 
             <!--  DataValidationErrorsPressedBackground  -->
             <Color x:Key="SemiRed2Color">#FAD0C4</Color>
@@ -143,8 +142,7 @@
 
             <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="SemiColorPrimaryPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryPointerover"
-                            x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
 
             <!--  ComboBoxSelectorBorderedPressedBackground  -->
             <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
@@ -162,8 +160,7 @@
             <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
 
             <!--  DataValidationErrorsPointeroverBorderBrush  -->
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
 
             <!--  DataValidationErrorsPressedBorderBrush  -->
             <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
@@ -210,8 +207,7 @@
 
             <!--  ComboBoxItemSelectedPointeroverBackground  -->
             <SolidColorBrush Color="#CCE6FF" x:Key="SemiColorPrimaryLightPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover"
-                            x:Key="ComboBoxItemSelectedPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -308,8 +304,7 @@
                 Color="#FC725A"
                 Opacity="0.3"
                 x:Key="SemiColorDangerLightPointerover" />
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
 
             <!--  DataValidationErrorsPressedBackground  -->
             <SolidColorBrush
@@ -336,8 +331,7 @@
 
             <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
             <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="SemiColorPrimaryPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryPointerover"
-                            x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
 
             <!--  ComboBoxSelectorBorderedPressedBackground  -->
             <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
@@ -356,8 +350,7 @@
             <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
 
             <!--  DataValidationErrorsPointeroverBorderBrush  -->
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
 
             <!--  DataValidationErrorsPressedBorderBrush  -->
             <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
@@ -410,8 +403,7 @@
                 Color="{DynamicResource SystemAccentColorLight1}"
                 Opacity="0.3"
                 x:Key="SemiColorPrimaryLightPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover"
-                            x:Key="ComboBoxItemSelectedPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -458,8 +450,7 @@
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <TextBlock.IsVisible>
                                 <MultiBinding Converter="{x:Static BoolConverters.And}">
-                                    <TemplateBinding Converter="{x:Static ObjectConverters.IsNull}"
-                                                     Property="SelectionBoxItem" />
+                                    <TemplateBinding Converter="{x:Static ObjectConverters.IsNull}" Property="SelectionBoxItem" />
                                     <TemplateBinding Converter="{x:Static BoolConverters.Not}" Property="IsEditable" />
                                 </MultiBinding>
                             </TextBlock.IsVisible>
@@ -537,8 +528,7 @@
                                     IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                     VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                                     <Border Margin="4">
-                                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}"
-                                                        Name="PART_ItemsPresenter" />
+                                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />
                                     </Border>
                                 </ScrollViewer>
                             </Border>
@@ -550,12 +540,10 @@
 
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^:pointerover /template/ Button#ClearButton">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
             <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
             </Style>
         </Style>
 
@@ -570,7 +558,12 @@
             <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorFocusBackground}" />
             <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
-
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="40" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="24" />
+        </Style>
         <!--  Pressed State  -->
         <Style Selector="^:pressed">
             <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPressedBackground}" />
@@ -630,8 +623,7 @@
             </Style>
             <Style Selector="^:disabled">
                 <Style Selector="^ /template/ Border#Background">
-                    <Setter Property="BorderBrush"
-                            Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+                    <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
                 </Style>
             </Style>
         </Style>

@@ -6,55 +6,8 @@
     <converters:CornerRadiusToDoubleConverter Corner="TopLeft" x:Key="TopLeftCornerRadiusConverter" />
     <converters:CornerRadiusToDoubleConverter Corner="BottomRight" x:Key="BottomRightCornerRadiusConverter" />
 
-    <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Light">
-            <!--  ColorView Radio Button Resources  -->
-            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewRadioButtonForeground" />
-            <SolidColorBrush Color="White" x:Key="ColorViewRadioButtonBackground" />
-            <SolidColorBrush
-                Color="#2E3238"
-                Opacity="0.09"
-                x:Key="ColorViewRadioButtonPointeroverBackground" />
-            <SolidColorBrush
-                Color="#2E3238"
-                Opacity="0.13"
-                x:Key="ColorViewRadioButtonPressedBackground" />
-            <SolidColorBrush Color="White" x:Key="ColorViewRadioButtonCheckedForeground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewRadioButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}"
-                             x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark2}"
-                             x:Key="ColorViewRadioButtonCheckedPressedBackground" />
-            <!--  ColorView Tab Resources  -->
-            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ColorViewTabItemSelectedForeground" />
-        </ResourceDictionary>
-        <ResourceDictionary x:Key="Dark">
-            <!--  ColorView Radio Button Resources  -->
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="ColorViewRadioButtonForeground" />
-            <SolidColorBrush Color="#16161A" x:Key="ColorViewRadioButtonBackground" />
-            <SolidColorBrush
-                Color="White"
-                Opacity="0.16"
-                x:Key="ColorViewRadioButtonPointeroverBackground" />
-            <SolidColorBrush
-                Color="White"
-                Opacity="0.20"
-                x:Key="ColorViewRadioButtonPressedBackground" />
-            <SolidColorBrush Color="White" x:Key="ColorViewRadioButtonCheckedForeground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
-                             x:Key="ColorViewRadioButtonCheckedBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight2}"
-                             x:Key="ColorViewRadioButtonCheckedPointeroverBackground" />
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight3}"
-                             x:Key="ColorViewRadioButtonCheckedPressedBackground" />
-            <!--  ColorView Tab Resources  -->
-            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
-                             x:Key="ColorViewTabItemSelectedForeground" />
-        </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
-
     <ControlTheme TargetType="ColorSpectrum" x:Key="{x:Type ColorSpectrum}">
-        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource ColorSpectrumCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate TargetType="{x:Type ColorSpectrum}">
                 <Panel

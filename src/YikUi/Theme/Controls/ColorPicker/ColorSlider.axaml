@@ -1,24 +1,33 @@
 <ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:converters="using:Avalonia.Controls.Converters"
-    xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <converters:CornerRadiusToDoubleConverter Corner="TopLeft" x:Key="TopLeftCornerRadiusConverter" />
     <converters:CornerRadiusToDoubleConverter Corner="BottomRight" x:Key="BottomRightCornerRadiusConverter" />
 
-    <system:Double x:Key="ColorSliderWidth">16</system:Double>
+    <x:Double x:Key="ColorSliderWidth">16</x:Double>
     <CornerRadius x:Key="ColorSliderCornerRadius">6</CornerRadius>
     <Thickness x:Key="ColorSliderThumbBorderBrush">2</Thickness>
     <CornerRadius x:Key="ColorSliderThumbCornerRadius">9999</CornerRadius>
 
+    <CornerRadius x:Key="ColorSpectrumCornerRadius">6</CornerRadius>
+
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
-            <SolidColorBrush Color="Black" x:Key="ColorSliderDefaultBorderBrush" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="ColorSpectrumBorderBrush" />
             <SolidColorBrush Color="White" x:Key="ColorSliderLightBorderBrush" />
             <SolidColorBrush Color="Black" x:Key="ColorSliderDarkBorderBrush" />
+            <SolidColorBrush Color="Black" x:Key="ColorSliderDefaultBorderBrush" />
             <BoxShadows x:Key="ColorSliderBoxShadow">0 0 2 1 #FFFFFF</BoxShadows>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="ColorSpectrumBorderBrush" />
             <SolidColorBrush Color="Black" x:Key="ColorSliderDefaultBorderBrush" />
             <SolidColorBrush Color="White" x:Key="ColorSliderLightBorderBrush" />
             <SolidColorBrush Color="Black" x:Key="ColorSliderDarkBorderBrush" />

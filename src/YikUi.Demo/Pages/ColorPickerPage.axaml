@@ -38,12 +38,12 @@
                     </ColorPicker>
                     <ColorPicker ColorSpectrumShape="Box">
                         <ColorPicker.Palette>
-                            <yik:ColorLightPalette />
+                            <yik:YikColorLightPalette />
                         </ColorPicker.Palette>
                     </ColorPicker>
                     <ColorPicker ColorSpectrumShape="Box" Theme="{DynamicResource HexColorPicker}">
                         <ColorPicker.Palette>
-                            <yik:ColorLightPalette />
+                            <yik:YikColorDarkPalette />
                         </ColorPicker.Palette>
                     </ColorPicker>
                 </StackPanel>
@@ -54,10 +54,7 @@
                         Margin="8"
                         MinWidth="32">
                         <ColorPicker.Content>
-                            <Border
-                                Background="{Binding $parent[ColorPicker].HsvColor, Converter={StaticResource ToBrushConverter}}"
-                                CornerRadius="1"
-                                Margin="1" />
+                            <Border CornerRadius="1" Margin="1" />
                         </ColorPicker.Content>
                         <ColorPicker.Styles>
                             <Style Selector="DropDownButton">

@@ -15,7 +15,8 @@ public class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             desktop.MainWindow = new MainWindow();
-        this.AttachDeveloperTools();
+        this.AttachDevTools();
+        // this.AttachDeveloperTools();
         base.OnFrameworkInitializationCompleted();
     }
 }
