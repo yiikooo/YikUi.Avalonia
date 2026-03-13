@@ -119,7 +119,7 @@
                             IsHitTestVisible="False"
                             Name="DropDownGlyph"
                             UseLayoutRounding="False"
-                            Width="10" />
+                            Width="12" />
                         <ContentPresenter
                             Content="{TemplateBinding Content}"
                             ContentTemplate="{TemplateBinding ContentTemplate}"

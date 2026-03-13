@@ -179,7 +179,7 @@
                                 Data="{DynamicResource SplitButtonIconGlyph}"
                                 Foreground="{Binding $parent[Button].Foreground}"
                                 Margin="5,0,7,0"
-                                Width="10" />
+                                Width="12" />
                         </Button>
                         <Rectangle
                             DockPanel.Dock="Right"

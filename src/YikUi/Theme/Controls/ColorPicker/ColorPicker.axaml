@@ -150,6 +150,7 @@
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{DynamicResource YikCornerRadius}"
+                    Foreground="{DynamicResource InnerForegroundColor}"
                     Height="{TemplateBinding Height}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -607,6 +608,7 @@
                     Content="{TemplateBinding Content}"
                     ContentTemplate="{TemplateBinding ContentTemplate}"
                     CornerRadius="{DynamicResource YikCornerRadius}"
+                    Foreground="{DynamicResource InnerForegroundColor}"
                     Height="{TemplateBinding Height}"
                     HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -617,12 +619,13 @@
                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                     Width="{TemplateBinding Width}">
                     <DropDownButton.Styles>
-                        <Style Selector="FlyoutPresenter.nopadding">
-                            <Setter Property="Padding" Value="0" />
+                        <Style Selector="FlyoutPresenter.padding">
+                            <Setter Property="Padding" Value="15" />
                         </Style>
                     </DropDownButton.Styles>
                     <DropDownButton.Flyout>
-                        <Flyout FlyoutPresenterClasses="nopadding" Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
+                        <Flyout FlyoutPresenterClasses="padding"
+                                Placement="{DynamicResource SimpleColorPickerFlyoutPlacement}">
 
                             <!--
                                 The following is copy-pasted from the ColorView's control template.
