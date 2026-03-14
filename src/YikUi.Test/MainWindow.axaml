@@ -7,58 +7,31 @@
     x:DataType="test:Model"
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:test="clr-namespace:YikUi.Test"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <StackPanel HorizontalAlignment="Left" Margin="24,0,0,0">
-                <yik:Divider Content="Simple Form" />
-                <yik:Form LabelPosition="Left" LabelWidth="*">
-                    <TextBox
-                        Width="300"
-                        yik:FormItem.IsRequired="True"
-                        yik:FormItem.Label="Name" />
-                    <TextBox Width="300" yik:FormItem.Label="Email" />
-                    <TextBox
-                        Classes="TextArea"
-                        Width="300"
-                        yik:FormItem.Label="Message" />
-                </yik:Form>
-                <yik:Divider Content="Form accessibility" />
-                <yik:Form LabelPosition="Left" LabelWidth="*">
-                    <TextBox Width="300" yik:FormItem.Label="_Name" />
-                    <TextBox Width="300" yik:FormItem.Label="_Email" />
-                    <TextBox
-                        Classes="TextArea"
-                        Width="300"
-                        yik:FormItem.Label="_Message" />
-                </yik:Form>
-                <yik:Divider Content="Label on top" />
-                <yik:Form LabelPosition="Top" LabelWidth="*">
-                    <TextBox Width="300" yik:FormItem.Label="Name" />
-                    <TextBox Width="300" yik:FormItem.Label="Email" />
-                </yik:Form>
-                <yik:Divider Content="FormGroup" />
-                <yik:Form LabelPosition="Left" LabelWidth="*">
-                    <yik:FormGroup Header="Basic Information">
-                        <TextBox Width="300" yik:FormItem.Label="Name" />
-                        <TextBox Width="300" yik:FormItem.Label="Email" />
-                    </yik:FormGroup>
-                    <yik:FormGroup Header="Education Information">
-                        <TextBox Width="300" yik:FormItem.Label="Collage" />
-                        <yik:FormItem Label="Study Time">
-                            <yik:DateRangePicker Width="300" />
-                        </yik:FormItem>
-                    </yik:FormGroup>
-                    <Button
-                        Content="Submit"
-                        HorizontalAlignment="Stretch"
-                        Theme="{DynamicResource SolidButton}"
-                        yik:FormItem.NoLabel="True" />
-                </yik:Form>
-            </StackPanel>
+            <TextBlock Text="Accept all keys" />
+            <yik:KeyGestureInput HorizontalAlignment="Left" />
+            <TextBlock Text="Accept only A,B and C" />
+            <yik:KeyGestureInput
+                Classes="ClearButton"
+                HorizontalAlignment="Left"
+                InnerLeftContent="Attack"
+                InnerRightContent="Default"
+                Width="300">
+                <yik:KeyGestureInput.AcceptableKeys>
+                    <generic:List x:TypeArguments="Key">
+                        <Key>A</Key>
+                        <Key>B</Key>
+                        <Key>C</Key>
+                    </generic:List>
+                </yik:KeyGestureInput.AcceptableKeys>
+            </yik:KeyGestureInput>
+            <yik:KeyGestureInput HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
         </StackPanel>
     </Border>
 </yik:YikWindow>

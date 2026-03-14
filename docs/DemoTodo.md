@@ -5,3 +5,4 @@ TagInput
 ControlClassesInput
 EnumSelector
 Form
+KeyGestureInput
