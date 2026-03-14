@@ -13,31 +13,23 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:Form>
-                <yik:PinCode
-                    Count="4"
-                    Name="v4"
-                    yik:FormItem.Label="Regular" />
-                <yik:PinCode
-                    Count="4"
-                    Mode="Digit"
-                    yik:FormItem.Label="Digit Only" />
-                <yik:PinCode
-                    Count="4"
-                    Mode="Letter"
-                    yik:FormItem.Label="Letter Only" />
-                <yik:FormGroup>
-                    <yik:PinCode
-                        Classes="Small"
-                        Count="6"
-                        yik:FormItem.Label="Size Small" />
-                    <yik:PinCode Count="6" yik:FormItem.Label="Size Default" />
-                    <yik:PinCode
-                        Classes="Large"
-                        Count="6"
-                        yik:FormItem.Label="Size Large" />
-                </yik:FormGroup>
-            </yik:Form>
+            <yik:RangeSlider
+                HorizontalAlignment="Left"
+                Margin="8"
+                Name="range"
+                TickFrequency="5"
+                VerticalAlignment="Top">
+                <yik:RangeSlider.Styles>
+                    <Style Selector="yik|RangeSlider:horizontal">
+                        <Setter Property="Width" Value="400" />
+                        <Setter Property="Height" Value="40" />
+                    </Style>
+                    <Style Selector="yik|RangeSlider:vertical">
+                        <Setter Property="Width" Value="40" />
+                        <Setter Property="Height" Value="400" />
+                    </Style>
+                </yik:RangeSlider.Styles>
+            </yik:RangeSlider>
         </StackPanel>
     </Border>
 </yik:YikWindow>

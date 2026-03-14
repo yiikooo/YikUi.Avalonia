@@ -12,3 +12,4 @@ MultiComboBox
 MultiAutoCompleteBox
 NumPad
 PinCode
+RangeSlider
