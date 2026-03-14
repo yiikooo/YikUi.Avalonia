@@ -13,7 +13,52 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:EnumSelector EnumType="{x:Type HorizontalAlignment}" Width="200" />
+            <StackPanel HorizontalAlignment="Left" Margin="24,0,0,0">
+                <yik:Divider Content="Simple Form" />
+                <yik:Form LabelPosition="Left" LabelWidth="*">
+                    <TextBox
+                        Width="300"
+                        yik:FormItem.IsRequired="True"
+                        yik:FormItem.Label="Name" />
+                    <TextBox Width="300" yik:FormItem.Label="Email" />
+                    <TextBox
+                        Classes="TextArea"
+                        Width="300"
+                        yik:FormItem.Label="Message" />
+                </yik:Form>
+                <yik:Divider Content="Form accessibility" />
+                <yik:Form LabelPosition="Left" LabelWidth="*">
+                    <TextBox Width="300" yik:FormItem.Label="_Name" />
+                    <TextBox Width="300" yik:FormItem.Label="_Email" />
+                    <TextBox
+                        Classes="TextArea"
+                        Width="300"
+                        yik:FormItem.Label="_Message" />
+                </yik:Form>
+                <yik:Divider Content="Label on top" />
+                <yik:Form LabelPosition="Top" LabelWidth="*">
+                    <TextBox Width="300" yik:FormItem.Label="Name" />
+                    <TextBox Width="300" yik:FormItem.Label="Email" />
+                </yik:Form>
+                <yik:Divider Content="FormGroup" />
+                <yik:Form LabelPosition="Left" LabelWidth="*">
+                    <yik:FormGroup Header="Basic Information">
+                        <TextBox Width="300" yik:FormItem.Label="Name" />
+                        <TextBox Width="300" yik:FormItem.Label="Email" />
+                    </yik:FormGroup>
+                    <yik:FormGroup Header="Education Information">
+                        <TextBox Width="300" yik:FormItem.Label="Collage" />
+                        <yik:FormItem Label="Study Time">
+                            <yik:DateRangePicker Width="300" />
+                        </yik:FormItem>
+                    </yik:FormGroup>
+                    <Button
+                        Content="Submit"
+                        HorizontalAlignment="Stretch"
+                        Theme="{DynamicResource SolidButton}"
+                        yik:FormItem.NoLabel="True" />
+                </yik:Form>
+            </StackPanel>
         </StackPanel>
     </Border>
 </yik:YikWindow>

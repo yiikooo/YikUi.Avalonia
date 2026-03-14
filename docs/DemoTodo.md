@@ -4,3 +4,4 @@ AutoCompleteBox(yik)
 TagInput
 ControlClassesInput
 EnumSelector
+Form
