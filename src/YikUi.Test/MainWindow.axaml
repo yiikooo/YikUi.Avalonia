@@ -12,6 +12,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <yik:NumericByteUpDown Classes="ClearButton" InnerLeftContent="Bytes" />
+        <StackPanel HorizontalAlignment="Left" Spacing="15">
+            <yik:Form>
+                <yik:PinCode
+                    Count="4"
+                    Name="v4"
+                    yik:FormItem.Label="Regular" />
+                <yik:PinCode
+                    Count="4"
+                    Mode="Digit"
+                    yik:FormItem.Label="Digit Only" />
+                <yik:PinCode
+                    Count="4"
+                    Mode="Letter"
+                    yik:FormItem.Label="Letter Only" />
+                <yik:FormGroup>
+                    <yik:PinCode
+                        Classes="Small"
+                        Count="6"
+                        yik:FormItem.Label="Size Small" />
+                    <yik:PinCode Count="6" yik:FormItem.Label="Size Default" />
+                    <yik:PinCode
+                        Classes="Large"
+                        Count="6"
+                        yik:FormItem.Label="Size Large" />
+                </yik:FormGroup>
+            </yik:Form>
+        </StackPanel>
     </Border>
 </yik:YikWindow>

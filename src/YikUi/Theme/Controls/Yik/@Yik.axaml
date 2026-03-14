@@ -19,5 +19,7 @@
         <ResourceInclude Source="MultiComboBox.axaml" />
         <ResourceInclude Source="MultiAutoCompleteBox.axaml" />
         <ResourceInclude Source="NumericUpDown.axaml" />
+        <ResourceInclude Source="NumPad.axaml" />
+        <ResourceInclude Source="PinCode.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -10,3 +10,5 @@ KeyGestureInput
 IPv4Box
 MultiComboBox
 MultiAutoCompleteBox
+NumPad
+PinCode

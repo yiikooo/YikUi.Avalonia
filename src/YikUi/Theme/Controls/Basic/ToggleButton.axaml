@@ -106,6 +106,29 @@
     <ControlTheme
         BasedOn="{StaticResource {x:Type Button}}"
         TargetType="ToggleButton"
+        x:Key="LightToggleButton">
+
+        <Style Selector="^">
+            <Setter Property="FocusAdorner">
+                <FocusAdornerTemplate>
+                    <Border Classes="Solid" Theme="{DynamicResource AdornerLayerBorder}" />
+                </FocusAdornerTemplate>
+            </Setter>
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="FocusAdorner">
+                <FocusAdornerTemplate>
+                    <Border Classes="Solid" Theme="{DynamicResource AdornerLayerBorder}" />
+                </FocusAdornerTemplate>
+            </Setter>
+            <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="ToggleButton"
         x:Key="TransparentToggleButton">
 
         <Style Selector="^">

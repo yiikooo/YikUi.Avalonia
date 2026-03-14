@@ -13,11 +13,11 @@
     <x:Double x:Key="CalendarMinHeight">250</x:Double>
     <x:Double x:Key="CalendarItemWeekDayNameFontSize">12</x:Double>
     <x:Double x:Key="SemiWidthIconMedium">16</x:Double>
+    <StaticResource ResourceKey="PopupBackgroundColor" x:Key="CalendarBackground" />
 
     <!--  Theme resources  -->
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
-            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarBackground" />
             <SolidColorBrush Color="#111827" x:Key="CalendarForeground" />
             <SolidColorBrush
                 Color="#111827"
@@ -94,7 +94,6 @@
                 x:Key="CalendarItemCalendarDayButtonInactiveForeground" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
-            <SolidColorBrush Color="#111827" x:Key="CalendarBackground" />
             <SolidColorBrush Color="#FFFFFF" x:Key="CalendarForeground" />
             <SolidColorBrush
                 Color="#FFFFFF"
