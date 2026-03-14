@@ -13,3 +13,4 @@ MultiAutoCompleteBox
 NumPad
 PinCode
 RangeSlider
+Rating

@@ -22,5 +22,6 @@
         <ResourceInclude Source="NumPad.axaml" />
         <ResourceInclude Source="PinCode.axaml" />
         <ResourceInclude Source="RangeSlider.axaml" />
+        <ResourceInclude Source="Rating.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
