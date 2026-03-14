@@ -12,14 +12,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:IPv4Box Name="box" Width="200" />
-
-            <TextBlock Text="IP: " />
-            <TextBlock Text="{Binding #box.IPAddress}" />
-            <TextBlock Classes="" Text="Fast input" />
-            <yik:IPv4Box InputMode="Fast" Width="200" />
-
-        </StackPanel>
+        <yik:MultiComboBox
+            ItemsSource="{Binding Items}"
+            MaxHeight="200"
+            Watermark="Please Select"
+            Width="300" />
     </Border>
 </yik:YikWindow>

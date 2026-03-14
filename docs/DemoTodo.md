@@ -7,3 +7,4 @@ EnumSelector
 Form
 KeyGestureInput
 IPv4Box
+MultiComboBox

@@ -16,5 +16,6 @@
         <ResourceInclude Source="Form.axaml" />
         <ResourceInclude Source="KeyGestureInput.axaml" />
         <ResourceInclude Source="IPv4Box.axaml" />
+        <ResourceInclude Source="MultiComboBox.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
