@@ -1,8 +1,8 @@
-using Avalonia.Controls;
+using YikUi.Controls;
 
 namespace YikUi.Test;
 
-public partial class MainWindow : Window
+public partial class MainWindow : YikWindow
 {
     public MainWindow()
     {

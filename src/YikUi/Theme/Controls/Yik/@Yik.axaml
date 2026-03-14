@@ -10,5 +10,6 @@
         <ResourceInclude Source="GlassCard.axaml" />
         <ResourceInclude Source="ButtonGroup.axaml" />
         <ResourceInclude Source="AutoCompleteBox.axaml" />
+        <ResourceInclude Source="TagInput.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

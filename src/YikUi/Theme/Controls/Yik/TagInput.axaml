@@ -1,0 +1,227 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Design.PreviewWith>
+        <yik:ClosableTag Content="Closable Tag" />
+    </Design.PreviewWith>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <x:Double x:Key="TextBoxDefaultHeight">32</x:Double>
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="TextBoxDefaultBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="TextBoxDefaultBorderBrush" />
+            <Thickness x:Key="TextBoxBorderThickness">1</Thickness>
+            <CornerRadius x:Key="TextBoxDefaultCornerRadius">3</CornerRadius>
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="TextBoxPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="TextBoxPointeroverBorderBrush" />
+            <SolidColorBrush Color="#1C1F23" x:Key="TextBoxForeground" />
+            <SolidColorBrush Color="White" x:Key="TextBoxSelectionForeground" />
+            <SolidColorBrush Color="Black" x:Key="TextBoxTextCaretBrush" />
+            <SolidColorBrush Color="#1C1F23" x:Key="ClosableTagForeground" />
+            <SolidColorBrush Color="White" x:Key="ClosableTagBackground" />
+            <SolidColorBrush
+                Color="#C6CACD"
+                Opacity="0.7"
+                x:Key="ClosableTagBorder" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.8"
+                x:Key="SemiColorText1" />
+            <SolidColorBrush Color="#1C1F23" x:Key="SemiColorText0" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <x:Double x:Key="TextBoxDefaultHeight">32</x:Double>
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="TextBoxDefaultBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="TextBoxDefaultBorderBrush" />
+            <Thickness x:Key="TextBoxBorderThickness">1</Thickness>
+            <CornerRadius x:Key="TextBoxDefaultCornerRadius">3</CornerRadius>
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="TextBoxPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="TextBoxPointeroverBorderBrush" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="TextBoxForeground" />
+            <SolidColorBrush Color="White" x:Key="TextBoxSelectionForeground" />
+            <SolidColorBrush Color="White" x:Key="TextBoxTextCaretBrush" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="ClosableTagForeground" />
+            <SolidColorBrush Color="#4F5159" x:Key="ClosableTagBackground" />
+            <SolidColorBrush
+                Color="#41464C"
+                Opacity="0.7"
+                x:Key="ClosableTagBorder" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.8"
+                x:Key="SemiColorText1" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="SemiColorText0" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="yik:TagInput" x:Key="{x:Type yik:TagInput}">
+        <Setter Property="InputTheme" Value="{DynamicResource TagInputTextBoxTheme}" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="ItemTemplate">
+            <DataTemplate>
+                <yik:ClosableTag
+                    Command="{Binding $parent[yik:TagInput].Close}"
+                    Content="{ReflectionBinding}"
+                    Margin="0,2" />
+            </DataTemplate>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:TagInput">
+                <Border
+                    Background="{DynamicResource TextBoxDefaultBackground}"
+                    BorderBrush="{DynamicResource TextBoxDefaultBorderBrush}"
+                    BorderThickness="{DynamicResource TextBoxBorderThickness}"
+                    CornerRadius="{DynamicResource YikCornerRadius}"
+                    MinHeight="32"
+                    Name="PART_RootBorder"
+                    VerticalAlignment="Stretch">
+                    <Panel HorizontalAlignment="Stretch">
+                        <TextBlock
+                            IsVisible="False"
+                            Name="{x:Static yik:TagInput.PART_Watermark}"
+                            Opacity="0.5"
+                            Text="{TemplateBinding Watermark}"
+                            VerticalAlignment="Center" />
+                        <ItemsControl
+                            HorizontalAlignment="Stretch"
+                            ItemTemplate="{TemplateBinding ItemTemplate}"
+                            ItemsSource="{TemplateBinding Items}"
+                            Name="PART_ItemsControl"
+                            VerticalAlignment="Top">
+
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <yik:TagInputPanel Margin="3,2" VerticalAlignment="Top" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:empty /template/ TextBlock#PART_Watermark">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_RootBorder">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#PART_RootBorder">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#PART_RootBorder">
+            <Setter Property="Background" Value="{DynamicResource TextBoxDisabledBackground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource TextBoxDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type TextBox}}"
+        TargetType="TextBox"
+        x:Key="TagInputTextBoxTheme">
+        <Setter Property="Cursor" Value="Ibeam" />
+        <Setter Property="Margin" Value="10,0" />
+        <Setter Property="CaretBrush" Value="{DynamicResource TextBoxTextCaretBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="MinHeight" Value="26" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TextBox">
+                <Border Padding="0,4">
+                    <ScrollViewer
+                        AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                        HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                        IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                        VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                        Width="{Binding $parent[TextBox].Bounds.Width}">
+                        <TextPresenter
+                            CaretBrush="{TemplateBinding CaretBrush}"
+                            CaretIndex="{TemplateBinding CaretIndex}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            LineHeight="{TemplateBinding LineHeight}"
+                            Name="PART_TextPresenter"
+                            PasswordChar="{TemplateBinding PasswordChar}"
+                            RevealPassword="{TemplateBinding RevealPassword}"
+                            SelectionBrush="{TemplateBinding SelectionBrush}"
+                            SelectionEnd="{TemplateBinding SelectionEnd}"
+                            SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                            SelectionStart="{TemplateBinding SelectionStart}"
+                            Text="{TemplateBinding Text,
+                                                   Mode=TwoWay}"
+                            TextAlignment="{TemplateBinding TextAlignment}"
+                            TextWrapping="{TemplateBinding TextWrapping}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="yik:ClosableTag" x:Key="{x:Type yik:ClosableTag}">
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Foreground" Value="{DynamicResource ClosableTagForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ClosableTagBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ClosableTagBorder}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:ClosableTag">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10"
+                    Margin="1"
+                    Padding="8,2,2,2">
+                    <DockPanel LastChildFill="True">
+                        <Button
+                            Command="{TemplateBinding Command}"
+                            CommandParameter="{TemplateBinding}"
+                            DockPanel.Dock="Right"
+                            Foreground="{DynamicResource ForegroundColor}"
+                            Height="12"
+                            Margin="5,0,3,0"
+                            Name="{x:Static yik:ClosableTag.PART_CloseButton}"
+                            Theme="{DynamicResource TransparentButton}"
+                            Width="12">
+                            <PathIcon
+                                Data="{DynamicResource Close}"
+                                Foreground="{DynamicResource InnerForegroundColor}"
+                                Height="8"
+                                Width="8" />
+                        </Button>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            FontSize="12"
+                            Foreground="{TemplateBinding Foreground}"
+                            TextTrimming="CharacterEllipsis"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Button#PART_CloseButton:pointerover">
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

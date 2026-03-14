@@ -1,4 +1,4 @@
-<Window
+<yik:YikWindow
     Title="YikUi.Test"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -13,31 +13,8 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <StackPanel.Styles>
-                <Style Selector="yik|AutoCompleteBox">
-                    <Setter Property="Width" Value="300" />
-                    <Setter Property="ItemsSource">
-                        <Binding Path="Controls" />
-                    </Setter>
-                    <Setter Property="ItemTemplate">
-                        <DataTemplate DataType="test:ControlData">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding MenuHeader}" VerticalAlignment="Center" />
-                                <TextBlock
-                                    FontSize="12"
-                                    Margin="8,0,0,0"
-                                    Text="{Binding Chinese}"
-                                    VerticalAlignment="Center" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </Setter>
-                </Style>
-            </StackPanel.Styles>
-            <yik:AutoCompleteBox
-                Classes="ClearButton"
-                Name="box"
-                ValueMemberBinding="{ReflectionBinding MenuHeader}"
-                Watermark="Please select a Control" />
+            <yik:TagInput />
+            <TextBox />
         </StackPanel>
     </Border>
-</Window>
+</yik:YikWindow>
