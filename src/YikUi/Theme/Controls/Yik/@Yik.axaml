@@ -9,5 +9,6 @@
         <ResourceInclude Source="Loading.axaml" />
         <ResourceInclude Source="GlassCard.axaml" />
         <ResourceInclude Source="ButtonGroup.axaml" />
+        <ResourceInclude Source="AutoCompleteBox.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

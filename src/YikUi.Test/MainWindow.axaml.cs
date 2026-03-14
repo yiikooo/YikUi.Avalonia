@@ -11,5 +11,6 @@ public partial class MainWindow : Window
 #else
         InitializeComponent();
 #endif
+        DataContext = new Model();
     }
 }
