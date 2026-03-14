@@ -13,7 +13,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:ControlClassesInput />
+            <yik:EnumSelector EnumType="{x:Type HorizontalAlignment}" Width="200" />
         </StackPanel>
     </Border>
 </yik:YikWindow>

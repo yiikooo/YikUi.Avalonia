@@ -3,3 +3,4 @@ ButtonGroup
 AutoCompleteBox(yik)
 TagInput
 ControlClassesInput
+EnumSelector
