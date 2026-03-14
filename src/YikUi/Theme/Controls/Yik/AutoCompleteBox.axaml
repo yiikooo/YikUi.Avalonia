@@ -10,8 +10,6 @@
     <Thickness x:Key="SemiBorderThicknessControl">1</Thickness>
     <Thickness x:Key="SemiThicknessExtraTight">4</Thickness>
     <Thickness x:Key="AutoCompleteBoxPopupPadding">0 4</Thickness>
-    <StaticResource ResourceKey="SemiIconClear" x:Key="IconButtonClearData" />
-
     <ControlTheme TargetType="yik:AutoCompleteBox" x:Key="{x:Type yik:AutoCompleteBox}">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="MinHeight" Value="{DynamicResource AutoCompleteBoxDefaultHeight}" />
