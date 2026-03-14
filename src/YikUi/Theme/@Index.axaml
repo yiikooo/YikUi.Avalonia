@@ -5,6 +5,7 @@
                 <ResourceInclude Source="Controls/Basic/@Basic.axaml" />
                 <ResourceInclude Source="Controls/Yik/@Yik.axaml" />
                 <ResourceInclude Source="Controls/ColorPicker/@ColorPicker.axaml" />
+                <ResourceInclude Source="Controls/DataGrid/DataGrid.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

@@ -224,6 +224,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "DataGrid",
+                    Content = new DataGridPage(),
+                },
+                new Page
+                {
                     Title = "ToolTip",
                     Content = new ToolTipPage(),
                 },

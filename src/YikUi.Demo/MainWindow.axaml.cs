@@ -35,7 +35,7 @@ public partial class MainWindow : YikWindow
 
     private void ToggleTheme(string? theme = null)
     {
-        if (Application.Current != null && theme != null)
+        if (Application.Current != null && theme == null)
         {
             Application.Current.RequestedThemeVariant =
                 Application.Current.ActualThemeVariant == ThemeVariant.Dark
