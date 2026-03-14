@@ -1,6 +1,7 @@
 IconButton
 ButtonGroup
 AutoCompleteBox(yik)
+NumericUpDown(yik)
 TagInput
 ControlClassesInput
 EnumSelector

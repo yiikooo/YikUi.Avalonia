@@ -12,32 +12,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <yik:MultiAutoCompleteBox
-            FilterMode="Custom"
-            InnerLeftContent="Controls"
-            ItemFilter="{Binding FilterPredicate}"
-            ItemsSource="{Binding Items}"
-            MaxWidth="400"
-            SelectedItems="{Binding SelectedItems}"
-            VerticalAlignment="Top">
-            <yik:MultiAutoCompleteBox.ItemTemplate>
-                <DataTemplate DataType="test:ControlData">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding MenuHeader}" VerticalAlignment="Center" />
-                        <TextBlock
-                            Classes="Secondary"
-                            FontSize="12"
-                            Margin="8,0,0,0"
-                            Text="{Binding Chinese}"
-                            VerticalAlignment="Center" />
-                    </StackPanel>
-                </DataTemplate>
-            </yik:MultiAutoCompleteBox.ItemTemplate>
-            <yik:MultiAutoCompleteBox.SelectedItemTemplate>
-                <DataTemplate DataType="test:ControlData">
-                    <TextBlock Text="{Binding MenuHeader}" />
-                </DataTemplate>
-            </yik:MultiAutoCompleteBox.SelectedItemTemplate>
-        </yik:MultiAutoCompleteBox>
+        <yik:NumericByteUpDown Classes="ClearButton" InnerLeftContent="Bytes" />
     </Border>
 </yik:YikWindow>

@@ -18,5 +18,6 @@
         <ResourceInclude Source="IPv4Box.axaml" />
         <ResourceInclude Source="MultiComboBox.axaml" />
         <ResourceInclude Source="MultiAutoCompleteBox.axaml" />
+        <ResourceInclude Source="NumericUpDown.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
