@@ -8,5 +8,6 @@
         <ResourceInclude Source="IconButton.axaml" />
         <ResourceInclude Source="Loading.axaml" />
         <ResourceInclude Source="GlassCard.axaml" />
+        <ResourceInclude Source="ButtonGroup.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
