@@ -6,3 +6,4 @@ ControlClassesInput
 EnumSelector
 Form
 KeyGestureInput
+IPv4Box

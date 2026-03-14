@@ -7,31 +7,19 @@
     x:DataType="test:Model"
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:test="clr-namespace:YikUi.Test"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <TextBlock Text="Accept all keys" />
-            <yik:KeyGestureInput HorizontalAlignment="Left" />
-            <TextBlock Text="Accept only A,B and C" />
-            <yik:KeyGestureInput
-                Classes="ClearButton"
-                HorizontalAlignment="Left"
-                InnerLeftContent="Attack"
-                InnerRightContent="Default"
-                Width="300">
-                <yik:KeyGestureInput.AcceptableKeys>
-                    <generic:List x:TypeArguments="Key">
-                        <Key>A</Key>
-                        <Key>B</Key>
-                        <Key>C</Key>
-                    </generic:List>
-                </yik:KeyGestureInput.AcceptableKeys>
-            </yik:KeyGestureInput>
-            <yik:KeyGestureInput HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" />
+            <yik:IPv4Box Name="box" Width="200" />
+
+            <TextBlock Text="IP: " />
+            <TextBlock Text="{Binding #box.IPAddress}" />
+            <TextBlock Classes="" Text="Fast input" />
+            <yik:IPv4Box InputMode="Fast" Width="200" />
+
         </StackPanel>
     </Border>
 </yik:YikWindow>
