@@ -56,6 +56,7 @@ public class LangManager : INotifyPropertyChanged
             var key = $"Lang.{prop.Name}";
             var value = prop.GetValue(_current)?.ToString() ?? string.Empty;
 
+            // ReSharper disable once RedundantDictionaryContainsKeyBeforeAdding
             if (Application.Current.Resources.ContainsKey(key))
             {
                 Application.Current.Resources[key] = value;

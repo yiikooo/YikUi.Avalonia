@@ -17,4 +17,11 @@ public class LangEnUs : ILang
     public string Hour => "hour";
     public string Minute => "minute";
     public string Second => "second";
+    public string Undo => "Undo";
+    public string Redo => "Redo";
+    public string SelectAll => "Select All";
+    public string Cut => "Cut";
+    public string Copy => "Copy";
+    public string Paste => "Paste";
+    public string Clear => "Clear";
 }

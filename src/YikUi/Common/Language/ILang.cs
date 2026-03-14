@@ -17,4 +17,11 @@ public interface ILang
     public string Hour { get; }
     public string Minute { get; }
     public string Second { get; }
+    public string Undo { get; }
+    public string Redo { get; }
+    public string SelectAll { get; }
+    public string Cut { get; }
+    public string Copy { get; }
+    public string Paste { get; }
+    public string Clear { get; }
 }

@@ -2,3 +2,4 @@ IconButton
 ButtonGroup
 AutoCompleteBox(yik)
 TagInput
+ControlClassesInput

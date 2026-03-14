@@ -17,4 +17,11 @@ public class LangZhCn : ILang
     public string Hour => "时";
     public string Minute => "分";
     public string Second => "秒";
+    public string Undo => "撤销";
+    public string Redo => "重做";
+    public string SelectAll => "全选";
+    public string Cut => "剪切";
+    public string Copy => "复制";
+    public string Paste => "粘贴";
+    public string Clear => "清空";
 }

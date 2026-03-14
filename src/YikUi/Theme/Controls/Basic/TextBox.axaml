@@ -3,7 +3,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].SelectAll}"
             Cursor="Hand"
-            Header="全选"
+            Header="{DynamicResource Lang.SelectAll}"
             InputGesture="Ctrl+A">
             <MenuItem.Icon>
                 <PathIcon
@@ -15,7 +15,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Cut}"
             Cursor="Hand"
-            Header="剪切"
+            Header="{DynamicResource Lang.Cut}"
             InputGesture="{x:Static TextBox.CutGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCut}">
             <MenuItem.Icon>
@@ -28,7 +28,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Copy}"
             Cursor="Hand"
-            Header="复制"
+            Header="{DynamicResource Lang.Copy}"
             InputGesture="{x:Static TextBox.CopyGesture}"
             IsEnabled="{Binding $parent[TextBox].CanCopy}">
             <MenuItem.Icon>
@@ -41,7 +41,7 @@
         <MenuItem
             Command="{Binding $parent[TextBox].Paste}"
             Cursor="Hand"
-            Header="粘贴"
+            Header="{DynamicResource Lang.Paste}"
             InputGesture="{x:Static TextBox.PasteGesture}"
             IsEnabled="{Binding $parent[TextBox].CanPaste}">
             <MenuItem.Icon>
@@ -54,7 +54,7 @@
         <Separator />
         <MenuItem
             Command="{Binding $parent[TextBox].Undo}"
-            Header="撤销"
+            Header="{DynamicResource Lang.Undo}"
             InputGesture="Ctrl + Z"
             IsEnabled="{Binding $parent[TextBox].CanUndo}">
             <MenuItem.Icon>
@@ -66,7 +66,7 @@
         </MenuItem>
         <MenuItem
             Command="{Binding $parent[TextBox].Redo}"
-            Header="重做"
+            Header="{DynamicResource Lang.Redo}"
             InputGesture="Ctrl + Y"
             IsEnabled="{Binding $parent[TextBox].CanRedo}">
             <MenuItem.Icon>

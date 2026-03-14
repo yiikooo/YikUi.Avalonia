@@ -143,7 +143,7 @@ public class ControlClassesInput : TemplatedControl
         }
     }
 
-    public void UnDo()
+    public void Undo()
     {
         var node = _history.Last;
         if (node is null) return;

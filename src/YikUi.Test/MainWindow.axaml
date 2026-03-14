@@ -13,8 +13,7 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:TagInput />
-            <TextBox />
+            <yik:ControlClassesInput />
         </StackPanel>
     </Border>
 </yik:YikWindow>
