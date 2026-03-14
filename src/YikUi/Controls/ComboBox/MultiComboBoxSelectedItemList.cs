@@ -34,6 +34,7 @@ public class MultiComboBoxSelectedItemList : ItemsControl
         base.PrepareContainerForItemOverride(container, item, index);
         if (container is ClosableTag tag)
         {
+            tag.Margin = new Thickness(0, 2);
             tag.Command = RemoveCommand;
             if (item is Layoutable visualContent)
             {

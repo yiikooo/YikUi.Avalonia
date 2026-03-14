@@ -8,3 +8,4 @@ Form
 KeyGestureInput
 IPv4Box
 MultiComboBox
+MultiAutoCompleteBox
