@@ -42,3 +42,28 @@ public enum SearchBoxPlacement
     Top,
     Bottom
 }
+
+public enum CornerPosition
+{
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight,
+}
+
+public enum ItemAlignment
+{
+    Center,
+    Justify,
+    Left,
+    Plain,
+}
+
+public enum DialogResult
+{
+    Cancel,
+    No,
+    None,
+    OK,
+    Yes,
+}

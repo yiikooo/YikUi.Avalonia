@@ -4,6 +4,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
 using Avalonia.Data;
+using Avalonia.Markup.Xaml.Templates;
 using Avalonia.Metadata;
 
 namespace YikUi.Controls;
@@ -202,7 +203,7 @@ public partial class MultiAutoCompleteBox
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="T:Avalonia.DataTemplate" /> used to display each item in SelectedItems. 
+    /// Gets or sets the <see cref="T:DataTemplate" /> used to display each item in SelectedItems. 
     /// </summary>
     [InheritDataTypeFromItems(nameof(SelectedItems))]
     public IDataTemplate? SelectedItemTemplate
@@ -258,10 +259,10 @@ public partial class MultiAutoCompleteBox
     }
 
     /// <summary>
-    /// Gets or sets the <see cref="T:Avalonia.DataTemplate" /> used
+    /// Gets or sets the <see cref="T:DataTemplate" /> used
     /// to display each item in the drop-down portion of the control.
     /// </summary>
-    /// <value>The <see cref="T:Avalonia.DataTemplate" /> used to
+    /// <value>The <see cref="T:DataTemplate" /> used to
     /// display each item in the drop-down. The default is null.</value>
     /// <remarks>
     /// You use the ItemTemplate property to specify the visualization

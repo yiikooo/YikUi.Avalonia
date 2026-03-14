@@ -4,18 +4,18 @@ namespace YikUi.Common.Helpers;
 
 public static class LogicalHelpers
 {
-    public static int CalculateDistanceFromLogicalParent<T>(this ILogical? logical, int @default = -1)
-        where T : ILogical
+    public static int CalculateDistanceFromLogicalParent<T, TItem>(TItem? item, int defaultValue = -1)
+        where T : class
+        where TItem : ILogical
     {
-        var distance = 0;
-        var parent = logical;
-        while (parent is not null)
+        var result = 0;
+        ILogical? logical = item;
+        while (logical is not null and not T)
         {
-            if (parent is T) return distance;
-            parent = parent.LogicalParent;
-            distance++;
+            if (logical is TItem) result++;
+            logical = logical.LogicalParent;
         }
 
-        return @default;
+        return item is not null ? result : defaultValue;
     }
 }
