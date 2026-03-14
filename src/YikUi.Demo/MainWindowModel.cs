@@ -229,6 +229,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
                 },
                 new Page
                 {
+                    Title = "TreeDataGrid",
+                    Content = new TreeDataGridPage(),
+                },
+                new Page
+                {
                     Title = "ToolTip",
                     Content = new ToolTipPage(),
                 },

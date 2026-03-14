@@ -147,8 +147,8 @@ public partial class OverlayDialogHost : Canvas
         _toplevelHash = TopLevel.GetTopLevel(this)?.GetHashCode();
         var modalHost = this.GetVisualAncestors().OfType<Control>().FirstOrDefault(GetIsModalStatusScope);
         if (modalHost is not null)
-            _modalStatusSubscription = this.GetObservable(IsInModalStatusProperty)
-                .Subscribe(a =>
+            _modalStatusSubscription = ObservableExtension
+                .Subscribe(this.GetObservable(IsInModalStatusProperty), a =>
                 {
                     if (IsModalStatusReporter) SetIsInModalStatus(modalHost, a);
                 });

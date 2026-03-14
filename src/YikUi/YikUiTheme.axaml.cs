@@ -43,15 +43,15 @@ public class YikUiTheme : Styles
         else
             LangManager.SetLanguage(Languages.zh_cn);
 
-        this.GetObservable(ThemeColorProperty).Subscribe(ThemeHelper.SetThemeColor);
+        ObservableExtension.Subscribe(this.GetObservable(ThemeColorProperty), ThemeHelper.SetThemeColor);
 
-        this.GetObservable(LanguageProperty).Subscribe(lang =>
+        ObservableExtension.Subscribe(this.GetObservable(LanguageProperty), lang =>
         {
             if (lang.HasValue)
                 LangManager.SetLanguage(lang.Value);
         });
 
-        this.GetObservable(CustomLanguageProperty).Subscribe(customLang =>
+        ObservableExtension.Subscribe(this.GetObservable(CustomLanguageProperty), customLang =>
         {
             if (customLang != null)
                 LangManager.SetLanguage(customLang);
