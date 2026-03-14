@@ -14,3 +14,4 @@ NumPad
 PinCode
 RangeSlider
 Rating
+SelectionList

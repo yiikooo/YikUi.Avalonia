@@ -13,110 +13,58 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <StackPanel Spacing="20">
-                <Grid ColumnDefinitions="*, 300">
-                    <Grid Grid.Column="0">
-                        <StackPanel HorizontalAlignment="Center">
-                            <yik:Rating
-                                AllowClear="{Binding AllowClear}"
-                                AllowHalf="{Binding AllowHalf}"
-                                Count="{Binding Count}"
-                                DefaultValue="{Binding DefaultValue}"
-                                IsEnabled="{Binding IsEnabled}"
-                                Value="{Binding Value}" />
-                            <yik:Rating
-                                AllowClear="{Binding AllowClear}"
-                                AllowHalf="{Binding AllowHalf}"
-                                Classes="Small"
-                                Count="{Binding Count}"
-                                DefaultValue="{Binding DefaultValue}"
-                                IsEnabled="{Binding IsEnabled}"
-                                Value="{Binding Value}" />
-                            <yik:Rating
-                                AllowClear="{Binding AllowClear}"
-                                AllowHalf="{Binding AllowHalf}"
-                                Character="{StaticResource SemiIconLikeHeart}"
-                                Count="{Binding Count}"
-                                DefaultValue="{Binding DefaultValue}"
-                                Foreground="Red"
-                                IsEnabled="{Binding IsEnabled}"
-                                Size="48"
-                                Value="{Binding Value}" />
-                        </StackPanel>
-                    </Grid>
-                    <Border Grid.Column="1" VerticalAlignment="Top">
-                        <Grid ColumnDefinitions="*, Auto" RowDefinitions="*,*,*,*,*,*,*,*">
-                            <Label
-                                Content="AllowClear"
-                                Grid.Column="0"
-                                Grid.Row="0"
-                                VerticalAlignment="Center" />
-                            <ToggleSwitch
-                                Grid.Column="1"
-                                Grid.Row="0"
-                                IsChecked="{Binding AllowClear}"
-                                MinWidth="200" />
-                            <Label
-                                Content="AllowHalf"
-                                Grid.Column="0"
-                                Grid.Row="1"
-                                VerticalAlignment="Center" />
-                            <ToggleSwitch
-                                Grid.Column="1"
-                                Grid.Row="1"
-                                IsChecked="{Binding AllowHalf}"
-                                VerticalAlignment="Center" />
-                            <Label
-                                Content="IsEnabled"
-                                Grid.Column="0"
-                                Grid.Row="3"
-                                VerticalAlignment="Center" />
-                            <ToggleSwitch
-                                Grid.Column="1"
-                                Grid.Row="3"
-                                IsChecked="{Binding IsEnabled}"
-                                VerticalAlignment="Center" />
-                            <Label
-                                Content="DefaultValue"
-                                Grid.Column="0"
-                                Grid.Row="4"
-                                VerticalAlignment="Center" />
-                            <Label
-                                Classes="Large"
-                                Content="{Binding DefaultValue}"
-                                Grid.Column="1"
-                                Grid.Row="4"
-                                Theme="{StaticResource TagLabel}"
-                                VerticalAlignment="Center" />
-                            <Label
-                                Content="Value"
-                                Grid.Column="0"
-                                Grid.Row="5"
-                                VerticalAlignment="Center" />
-                            <NumericUpDown
-                                Grid.Column="1"
-                                Grid.Row="5"
-                                Increment="0.1"
-                                Maximum="100"
-                                Minimum="-10"
-                                Value="{Binding Value}"
-                                VerticalAlignment="Center" />
-                            <Label
-                                Content="Count"
-                                Grid.Column="0"
-                                Grid.Row="6"
-                                VerticalAlignment="Center" />
-                            <NumericUpDown
-                                Grid.Column="1"
-                                Grid.Row="6"
-                                Increment="1"
-                                Maximum="100"
-                                Minimum="-10"
-                                Value="{Binding Count}"
-                                VerticalAlignment="Center" />
-                        </Grid>
-                    </Border>
-                </Grid>
+            <StackPanel HorizontalAlignment="Left">
+                <yik:SelectionList
+                    HorizontalAlignment="Center"
+                    ItemsSource="{Binding Items}"
+                    SelectedItem="{Binding SelectedItem}"
+                    Width="600">
+                    <yik:SelectionList.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </yik:SelectionList.ItemsPanel>
+                </yik:SelectionList>
+                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
+                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+                    <yik:SelectionList.Indicator>
+                        <Border Background="Transparent" CornerRadius="4">
+                            <Border
+                                Background="{DynamicResource SemiBlue6}"
+                                CornerRadius="4"
+                                HorizontalAlignment="Left"
+                                Margin="0,8"
+                                VerticalAlignment="Stretch"
+                                Width="4" />
+                        </Border>
+                    </yik:SelectionList.Indicator>
+                    <yik:SelectionList.ItemTemplate>
+                        <DataTemplate>
+                            <Panel Height="40">
+                                <TextBlock
+                                    Classes.Active="{Binding $parent[yik:SelectionListItem].IsSelected, Mode=OneWay}"
+                                    Margin="8,0"
+                                    Text="{Binding}"
+                                    VerticalAlignment="Center">
+                                    <TextBlock.Styles>
+                                        <Style Selector="TextBlock.Active">
+                                            <Setter Property="Foreground" Value="{DynamicResource SemiOrange6}" />
+                                        </Style>
+                                    </TextBlock.Styles>
+                                </TextBlock>
+                            </Panel>
+                        </DataTemplate>
+                    </yik:SelectionList.ItemTemplate>
+                </yik:SelectionList>
+                <SplitButton Content="Button With Selection">
+                    <SplitButton.Flyout>
+                        <Flyout>
+                            <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
+                        </Flyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+                <Button Command="{Binding Clear}" Margin="0,12">Clear</Button>
+
             </StackPanel>
         </StackPanel>
     </Border>
