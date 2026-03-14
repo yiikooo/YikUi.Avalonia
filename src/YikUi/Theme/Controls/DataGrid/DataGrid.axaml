@@ -542,13 +542,7 @@
                     Height="13"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Width="13">
-                    <PathIcon.Transitions>
-                        <Transitions>
-                            <TransformOperationsTransition Duration="0.1" Property="RenderTransform" />
-                        </Transitions>
-                    </PathIcon.Transitions>
-                </PathIcon>
+                    Width="13" />
             </ControlTemplate>
         </Setter>
         <Style Selector="^:checked /template/ PathIcon">
