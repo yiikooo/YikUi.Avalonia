@@ -13,7 +13,7 @@
             <Grid
                 ColumnDefinitions="250,*"
                 Margin="30"
-                RowDefinitions="40,40,40,40,50,45,40,35,30,25,40,40,40,40">
+                RowDefinitions="40,40,50,45,40,35,30,25,40,40,40,40">
                 <Border
                     Background="{DynamicResource SelectionNormal}"
                     CornerRadius="{DynamicResource YikCornerRadius}"
