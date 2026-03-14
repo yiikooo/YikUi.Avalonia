@@ -12,7 +12,7 @@
         </ResourceDictionary>
     </Application.Resources>
     <Application.Styles>
-        <yik:YikUiTheme ThemeColor="#1BD76A" />
+        <yik:YikUiTheme />
         <StyleInclude Source="Styles.axaml" />
     </Application.Styles>
 </Application>

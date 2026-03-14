@@ -229,7 +229,7 @@
                         ItemContainerTheme="{DynamicResource CarouselIndicatorDotListBoxItem}"
                         ItemsSource="{TemplateBinding ItemCount,
                                                       Converter={x:Static converter:ItemConverter.ItemToObjectConverter}}"
-                        Margin="32"
+                        Margin="16"
                         Name="PART_ItemsPresenter2"
                         SelectedIndex="{TemplateBinding SelectedIndex,
                                                         Mode=TwoWay}"

@@ -49,121 +49,121 @@
                 <Label
                     Content=".H1"
                     Grid.Column="0"
-                    Grid.Row="4"
+                    Grid.Row="2"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H1"
                     Content="H1 Heading"
                     Grid.Column="1"
-                    Grid.Row="4"
+                    Grid.Row="2"
                     VerticalAlignment="Center" />
                 <!--  H2  -->
                 <Label
                     Content=".H2"
                     Grid.Column="0"
-                    Grid.Row="5"
+                    Grid.Row="3"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H2"
                     Content="H2 Heading"
                     Grid.Column="1"
-                    Grid.Row="5"
+                    Grid.Row="3"
                     VerticalAlignment="Center" />
                 <!--  H3  -->
                 <Label
                     Content=".H3"
                     Grid.Column="0"
-                    Grid.Row="6"
+                    Grid.Row="4"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H3"
                     Content="H3 Heading"
                     Grid.Column="1"
-                    Grid.Row="6"
+                    Grid.Row="4"
                     VerticalAlignment="Center" />
                 <!--  H4  -->
                 <Label
                     Content=".H4"
                     Grid.Column="0"
-                    Grid.Row="7"
+                    Grid.Row="5"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H4"
                     Content="H4 Heading"
                     Grid.Column="1"
-                    Grid.Row="7"
+                    Grid.Row="5"
                     VerticalAlignment="Center" />
                 <!--  H5  -->
                 <Label
                     Content=".H5"
                     Grid.Column="0"
-                    Grid.Row="8"
+                    Grid.Row="6"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H5"
                     Content="H5 Heading"
                     Grid.Column="1"
-                    Grid.Row="8"
+                    Grid.Row="6"
                     VerticalAlignment="Center" />
                 <!--  H6  -->
                 <Label
                     Content=".H6"
                     Grid.Column="0"
-                    Grid.Row="9"
+                    Grid.Row="7"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="H6"
                     Content="H6 Heading"
                     Grid.Column="1"
-                    Grid.Row="9"
+                    Grid.Row="7"
                     VerticalAlignment="Center" />
                 <!--  Success  -->
                 <Label
                     Content=".Success"
                     Grid.Column="0"
-                    Grid.Row="10"
+                    Grid.Row="8"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="Success"
                     Content="Success message"
                     Grid.Column="1"
-                    Grid.Row="10"
+                    Grid.Row="8"
                     VerticalAlignment="Center" />
                 <!--  Warning  -->
                 <Label
                     Content=".Warning"
                     Grid.Column="0"
-                    Grid.Row="11"
+                    Grid.Row="9"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="Warning"
                     Content="Warning message"
                     Grid.Column="1"
-                    Grid.Row="11"
+                    Grid.Row="9"
                     VerticalAlignment="Center" />
                 <!--  Danger  -->
                 <Label
                     Content=".Danger"
                     Grid.Column="0"
-                    Grid.Row="12"
+                    Grid.Row="10"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="Danger"
                     Content="Danger message"
                     Grid.Column="1"
-                    Grid.Row="12"
+                    Grid.Row="10"
                     VerticalAlignment="Center" />
                 <!--  Accent  -->
                 <Label
                     Content=".Accent"
                     Grid.Column="0"
-                    Grid.Row="13"
+                    Grid.Row="11"
                     VerticalAlignment="Center" />
                 <Label
                     Classes="Accent"
                     Content="Accent color text"
                     Grid.Column="1"
-                    Grid.Row="13"
+                    Grid.Row="11"
                     VerticalAlignment="Center" />
             </Grid>
         </ScrollViewer>
