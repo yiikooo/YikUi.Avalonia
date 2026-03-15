@@ -30,5 +30,6 @@
         <ResourceInclude Source="Pagination.axaml" />
         <ResourceInclude Source="ToolBar.axaml" />
         <ResourceInclude Source="Avatar.axaml" />
+        <ResourceInclude Source="Badge.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

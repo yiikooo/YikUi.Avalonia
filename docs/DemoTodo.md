@@ -22,3 +22,4 @@ Pagination
 ToolBar
 AspectRatioLayout
 Avatar
+Badge
