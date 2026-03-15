@@ -35,5 +35,6 @@
         <ResourceInclude Source="DialogShared.axaml" />
         <ResourceInclude Source="Descriptions.axaml" />
         <ResourceInclude Source="DisableContainer.axaml" />
+        <ResourceInclude Source="Divider.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

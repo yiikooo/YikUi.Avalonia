@@ -26,3 +26,4 @@ Badge
 Banner
 Descriptions
 DisableContainer
+Divider
