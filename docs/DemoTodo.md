@@ -19,3 +19,4 @@ TreeComboBox
 Anchor
 Breadcrumb
 Pagination
+ToolBar
