@@ -27,3 +27,4 @@ Banner
 Descriptions
 DisableContainer
 Divider
+DualBadge

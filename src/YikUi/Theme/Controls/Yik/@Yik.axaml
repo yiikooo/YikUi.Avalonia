@@ -36,5 +36,6 @@
         <ResourceInclude Source="Descriptions.axaml" />
         <ResourceInclude Source="DisableContainer.axaml" />
         <ResourceInclude Source="Divider.axaml" />
+        <ResourceInclude Source="DualBadge.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -11,25 +11,76 @@
     xmlns:test="clr-namespace:YikUi.Test"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:YikWindow.Resources>
+        <StreamGeometry x:Key="SemiIconDownload">
+            M17.84 8.06A6.5 6.5 0 1 0 5.18 11 4.5 4.5 0 0 0 5.5 20H17a6 6 0 0 0 .84-11.94Zm-6.16 9.67a.5.5 0 0 0 .64 0l5.15-4.29a.25.25 0 0 0-.16-.44H14V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V13H6.7c-.24 0-.35.3-.17.44l5.15 4.3Z
+        </StreamGeometry>
+    </yik:YikWindow.Resources>
     <Border Margin="30">
         <StackPanel Spacing="20">
-            <yik:Divider>Center</yik:Divider>
-            <yik:Divider HorizontalContentAlignment="Left">Left</yik:Divider>
-            <yik:Divider HorizontalContentAlignment="Right">Right</yik:Divider>
-            <yik:Divider HorizontalContentAlignment="Center">Center</yik:Divider>
-            <yik:Divider HorizontalContentAlignment="Stretch">Stretch</yik:Divider>
-            <yik:Divider />
-            <yik:Divider Orientation="Vertical" />
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="A" />
-                <yik:Divider Margin="12,0" Orientation="Vertical" />
-                <TextBlock Text="A" />
-                <yik:Divider Orientation="Vertical" />
-                <TextBlock Text="A" />
+                <yik:DualBadge Content="35k" />
+                <yik:DualBadge Content="35k" Icon="{StaticResource SemiIconDownload}" />
+                <yik:DualBadge Content="35k" Header="downloads" />
+                <yik:DualBadge
+                    Content="35k"
+                    Header="downloads"
+                    Icon="{StaticResource SemiIconDownload}" />
             </StackPanel>
-            <Grid Background="LightGreen" Height="100">
-                <yik:Divider HorizontalContentAlignment="Stretch">Stretch</yik:Divider>
-            </Grid>
+
+            <TextBlock Text="FlatSquare:" />
+            <StackPanel Orientation="Horizontal">
+                <yik:DualBadge Classes="FlatSquare" Content="35k" />
+                <yik:DualBadge
+                    Classes="FlatSquare"
+                    Content="35k"
+                    Icon="{StaticResource SemiIconDownload}" />
+                <yik:DualBadge
+                    Classes="FlatSquare"
+                    Content="35k"
+                    Header="downloads" />
+                <yik:DualBadge
+                    Classes="FlatSquare"
+                    Content="35k"
+                    Header="downloads"
+                    Icon="{StaticResource SemiIconDownload}" />
+            </StackPanel>
+
+            <TextBlock Text="Plastic:" />
+            <StackPanel Orientation="Horizontal">
+                <yik:DualBadge Classes="Plastic" Content="35k" />
+                <yik:DualBadge
+                    Classes="Plastic"
+                    Content="35k"
+                    Icon="{StaticResource SemiIconDownload}" />
+                <yik:DualBadge
+                    Classes="Plastic"
+                    Content="35k"
+                    Header="downloads" />
+                <yik:DualBadge
+                    Classes="Plastic"
+                    Content="35k"
+                    Header="downloads"
+                    Icon="{StaticResource SemiIconDownload}" />
+            </StackPanel>
+
+            <TextBlock Text="ForTheBadge:" />
+            <StackPanel Orientation="Horizontal">
+                <yik:DualBadge Classes="ForTheBadge" Content="35K" />
+                <yik:DualBadge
+                    Classes="ForTheBadge"
+                    Content="35K"
+                    Icon="{StaticResource SemiIconDownload}" />
+                <yik:DualBadge
+                    Classes="ForTheBadge"
+                    Content="35K"
+                    Header="DOWNLOADS" />
+                <yik:DualBadge
+                    Classes="ForTheBadge"
+                    Content="35K"
+                    Header="DOWNLOADS"
+                    Icon="{StaticResource SemiIconDownload}" />
+            </StackPanel>
         </StackPanel>
     </Border>
 </yik:YikWindow>
