@@ -14,56 +14,107 @@
     <Border Margin="30">
         <ScrollViewer>
             <StackPanel Spacing="20">
-                <yik:Banner
-                    Classes.Bordered="{Binding Bordered}"
-                    Content="{Binding Content}"
-                    Header="{Binding Title}"
-                    Name="banner" />
-                <yik:Form Width="500">
-                    <TextBox
-                        Classes="ClearButton"
-                        IsEnabled="{Binding SetTitleNull}"
-                        Text="{Binding Title}">
-                        <yik:FormItem.Label>
-                            <StackPanel Orientation="Horizontal">
-                                <CheckBox Content="Title" IsChecked="{Binding SetTitleNull}" />
-                            </StackPanel>
-                        </yik:FormItem.Label>
-                    </TextBox>
-                    <TextBox
-                        Classes="ClearButton TextArea"
-                        IsEnabled="{Binding SetContentNull}"
-                        Text="{Binding Content}"
-                        TextWrapping="Wrap">
-                        <yik:FormItem.Label>
-                            <CheckBox Content="Content" IsChecked="{Binding SetContentNull}" />
-                        </yik:FormItem.Label>
-                    </TextBox>
+                <TextBlock Text="Descriptions support different orientations and item alignments. " />
+                <yik:Form LabelPosition="Left">
                     <yik:EnumSelector
-                        EnumType="NotificationType"
-                        Value="{Binding #banner.Type}"
-                        yik:FormItem.Label="NotificationType" />
+                        EnumType="Orientation"
+                        Name="orientation"
+                        Value="{x:Static Orientation.Vertical}"
+                        yik:FormItem.Label="Orientation" />
                     <yik:EnumSelector
-                        EnumType="HorizontalAlignment"
-                        Value="{Binding #banner.HorizontalContentAlignment}"
-                        yik:FormItem.Label="HorizontalContentAlignment" />
-                    <ToggleSwitch
-                        IsChecked="{Binding Bordered}"
-                        Theme="{StaticResource SimpleToggleSwitch}"
-                        yik:FormItem.Label="Bordered" />
-                    <ToggleSwitch
-                        IsChecked="{Binding #banner.ShowIcon}"
-                        Theme="{StaticResource SimpleToggleSwitch}"
-                        yik:FormItem.Label="ShowIcon" />
-                    <ToggleSwitch
-                        IsChecked="{Binding #banner.CanClose}"
-                        Theme="{StaticResource SimpleToggleSwitch}"
-                        yik:FormItem.Label="CanClose" />
-                    <ToggleSwitch
-                        IsChecked="{Binding #banner.IsVisible}"
-                        Theme="{StaticResource SimpleToggleSwitch}"
-                        yik:FormItem.Label="IsVisible" />
+                        EnumType="yik:Position"
+                        Name="labelPosition"
+                        Value="{x:Static yik:Position.Left}"
+                        yik:FormItem.Label="Label Position" />
+                    <yik:EnumSelector
+                        EnumType="yik:ItemAlignment"
+                        Name="itemAlignment"
+                        Value="{x:Static yik:ItemAlignment.Center}"
+                        yik:FormItem.Label="Item Alignment" />
                 </yik:Form>
+                <yik:Descriptions
+                    DisplayMemberBinding="{Binding Description}"
+                    HorizontalAlignment="Left"
+                    ItemAlignment="{Binding #itemAlignment.Value}"
+                    ItemsSource="{Binding Items}"
+                    LabelMemberBinding="{Binding Label}"
+                    LabelPosition="{Binding #labelPosition.Value}"
+                    MaxWidth="400"
+                    Orientation="{Binding #orientation.Value}" />
+
+                <TextBlock Text="Descriptions support XAML inline declaration. " />
+                <yik:Descriptions
+                    HorizontalAlignment="Left"
+                    ItemAlignment="{Binding #itemAlignment.Value}"
+                    LabelPosition="{Binding #labelPosition.Value}"
+                    MaxWidth="400"
+                    Orientation="{Binding #orientation.Value}">
+                    <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                    <yik:DescriptionsItem Label="7天留存">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="98%" />
+                            <PathIcon
+                                Classes="Small"
+                                Data="{DynamicResource SemiIconArrowUp}"
+                                Foreground="{DynamicResource SemiGreen5}"
+                                Margin="2,0,0,0"
+                                Theme="{DynamicResource InnerPathIcon}" />
+                        </StackPanel>
+                    </yik:DescriptionsItem>
+                    <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                    <yik:DescriptionsItem Label="垂类标签">
+                        <Label Content="电商" Theme="{DynamicResource TagLabel}" />
+                    </yik:DescriptionsItem>
+                    <yik:DescriptionsItem Content="未认证" Label="认证状态" />
+                </yik:Descriptions>
+
+                <TextBlock Text="Use ColumnWrapPanel to display horizontally" />
+                <yik:Descriptions
+                    ItemAlignment="Plain"
+                    ItemsSource="{Binding Items2}"
+                    LabelMemberBinding="{Binding Label}">
+                    <yik:Descriptions.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <yik:ColumnWrapPanel Column="5" />
+                        </ItemsPanelTemplate>
+                    </yik:Descriptions.ItemsPanel>
+                    <yik:Descriptions.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="0,0,8,0" Text="{Binding Description}" />
+                        </DataTemplate>
+                    </yik:Descriptions.ItemTemplate>
+                </yik:Descriptions>
+
+                <TextBlock Text="Setting Orientation to Horizontal support Classes Small and Large. " />
+                <StackPanel>
+                    <Border Theme="{DynamicResource CardBorder}">
+                        <yik:Descriptions
+                            Classes="Small"
+                            LabelPosition="Top"
+                            Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                    <Border Theme="{DynamicResource CardBorder}">
+                        <yik:Descriptions LabelPosition="Top" Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                    <Border Theme="{DynamicResource CardBorder}">
+                        <yik:Descriptions
+                            Classes="Large"
+                            LabelPosition="Top"
+                            Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
     </Border>

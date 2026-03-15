@@ -33,5 +33,6 @@
         <ResourceInclude Source="Badge.axaml" />
         <ResourceInclude Source="Banner.axaml" />
         <ResourceInclude Source="DialogShared.axaml" />
+        <ResourceInclude Source="Descriptions.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

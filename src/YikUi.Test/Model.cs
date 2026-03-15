@@ -1,41 +1,38 @@
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace YikUi.Test;
 
 public partial class Model : ObservableObject
 {
-    [ObservableProperty] private bool _bordered;
-    [ObservableProperty] private string? _content = "This is the Demo of Ursa Banner.";
-    private string? _oldContent = string.Empty;
-    private string? _oldTitle = string.Empty;
-    [ObservableProperty] private bool _setContentNull = true;
-
-    [ObservableProperty] private bool _setTitleNull = true;
-    [ObservableProperty] private string? _title = "Welcome to Ursa";
-
-    partial void OnSetTitleNullChanged(bool value)
+    public Model()
     {
-        if (value)
+        Items = new ObservableCollection<DescriptionItemViewModel>()
         {
-            Title = _oldTitle;
-        }
-        else
+            new() { Label = "Actual Users", Description = "1,480,000" },
+            new() { Label = "7-day Retention", Description = "98%" },
+            new() { Label = "Security Level", Description = "III" },
+            new() { Label = "Category Tag", Description = "E-commerce" },
+            new() { Label = "Authorized State", Description = "Unauthorized" },
+        };
+        Items2 = new ObservableCollection<DescriptionItemViewModel>()
         {
-            _oldTitle = Title;
-            Title = null;
-        }
+            new() { Label = "抖音号", Description = "SemiDesign" },
+            new() { Label = "主播类型", Description = "自由主播" },
+            new() { Label = "安全等级", Description = "3级" },
+            new() { Label = "垂类标签", Description = "编程" },
+            new() { Label = "作品数量", Description = "88888888" },
+            new() { Label = "认证状态", Description = "这是一个很长很长很长很长很长很长很长很长很长的值" },
+            new() { Label = "上次直播时间", Description = "2024-05-01 12:00:00" }
+        };
     }
 
-    partial void OnSetContentNullChanged(bool value)
-    {
-        if (value)
-        {
-            Content = _oldContent;
-        }
-        else
-        {
-            _oldContent = Content;
-            Content = null;
-        }
-    }
+    public ObservableCollection<DescriptionItemViewModel> Items { get; set; }
+    public ObservableCollection<DescriptionItemViewModel> Items2 { get; set; }
+}
+
+public partial class DescriptionItemViewModel : ObservableObject
+{
+    [ObservableProperty] private object? _description;
+    [ObservableProperty] private string? _label;
 }
