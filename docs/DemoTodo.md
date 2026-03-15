@@ -28,3 +28,4 @@ Descriptions
 DisableContainer
 Divider
 DualBadge
+ImageViewer

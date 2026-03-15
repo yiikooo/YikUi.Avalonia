@@ -15,72 +15,125 @@
         <StreamGeometry x:Key="SemiIconDownload">
             M17.84 8.06A6.5 6.5 0 1 0 5.18 11 4.5 4.5 0 0 0 5.5 20H17a6 6 0 0 0 .84-11.94Zm-6.16 9.67a.5.5 0 0 0 .64 0l5.15-4.29a.25.25 0 0 0-.16-.44H14V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V13H6.7c-.24 0-.35.3-.17.44l5.15 4.3Z
         </StreamGeometry>
+        <SolidColorBrush
+            Color="Red"
+            Opacity="0.2"
+            x:Key="MaskBackground" />
+        <SolidColorBrush Color="Red" x:Key="MaskBorder" />
     </yik:YikWindow.Resources>
     <Border Margin="30">
-        <StackPanel Spacing="20">
-            <StackPanel Orientation="Horizontal">
-                <yik:DualBadge Content="35k" />
-                <yik:DualBadge Content="35k" Icon="{StaticResource SemiIconDownload}" />
-                <yik:DualBadge Content="35k" Header="downloads" />
-                <yik:DualBadge
-                    Content="35k"
-                    Header="downloads"
-                    Icon="{StaticResource SemiIconDownload}" />
-            </StackPanel>
+        <StackPanel>
+            <yik:Banner
+                Content="Setting the Scale before loading has no effect."
+                Header="Notice"
+                Type="Warning" />
+            <yik:ImageViewer
+                Height="300"
+                MinScale="0.5"
+                Name="viewer"
+                Source="/c.png"
+                Width="600">
+                <yik:ImageViewer.Overlayer>
+                    <Grid
+                        ColumnDefinitions="*, Auto, *"
+                        HorizontalAlignment="Stretch"
+                        IsVisible="{Binding #maskSwitch.IsChecked}">
+                        <Border
+                            Background="{StaticResource MaskBackground}"
+                            BorderBrush="{StaticResource MaskBorder}"
+                            BorderThickness="0,0,1,0"
+                            Grid.Column="0"
+                            HorizontalAlignment="Stretch"
+                            IsHitTestVisible="False"
+                            VerticalAlignment="Stretch" />
+                        <Rectangle
+                            Fill="Transparent"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            IsHitTestVisible="False"
+                            VerticalAlignment="Stretch"
+                            Width="150" />
+                        <Border
+                            Background="{StaticResource MaskBackground}"
+                            BorderBrush="{StaticResource MaskBorder}"
+                            BorderThickness="1,0,0,0"
+                            Grid.Column="2"
+                            HorizontalAlignment="Stretch"
+                            IsHitTestVisible="False"
+                            VerticalAlignment="Stretch" />
+                    </Grid>
+                </yik:ImageViewer.Overlayer>
+            </yik:ImageViewer>
 
-            <TextBlock Text="FlatSquare:" />
-            <StackPanel Orientation="Horizontal">
-                <yik:DualBadge Classes="FlatSquare" Content="35k" />
-                <yik:DualBadge
-                    Classes="FlatSquare"
-                    Content="35k"
-                    Icon="{StaticResource SemiIconDownload}" />
-                <yik:DualBadge
-                    Classes="FlatSquare"
-                    Content="35k"
-                    Header="downloads" />
-                <yik:DualBadge
-                    Classes="FlatSquare"
-                    Content="35k"
-                    Header="downloads"
-                    Icon="{StaticResource SemiIconDownload}" />
-            </StackPanel>
+            <Grid ColumnDefinitions="Auto, Auto, *" RowDefinitions="Auto, Auto, Auto, Auto">
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Text="Scale" />
+                <Slider
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Maximum="10"
+                    Minimum="0.1"
+                    Value="{Binding #viewer.Scale}"
+                    Width="200" />
+                <TextBlock
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Text="{Binding #viewer.Scale, StringFormat=\{0:0.00000\}}" />
 
-            <TextBlock Text="Plastic:" />
-            <StackPanel Orientation="Horizontal">
-                <yik:DualBadge Classes="Plastic" Content="35k" />
-                <yik:DualBadge
-                    Classes="Plastic"
-                    Content="35k"
-                    Icon="{StaticResource SemiIconDownload}" />
-                <yik:DualBadge
-                    Classes="Plastic"
-                    Content="35k"
-                    Header="downloads" />
-                <yik:DualBadge
-                    Classes="Plastic"
-                    Content="35k"
-                    Header="downloads"
-                    Icon="{StaticResource SemiIconDownload}" />
-            </StackPanel>
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="TranslateX" />
+                <Slider
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    IsSnapToTickEnabled="True"
+                    Maximum="300"
+                    Minimum="-300"
+                    TickFrequency="0.1"
+                    Value="{Binding #viewer.TranslateX}"
+                    Width="200" />
+                <TextBlock
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Text="{Binding #viewer.TranslateX, StringFormat=\{0:0.0\}}" />
 
-            <TextBlock Text="ForTheBadge:" />
-            <StackPanel Orientation="Horizontal">
-                <yik:DualBadge Classes="ForTheBadge" Content="35K" />
-                <yik:DualBadge
-                    Classes="ForTheBadge"
-                    Content="35K"
-                    Icon="{StaticResource SemiIconDownload}" />
-                <yik:DualBadge
-                    Classes="ForTheBadge"
-                    Content="35K"
-                    Header="DOWNLOADS" />
-                <yik:DualBadge
-                    Classes="ForTheBadge"
-                    Content="35K"
-                    Header="DOWNLOADS"
-                    Icon="{StaticResource SemiIconDownload}" />
-            </StackPanel>
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Text="TranslateY" />
+                <Slider
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    IsSnapToTickEnabled="True"
+                    Maximum="300"
+                    Minimum="-300"
+                    TickFrequency="0.1"
+                    Value="{Binding #viewer.TranslateY}"
+                    Width="200" />
+                <TextBlock
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Text="{Binding #viewer.TranslateY, StringFormat=\{0:0.0\}}" />
+
+                <TextBlock
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Text="Show Mask" />
+                <ToggleSwitch
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Name="maskSwitch"
+                    Theme="{DynamicResource SimpleToggleSwitch}" />
+
+                <Button
+                    Click="Button_Click"
+                    Content="测试设置为 null"
+                    Grid.Column="2"
+                    Grid.Row="3" />
+            </Grid>
         </StackPanel>
     </Border>
 </yik:YikWindow>

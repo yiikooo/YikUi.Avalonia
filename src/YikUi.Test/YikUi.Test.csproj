@@ -24,4 +24,9 @@
     <ItemGroup>
         <ProjectReference Include="..\YikUi\YikUi.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="c.png"/>
+        <AvaloniaResource Include="c.png"/>
+    </ItemGroup>
 </Project>

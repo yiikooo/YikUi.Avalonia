@@ -2,6 +2,8 @@ using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Input;
+using Avalonia.Interactivity;
+using Avalonia.Media;
 using Avalonia.Styling;
 using YikUi.Controls;
 
@@ -9,6 +11,8 @@ namespace YikUi.Test;
 
 public partial class MainWindow : YikWindow
 {
+    IImage? oldImg;
+
     public MainWindow()
     {
 #if DEBUG
@@ -30,6 +34,19 @@ public partial class MainWindow : YikWindow
             Application.Current.ActualThemeVariant == ThemeVariant.Dark
                 ? ThemeVariant.Light
                 : ThemeVariant.Dark;
+    }
+
+    private void Button_Click(object? sender, RoutedEventArgs e)
+    {
+        if (viewer.Source != null)
+        {
+            oldImg = viewer.Source;
+            viewer.Source = null;
+        }
+        else
+        {
+            viewer.Source = oldImg;
+        }
     }
 }
 
