@@ -24,4 +24,6 @@ public class LangZhCn : ILang
     public string Copy => "复制";
     public string Paste => "粘贴";
     public string Clear => "清空";
+    public string JumpTo => "跳至";
+    public string Page => "页";
 }

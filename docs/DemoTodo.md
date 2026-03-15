@@ -18,3 +18,4 @@ SelectionList
 TreeComboBox
 Anchor
 Breadcrumb
+Pagination

@@ -27,5 +27,6 @@
         <ResourceInclude Source="TreeComboBox.axaml" />
         <ResourceInclude Source="Anchor.axaml" />
         <ResourceInclude Source="Breadcrumb.axaml" />
+        <ResourceInclude Source="Pagination.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

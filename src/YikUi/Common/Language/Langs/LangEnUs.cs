@@ -24,4 +24,6 @@ public class LangEnUs : ILang
     public string Copy => "Copy";
     public string Paste => "Paste";
     public string Clear => "Clear";
+    public string JumpTo => "JumpTo";
+    public string Page => "Page";
 }

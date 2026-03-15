@@ -12,13 +12,35 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <yik:Breadcrumb>
-            <TextBlock Text="Hello" />
-            <yik:BreadcrumbItem Content="World" IsReadOnly="True" />
-            <yik:BreadcrumbItem Icon="?" Separator="♥" />
-            <yik:BreadcrumbItem Content="Avalonia" />
-            <yik:BreadcrumbItem Content="Avalonia" />
-            <yik:BreadcrumbItem Content="Avalonia" />
-        </yik:Breadcrumb>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Current Page: " />
+                <TextBlock Text="{Binding #page.CurrentPage}" />
+            </StackPanel>
+            <ToggleSwitch Content="Show Page Size Selector" Name="pageSizeSelector" />
+            <ToggleSwitch Content="Show Quick Jumper" Name="quickJumperSelector" />
+            <yik:Pagination
+                Command="{Binding LoadPageCommand}"
+                CommandParameter="{Binding $self.CurrentPage}"
+                CurrentPage="5"
+                Name="page"
+                PageSizeOptions="10, 20, 50, 100"
+                ShowPageSizeSelector="{Binding #pageSizeSelector.IsChecked}"
+                ShowQuickJump="{Binding #quickJumperSelector.IsChecked}"
+                TotalCount="600" />
+
+            <TextBlock Text="Tiny Pagination" />
+            <yik:Pagination
+                Command="{Binding LoadPageCommand}"
+                CommandParameter="{Binding $self.CurrentPage}"
+                PageSize="1"
+                Theme="{DynamicResource TinyPagination}"
+                TotalCount="100" />
+            <yik:Pagination
+                Classes="ReadOnly"
+                PageSize="1"
+                Theme="{DynamicResource TinyPagination}"
+                TotalCount="100" />
+        </StackPanel>
     </Border>
 </yik:YikWindow>

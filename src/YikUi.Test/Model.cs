@@ -1,25 +1,24 @@
-using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Windows.Input;
+using Avalonia.Collections;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace YikUi.Test;
 
 public partial class Model : ObservableObject
 {
-    [ObservableProperty] private string? _selectedItem;
-
     public Model()
     {
-        Items = new ObservableCollection<string>()
-        {
-            "Ding", "Otter", "Husky", "Mr. 17", "Cass"
-        };
-        SelectedItem = Items[0];
+        this.LoadPageCommand = new RelayCommand<int?>(LoadPage);
     }
 
-    public ObservableCollection<string> Items { get; set; }
+    public AvaloniaList<int> PageSizes { get; set; } = new() { 10, 20, 50, 100 };
 
-    public void Clear()
+    public ICommand LoadPageCommand { get; }
+
+    private void LoadPage(int? pageIndex)
     {
-        SelectedItem = null;
+        Debug.WriteLine($"Loading page {pageIndex}");
     }
 }

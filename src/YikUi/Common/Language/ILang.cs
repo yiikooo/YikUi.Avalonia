@@ -24,4 +24,6 @@ public interface ILang
     public string Copy { get; }
     public string Paste { get; }
     public string Clear { get; }
+    public string JumpTo { get; }
+    public string Page { get; }
 }

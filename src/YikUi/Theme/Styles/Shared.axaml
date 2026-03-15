@@ -1,5 +1,12 @@
-<Styles xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Style Selector="PopupRoot /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style
+        Selector="yik|NumericUpDown#PART_QuickJumpInput /template/ TextBox#PART_TextBox /template/ TextPresenter#PART_TextPresenter">
+        <Setter Property="Margin" Value="0,0,3,0" />
     </Style>
 </Styles>
