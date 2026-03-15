@@ -20,3 +20,4 @@ Anchor
 Breadcrumb
 Pagination
 ToolBar
+AspectRatioLayout
