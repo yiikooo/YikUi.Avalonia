@@ -16,3 +16,4 @@ RangeSlider
 Rating
 SelectionList
 TreeComboBox
+Anchor

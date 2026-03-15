@@ -12,24 +12,83 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <yik:MultiComboBox HorizontalAlignment="Left" Width="300">
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-                <yik:MultiComboBoxItem Content="Hello" />
-            </yik:MultiComboBox>
-        </StackPanel>
+        <Grid ColumnDefinitions="*, Auto">
+            <ScrollViewer
+                Grid.Column="0"
+                Name="container1"
+                VerticalAlignment="Stretch">
+                <StackPanel>
+                    <StackPanel.Styles>
+                        <Style Selector="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                    </StackPanel.Styles>
+                    <Border
+                        Background="{DynamicResource SemiRed2}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a1">
+                        <TextBlock Text="Border 1" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiPink1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a2">
+                        <TextBlock Text="Border 2" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiPurple1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a3">
+                        <TextBlock Text="Border 3" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiViolet1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch">
+                        <TextBlock Text="Border 4" yik:Anchor.Id="a4" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiIndigo1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a5">
+                        <TextBlock Text="Border 5" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiBlue1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a6">
+                        <TextBlock Text="Border 6" />
+                    </Border>
+                    <Border
+                        Background="{DynamicResource SemiLightBlue1}"
+                        Height="300"
+                        HorizontalAlignment="Stretch"
+                        yik:Anchor.Id="a7">
+                        <TextBlock Text="Border 7" />
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+            <yik:Anchor
+                Grid.Column="1"
+                Margin="24"
+                TargetContainer="{Binding ElementName=container1}"
+                Width="200">
+                <yik:AnchorItem AnchorId="a1" Header="Rectangle 1">
+                    <yik:AnchorItem AnchorId="a2" Header="Rectangle 2" />
+                    <yik:AnchorItem AnchorId="a3" Header="Rectangle 3" />
+                </yik:AnchorItem>
+                <yik:AnchorItem AnchorId="a4" Header="Rectangle 4" />
+                <yik:AnchorItem AnchorId="a5" Header="Rectangle 5">
+                    <yik:AnchorItem AnchorId="a6" Header="Rectangle 6" />
+                    <yik:AnchorItem AnchorId="a7" Header="Rectangle 7" />
+                </yik:AnchorItem>
+            </yik:Anchor>
+        </Grid>
     </Border>
 </yik:YikWindow>
