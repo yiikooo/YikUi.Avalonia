@@ -31,3 +31,4 @@ DualBadge
 ImageViewer
 Elas...WarpPanel
 Marquee
+NumberDisplayer

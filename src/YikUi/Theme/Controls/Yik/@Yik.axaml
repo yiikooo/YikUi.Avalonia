@@ -39,5 +39,6 @@
         <ResourceInclude Source="DualBadge.axaml" />
         <ResourceInclude Source="ImageViewer.axaml" />
         <ResourceInclude Source="Marquee.axaml" />
+        <ResourceInclude Source="NumberDisplayer.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

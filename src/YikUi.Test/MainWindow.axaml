@@ -22,50 +22,27 @@
         <SolidColorBrush Color="Red" x:Key="MaskBorder" />
     </yik:YikWindow.Resources>
     <Border Margin="30">
-        <StackPanel>
-            <yik:Form>
-                <TextBox
-                    Name="content"
-                    Text="Hello Avalonia"
-                    Width="300"
-                    yik:FormItem.Label="Content" />
-                <yik:EnumSelector
-                    EnumType="{x:Type yik:Direction}"
-                    Name="direction"
-                    Value="{x:Static yik:Direction.Left}"
-                    yik:FormItem.Label="Direction" />
-                <yik:EnumSelector
-                    EnumType="{x:Type HorizontalAlignment}"
-                    Name="horizontal"
-                    Value="{x:Static HorizontalAlignment.Center}"
-                    yik:FormItem.Label="HorizontalContentAlignment" />
-                <yik:EnumSelector
-                    EnumType="{x:Type VerticalAlignment}"
-                    Name="vertical"
-                    Value="{x:Static VerticalAlignment.Center}"
-                    yik:FormItem.Label="VerticalContentAlignment" />
-                <yik:NumericDoubleUpDown
-                    AllowDrag="True"
-                    Maximum="300"
-                    Minimum="-100"
-                    Name="speed"
-                    Value="60"
-                    yik:FormItem.Label="Speed" />
-                <ToggleSwitch
-                    IsChecked="True"
-                    Name="running"
-                    yik:FormItem.Label="IsRunning" />
-            </yik:Form>
-
-            <yik:Marquee
-                Background="{DynamicResource SemiBlue1}"
-                Content="{Binding #content.Text}"
-                Direction="{Binding #direction.Value}"
-                Height="100"
-                HorizontalContentAlignment="{Binding #horizontal.Value}"
-                IsRunning="{Binding #running.IsChecked}"
-                Speed="{Binding #speed.Value}"
-                VerticalContentAlignment="{Binding #vertical.Value}" />
+        <StackPanel HorizontalAlignment="Left">
+            <Button Command="{Binding IncreaseCommand}">Change</Button>
+            <yik:Int32Displayer Value="{Binding Value}" />
+            <yik:Int64Displayer Value="{Binding LongValue}" />
+            <yik:DoubleDisplayer StringFormat="N2" Value="{Binding DoubleValue}" />
+            <yik:DateDisplay
+                FontSize="30"
+                StringFormat="yyyy-MM-dd"
+                Value="{Binding DateValue}" />
+            <TextBlock Text="Selectable: " />
+            <yik:Int32Displayer IsSelectable="True" Value="{Binding Value}" />
+            <yik:Int64Displayer IsSelectable="True" Value="{Binding LongValue}" />
+            <yik:DoubleDisplayer
+                IsSelectable="True"
+                StringFormat="N2"
+                Value="{Binding DoubleValue}" />
+            <yik:DateDisplay
+                FontSize="30"
+                IsSelectable="True"
+                StringFormat="yyyy-MM-dd"
+                Value="{Binding DateValue}" />
         </StackPanel>
     </Border>
 </yik:YikWindow>
