@@ -13,7 +13,6 @@
     <x:Double x:Key="CalendarMinHeight">250</x:Double>
     <x:Double x:Key="CalendarItemWeekDayNameFontSize">12</x:Double>
     <x:Double x:Key="SemiWidthIconMedium">16</x:Double>
-    <StaticResource ResourceKey="PopupBackgroundColor" x:Key="CalendarBackground" />
 
     <!--  Theme resources  -->
     <ResourceDictionary.ThemeDictionaries>
@@ -170,7 +169,7 @@
 
     <ControlTheme TargetType="Calendar" x:Key="{x:Type Calendar}">
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-        <Setter Property="Background" Value="{DynamicResource CalendarBackground}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarBorderThickness}" />
         <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />

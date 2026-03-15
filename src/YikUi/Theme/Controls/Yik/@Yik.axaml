@@ -34,5 +34,6 @@
         <ResourceInclude Source="Banner.axaml" />
         <ResourceInclude Source="DialogShared.axaml" />
         <ResourceInclude Source="Descriptions.axaml" />
+        <ResourceInclude Source="DisableContainer.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
