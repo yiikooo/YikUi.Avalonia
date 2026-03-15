@@ -26,5 +26,6 @@
         <ResourceInclude Source="SelectionList.axaml" />
         <ResourceInclude Source="TreeComboBox.axaml" />
         <ResourceInclude Source="Anchor.axaml" />
+        <ResourceInclude Source="Breadcrumb.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

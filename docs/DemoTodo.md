@@ -17,3 +17,4 @@ Rating
 SelectionList
 TreeComboBox
 Anchor
+Breadcrumb
