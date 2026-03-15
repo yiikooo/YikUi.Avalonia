@@ -12,43 +12,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <yik:YikWindow.Resources>
-        <StreamGeometry x:Key="SemiIconDownload">
-            M17.84 8.06A6.5 6.5 0 1 0 5.18 11 4.5 4.5 0 0 0 5.5 20H17a6 6 0 0 0 .84-11.94Zm-6.16 9.67a.5.5 0 0 0 .64 0l5.15-4.29a.25.25 0 0 0-.16-.44H14V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5V13H6.7c-.24 0-.35.3-.17.44l5.15 4.3Z
+        <StreamGeometry x:Key="SemiIconHome">
+            M2 11.45a1 1 0 0 1 .33-.75l9-8.1a1 1 0 0 1 1.34 0l9 8.1a1 1 0 0 1 .33.75V20a2 2 0 0 1-2 2h-4a1 1 0 0 1-1-1v-4a3 3 0 0 0-6 0v4a1 1 0 0 1-1 1H4a2 2 0 0 1-2-2v-8.55Z
         </StreamGeometry>
-        <SolidColorBrush
-            Color="Red"
-            Opacity="0.2"
-            x:Key="MaskBackground" />
-        <SolidColorBrush Color="Red" x:Key="MaskBorder" />
     </yik:YikWindow.Resources>
-    <Border Margin="30">
-        <Grid ColumnDefinitions="*, Auto">
-            <yik:QRCode
-                CornerRadius="0"
-                Data="{Binding #text.Text}"
-                ErrorCorrection="{Binding #eccLevel.Value}"
-                Height="400"
-                SymbolCornerRatio="{Binding #cornerRatio.Value}"
-                Width="400" />
-            <yik:Form Grid.Column="1" Width="300">
-                <TextBox
-                    Name="text"
-                    Text="Hello Avalonia"
-                    yik:FormItem.Label="Data" />
-                <yik:EnumSelector
-                    EnumType="{x:Type yik:EccLevel}"
-                    Name="eccLevel"
-                    Value="{x:Static yik:EccLevel.Medium}"
-                    yik:FormItem.Label="Error Correction Level" />
-                <Slider
-                    IsSnapToTickEnabled="True"
-                    Maximum="0.5"
-                    Minimum="0"
-                    Name="cornerRatio"
-                    TickFrequency="0.05"
-                    Value="0.5"
-                    yik:FormItem.Label="Symbol Corner Ratio" />
-            </yik:Form>
-        </Grid>
-    </Border>
+    <StackPanel>
+        <TextBlock Text="Size" />
+        <Slider
+            Maximum="100"
+            Minimum="0"
+            Name="width"
+            Value="20"
+            Width="300" />
+        <ToggleSwitch Content="Active" Name="active" />
+        <yik:TwoTonePathIcon
+            Data="{StaticResource SemiIconHome}"
+            Height="{Binding #width.Value}"
+            IsActive="{Binding ElementName=active, Path=IsChecked}"
+            Width="{Binding #width.Value}" />
+    </StackPanel>
 </yik:YikWindow>

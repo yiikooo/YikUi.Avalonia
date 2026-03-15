@@ -41,5 +41,7 @@
         <ResourceInclude Source="Marquee.axaml" />
         <ResourceInclude Source="NumberDisplayer.axaml" />
         <ResourceInclude Source="QRCode.axaml" />
+        <ResourceInclude Source="ScrollToButton.axaml" />
+        <ResourceInclude Source="TwoTonePathIcon.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

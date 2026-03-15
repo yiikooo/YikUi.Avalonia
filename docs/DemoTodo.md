@@ -33,3 +33,5 @@ Elas...WarpPanel
 Marquee
 NumberDisplayer
 QRCode
+ScrollToButton
+TwoTonePathIcon
