@@ -23,3 +23,4 @@ ToolBar
 AspectRatioLayout
 Avatar
 Badge
+Banner

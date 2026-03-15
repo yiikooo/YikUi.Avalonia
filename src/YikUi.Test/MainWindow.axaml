@@ -9,36 +9,62 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:test="clr-namespace:YikUi.Test"
-    xmlns:u="https://github.com/yiikooo/YikUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
-        <StackPanel
-            Margin="20"
-            Orientation="Horizontal"
-            Spacing="10"
-            Width="300">
-            <u:Badge Header="5">
-                <u:Avatar Classes="Square Blue" Content="BM" />
-            </u:Badge>
-            <u:Badge Dot="True">
-                <u:Avatar Classes="Square Blue" Content="YL" />
-            </u:Badge>
-            <u:Badge>
-                <u:Badge.Header>
-                    <PathIcon Data="{StaticResource SemiIconLock}" Theme="{StaticResource InnerPathIcon}" />
-                </u:Badge.Header>
-                <u:Avatar Classes="Square Blue" Content="YL" />
-            </u:Badge>
-            <u:Badge Header="NEW">
-                <u:Avatar Classes="Square LightBlue" Content="WF" />
-            </u:Badge>
-            <u:Badge
-                Classes="Light"
-                CornerPosition="BottomLeft"
-                Header="Pyro">
-                <u:Avatar Classes="Red" Content="火" />
-            </u:Badge>
-        </StackPanel>
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <yik:Banner
+                    Classes.Bordered="{Binding Bordered}"
+                    Content="{Binding Content}"
+                    Header="{Binding Title}"
+                    Name="banner" />
+                <yik:Form Width="500">
+                    <TextBox
+                        Classes="ClearButton"
+                        IsEnabled="{Binding SetTitleNull}"
+                        Text="{Binding Title}">
+                        <yik:FormItem.Label>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Content="Title" IsChecked="{Binding SetTitleNull}" />
+                            </StackPanel>
+                        </yik:FormItem.Label>
+                    </TextBox>
+                    <TextBox
+                        Classes="ClearButton TextArea"
+                        IsEnabled="{Binding SetContentNull}"
+                        Text="{Binding Content}"
+                        TextWrapping="Wrap">
+                        <yik:FormItem.Label>
+                            <CheckBox Content="Content" IsChecked="{Binding SetContentNull}" />
+                        </yik:FormItem.Label>
+                    </TextBox>
+                    <yik:EnumSelector
+                        EnumType="NotificationType"
+                        Value="{Binding #banner.Type}"
+                        yik:FormItem.Label="NotificationType" />
+                    <yik:EnumSelector
+                        EnumType="HorizontalAlignment"
+                        Value="{Binding #banner.HorizontalContentAlignment}"
+                        yik:FormItem.Label="HorizontalContentAlignment" />
+                    <ToggleSwitch
+                        IsChecked="{Binding Bordered}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        yik:FormItem.Label="Bordered" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.ShowIcon}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        yik:FormItem.Label="ShowIcon" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.CanClose}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        yik:FormItem.Label="CanClose" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.IsVisible}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        yik:FormItem.Label="IsVisible" />
+                </yik:Form>
+            </StackPanel>
+        </ScrollViewer>
     </Border>
 </yik:YikWindow>

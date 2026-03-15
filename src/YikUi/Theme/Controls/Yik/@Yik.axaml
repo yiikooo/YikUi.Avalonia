@@ -31,5 +31,7 @@
         <ResourceInclude Source="ToolBar.axaml" />
         <ResourceInclude Source="Avatar.axaml" />
         <ResourceInclude Source="Badge.axaml" />
+        <ResourceInclude Source="Banner.axaml" />
+        <ResourceInclude Source="DialogShared.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
