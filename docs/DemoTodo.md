@@ -15,3 +15,4 @@ PinCode
 RangeSlider
 Rating
 SelectionList
+TreeComboBox

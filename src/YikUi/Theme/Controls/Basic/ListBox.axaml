@@ -91,9 +91,6 @@
 
         <Style Selector="^:disabled">
             <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
-            <Style Selector="^:selected">
-                <Setter Property="Background" Value="{DynamicResource DisabledForegroundColor}" />
-            </Style>
         </Style>
 
         <!--  Pointerover State  -->

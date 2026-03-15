@@ -13,59 +13,23 @@
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <Border Margin="30">
         <StackPanel HorizontalAlignment="Left" Spacing="15">
-            <StackPanel HorizontalAlignment="Left">
-                <yik:SelectionList
-                    HorizontalAlignment="Center"
-                    ItemsSource="{Binding Items}"
-                    SelectedItem="{Binding SelectedItem}"
-                    Width="600">
-                    <yik:SelectionList.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
-                        </ItemsPanelTemplate>
-                    </yik:SelectionList.ItemsPanel>
-                </yik:SelectionList>
-                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
-                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
-                    <yik:SelectionList.Indicator>
-                        <Border Background="Transparent" CornerRadius="4">
-                            <Border
-                                Background="{DynamicResource SemiBlue6}"
-                                CornerRadius="4"
-                                HorizontalAlignment="Left"
-                                Margin="0,8"
-                                VerticalAlignment="Stretch"
-                                Width="4" />
-                        </Border>
-                    </yik:SelectionList.Indicator>
-                    <yik:SelectionList.ItemTemplate>
-                        <DataTemplate>
-                            <Panel Height="40">
-                                <TextBlock
-                                    Classes.Active="{Binding $parent[yik:SelectionListItem].IsSelected, Mode=OneWay}"
-                                    Margin="8,0"
-                                    Text="{Binding}"
-                                    VerticalAlignment="Center">
-                                    <TextBlock.Styles>
-                                        <Style Selector="TextBlock.Active">
-                                            <Setter Property="Foreground" Value="{DynamicResource SemiOrange6}" />
-                                        </Style>
-                                    </TextBlock.Styles>
-                                </TextBlock>
-                            </Panel>
-                        </DataTemplate>
-                    </yik:SelectionList.ItemTemplate>
-                </yik:SelectionList>
-                <SplitButton Content="Button With Selection">
-                    <SplitButton.Flyout>
-                        <Flyout>
-                            <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
-                        </Flyout>
-                    </SplitButton.Flyout>
-                </SplitButton>
-                <Button Command="{Binding Clear}" Margin="0,12">Clear</Button>
-
-            </StackPanel>
+            <yik:MultiComboBox HorizontalAlignment="Left" Width="300">
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+                <yik:MultiComboBoxItem Content="Hello" />
+            </yik:MultiComboBox>
         </StackPanel>
     </Border>
 </yik:YikWindow>
