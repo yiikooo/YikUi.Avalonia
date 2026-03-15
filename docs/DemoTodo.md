@@ -21,3 +21,4 @@ Breadcrumb
 Pagination
 ToolBar
 AspectRatioLayout
+Avatar

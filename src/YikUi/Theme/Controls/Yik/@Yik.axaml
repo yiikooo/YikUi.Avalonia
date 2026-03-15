@@ -29,5 +29,6 @@
         <ResourceInclude Source="Breadcrumb.axaml" />
         <ResourceInclude Source="Pagination.axaml" />
         <ResourceInclude Source="ToolBar.axaml" />
+        <ResourceInclude Source="Avatar.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
