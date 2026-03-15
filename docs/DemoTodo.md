@@ -32,3 +32,4 @@ ImageViewer
 Elas...WarpPanel
 Marquee
 NumberDisplayer
+QRCode
