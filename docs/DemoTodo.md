@@ -29,3 +29,5 @@ DisableContainer
 Divider
 DualBadge
 ImageViewer
+Elas...WarpPanel
+Marquee

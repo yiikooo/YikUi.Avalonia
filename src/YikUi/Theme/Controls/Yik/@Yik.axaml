@@ -38,5 +38,6 @@
         <ResourceInclude Source="Divider.axaml" />
         <ResourceInclude Source="DualBadge.axaml" />
         <ResourceInclude Source="ImageViewer.axaml" />
+        <ResourceInclude Source="Marquee.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
