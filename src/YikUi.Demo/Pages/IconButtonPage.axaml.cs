@@ -10,7 +10,6 @@ public partial class IconButtonPage : UserControl
         AddClasses(DangerIconButton);
         AddClasses(DangerIconDropDownButton);
         AddClasses(DangerIconSplitButton);
-        AddClasses(DangerIconToggleSplitButton);
         AddClasses(DangerIconToggleButton);
     }
 

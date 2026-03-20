@@ -166,6 +166,12 @@
                             <Style Selector="yik|IconButton.Danger PathIcon">
                                 <Setter Property="Foreground" Value="White" />
                             </Style>
+                            <Style Selector="yik|IconToggleButton.Danger PathIcon">
+                                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDangerForeground}" />
+                            </Style>
+                            <Style Selector="yik|IconToggleButton:checked PathIcon">
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
                         </ContentPresenter.Styles>
                         <ContentPresenter.DataTemplates>
                             <DataTemplate DataType="Geometry">

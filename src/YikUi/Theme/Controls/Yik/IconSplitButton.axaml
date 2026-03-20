@@ -31,7 +31,7 @@
                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                 x:Name="PART_PrimaryButton"
                 yik:ClassHelper.ClassSource="{TemplateBinding}" />
-            <yik:IconButton
+            <Button
                 CornerRadius="{TemplateBinding CornerRadius,
                                                Converter={yik:CornerRadiusMixerConverter Right}}"
                 Grid.Column="2"
@@ -39,10 +39,20 @@
                 VerticalAlignment="Stretch"
                 x:Name="PART_SecondaryButton"
                 yik:ClassHelper.ClassSource="{TemplateBinding}">
-                <yik:IconButton.Icon>
-                    <PathIcon Data="{DynamicResource SplitButtonIconGlyph}" Theme="{DynamicResource InnerPathIcon}" />
-                </yik:IconButton.Icon>
-            </yik:IconButton>
+                <PathIcon
+                    Data="{DynamicResource SplitButtonIconGlyph}"
+                    Name="SplitButtonIcon"
+                    Width="12">
+                    <PathIcon.Styles>
+                        <Style Selector="yik|IconSplitButton PathIcon">
+                            <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
+                        </Style>
+                        <Style Selector="yik|IconSplitButton.Danger PathIcon">
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </PathIcon.Styles>
+                </PathIcon>
+            </Button>
         </Grid>
     </ControlTemplate>
 
