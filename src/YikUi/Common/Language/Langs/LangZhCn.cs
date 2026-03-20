@@ -26,4 +26,6 @@ public class LangZhCn : ILang
     public string Clear => "清空";
     public string JumpTo => "跳至";
     public string Page => "页";
+    public string EndTime => "结束时间";
+    public string StartTime => "开始时间";
 }

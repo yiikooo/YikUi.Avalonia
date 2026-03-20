@@ -26,4 +26,6 @@ public interface ILang
     public string Clear { get; }
     public string JumpTo { get; }
     public string Page { get; }
+    public string StartTime { get; }
+    public string EndTime { get; }
 }

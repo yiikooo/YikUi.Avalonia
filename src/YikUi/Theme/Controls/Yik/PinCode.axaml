@@ -47,12 +47,12 @@
         <!--     <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" /> -->
         <!-- </Style> -->
         <Style Selector="^.Large">
-            <Setter Property="Height" Value="{DynamicResource TextBoxLargeHeight}" />
-            <Setter Property="Width" Value="{DynamicResource TextBoxLargeHeight}" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="40" />
         </Style>
         <Style Selector="^.Small">
-            <Setter Property="Height" Value="{DynamicResource TextBoxSmallHeight}" />
-            <Setter Property="Width" Value="{DynamicResource TextBoxSmallHeight}" />
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Width" Value="24" />
         </Style>
     </ControlTheme>
 

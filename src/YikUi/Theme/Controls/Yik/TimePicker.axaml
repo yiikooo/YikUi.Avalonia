@@ -1,0 +1,260 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Design.PreviewWith>
+        <yik:TimePickerPresenter Height="300" />
+    </Design.PreviewWith>
+    <ControlTheme TargetType="yik:TimePickerPresenter" x:Key="{x:Type yik:TimePickerPresenter}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="MaxHeight" Value="300" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:TimePickerPresenter">
+                <Grid ColumnDefinitions="*, Auto, *, Auto, *, Auto, *"
+                      Name="{x:Static yik:TimePickerPresenter.PART_PickerContainer}">
+                    <Grid.Styles>
+                        <Style Selector="yik|UrsaDateTimeScrollPanel &gt; ListBoxItem">
+                            <Setter Property="Theme" Value="{DynamicResource DateTimePickerItem}" />
+                        </Style>
+                    </Grid.Styles>
+                    <ScrollViewer
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        HorizontalScrollBarVisibility="Disabled"
+                        Name="{x:Static yik:TimePickerPresenter.PART_HourScrollPanel}"
+                        VerticalScrollBarVisibility="Hidden">
+                        <yik:UrsaDateTimeScrollPanel
+                            HorizontalAlignment="Left"
+                            ItemHeight="32"
+                            MinWidth="64"
+                            Name="{x:Static yik:TimePickerPresenter.PART_HourSelector}"
+                            PanelType="Hour"
+                            ShouldLoop="True" />
+                    </ScrollViewer>
+                    <Rectangle
+                        Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                        Grid.Column="1"
+                        Margin="0,8"
+                        Name="{x:Static yik:TimePickerPresenter.PART_FirstSeparator}"
+                        VerticalAlignment="Stretch"
+                        Width="0.5" />
+                    <ScrollViewer
+                        Grid.Column="2"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        HorizontalScrollBarVisibility="Disabled"
+                        Name="{x:Static yik:TimePickerPresenter.PART_MinuteScrollPanel}"
+                        VerticalScrollBarVisibility="Hidden">
+                        <yik:UrsaDateTimeScrollPanel
+                            ItemHeight="32"
+                            MinWidth="64"
+                            Name="{x:Static yik:TimePickerPresenter.PART_MinuteSelector}"
+                            PanelType="Minute"
+                            ShouldLoop="True" />
+                    </ScrollViewer>
+                    <Rectangle
+                        Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                        Grid.Column="3"
+                        Margin="0,8"
+                        Name="{x:Static yik:TimePickerPresenter.PART_SecondSeparator}"
+                        VerticalAlignment="Stretch"
+                        Width="0.5" />
+                    <ScrollViewer
+                        Grid.Column="4"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        HorizontalScrollBarVisibility="Disabled"
+                        Name="{x:Static yik:TimePickerPresenter.PART_SecondScrollPanel}"
+                        VerticalScrollBarVisibility="Hidden">
+                        <yik:UrsaDateTimeScrollPanel
+                            ItemHeight="32"
+                            MinWidth="64"
+                            Name="{x:Static yik:TimePickerPresenter.PART_SecondSelector}"
+                            PanelType="Second"
+                            ShouldLoop="True" />
+                    </ScrollViewer>
+                    <Rectangle
+                        Fill="{DynamicResource DateTimePickerSeparatorBackground}"
+                        Grid.Column="5"
+                        Margin="0,8"
+                        Name="{x:Static yik:TimePickerPresenter.PART_ThirdSeparator}"
+                        VerticalAlignment="Stretch"
+                        Width="0.5" />
+                    <ScrollViewer
+                        Grid.Column="6"
+                        HorizontalAlignment="Left"
+                        HorizontalContentAlignment="Left"
+                        HorizontalScrollBarVisibility="Disabled"
+                        Name="{x:Static yik:TimePickerPresenter.PART_AmPmScrollPanel}"
+                        VerticalScrollBarVisibility="Hidden">
+                        <yik:UrsaDateTimeScrollPanel
+                            ItemHeight="32"
+                            MinWidth="64"
+                            Name="{x:Static yik:TimePickerPresenter.PART_AmPmSelector}"
+                            PanelType="TimePeriod" />
+                    </ScrollViewer>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="yik:TimePicker" x:Key="{x:Type yik:TimePicker}">
+        <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
+        <Setter Property="MinHeight" Value="32" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:TimePicker">
+                <DataValidationErrors>
+                    <Panel
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        x:Name="LayoutRoot">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            HorizontalAlignment="Stretch"
+                            x:Name="Background" />
+                        <Grid ColumnDefinitions="*, Auto">
+                            <TextBox
+                                Foreground="{TemplateBinding Foreground}"
+                                Grid.Column="0"
+                                HorizontalAlignment="Stretch"
+                                InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                                InnerRightContent="{TemplateBinding InnerRightContent}"
+                                IsReadOnly="{TemplateBinding IsReadonly}"
+                                MinHeight="{TemplateBinding MinHeight}"
+                                Name="{x:Static yik:TimePicker.PART_TextBox}"
+                                Theme="{DynamicResource LooklessTextBox}"
+                                VerticalAlignment="Stretch"
+                                Watermark="{TemplateBinding Watermark}" />
+                            <Button
+                                Command="{Binding $parent[yik:TimePicker].Clear}"
+                                Focusable="False"
+                                Grid.Column="1"
+                                IsVisible="False"
+                                Margin="8,0"
+                                Name="ClearButton"
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="{DynamicResource Close}"
+                                    Foreground="{DynamicResource InnerForegroundColor}"
+                                    Height="11"
+                                    Width="16" />
+                            </Button>
+                            <Button
+                                Focusable="False"
+                                Grid.Column="1"
+                                Margin="8,0"
+                                Name="{x:Static yik:TimePicker.PART_Button}">
+                                <PathIcon
+                                    Data="F1 M512,512z M0,0z M256,0A256,256,0,1,1,256,512A256,256,0,1,1,256,0z M232,120L232,256C232,264,236,271.5,242.7,276L338.7,340C349.7,347.4 364.6,344.4 372,333.3 379.4,322.2 376.4,307.4 365.3,300L280,243.2 280,120C280,106.7 269.3,96 256,96 242.7,96 232,106.7 232,120z"
+                                    Foreground="{DynamicResource DateTimePickerIconForeground}"
+                                    Width="20" />
+                            </Button>
+                            <Popup
+                                Grid.Column="0"
+                                IsLightDismissEnabled="True"
+                                IsOpen="{TemplateBinding IsDropdownOpen,
+                                                         Mode=TwoWay}"
+                                Name="{x:Static yik:PartNames.PART_Popup}"
+                                Placement="BottomEdgeAlignedLeft"
+                                PlacementTarget="Background">
+                                <Border
+                                    Background="{DynamicResource ComboBoxPopupBackground}"
+                                    BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
+                                    BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
+                                    BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
+                                    CornerRadius="6"
+                                    HorizontalAlignment="Stretch"
+                                    Margin="{DynamicResource ComboBoxPopupBorderMargin}">
+                                    <DockPanel>
+                                        <StackPanel DockPanel.Dock="Bottom"
+                                                    IsVisible="{TemplateBinding NeedConfirmation}">
+                                            <Button
+                                                Command="{Binding $parent[yik:TimePicker].Confirm}"
+                                                Content="{DynamicResource Lang.Confirm}"
+                                                HorizontalAlignment="Right"
+                                                Margin="8" />
+                                        </StackPanel>
+                                        <ContentPresenter
+                                            Content="{TemplateBinding PopupInnerTopContent}"
+                                            DockPanel.Dock="Top"
+                                            IsVisible="{TemplateBinding PopupInnerTopContent,
+                                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                                            Margin="8,8,8,0"
+                                            Name="PART_PopupHeader" />
+                                        <ContentPresenter
+                                            Content="{TemplateBinding PopupInnerBottomContent}"
+                                            DockPanel.Dock="Bottom"
+                                            IsVisible="{TemplateBinding PopupInnerBottomContent,
+                                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
+                                            Margin="8,0,8,8"
+                                            Name="PART_PopupFooter" />
+                                        <yik:TimePickerPresenter
+                                            Name="{x:Static yik:TimePicker.PART_Presenter}"
+                                            NeedsConfirmation="{TemplateBinding NeedConfirmation}"
+                                            PanelFormat="{TemplateBinding PanelFormat}" />
+                                    </DockPanel>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Panel>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^:pointerover /template/ Button#ClearButton">
+                <Setter Property="IsVisible"
+                        Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Button#PART_Button">
+                <Setter Property="IsVisible"
+                        Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNull}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource CalendarDatePickerPointeroverBackground}" />
+            </Style>
+        </Style>
+
+        <!--  Disabled State  -->
+        <Style Selector="^:disabled">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource CalendarDatePickerDisabledBackground}" />
+            </Style>
+
+            <Style Selector="^ /template/ Button#PART_Button">
+                <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerDisabledIconForeground}" />
+            </Style>
+            <Style Selector="^ /template/ TextBox#PART_TextBox">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+        </Style>
+
+        <!--  Focused State  -->
+        <Style Selector="^:focus /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
+        </Style>
+        <Style Selector="^:focus-within /template/ Border#Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
+        </Style>
+
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="40" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="24" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
