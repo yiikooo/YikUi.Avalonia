@@ -12,6 +12,7 @@ public partial class MainWindow : YikWindow
 {
     public readonly YikWindowNotificationManager notification;
     public readonly YikWindowToastManager toast;
+    private MainWindowModel _mainWindowModel;
 
     public MainWindow()
     {
@@ -20,7 +21,8 @@ public partial class MainWindow : YikWindow
 #else
         InitializeComponent();
 #endif
-        DataContext = new MainWindowModel();
+        _mainWindowModel = new MainWindowModel();
+        DataContext = _mainWindowModel;
         toast = new YikWindowToastManager(GetTopLevel(this));
         notification = new YikWindowNotificationManager(GetTopLevel(this))
         {
@@ -31,6 +33,7 @@ public partial class MainWindow : YikWindow
             Gesture = KeyGesture.Parse("Ctrl+Q"),
             Command = new ActionCommand(() => ToggleTheme())
         });
+        NavMenu.SearchPlaceholderText += $"   ({_mainWindowModel.Items} items)";
     }
 
     private void ToggleTheme(string? theme = null)

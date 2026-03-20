@@ -18,10 +18,9 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         SelectedPage = Pages[0];
         foreach (var page in Pages)
         {
-            if (page.Children is { Count: > 0 })
-            {
-                page.Children = page.Children.OrderBy(child => child.Title).ToList();
-            }
+            if (page.Children is not { Count: > 0 }) continue;
+            Items += page.Children.Count;
+            page.Children = page.Children.OrderBy(child => child.Title).ToList();
         }
     }
 
@@ -30,6 +29,8 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         get;
         set => SetField(ref field, value);
     }
+
+    public int Items { get; set; }
 
     public static List<Page> Pages { get; set; } =
     [

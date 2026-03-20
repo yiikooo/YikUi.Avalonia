@@ -29,6 +29,16 @@ public class Inputs
         },
         new()
         {
+            Title = "AutoCompleteBox(yik)",
+            Content = new AutoCompleteBoxYikPage(),
+        },
+        new()
+        {
+            Title = "ClassesInput",
+            Content = new ClassInputPage(),
+        },
+        new()
+        {
             Title = "ButtonSpinnerPage",
             Content = new ButtonSpinnerPage(),
         },

@@ -14,6 +14,11 @@ public class Buttons
         },
         new()
         {
+            Title = "ButtonGroup",
+            Content = new ButtonGroupPage(),
+        },
+        new()
+        {
             Title = "IconButton",
             Content = new IconButtonPage(),
         },
