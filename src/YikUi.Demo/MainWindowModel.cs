@@ -6,6 +6,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
 using YikUi.Common.Language;
+using YikUi.Demo.Navs;
 using YikUi.Demo.Pages;
 
 namespace YikUi.Demo;
@@ -45,288 +46,42 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         new()
         {
             Title = "Basic",
-            Children =
-            [
-                new Page
-                {
-                    Title = "Label",
-                    Content = new LabelPage(),
-                },
-                new Page
-                {
-                    Title = "TextBlock",
-                    Content = new TextBoxPage(),
-                },
-                new Page
-                {
-                    Title = "SelectableTextBlock",
-                    Content = new SelectableTextBlockPage(),
-                },
-            ]
+            Children = Basics.BasicsList
         },
         new()
         {
             Title = "Button",
-            Children =
-            [
-                new Page
-                {
-                    Title = "Button",
-                    Content = new ButtonPage(),
-                },
-                new Page
-                {
-                    Title = "ToggleSwitch",
-                    Content = new ToggleSwitchPage(),
-                },
-                new Page
-                {
-                    Title = "RadioButton",
-                    Content = new RadioButtonPage(),
-                },
-                new Page
-                {
-                    Title = "HyperlinkButton",
-                    Content = new HyperlinkButtonPage(),
-                },
-                new Page
-                {
-                    Title = "ToggleButton",
-                    Content = new ToggleButtonPage(),
-                },
-                new Page
-                {
-                    Title = "CheckBox",
-                    Content = new CheckBoxPage(),
-                },
-                new Page
-                {
-                    Title = "DropDownButton",
-                    Content = new DropDownButtonPage(),
-                },
-                new Page
-                {
-                    Title = "SplitButton",
-                    Content = new SplitButtonPage(),
-                },
-            ]
+            Children = Buttons.ButtonsList
         },
         new()
         {
             Title = "Input",
-            Children =
-            [
-                new Page
-                {
-                    Title = "ComboBox",
-                    Content = new ComboBoxPage(),
-                },
-                new Page
-                {
-                    Title = "ColorPicker",
-                    Content = new ColorPickerPage(),
-                },
-                new Page
-                {
-                    Title = "TextBox",
-                    Content = new TextBoxPage(),
-                },
-                new Page
-                {
-                    Title = "AutoCompleteBox",
-                    Content = new AutoCompleteBoxPage(),
-                },
-                new Page
-                {
-                    Title = "ButtonSpinnerPage",
-                    Content = new ButtonSpinnerPage(),
-                },
-                new Page
-                {
-                    Title = "NumericUpDown",
-                    Content = new NumericUpDownPage(),
-                },
-                new Page
-                {
-                    Title = "Slider",
-                    Content = new SliderPage(),
-                },
-                new Page
-                {
-                    Title = "ManagedFileChooser",
-                    Content = new ManagedFileChooserPage(),
-                },
-            ]
+            Children = Inputs.InputsList
         },
         new()
         {
             Title = "Menu",
-            Children =
-            [
-                new Page
-                {
-                    Title = "Menu",
-                    Content = new MenuPage(),
-                },
-                new Page
-                {
-                    Title = "NavMenu",
-                    Content = new NavMenuPage(),
-                },
-                new Page
-                {
-                    Title = "TabStrip",
-                    Content = new TabStripPage(),
-                },
-                new Page
-                {
-                    Title = "TabControl",
-                    Content = new TabControlPage(),
-                },
-            ]
+            Children = Menus.MenusList
         },
         new()
         {
             Title = "Time",
-            Children =
-            [
-                new Page
-                {
-                    Title = "Calendar",
-                    Content = new CalendarPage(),
-                },
-                new Page
-                {
-                    Title = "CalendarDatePicker",
-                    Content = new CalendarDatePickerPage(),
-                },
-                new Page
-                {
-                    Title = "DatePicker",
-                    Content = new DatePickerPage(),
-                },
-                new Page
-                {
-                    Title = "TimePicker",
-                    Content = new TimePickerPage(),
-                },
-            ]
+            Children = Times.TimesList
         },
         new()
         {
             Title = "Show",
-            Children =
-            [
-                new Page
-                {
-                    Title = "Flyout",
-                    Content = new FlyoutPage(),
-                },
-                new Page
-                {
-                    Title = "DataGrid",
-                    Content = new DataGridPage(),
-                },
-                new Page
-                {
-                    Title = "TreeDataGrid",
-                    Content = new TreeDataGridPage(),
-                },
-                new Page
-                {
-                    Title = "ToolTip",
-                    Content = new ToolTipPage(),
-                },
-                new Page
-                {
-                    Title = "ProgressBar",
-                    Content = new ProgressBarPage(),
-                },
-                new Page
-                {
-                    Title = "Expander",
-                    Content = new ExpanderPage(),
-                },
-                new Page
-                {
-                    Title = "ListBox",
-                    Content = new ListBoxPage(),
-                },
-                new Page
-                {
-                    Title = "TreeView",
-                    Content = new TreeViewPage(),
-                },
-                new Page
-                {
-                    Title = "Carousel",
-                    Content = new CarouselPage(),
-                },
-            ]
+            Children = Shows.ShowsList
         },
         new()
         {
             Title = "Feedback",
-            Children =
-            [
-                new Page
-                {
-                    Title = "DataValidationErrors",
-                    Content = new DataValidationErrorsPage(),
-                },
-                new Page
-                {
-                    Title = "RefreshContainer",
-                    Content = new RefreshContainerPage(),
-                },
-                new Page
-                {
-                    Title = "Toast",
-                    Content = new ToastPage(),
-                },
-                new Page
-                {
-                    Title = "Notification",
-                    Content = new NotificationPage(),
-                }
-            ]
+            Children = Feedbacks.FeedbacksList
         },
         new()
         {
             Title = "Layout",
-            Children =
-            [
-                new Page
-                {
-                    Title = "GroupBorder",
-                    Content = new GroupBorderPage(),
-                },
-                new Page
-                {
-                    Title = "GridSplitter",
-                    Content = new GridSplitterPage(),
-                },
-                new Page
-                {
-                    Title = "ScrollViewer",
-                    Content = new ScrollViewerPage(),
-                },
-                new Page
-                {
-                    Title = "ThemeVariantScope",
-                    Content = new ThemeVariantScopePage(),
-                },
-                new Page
-                {
-                    Title = "HeaderedContent",
-                    Content = new HeaderedContentPage(),
-                },
-                new Page
-                {
-                    Title = "SplitView",
-                    Content = new SplitViewPage(),
-                },
-            ]
+            Children = Layouts.LayoutsList
         }
     ];
 
