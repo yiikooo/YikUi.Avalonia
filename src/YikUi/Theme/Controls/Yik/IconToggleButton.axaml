@@ -55,37 +55,9 @@
                 <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
                 <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
             </Style>
-
-            <Style Selector="^.Primary /template/ Border#PART_Background">
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonPrimaryIndeterminateBorderBrush}" />
-            </Style>
-            <Style Selector="^.Secondary /template/ Border#PART_Background">
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonSecondaryIndeterminateBorderBrush}" />
-            </Style>
-            <Style Selector="^.Tertiary /template/ Border#PART_Background">
-                <Setter Property="BorderBrush" Value="{DynamicResource ToggleButtonTertiaryIndeterminateBorderBrush}" />
-            </Style>
-            <Style Selector="^.Success /template/ Border#PART_Background">
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineSuccessBorderBrush}" />
-            </Style>
-            <Style Selector="^.Warning /template/ Border#PART_Background">
-                <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineWarningBorderBrush}" />
-            </Style>
             <Style Selector="^.Danger /template/ Border#PART_Background">
                 <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineDangerBorderBrush}" />
             </Style>
-            <Style Selector="^.Colorful">
-                <Style Selector="^.Primary">
-                    <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                        <Setter Property="Foreground" Value="{DynamicResource ButtonOutlineColorfulPrimaryForeground}" />
-                    </Style>
-                    <Style Selector="^ /template/ Border#PART_Background">
-                        <Setter Property="BorderBrush"
-                                Value="{DynamicResource ButtonOutlineColorfulPrimaryBorderBrush}" />
-                    </Style>
-                </Style>
-            </Style>
-
             <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             </Style>

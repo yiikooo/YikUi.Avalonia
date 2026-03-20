@@ -144,6 +144,201 @@
                     </WrapPanel>
                 </StackPanel>
             </yik:GroupBorder>
+            <yik:GroupBorder Header="IconSplitButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <yik:IconSplitButton Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton Content="IconSplitButton" />
+                        <yik:IconSplitButton Content="IconSplitButton" Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconSplitButton">
+                        <yik:IconSplitButton Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton Content="IconSplitButton" />
+                        <yik:IconSplitButton Content="IconSplitButton" Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </yik:GroupBorder>
+            <yik:GroupBorder Header="IconToggleButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <yik:IconToggleButton Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton Content="IconToggleButton" />
+                        <yik:IconToggleButton Content="IconToggleButton" Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconToggleButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconToggleButton">
+                        <yik:IconToggleButton Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton Content="IconToggleButton" />
+                        <yik:IconToggleButton Content="IconToggleButton" Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconToggleButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconToggleButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </yik:GroupBorder>
+            <yik:GroupBorder Header="IconToggleSplitButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <yik:IconToggleSplitButton Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton Content="IconToggleSplitButton" />
+                        <yik:IconToggleSplitButton Content="IconToggleSplitButton" Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconToggleSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconToggleSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconToggleSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconToggleSplitButton">
+                        <yik:IconToggleSplitButton Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton Content="IconToggleSplitButton" />
+                        <yik:IconToggleSplitButton Content="IconToggleSplitButton" Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconToggleSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconToggleSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconToggleSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconToggleSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </yik:GroupBorder>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

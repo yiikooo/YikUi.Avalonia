@@ -43,7 +43,7 @@
                                 <Style Selector="PathIcon">
                                     <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
                                 </Style>
-                                <Style Selector="yik|IconButton.Danger PathIcon">
+                                <Style Selector="yik|IconDropDownButton.Danger PathIcon">
                                     <Setter Property="Foreground" Value="White" />
                                 </Style>
                             </ContentPresenter.Styles>

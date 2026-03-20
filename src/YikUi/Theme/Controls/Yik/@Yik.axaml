@@ -51,5 +51,9 @@
         <ResourceInclude Source="DateTimePicker.axaml" />
         <ResourceInclude Source="DateRangePicker.axaml" />
         <ResourceInclude Source="IconDropDownButton.axaml" />
+        <ResourceInclude Source="IconSplitButton.axaml" />
+        <ResourceInclude Source="IconRepeatButton.axaml" />
+        <ResourceInclude Source="IconToggleButton.axaml" />
+        <ResourceInclude Source="IconToggleSplitButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
