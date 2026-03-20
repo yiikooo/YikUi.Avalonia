@@ -35,3 +35,4 @@ NumberDisplayer
 QRCode
 ScrollToButton
 TwoTonePathIcon
+Clock

@@ -43,5 +43,6 @@
         <ResourceInclude Source="QRCode.axaml" />
         <ResourceInclude Source="ScrollToButton.axaml" />
         <ResourceInclude Source="TwoTonePathIcon.axaml" />
+        <ResourceInclude Source="Clock.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

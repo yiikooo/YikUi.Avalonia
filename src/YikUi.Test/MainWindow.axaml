@@ -16,19 +16,12 @@
             M2 11.45a1 1 0 0 1 .33-.75l9-8.1a1 1 0 0 1 1.34 0l9 8.1a1 1 0 0 1 .33.75V20a2 2 0 0 1-2 2h-4a1 1 0 0 1-1-1v-4a3 3 0 0 0-6 0v4a1 1 0 0 1-1 1H4a2 2 0 0 1-2-2v-8.55Z
         </StreamGeometry>
     </yik:YikWindow.Resources>
-    <StackPanel>
-        <TextBlock Text="Size" />
-        <Slider
-            Maximum="100"
-            Minimum="0"
-            Name="width"
-            Value="20"
-            Width="300" />
-        <ToggleSwitch Content="Active" Name="active" />
-        <yik:TwoTonePathIcon
-            Data="{StaticResource SemiIconHome}"
-            Height="{Binding #width.Value}"
-            IsActive="{Binding ElementName=active, Path=IsChecked}"
-            Width="{Binding #width.Value}" />
+    <StackPanel Margin="20">
+        <ToggleSwitch Content="Smooth" Name="smooth" />
+        <yik:Clock
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            IsSmooth="{Binding #smooth.IsChecked}"
+            Time="{Binding Time}" />
     </StackPanel>
 </yik:YikWindow>
