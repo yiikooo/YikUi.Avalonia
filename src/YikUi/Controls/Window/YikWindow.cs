@@ -10,12 +10,11 @@ public class YikWindow : Window
 
     public YikWindow()
     {
-        // PropertyChanged += (_, args) =>
-        // {
-        //     if (args.Property != WindowStateProperty) return;
-        //     if (RootBorder != null)
-        //         RootBorder.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
-        // };
+        PropertyChanged += (_, args) =>
+        {
+            if (args.Property != WindowStateProperty) return;
+            RootBorder?.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
+        };
     }
 
     protected override Type StyleKeyOverride => typeof(YikWindow);
