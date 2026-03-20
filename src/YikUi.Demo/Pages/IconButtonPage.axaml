@@ -1,0 +1,149 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.IconButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <UserControl.Resources>
+        <StreamGeometry x:Key="Icon">F1 M448,512z M0,0z M224,0C206.3,0,192,14.3,192,32L192,35.2C119,50,64,114.6,64,192L64,213.7C64,261.8,47.6,308.5,17.6,346.1L7.8,358.3C2.7,364.6 0,372.4 0,380.5 0,400.1 15.9,416 35.5,416L412.4,416C432,416 447.9,400.1 447.9,380.5 447.9,372.4 445.2,364.6 440.1,358.3L430.3,346.1C400.4,308.5,384,261.8,384,213.7L384,192C384,114.6,329,50,256,35.2L256,32C256,14.3,241.7,-1.06581410364015E-14,224,-1.06581410364015E-14z M162,464C169.1,491.6 194.2,512 224,512 253.8,512 278.9,491.6 286,464L162,464z</StreamGeometry>
+    </UserControl.Resources>
+
+    <ScrollViewer Margin="0,0,5,0">
+        <StackPanel Margin="15,15,10,15" Spacing="10">
+            <yik:GroupBorder Header="IconButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <yik:IconButton Icon="{StaticResource Icon}" />
+                        <yik:IconButton Content="IconButton" />
+                        <yik:IconButton Content="IconButton" Icon="{StaticResource Icon}" />
+                        <yik:IconButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconButton">
+                        <yik:IconButton Icon="{StaticResource Icon}" />
+                        <yik:IconButton Content="IconButton" />
+                        <yik:IconButton Content="IconButton" Icon="{StaticResource Icon}" />
+                        <yik:IconButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </yik:GroupBorder>
+            <yik:GroupBorder Header="IconDropDownButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <yik:IconDropDownButton Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton Content="IconDropDownButton" />
+                        <yik:IconDropDownButton Content="IconDropDownButton" Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconDropDownButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconDropDownButton">
+                        <yik:IconDropDownButton Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton Content="IconDropDownButton" />
+                        <yik:IconDropDownButton Content="IconDropDownButton" Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <yik:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <yik:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <yik:IconDropDownButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <yik:IconDropDownButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </yik:GroupBorder>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

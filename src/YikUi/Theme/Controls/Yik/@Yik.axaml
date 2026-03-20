@@ -44,5 +44,12 @@
         <ResourceInclude Source="ScrollToButton.axaml" />
         <ResourceInclude Source="TwoTonePathIcon.axaml" />
         <ResourceInclude Source="Clock.axaml" />
+        <ResourceInclude Source="TimeBox.axaml" />
+        <ResourceInclude Source="TimePicker.axaml" />
+        <ResourceInclude Source="TimeRangePicker.axaml" />
+        <ResourceInclude Source="DatePicker.axaml" />
+        <ResourceInclude Source="DateTimePicker.axaml" />
+        <ResourceInclude Source="DateRangePicker.axaml" />
+        <ResourceInclude Source="IconDropDownButton.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

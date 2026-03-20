@@ -34,9 +34,23 @@
     <Thickness x:Key="ButtonBorderThickness">1</Thickness>
     <CornerRadius x:Key="ButtonCornerRadius">3</CornerRadius>
 
+
     <!--  Theme-specific resources  -->
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="Transparent" x:Key="ButtonOutlineBackground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.08"
+                x:Key="ButtonOutlineBorderBrush" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="ButtonOutlinePointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="ButtonOutlinePressedBackground" />
             <SolidColorBrush
                 Color="#1C1F23"
                 Opacity="0.35"
@@ -64,6 +78,19 @@
             <SolidColorBrush Color="#fdb7a5" x:Key="DangerButtonDefaultDisabledBackground" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="Transparent" x:Key="ButtonOutlineBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="ButtonOutlineBorderBrush" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="ButtonOutlinePointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="ButtonOutlinePressedBackground" />
             <SolidColorBrush
                 Color="#F9F9F9"
                 Opacity="0.35"
@@ -98,7 +125,77 @@
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
-    <ControlTheme TargetType="yik:IconButton" x:Key="{x:Type yik:IconButton}">
+    <ControlTemplate TargetType="ContentControl" x:Key="IconButtonTemplate">
+        <Border
+            Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}"
+            CornerRadius="{TemplateBinding CornerRadius}"
+            Padding="{TemplateBinding Padding}"
+            TextElement.FontSize="{TemplateBinding FontSize}"
+            TextElement.FontWeight="{TemplateBinding FontWeight}"
+            UseLayoutRounding="False">
+            <ReversibleStackPanel
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                Name="{x:Static yik:IconButton.PART_RootPanel}"
+                Orientation="Horizontal"
+                Spacing="8"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                <Panel Name="PART_IconRoot">
+                    <Panel.IsVisible>
+                        <MultiBinding Converter="{x:Static BoolConverters.Or}">
+                            <Binding Path="(yik:IconButton.IsLoading)"
+                                     RelativeSource="{RelativeSource TemplatedParent}" />
+                            <Binding
+                                Converter="{x:Static ObjectConverters.IsNotNull}"
+                                Path="(yik:IconButton.Icon)"
+                                RelativeSource="{RelativeSource TemplatedParent}" />
+                        </MultiBinding>
+                    </Panel.IsVisible>
+                    <ContentPresenter
+                        Content="{TemplateBinding (yik:IconButton.Icon)}"
+                        ContentTemplate="{TemplateBinding (yik:IconButton.IconTemplate)}"
+                        Foreground="{DynamicResource SystemAccentColor}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Opacity="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=!(yik:IconButton.IsLoading), Converter={StaticResource OpacityConverter}}"
+                        RecognizesAccessKey="True">
+                        <ContentPresenter.Styles>
+                            <Style Selector="PathIcon">
+                                <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
+                            </Style>
+                            <Style Selector="yik|IconButton.Danger PathIcon">
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ContentPresenter.Styles>
+                        <ContentPresenter.DataTemplates>
+                            <DataTemplate DataType="Geometry">
+                                <PathIcon
+                                    Data="{Binding}"
+                                    Foreground="{DynamicResource SystemAccentColor}"
+                                    Height="16"
+                                    Width="16" />
+                            </DataTemplate>
+                        </ContentPresenter.DataTemplates>
+                    </ContentPresenter>
+                    <yik:LoadingIcon
+                        Classes="Small"
+                        Foreground="{TemplateBinding Foreground}"
+                        IsLoading="{TemplateBinding (yik:IconButton.IsLoading)}"
+                        IsVisible="{TemplateBinding (yik:IconButton.IsLoading)}" />
+                </Panel>
+                <ContentPresenter
+                    Content="{TemplateBinding Content}"
+                    HorizontalAlignment="Center"
+                    IsVisible="{TemplateBinding Content,
+                                                Converter={x:Static ObjectConverters.IsNotNull}}"
+                    Name="PART_ContentPresenter"
+                    RecognizesAccessKey="True"
+                    VerticalAlignment="Center" />
+            </ReversibleStackPanel>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTheme TargetType="ContentControl" x:Key="BaseIconButton">
         <Setter Property="Background" Value="{DynamicResource ButtonDefaultBackground}" />
         <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultBorderBrush}" />
@@ -124,76 +221,6 @@
                     Easing="CircularEaseOut"
                     Property="Background" />
             </Transitions>
-        </Setter>
-        <Setter Property="Template">
-            <ControlTemplate TargetType="yik:IconButton">
-                <Border
-                    Background="{TemplateBinding Background}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    Padding="{TemplateBinding Padding}"
-                    TextElement.FontSize="{TemplateBinding FontSize}"
-                    TextElement.FontWeight="{TemplateBinding FontWeight}"
-                    UseLayoutRounding="False">
-                    <ReversibleStackPanel
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Name="{x:Static yik:IconButton.PART_RootPanel}"
-                        Orientation="Horizontal"
-                        Spacing="8"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                        <Panel Name="PART_IconRoot">
-                            <Panel.IsVisible>
-                                <MultiBinding Converter="{x:Static BoolConverters.Or}">
-                                    <Binding Path="IsLoading" RelativeSource="{RelativeSource TemplatedParent}" />
-                                    <Binding
-                                        Converter="{x:Static ObjectConverters.IsNotNull}"
-                                        Path="Icon"
-                                        RelativeSource="{RelativeSource TemplatedParent}" />
-                                </MultiBinding>
-                            </Panel.IsVisible>
-                            <ContentPresenter
-                                Content="{TemplateBinding Icon}"
-                                ContentTemplate="{TemplateBinding IconTemplate}"
-                                Foreground="{DynamicResource SystemAccentColor}"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                Opacity="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=!IsLoading, Converter={StaticResource OpacityConverter}}"
-                                RecognizesAccessKey="True">
-                                <ContentPresenter.Styles>
-                                    <Style Selector="PathIcon">
-                                        <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
-                                    </Style>
-                                    <Style Selector="yik|IconButton.Danger PathIcon">
-                                        <Setter Property="Foreground" Value="White" />
-                                    </Style>
-                                </ContentPresenter.Styles>
-                                <ContentPresenter.DataTemplates>
-                                    <DataTemplate DataType="Geometry">
-                                        <PathIcon
-                                            Data="{Binding}"
-                                            Foreground="{DynamicResource SystemAccentColor}"
-                                            Height="16"
-                                            Width="16" />
-                                    </DataTemplate>
-                                </ContentPresenter.DataTemplates>
-                            </ContentPresenter>
-                            <yik:LoadingIcon
-                                Classes="Small"
-                                Foreground="{TemplateBinding Foreground}"
-                                IsLoading="{TemplateBinding IsLoading}"
-                                IsVisible="{TemplateBinding IsLoading}" />
-                        </Panel>
-                        <ContentPresenter
-                            Content="{TemplateBinding Content}"
-                            HorizontalAlignment="Center"
-                            IsVisible="{TemplateBinding Content,
-                                                        Converter={x:Static ObjectConverters.IsNotNull}}"
-                            Name="PART_ContentPresenter"
-                            RecognizesAccessKey="True"
-                            VerticalAlignment="Center" />
-                    </ReversibleStackPanel>
-                </Border>
-            </ControlTemplate>
         </Setter>
 
         <Style Selector="^:pointerover">
@@ -292,6 +319,39 @@
         <Style Selector="^:empty-content">
             <Setter Property="MinWidth" Value="{Binding $self.MinHeight}" />
             <Setter Property="Padding" Value="0" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseIconButton}"
+        TargetType="yik:IconButton"
+        x:Key="{x:Type yik:IconButton}">
+        <Setter Property="Template" Value="{StaticResource IconButtonTemplate}" />
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseIconButton}"
+        TargetType="ContentControl"
+        x:Key="BaseOutlineIconButton">
+        <Style Selector="^ /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlinePressedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+        </Style>
+        <Style Selector="^:disabled /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonOutlineBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonOutlineBorderBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>
