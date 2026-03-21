@@ -2,7 +2,6 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Layout;
-using Ursa.Controls;
 using YikUi.Common;
 
 namespace YikUi.Controls;

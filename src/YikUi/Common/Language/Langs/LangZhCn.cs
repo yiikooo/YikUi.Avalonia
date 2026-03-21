@@ -29,4 +29,7 @@ public class LangZhCn : ILang
     public string Page => "页";
     public string EndTime => "结束时间";
     public string StartTime => "开始时间";
+    public string Yes => "是";
+    public string No => "否";
+    public string Close => "关闭";
 }

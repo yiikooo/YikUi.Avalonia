@@ -18,9 +18,15 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         SelectedPage = Pages[0];
         foreach (var page in Pages)
         {
-            if (page.Children is not { Count: > 0 }) continue;
-            Items += page.Children.Count;
-            page.Children = page.Children.OrderBy(child => child.Title).ToList();
+            if (page.Children is { Count: > 0 })
+            {
+                Items += page.Children.Count;
+                page.Children = page.Children.OrderBy(child => child.Title).ToList();
+            }
+            else
+            {
+                Items += 1;
+            }
         }
     }
 
@@ -135,5 +141,5 @@ public class Page
     public string Title { get; set; }
     public string Icon { get; set; }
     public UserControl Content { get; set; }
-    public List<Page> Children { get; set; }
+    public List<Page>? Children { get; set; }
 }

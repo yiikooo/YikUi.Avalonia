@@ -29,4 +29,7 @@ public class LangEnUs : ILang
     public string Page => "Page";
     public string EndTime => "End Time";
     public string StartTime => "Start Time";
+    public string Yes => "Yes";
+    public string No => "No";
+    public string Close => "Close";
 }

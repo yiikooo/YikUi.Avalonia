@@ -24,19 +24,19 @@
                     <yik:BreadcrumbItem Content="World" IsReadOnly="True" />
                     <yik:BreadcrumbItem Icon="?" Separator="♥" />
                     <TextBlock Text="Avalonia" />
-                    <TextBlock Text="Ursa" />
+                    <TextBlock Text="YikUi" />
                 </yik:Breadcrumb>
                 <yik:Breadcrumb Classes="Small">
                     <TextBlock Text="Hello" />
                     <yik:BreadcrumbItem Icon="?" Separator="♥" />
                     <TextBlock Text="Avalonia" />
-                    <TextBlock Text="Ursa" />
+                    <TextBlock Text="YikUi" />
                 </yik:Breadcrumb>
                 <yik:Breadcrumb>
                     <TextBlock Text="Hello" />
                     <yik:BreadcrumbItem Icon="?" Separator="♥" />
                     <TextBlock Text="Avalonia" />
-                    <TextBlock Text="Ursa" />
+                    <TextBlock Text="YikUi" />
                 </yik:Breadcrumb>
                 <yik:Breadcrumb
                     DisplayMemberBinding="{Binding Section}"

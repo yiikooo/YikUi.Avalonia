@@ -110,7 +110,7 @@
                     FontSize="{Binding #size.SelectedItem}"
                     Grid.Row="1"
                     HorizontalAlignment="Center"
-                    Text="Hello Ursa Avalonia"
+                    Text="Hello YikUi Avalonia"
                     VerticalAlignment="Center">
                     <TextBlock.Styles>
                         <Style Selector="TextBlock">

@@ -6,9 +6,8 @@ using Avalonia.Interactivity;
 using YikUi.Common;
 using YikUi.Common.Helpers;
 using YikUi.Common.Interfaces;
-using YikUi.Controls;
 
-namespace Ursa.Controls;
+namespace YikUi.Controls;
 
 [TemplatePart(PART_OKButton, typeof(Button))]
 [TemplatePart(PART_CancelButton, typeof(Button))]

@@ -8,6 +8,7 @@ public interface ILang
     public string Type { get; }
     public string Size { get; }
     public string Cancel { get; }
+    public string Close { get; }
     public string Confirm { get; }
     public string Ok { get; }
     public string ShowHiddenFiles { get; }
@@ -29,4 +30,10 @@ public interface ILang
     public string Page { get; }
     public string StartTime { get; }
     public string EndTime { get; }
+    public string Yes { get; }
+    public string No { get; }
+    public string BringForward { get; }
+    public string BringToFront { get; }
+    public string SendBackward { get; }
+    public string SendToBack { get; }
 }

@@ -19,6 +19,8 @@
         <ResourceInclude Source="PopConfirm.axaml" />
         <ResourceInclude Source="IPv4Box.axaml" />
         <ResourceInclude Source="Skeleton.axaml" />
+        <ResourceInclude Source="Dialog.axaml" />
+        <ResourceInclude Source="MessageBox.axaml" />
         <ResourceInclude Source="MultiComboBox.axaml" />
         <ResourceInclude Source="Calendar.axaml" />
         <ResourceInclude Source="MultiAutoCompleteBox.axaml" />

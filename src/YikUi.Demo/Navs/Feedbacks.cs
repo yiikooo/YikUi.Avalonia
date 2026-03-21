@@ -36,6 +36,16 @@ public static class Feedbacks
         {
             Title = "Notification",
             Content = new NotificationPage(),
+        },
+        new()
+        {
+            Title = "Loading",
+            Content = new LoadingPage(),
+        },
+        new()
+        {
+            Title = "MessageBox",
+            Content = new MessageBoxPage(),
         }
     ];
 }

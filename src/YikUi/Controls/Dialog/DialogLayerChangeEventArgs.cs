@@ -1,4 +1,5 @@
 using Avalonia.Interactivity;
+using YikUi.Common.Classes;
 
 namespace YikUi.Controls;
 
@@ -15,12 +16,4 @@ public class DialogLayerChangeEventArgs : RoutedEventArgs
     }
 
     public DialogLayerChangeType ChangeType { get; }
-}
-
-public enum DialogLayerChangeType
-{
-    BringForward,
-    SendBackward,
-    BringToFront,
-    SendToBack
 }

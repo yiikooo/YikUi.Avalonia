@@ -203,5 +203,24 @@
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark2}" />
         </Style>
+        <Style Selector="^.Danger /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="#f8f9fa" />
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultBackground}" />
+            <Setter Property="BorderBrush" Value="{TemplateBinding BorderBrush}" />
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^.Danger:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^.Danger:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^.Danger:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DangerButtonDefaultDisabledForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DangerButtonDefaultDisabledBackground}" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

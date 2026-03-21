@@ -8,7 +8,7 @@
                 <TextBlock Text="Hello" />
                 <yik:BreadcrumbItem Content="World" Icon="♥" />
                 <TextBlock Text="Avalonia" />
-                <TextBlock Text="Ursa" />
+                <TextBlock Text="YikUi" />
             </yik:Breadcrumb>
         </StackPanel>
     </Design.PreviewWith>

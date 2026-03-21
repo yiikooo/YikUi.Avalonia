@@ -1,0 +1,366 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="#0062D6" x:Key="SemiBlue6" />
+            <SolidColorBrush Color="#D52515" x:Key="SemiRed6" />
+            <SolidColorBrush Color="#D0AA00" x:Key="SemiYellow6" />
+            <SolidColorBrush Color="#D26700" x:Key="SemiOrange6" />
+            <SolidColorBrush Color="#30953B" x:Key="SemiGreen6" />
+            <SolidColorBrush Color="White" x:Key="SemiColorBackground3" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#7FC1FF" x:Key="SemiBlue6" />
+            <SolidColorBrush Color="#FD9983" x:Key="SemiRed6" />
+            <SolidColorBrush Color="#FDEB71" x:Key="SemiYellow6" />
+            <SolidColorBrush Color="#FFC772" x:Key="SemiOrange6" />
+            <SolidColorBrush Color="#7FD184" x:Key="SemiGreen6" />
+            <SolidColorBrush Color="#43444A" x:Key="SemiColorBackground3" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+    <StreamGeometry x:Key="SemiIconTickCircle">
+        M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.88-13.18-6.2 7.6a1.5 1.5 0 0 1-2.37 0l-3.5-4a1.5 1.5 0 1 1 2.37-1.84l2.3 2.46L15.5 8a1.5 1.5 0 1 1 2.38 1.82Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="SemiIconHelpCircle">
+        M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm-.17-8.4c-.86 0-1.3-.53-1.3-1.23 0-1.05.53-1.72 1.74-2.64l.06-.05c.83-.62 1.4-1.06 1.4-1.85 0-.9-.83-1.4-1.76-1.4-.76 0-1.34.28-1.8.87-.33.34-.6.53-1.05.53C8.38 8.83 8 8.3 8 7.7c0-.6.34-1.22.88-1.68A5.15 5.15 0 0 1 12.28 5c2.71 0 4.62 1.34 4.62 3.64 0 1.68-1 2.5-2.2 3.31-.8.59-1.17.93-1.48 1.62-.33.6-.58 1.04-1.4 1.04Zm-.02 4.17c-.94 0-1.71-.6-1.71-1.54 0-.94.77-1.55 1.7-1.55.95 0 1.7.6 1.7 1.55 0 .93-.75 1.54-1.7 1.54Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="SemiIconAlertTriangle">
+        m10.23 2.4-8.7 16.67A2 2 0 0 0 3.3 22h17.4a2 2 0 0 0 1.77-2.93L13.77 2.4a2 2 0 0 0-3.54 0ZM13.14 14a1.15 1.15 0 0 1-2.28 0l-.58-4.03a1.73 1.73 0 1 1 3.44 0l-.58 4.03Zm.36 4.49a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="SemiIconAlertCircle">
+        M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Zm-9.5 5.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0ZM12 5a1.9 1.9 0 0 0-1.89 2l.3 5.5a1.59 1.59 0 0 0 3.17 0l.3-5.5c.07-1.09-.8-2-1.88-2Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="SemiIconInfoCircle">
+        M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm2-16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm-5 3.75c0-.41.34-.75.75-.75h2.75a1 1 0 0 1 1 1v5.5h.75a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5h.75v-5h-.75a.75.75 0 0 1-.75-.75Z
+    </StreamGeometry>
+    <FontWeight x:Key="TextBlockTitleFontWeight">600</FontWeight>
+    <StaticResource ResourceKey="SemiIconInfoCircle" x:Key="DialogInformationIconGlyph" />
+    <StaticResource ResourceKey="SemiIconAlertCircle" x:Key="DialogErrorIconGlyph" />
+    <StaticResource ResourceKey="SemiIconAlertTriangle" x:Key="DialogWarningIconGlyph" />
+    <StaticResource ResourceKey="SemiIconHelpCircle" x:Key="DialogQuestionIconGlyph" />
+    <StaticResource ResourceKey="SemiIconTickCircle" x:Key="DialogSuccessIconGlyph" />
+    <ControlTheme TargetType="yik:MessageBoxWindow" x:Key="{x:Type yik:MessageBoxWindow}">
+        <Setter Property="Title" Value="{x:Null}" />
+        <Setter Property="Background" Value="{DynamicResource SemiColorBackground3}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
+        <Setter Property="Padding" Value="48 24" />
+        <Setter Property="SizeToContent" Value="WidthAndHeight" />
+        <Setter Property="WindowStartupLocation" Value="CenterOwner" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="1" />
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
+        <Setter Property="SystemDecorations">
+            <OnPlatform>
+                <OnPlatform.Windows>
+                    <SystemDecorations>Full</SystemDecorations>
+                </OnPlatform.Windows>
+                <OnPlatform.Default>
+                    <SystemDecorations>BorderOnly</SystemDecorations>
+                </OnPlatform.Default>
+            </OnPlatform>
+        </Setter>
+        <Setter Property="CanResize" Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:MessageBoxWindow">
+                <Panel>
+                    <Border IsHitTestVisible="False" Name="PART_TransparencyFallback" />
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BackgroundSizing="InnerBorderEdge"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        IsHitTestVisible="False" />
+                    <Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
+                    <VisualLayerManager>
+                        <Grid RowDefinitions="Auto, *, Auto">
+                            <Grid
+                                ColumnDefinitions="Auto, *, Auto"
+                                Grid.Row="0"
+                                Margin="24,24,24,0">
+                                <PathIcon
+                                    Classes="ExtraLarge"
+                                    Grid.Column="0"
+                                    Height="16"
+                                    IsHitTestVisible="False"
+                                    Margin="0,0,8,0"
+                                    Name="PART_Icon"
+                                    VerticalAlignment="Center"
+                                    Width="16" />
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="{DynamicResource TextBlockTitleFontWeight}"
+                                    Grid.Column="1"
+                                    IsHitTestVisible="False"
+                                    Text="{TemplateBinding Title}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"
+                                    VerticalAlignment="Center" />
+                                <Button
+                                    Grid.Column="2"
+                                    Name="{x:Static yik:MessageBoxWindow.PART_CloseButton}"
+                                    Theme="{DynamicResource CloseButton}" />
+                            </Grid>
+                            <Grid
+                                ColumnDefinitions="Auto, *"
+                                Grid.Row="1"
+                                Margin="{TemplateBinding Padding}"
+                                MaxWidth="320">
+                                <ScrollViewer
+                                    Grid.Column="1"
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    MaxHeight="300"
+                                    Padding="0,0,10,0"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <ContentPresenter
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Name="PART_ContentPresenter"
+                                        TextAlignment="Left"
+                                        TextWrapping="Wrap"
+                                        VerticalAlignment="Center" />
+                                </ScrollViewer>
+                            </Grid>
+                            <StackPanel
+                                Grid.Row="2"
+                                HorizontalAlignment="Right"
+                                Margin="24,0,24,24"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_CancelButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_NoButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_YesButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_OKButton}" />
+                            </StackPanel>
+                        </Grid>
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Button#PART_CancelButton">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Tertiary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Cancel}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_NoButton">
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Danger" />
+            <Setter Property="Content" Value="{DynamicResource Lang.No}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_YesButton">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Yes}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_OKButton">
+            <Setter Property="Grid.Column" Value="3" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Ok}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^[MessageIcon=None] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style
+            Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogInformationIconGlyph}" />
+        </Style>
+        <Style
+            Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiRed6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogErrorIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Exclamation] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiYellow6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogWarningIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Question] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogQuestionIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Warning] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiOrange6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogWarningIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Success] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiGreen6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogSuccessIconGlyph}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="yik:MessageBoxControl" x:Key="{x:Type yik:MessageBoxControl}">
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Padding" Value="48 24" />
+        <Setter Property="yik:DialogControlBase.CanDragMove" Value="True" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:MessageBoxControl">
+                <Border
+                    Background="{DynamicResource SemiColorBackground3}"
+                    Classes="Shadow"
+                    ClipToBounds="False"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Focusable="True"
+                    HorizontalAlignment="Center"
+                    IsHitTestVisible="True"
+                    Padding="0"
+                    Theme="{DynamicResource CardBorder}"
+                    VerticalAlignment="Center">
+                    <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid RowDefinitions="Auto, *, Auto">
+                            <Grid ColumnDefinitions="Auto, *, Auto" Grid.Row="0">
+                                <Panel
+                                    Background="Transparent"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Name="{x:Static yik:DialogControlBase.PART_TitleArea}" />
+                                <PathIcon
+                                    Classes="ExtraLarge"
+                                    Grid.Column="0"
+                                    Height="16"
+                                    IsHitTestVisible="False"
+                                    Margin="24,24,8,0"
+                                    Name="PART_Icon"
+                                    VerticalAlignment="Center"
+                                    Width="16" />
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="{DynamicResource TextBlockTitleFontWeight}"
+                                    Grid.Column="1"
+                                    IsHitTestVisible="False"
+                                    Margin="0,24,0,0"
+                                    Name="PART_Title"
+                                    Text="{TemplateBinding Title}"
+                                    TextTrimming="CharacterEllipsis"
+                                    TextWrapping="NoWrap"
+                                    VerticalAlignment="Center" />
+                                <Button
+                                    Grid.Column="2"
+                                    Margin="0,24,24,0"
+                                    Name="{x:Static yik:MessageBoxWindow.PART_CloseButton}"
+                                    Theme="{DynamicResource OverlayCloseButton}" />
+                            </Grid>
+                            <Grid
+                                Grid.Row="1"
+                                Margin="{TemplateBinding Padding}"
+                                MaxWidth="320">
+                                <ScrollViewer
+                                    HorizontalScrollBarVisibility="Disabled"
+                                    MaxHeight="300"
+                                    Padding="0,0,10,0"
+                                    VerticalScrollBarVisibility="Auto">
+                                    <ContentPresenter
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Name="PART_ContentPresenter"
+                                        TextAlignment="Left"
+                                        TextWrapping="Wrap"
+                                        VerticalAlignment="Center" />
+                                </ScrollViewer>
+                            </Grid>
+                            <StackPanel
+                                Grid.Row="2"
+                                HorizontalAlignment="Right"
+                                Margin="24,0,24,24"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_CancelButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_NoButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_YesButton}" />
+                                <Button Name="{x:Static yik:MessageBoxControl.PART_OKButton}" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^ /template/ Panel#PART_TitleArea">
+            <Setter Property="ContextFlyout">
+                <MenuFlyout>
+                    <MenuItem Command="{Binding $parent[yik:MessageBoxControl].Close}"
+                              Header="{DynamicResource Lang.Close}">
+                        <MenuItem.Icon>
+                            <PathIcon
+                                Data="{DynamicResource Close}"
+                                Height="16"
+                                Width="16" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuFlyout>
+            </Setter>
+        </Style>
+        <Style Selector="^ /template/ Button#PART_CancelButton">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Tertiary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Cancel}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_NoButton">
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Danger" />
+            <Setter Property="Content" Value="{DynamicResource Lang.No}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_YesButton">
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Yes}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^ /template/ Button#PART_OKButton">
+            <Setter Property="Grid.Column" Value="3" />
+            <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Ok}" />
+            <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+        </Style>
+        <Style Selector="^[MessageIcon=None] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^[MessageIcon=None] /template/ TextBlock#PART_Title">
+            <Setter Property="Margin" Value="24 24 0 0" />
+        </Style>
+        <Style
+            Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogInformationIconGlyph}" />
+        </Style>
+        <Style
+            Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiRed6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogErrorIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Exclamation] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiYellow6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogWarningIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Question] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogQuestionIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Warning] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiOrange6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogWarningIconGlyph}" />
+        </Style>
+        <Style Selector="^[MessageIcon=Success] /template/ PathIcon#PART_Icon">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Foreground" Value="{DynamicResource SemiGreen6}" />
+            <Setter Property="Data" Value="{DynamicResource DialogSuccessIconGlyph}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>
