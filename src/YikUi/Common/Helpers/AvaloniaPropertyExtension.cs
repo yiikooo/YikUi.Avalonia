@@ -1,3 +1,4 @@
+using System.Reflection;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -43,7 +44,17 @@ public static class AvaloniaPropertyExtension
         where TControl : Control
         where TArgs : RoutedEventArgs, new()
     {
-        control.Classes.Set(pseudoClass, args.NewValue.Value);
+        var pseudoClassesProperty =
+            typeof(StyledElement).GetProperty("PseudoClasses", BindingFlags.NonPublic | BindingFlags.Instance);
+        if (pseudoClassesProperty != null)
+        {
+            var pseudoClasses = pseudoClassesProperty.GetValue(control) as IPseudoClasses;
+            if (pseudoClasses != null)
+            {
+                pseudoClasses.Set(pseudoClass, args.NewValue.Value);
+            }
+        }
+
         if (routedEvent is not null) control.RaiseEvent(new TArgs { RoutedEvent = routedEvent });
     }
 
