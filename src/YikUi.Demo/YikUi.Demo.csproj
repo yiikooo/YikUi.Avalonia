@@ -26,13 +26,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.12"/>
-        <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0-beta2"/>
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
-        <PackageReference Include="HotAvalonia" Version="3.1.0"/>
+        <PackageReference Include="Avalonia"/>
+        <PackageReference Include="Avalonia.Desktop"/>
+        <PackageReference Include="Avalonia.Diagnostics"/>
+        <PackageReference Include="Avalonia.Fonts.Inter"/>
+        <PackageReference Include="AvaloniaUI.DiagnosticsSupport"/>
+        <PackageReference Include="CommunityToolkit.Mvvm"/>
+        <PackageReference Include="HotAvalonia"/>
     </ItemGroup>
 
     <ItemGroup>
