@@ -1,4 +1,3 @@
-using System.Reflection;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -12,7 +11,10 @@ public static class AvaloniaPropertyExtension
         T value,
         params AvaloniaObject?[] objects)
     {
-        foreach (var obj in objects) obj?.SetValue(property, value);
+        foreach (var obj in objects)
+        {
+            obj?.SetValue(property, value);
+        }
     }
 
     public static void SetValue<T, TControl>(
@@ -21,7 +23,10 @@ public static class AvaloniaPropertyExtension
         IEnumerable<TControl?> objects)
         where TControl : AvaloniaObject
     {
-        foreach (var obj in objects) obj?.SetValue(property, value);
+        foreach (var obj in objects)
+        {
+            obj?.SetValue(property, value);
+        }
     }
 
     public static void AffectsPseudoClass<TControl>(
@@ -44,18 +49,11 @@ public static class AvaloniaPropertyExtension
         where TControl : Control
         where TArgs : RoutedEventArgs, new()
     {
-        var pseudoClassesProperty =
-            typeof(StyledElement).GetProperty("PseudoClasses", BindingFlags.NonPublic | BindingFlags.Instance);
-        if (pseudoClassesProperty != null)
+        PseudoClassesExtensions.Set(control.Classes, pseudoClass, args.NewValue.Value);
+        if (routedEvent is not null)
         {
-            var pseudoClasses = pseudoClassesProperty.GetValue(control) as IPseudoClasses;
-            if (pseudoClasses != null)
-            {
-                pseudoClasses.Set(pseudoClass, args.NewValue.Value);
-            }
+            control.RaiseEvent(new TArgs() { RoutedEvent = routedEvent });
         }
-
-        if (routedEvent is not null) control.RaiseEvent(new TArgs { RoutedEvent = routedEvent });
     }
 
     public static void AffectsPseudoClass<TControl, TArgs>(
