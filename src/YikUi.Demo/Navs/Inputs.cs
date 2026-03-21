@@ -39,13 +39,88 @@ public class Inputs
         },
         new()
         {
+            Title = "EnumSelector",
+            Content = new EnumSelectorPage(),
+        },
+        new()
+        {
+            Title = "Form",
+            Content = new FormPage(),
+        },
+        new()
+        {
+            Title = "MultiComboBox",
+            Content = new MultiComboBoxPage(),
+        },
+        new()
+        {
+            Title = "NumPad",
+            Content = new NumPadPage(),
+        },
+        new()
+        {
+            Title = "Rating",
+            Content = new RatingPage(),
+        },
+        new()
+        {
+            Title = "SelectionList",
+            Content = new SelectionListPage(),
+        },
+        new()
+        {
+            Title = "MultiAutoCompleteBox",
+            Content = new MultiAutoCompleteBoxPage(),
+        },
+        new()
+        {
+            Title = "RangeSlider",
+            Content = new RangeSliderPage(),
+        },
+        new()
+        {
+            Title = "TreeComboBox",
+            Content = new TreeComboBoxPage(),
+        },
+        new()
+        {
+            Title = "KeyGestureInput",
+            Content = new KeyGestureInputPage(),
+        },
+        new()
+        {
+            Title = "IPv4Box",
+            Content = new IPv4BoxPage(),
+        },
+        new()
+        {
+            Title = "PathPicker",
+            Content = new PathPickerPage(),
+        },
+        new()
+        {
+            Title = "PinCode",
+            Content = new PinCodePage(),
+        },
+        new()
+        {
             Title = "ButtonSpinnerPage",
             Content = new ButtonSpinnerPage(),
         },
         new()
         {
+            Title = "TagInput",
+            Content = new TagInputPage(),
+        },
+        new()
+        {
             Title = "NumericUpDown",
             Content = new NumericUpDownPage(),
+        },
+        new()
+        {
+            Title = "NumericUpDown(yik)",
+            Content = new NumericUpDownYikPage(),
         },
         new()
         {

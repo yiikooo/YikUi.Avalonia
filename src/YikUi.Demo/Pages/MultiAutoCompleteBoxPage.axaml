@@ -1,0 +1,48 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.MultiAutoCompleteBoxPage"
+    x:DataType="pages:MultiAutoCompleteBoxDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="MultiAutoCompleteBox"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <yik:MultiAutoCompleteBox
+                    FilterMode="Custom"
+                    InnerLeftContent="Controls"
+                    ItemFilter="{Binding FilterPredicate}"
+                    ItemsSource="{Binding Items}"
+                    MaxWidth="400"
+                    SelectedItems="{Binding SelectedItems}">
+                    <yik:MultiAutoCompleteBox.ItemTemplate>
+                        <DataTemplate DataType="pages:ControlData">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding MenuHeader}" VerticalAlignment="Center" />
+                                <TextBlock
+                                    Classes="Secondary"
+                                    FontSize="12"
+                                    Margin="8,0,0,0"
+                                    Text="{Binding Chinese}"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </yik:MultiAutoCompleteBox.ItemTemplate>
+                    <yik:MultiAutoCompleteBox.SelectedItemTemplate>
+                        <DataTemplate DataType="pages:ControlData">
+                            <TextBlock Text="{Binding MenuHeader}" />
+                        </DataTemplate>
+                    </yik:MultiAutoCompleteBox.SelectedItemTemplate>
+                </yik:MultiAutoCompleteBox>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

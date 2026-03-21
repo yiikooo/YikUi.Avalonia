@@ -1,9 +1,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using CommunityToolkit.Mvvm.Input;
 
 namespace YikUi.Demo.Pages;
@@ -38,8 +36,5 @@ public class ButtonItem
 
     private async Task Invoke()
     {
-        var lifetime = Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-        var w = lifetime.MainWindow as MainWindow;
-        w.toast.Show("Action !");
     }
 }

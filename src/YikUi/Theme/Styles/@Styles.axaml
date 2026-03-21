@@ -8,4 +8,5 @@
     <StyleInclude Source="PopupAnimation.axaml" />
     <StyleInclude Source="Menu.axaml" />
     <StyleInclude Source="GroupBorder.axaml" />
+    <StyleInclude Source="PathIcon.axaml" />
 </Styles>

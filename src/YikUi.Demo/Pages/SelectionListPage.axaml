@@ -1,0 +1,72 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.SelectionListPage"
+    x:DataType="pages:SelectionListDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="SelectionList"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <yik:SelectionList
+                    HorizontalAlignment="Center"
+                    ItemsSource="{Binding Items}"
+                    SelectedItem="{Binding SelectedItem}"
+                    Width="600">
+                    <yik:SelectionList.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </yik:SelectionList.ItemsPanel>
+                </yik:SelectionList>
+                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
+                <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}">
+                    <yik:SelectionList.Indicator>
+                        <Border Background="Transparent" CornerRadius="4">
+                            <Border
+                                Background="#0062d6"
+                                CornerRadius="4"
+                                HorizontalAlignment="Left"
+                                Margin="0,8"
+                                VerticalAlignment="Stretch"
+                                Width="4" />
+                        </Border>
+                    </yik:SelectionList.Indicator>
+                    <yik:SelectionList.ItemTemplate>
+                        <DataTemplate>
+                            <Panel Height="40">
+                                <TextBlock
+                                    Classes.Active="{Binding $parent[yik:SelectionListItem].IsSelected, Mode=OneWay}"
+                                    Margin="8,0"
+                                    Text="{Binding}"
+                                    VerticalAlignment="Center">
+                                    <TextBlock.Styles>
+                                        <Style Selector="TextBlock.Active">
+                                            <Setter Property="Foreground" Value="#df7f00" />
+                                        </Style>
+                                    </TextBlock.Styles>
+                                </TextBlock>
+                            </Panel>
+                        </DataTemplate>
+                    </yik:SelectionList.ItemTemplate>
+                </yik:SelectionList>
+                <SplitButton Content="Button With Selection">
+                    <SplitButton.Flyout>
+                        <Flyout>
+                            <yik:SelectionList ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" />
+                        </Flyout>
+                    </SplitButton.Flyout>
+                </SplitButton>
+                <Button Command="{Binding Clear}" Margin="0,12">Clear</Button>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

@@ -54,5 +54,6 @@
         <ResourceInclude Source="IconSplitButton.axaml" />
         <ResourceInclude Source="IconRepeatButton.axaml" />
         <ResourceInclude Source="IconToggleButton.axaml" />
+        <ResourceInclude Source="PathPicker.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

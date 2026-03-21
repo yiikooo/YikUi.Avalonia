@@ -1,0 +1,53 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.NumPadPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="NumPad"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    Watermark="Invoke NumPad"
+                    yik:NumPad.Attach="True" />
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    Watermark="Invoke NumPad"
+                    yik:NumPad.Attach="True" />
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    Watermark="Invoke NumPad"
+                    yik:NumPad.Attach="True" />
+                <yik:IPv4Box
+                    InputMode="Fast"
+                    ShowLeadingZero="False"
+                    Width="200"
+                    yik:NumPad.Attach="True" />
+                <yik:NumericIntUpDown
+                    HorizontalAlignment="Stretch"
+                    Watermark="Invoke yik:NumericIntUpDown"
+                    yik:NumPad.Attach="True" />
+
+                <NumericUpDown
+                    ButtonSpinnerLocation="Left"
+                    Watermark="NumericUpDown"
+                    yik:NumPad.Attach="True" />
+
+                <Border Theme="{StaticResource CardBorder}">
+                    <StackPanel>
+                        <TextBox Name="text" Width="200" />
+                        <yik:NumPad Target="{Binding #text}" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

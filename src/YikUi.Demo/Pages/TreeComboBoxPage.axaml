@@ -1,0 +1,73 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.TreeComboBoxPage"
+    x:DataType="pages:TreeComboBoxDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="TreeComboBox"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <yik:TreeComboBox HorizontalAlignment="Left" Width="300">
+                    <yik:TreeComboBoxItem Header="Hello">
+                        <yik:TreeComboBoxItem Header="Hello World">
+                            <yik:TreeComboBoxItem Header="Hello World 1" />
+                            <yik:TreeComboBoxItem Header="Hello World 2" />
+                            <yik:TreeComboBoxItem Header="Hello World 3" />
+                        </yik:TreeComboBoxItem>
+                        <yik:TreeComboBoxItem Header="Hello Avalonia" />
+                        <yik:TreeComboBoxItem Header="Hello Another" />
+                    </yik:TreeComboBoxItem>
+                    <yik:TreeComboBoxItem Header="World">
+                        <yik:TreeComboBoxItem Header="World Hello" />
+                        <yik:TreeComboBoxItem Header="World Avalonia" />
+                        <yik:TreeComboBoxItem Header="World Another" />
+                    </yik:TreeComboBoxItem>
+                </yik:TreeComboBox>
+                <yik:TreeComboBox
+                    HorizontalAlignment="Left"
+                    ItemsSource="{Binding Items}"
+                    SelectedItem="{Binding SelectedItem}"
+                    Watermark="Please select an item. "
+                    Width="300">
+                    <yik:TreeComboBox.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding ItemName}" />
+                        </TreeDataTemplate>
+                    </yik:TreeComboBox.ItemTemplate>
+                </yik:TreeComboBox>
+
+                <yik:TreeComboBox
+                    Classes="clearButton"
+                    HorizontalAlignment="Left"
+                    InnerLeftContent="Left"
+                    InnerRightContent="Right"
+                    ItemsSource="{Binding Items}"
+                    PopupInnerBottomContent="Bottom"
+                    PopupInnerTopContent="Top"
+                    SelectedItem="{Binding SelectedItem}"
+                    Watermark="Please select an item. "
+                    Width="300">
+                    <yik:TreeComboBox.Styles>
+                        <Style Selector="yik|TreeComboBoxItem" x:DataType="pages:TreeComboBoxItemViewModel">
+                            <Setter Property="IsSelectable" Value="{Binding IsSelectable}" />
+                        </Style>
+                    </yik:TreeComboBox.Styles>
+                    <yik:TreeComboBox.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding Children}">
+                            <TextBlock Text="{Binding ItemName}" />
+                        </TreeDataTemplate>
+                    </yik:TreeComboBox.ItemTemplate>
+                </yik:TreeComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

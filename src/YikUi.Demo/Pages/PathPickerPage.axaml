@@ -1,0 +1,150 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.PathPickerPage"
+    x:DataType="vm:PathPickerDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="PathPicker"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="7*,3*">
+                <ScrollViewer Grid.Column="0" Grid.Row="0">
+                    <StackPanel>
+                        <HeaderedContentControl Content="PathPicker aggregates a file selector and provides a Command property. The Command is triggered solely after opening the file selector and selecting a file, whereupon the Command receives an IReadOnlyList&lt;string&gt; parameter." Header="Functionality and Usage" />
+                        <yik:Form
+                            HorizontalAlignment="Stretch"
+                            LabelAlignment="Left"
+                            LabelPosition="Left"
+                            LabelWidth="*">
+                            <TextBox
+                                Name="Title"
+                                Text="选择文件"
+                                yik:FormItem.Label="Title" />
+                            <TextBox
+                                Name="SuggestedFileName"
+                                Watermark="filename(not have file extension)"
+                                yik:FormItem.Label="SuggestedFileName" />
+                            <TextBox
+                                Name="SuggestedStartPath"
+                                Watermark="D:\Win7 Help\win-x64"
+                                yik:FormItem.Label="SuggestedStartPath" />
+                            <TextBox
+                                Name="FileFilter"
+                                Watermark="[Name,Pattern] like this [123,*.exe,*.pdb] or [All][ImageAll][11,*.txt]"
+                                yik:FormItem.Label="FileFilter" />
+                            <TextBox
+                                Name="DefaultFileExtension"
+                                Watermark="json"
+                                yik:FormItem.Label="DefaultFileExtension" />
+                            <CheckBox
+                                Content="AllowMultiple"
+                                Name="AllowMultiple"
+                                yik:FormItem.NoLabel="True" />
+                            <CheckBox
+                                Content="Do not trigger the command after unselecting."
+                                Name="IsOmitCommandOnCancel"
+                                yik:FormItem.NoLabel="True" />
+                            <CheckBox
+                                Content="Clear the selection when unselecting."
+                                Name="IsClearSelectionOnCancel"
+                                yik:FormItem.NoLabel="True" />
+                            <yik:EnumSelector
+                                EnumType="yik:UsePickerTypes"
+                                Name="UsePickerType"
+                                yik:FormItem.Label="UsePickerType" />
+                            <yik:ControlClassesInput
+                                HorizontalAlignment="Left"
+                                Name="ClassInput"
+                                yik:FormItem.Label="Style Class">
+                                <yik:ControlClassesInput.Styles>
+                                    <Style Selector="yik|ControlClassesInput /template/ yik|TagInput">
+                                        <Setter Property="Watermark" Value="Available: Top" />
+                                    </Style>
+                                </yik:ControlClassesInput.Styles>
+                            </yik:ControlClassesInput>
+
+                        </yik:Form>
+                    </StackPanel>
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="0" Grid.Row="1">
+                    <StackPanel Spacing="2">
+                        <HeaderedContentControl Header="Default">
+                            <yik:PathPicker
+                                AllowMultiple="{Binding #AllowMultiple.IsChecked, Mode=TwoWay}"
+                                Command="{Binding SelectedCommand}"
+                                DefaultFileExtension="{Binding #DefaultFileExtension.Text}"
+                                FileFilter="{Binding #FileFilter.Text}"
+                                IsClearSelectionOnCancel="{Binding #IsClearSelectionOnCancel.IsChecked}"
+                                IsOmitCommandOnCancel="{Binding #IsOmitCommandOnCancel.IsChecked}"
+                                SelectedPaths="{Binding Paths, Mode=OneWayToSource}"
+                                SelectedPathsText="{Binding Path, Mode=OneWayToSource}"
+                                SuggestedFileName="{Binding #SuggestedFileName.Text}"
+                                SuggestedStartPath="{Binding #SuggestedStartPath.Text}"
+                                Title="{Binding #Title.Text}"
+                                UsePickerType="{Binding #UsePickerType.Value}"
+                                yik:ControlClassesInput.Source="{Binding #ClassInput}" />
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Header="ButtonPathPicker">
+                            <yik:PathPicker
+                                AllowMultiple="{Binding #AllowMultiple.IsChecked}"
+                                Command="{Binding SelectedCommand}"
+                                DefaultFileExtension="{Binding #DefaultFileExtension.Text}"
+                                FileFilter="{Binding #FileFilter.Text}"
+                                IsClearSelectionOnCancel="{Binding #IsClearSelectionOnCancel.IsChecked}"
+                                IsOmitCommandOnCancel="{Binding #IsOmitCommandOnCancel.IsChecked}"
+                                SelectedPaths="{Binding Paths, Mode=OneWayToSource}"
+                                SelectedPathsText="{Binding Path, Mode=OneWayToSource}"
+                                SuggestedFileName="{Binding #SuggestedFileName.Text}"
+                                SuggestedStartPath="{Binding #SuggestedStartPath.Text}"
+                                Theme="{DynamicResource ButtonPathPicker}"
+                                Title="{Binding #Title.Text}"
+                                UsePickerType="{Binding #UsePickerType.Value}" />
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Header="ListPathPicker">
+                            <yik:PathPicker
+                                AllowMultiple="{Binding #AllowMultiple.IsChecked}"
+                                Command="{Binding SelectedCommand}"
+                                DefaultFileExtension="{Binding #DefaultFileExtension.Text}"
+                                FileFilter="{Binding #FileFilter.Text}"
+                                IsClearSelectionOnCancel="{Binding #IsClearSelectionOnCancel.IsChecked}"
+                                IsOmitCommandOnCancel="{Binding #IsOmitCommandOnCancel.IsChecked}"
+                                SelectedPaths="{Binding Paths, Mode=OneWayToSource}"
+                                SelectedPathsText="{Binding Path, Mode=OneWayToSource}"
+                                SuggestedFileName="{Binding #SuggestedFileName.Text}"
+                                SuggestedStartPath="{Binding #SuggestedStartPath.Text}"
+                                Theme="{DynamicResource ListPathPicker}"
+                                Title="{Binding #Title.Text}"
+                                UsePickerType="{Binding #UsePickerType.Value}" />
+                        </HeaderedContentControl>
+                    </StackPanel>
+                </ScrollViewer>
+                <ScrollViewer
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.RowSpan="2">
+                    <StackPanel Spacing="1">
+                        <TextBlock Text="{Binding CommandTriggerCount, StringFormat='Command Trigger Count:{0}'}" />
+                        <HeaderedContentControl Header="SelectedPathsText">
+                            <TextBox
+                                IsReadOnly="True"
+                                Name="SelectedPath"
+                                Text="{Binding Path}"
+                                yik:FormItem.Label="SelectedPath" />
+                        </HeaderedContentControl>
+                        <HeaderedContentControl Header="SelectedPaths">
+                            <ListBox ItemsSource="{Binding Paths}" Name="SelectedPaths" />
+                        </HeaderedContentControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

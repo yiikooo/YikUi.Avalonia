@@ -92,7 +92,7 @@
                         Command="{Binding $parent[yik:TreeComboBox].Clear}"
                         Grid.Column="3"
                         IsVisible="False"
-                        Margin="8,0"
+                        Margin="7,0,8,0"
                         Name="PART_ClearButton"
                         Theme="{DynamicResource TransparentButton}">
                         <PathIcon
@@ -148,8 +148,7 @@
                                                                 Converter={x:Static ObjectConverters.IsNotNull}}"
                                     Margin="8,0,8,8"
                                     Name="PART_PopupFooter" />
-                                <ScrollViewer
-                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}">
+                                <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}">
                                     <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Margin="4,-1" />
                                 </ScrollViewer>
                             </DockPanel>
@@ -161,12 +160,10 @@
 
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^:pointerover /template/ Button#PART_ClearButton">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[yik:TreeComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[yik:TreeComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
             <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[yik:TreeComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[yik:TreeComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
             </Style>
         </Style>
 

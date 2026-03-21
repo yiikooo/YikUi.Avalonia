@@ -136,7 +136,7 @@
                                 Name="PART_IncreaseButton"
                                 Theme="{StaticResource ButtonSpinnerRepeatButton}">
                                 <PathIcon
-                                    Classes="ExtraSmall"
+                                    Classes="Small"
                                     Data="{DynamicResource ButtonSpinnerIncreaseButtonGlyph}"
                                     Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}"
                                     Theme="{DynamicResource InnerPathIcon}" />
@@ -146,7 +146,7 @@
                                 Name="PART_DecreaseButton"
                                 Theme="{StaticResource ButtonSpinnerRepeatButton}">
                                 <PathIcon
-                                    Classes="ExtraSmall"
+                                    Classes="Small"
                                     Data="{DynamicResource ButtonSpinnerDecreaseButtonGlyph}"
                                     Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}"
                                     Theme="{DynamicResource InnerPathIcon}" />

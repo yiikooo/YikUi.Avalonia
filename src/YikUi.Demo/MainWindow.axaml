@@ -96,7 +96,7 @@
                 SearchPlacement="Top"
                 SelectedItem="{Binding SelectedPage}"
                 SubMenuBinding="{Binding Children}"
-                Width="230"
+                Width="235"
                 x:Name="NavMenu">
                 <yik:NavMenu.Styles>
                     <Style Selector="yik|NavMenu /template/ ItemsPresenter#PART_ItemsPresenter">

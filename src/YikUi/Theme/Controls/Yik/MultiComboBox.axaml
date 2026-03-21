@@ -121,8 +121,7 @@
             <!--  DataValidationErrorsPointeroverBackground  -->
             <Color x:Key="SemiRed1Color">#FCE0D9</Color>
             <SolidColorBrush Color="{StaticResource SemiRed1Color}" x:Key="SemiColorDangerLightPointerover" />
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
 
             <!--  DataValidationErrorsPressedBackground  -->
             <Color x:Key="SemiRed2Color">#FAD0C4</Color>
@@ -148,8 +147,7 @@
 
             <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
             <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="SemiColorPrimaryPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryPointerover"
-                            x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
 
             <!--  ComboBoxSelectorBorderedPressedBackground  -->
             <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
@@ -167,8 +165,7 @@
             <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
 
             <!--  DataValidationErrorsPointeroverBorderBrush  -->
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
 
             <!--  DataValidationErrorsPressedBorderBrush  -->
             <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
@@ -215,8 +212,7 @@
 
             <!--  ComboBoxItemSelectedPointeroverBackground  -->
             <SolidColorBrush Color="#CCE6FF" x:Key="SemiColorPrimaryLightPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover"
-                            x:Key="ComboBoxItemSelectedPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
         </ResourceDictionary>
 
         <ResourceDictionary x:Key="Dark">
@@ -313,8 +309,7 @@
                 Color="#FC725A"
                 Opacity="0.3"
                 x:Key="SemiColorDangerLightPointerover" />
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
 
             <!--  DataValidationErrorsPressedBackground  -->
             <SolidColorBrush
@@ -341,8 +336,7 @@
 
             <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
             <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="SemiColorPrimaryPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryPointerover"
-                            x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
 
             <!--  ComboBoxSelectorBorderedPressedBackground  -->
             <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
@@ -361,8 +355,7 @@
             <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
 
             <!--  DataValidationErrorsPointeroverBorderBrush  -->
-            <StaticResource ResourceKey="SemiColorDangerLightPointerover"
-                            x:Key="DataValidationErrorsPointeroverBorderBrush" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
 
             <!--  DataValidationErrorsPressedBorderBrush  -->
             <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
@@ -415,8 +408,7 @@
                 Color="{DynamicResource SystemAccentColorLight1}"
                 Opacity="0.3"
                 x:Key="SemiColorPrimaryLightPointerover" />
-            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover"
-                            x:Key="ComboBoxItemSelectedPointeroverBackground" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
@@ -514,6 +506,7 @@
                                     Focusable="False"
                                     Grid.Column="4"
                                     IsVisible="False"
+                                    Margin="7,0,8,0"
                                     Name="ClearButton"
                                     Theme="{DynamicResource TransparentButton}">
                                     <PathIcon
@@ -539,10 +532,8 @@
                                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
                                 Padding="{DynamicResource ComboBoxPopupBorderPadding}">
                                 <DockPanel LastChildFill="True">
-                                    <ContentPresenter Content="{TemplateBinding PopupInnerTopContent}"
-                                                      DockPanel.Dock="Top" />
-                                    <ContentPresenter Content="{TemplateBinding PopupInnerBottomContent}"
-                                                      DockPanel.Dock="Bottom" />
+                                    <ContentPresenter Content="{TemplateBinding PopupInnerTopContent}" DockPanel.Dock="Top" />
+                                    <ContentPresenter Content="{TemplateBinding PopupInnerBottomContent}" DockPanel.Dock="Bottom" />
                                     <ScrollViewer
                                         Grid.IsSharedSizeScope="True"
                                         HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
