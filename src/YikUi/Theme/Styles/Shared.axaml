@@ -25,9 +25,4 @@
             </Animation>
         </Style.Animations>
     </Style>
-    <Style Selector="yik|OverlayDialogHost#PART_DialogHost">
-        <Style Selector="^ yik|PureRectangle">
-            <Setter Property="Background" Value="black" />
-        </Style>
-    </Style>
 </Styles>
