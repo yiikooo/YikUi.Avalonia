@@ -44,10 +44,10 @@ public partial class NumericUpDownDemoViewModel : ObservableObject
 
     private double _oldWidth = 300;
     [ObservableProperty] private NumberStyles _parsingNumberStyle = NumberStyles.AllowHexSpecifier;
+    [ObservableProperty] private string _PlaceholderText = "Water mark showed";
     [ObservableProperty] private bool _showButtonSpinner = true;
     [ObservableProperty] private UInt32 _step = 1;
     [ObservableProperty] private uint _value;
-    [ObservableProperty] private string _watermark = "Water mark showed";
     [ObservableProperty] private double _width = double.NaN;
 
 

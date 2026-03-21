@@ -19,8 +19,8 @@ public partial class MultiAutoCompleteBox
             defaultValue: 0,
             defaultBindingMode: BindingMode.TwoWay));
 
-    public static readonly StyledProperty<string?> WatermarkProperty =
-        TextBox.WatermarkProperty.AddOwner<MultiAutoCompleteBox>();
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
+        TextBox.PlaceholderTextProperty.AddOwner<MultiAutoCompleteBox>();
 
     /// <summary>
     /// Identifies the <see cref="MinimumPrefixLength" /> property.
@@ -406,10 +406,10 @@ public partial class MultiAutoCompleteBox
         set => SetValue(FilterModeProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     /// <summary>
@@ -444,8 +444,8 @@ public partial class MultiAutoCompleteBox
     /// </remarks>
     public AutoCompleteFilterPredicate<string> TextFilter
     {
-        get => GetValue(TextFilterProperty);
-        set => SetValue(TextFilterProperty, value);
+        get => GetValue(TextFilterProperty)!;
+        set => SetValue(TextFilterProperty!, value);
     }
 
     /// <summary>

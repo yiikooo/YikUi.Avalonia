@@ -130,9 +130,9 @@
                                 IsReadOnly="{TemplateBinding IsReadonly}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="{x:Static yik:TimePicker.PART_TextBox}"
+                                PlaceholderText="{TemplateBinding PlaceholderText}"
                                 Theme="{DynamicResource LooklessTextBox}"
-                                VerticalAlignment="Stretch"
-                                Watermark="{TemplateBinding Watermark}" />
+                                VerticalAlignment="Stretch" />
                             <Button
                                 Command="{Binding $parent[yik:TimePicker].Clear}"
                                 Focusable="False"

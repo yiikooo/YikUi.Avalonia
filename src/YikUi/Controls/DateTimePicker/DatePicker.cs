@@ -27,8 +27,9 @@ public class DatePicker : DatePickerBase, IClearControl
         AvaloniaProperty.Register<DatePicker, DateTime?>(
             nameof(SelectedDate), defaultBindingMode: BindingMode.TwoWay);
 
-    public static readonly StyledProperty<string?> WatermarkProperty = AvaloniaProperty.Register<DatePicker, string?>(
-        nameof(Watermark));
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
+        AvaloniaProperty.Register<DatePicker, string?>(
+            nameof(PlaceholderText));
 
     private Button? _button;
     private CalendarView? _calendar;
@@ -50,10 +51,10 @@ public class DatePicker : DatePickerBase, IClearControl
         set => SetValue(SelectedDateProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public void Clear()

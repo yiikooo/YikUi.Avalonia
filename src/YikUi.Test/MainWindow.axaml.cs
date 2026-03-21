@@ -11,11 +11,7 @@ public partial class MainWindow : YikWindow
 {
     public MainWindow()
     {
-#if DEBUG
-        InitializeComponent(attachDevTools: false);
-#else
         InitializeComponent();
-#endif
         DataContext = new Model();
         KeyBindings.Add(new KeyBinding
         {
@@ -44,5 +40,7 @@ public class ActionCommand : ICommand
 
     public bool CanExecute(object? parameter) => true;
     public void Execute(object? parameter) => _execute();
+#pragma warning disable CS0067
     public event EventHandler? CanExecuteChanged;
+#pragma warning restore CS0067
 }

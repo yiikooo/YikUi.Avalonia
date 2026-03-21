@@ -85,8 +85,8 @@
                                 <TextBox
                                     FontSize="14"
                                     IsVisible="{Binding !SelectingFolder}"
-                                    Text="{Binding FileName}"
-                                    Watermark="{DynamicResource Lang.FileName}" />
+                                    PlaceholderText="{DynamicResource Lang.FileName}"
+                                    Text="{Binding FileName}" />
                             </DockPanel>
                             <CheckBox
                                 Content="{DynamicResource Lang.ShowHiddenFiles}"

@@ -16,15 +16,15 @@
             <StackPanel HorizontalAlignment="Left" Spacing="20">
                 <TextBox
                     HorizontalAlignment="Stretch"
-                    Watermark="Invoke NumPad"
+                    PlaceholderText="Invoke NumPad"
                     yik:NumPad.Attach="True" />
                 <TextBox
                     HorizontalAlignment="Stretch"
-                    Watermark="Invoke NumPad"
+                    PlaceholderText="Invoke NumPad"
                     yik:NumPad.Attach="True" />
                 <TextBox
                     HorizontalAlignment="Stretch"
-                    Watermark="Invoke NumPad"
+                    PlaceholderText="Invoke NumPad"
                     yik:NumPad.Attach="True" />
                 <yik:IPv4Box
                     InputMode="Fast"
@@ -33,12 +33,12 @@
                     yik:NumPad.Attach="True" />
                 <yik:NumericIntUpDown
                     HorizontalAlignment="Stretch"
-                    Watermark="Invoke yik:NumericIntUpDown"
+                    PlaceholderText="Invoke yik:NumericIntUpDown"
                     yik:NumPad.Attach="True" />
 
                 <NumericUpDown
                     ButtonSpinnerLocation="Left"
-                    Watermark="NumericUpDown"
+                    PlaceholderText="NumericUpDown"
                     yik:NumPad.Attach="True" />
 
                 <Border Theme="{StaticResource CardBorder}">

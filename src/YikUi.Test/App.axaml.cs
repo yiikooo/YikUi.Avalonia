@@ -18,7 +18,7 @@ public partial class App : Application
             desktop.MainWindow = new MainWindow();
         }
 
-        this.AttachDevTools();
+        this.AttachDeveloperTools();
         base.OnFrameworkInitializationCompleted();
     }
 }

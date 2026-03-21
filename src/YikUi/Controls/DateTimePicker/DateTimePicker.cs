@@ -28,9 +28,9 @@ public class DateTimePicker : DatePickerBase
         AvaloniaProperty.Register<DateTimePicker, DateTime?>(
             nameof(SelectedDate), defaultBindingMode: BindingMode.TwoWay);
 
-    public static readonly StyledProperty<string?> WatermarkProperty =
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
         AvaloniaProperty.Register<DateTimePicker, string?>(
-            nameof(Watermark));
+            nameof(PlaceholderText));
 
     public static readonly StyledProperty<string> PanelFormatProperty = AvaloniaProperty.Register<TimePicker, string>(
         nameof(PanelFormat), "HH mm ss");
@@ -63,10 +63,10 @@ public class DateTimePicker : DatePickerBase
         set => SetValue(SelectedDateProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public string PanelFormat

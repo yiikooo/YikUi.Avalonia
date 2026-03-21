@@ -24,7 +24,7 @@ public class AutoCompleteBox : Avalonia.Controls.AutoCompleteBox, IClearControl
 
     public AutoCompleteBox()
     {
-        AddHandler(PointerReleasedEvent, OnCurrentPointerReleased, RoutingStrategies.Tunnel);
+        AddHandler(PointerReleasedEvent, OnCurrentPointerReleased!, RoutingStrategies.Tunnel);
     }
 
     public void Clear()

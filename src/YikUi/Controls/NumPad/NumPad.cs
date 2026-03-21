@@ -181,7 +181,7 @@ public class NumPad : TemplatedControl
             return null;
         }
 
-        var rect = GetTargetRect(target);
+        var rect = GetTargetRect(target!);
 
         var showBelow = CanShowBelow(rect, topLevel);
 

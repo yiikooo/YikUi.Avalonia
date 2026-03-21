@@ -267,9 +267,9 @@
                                 <Panel>
                                     <TextBlock
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        Name="PART_Watermark"
+                                        Name="PART_PlaceholderText"
                                         Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
@@ -484,9 +484,9 @@
                             <Panel>
                                 <TextBlock
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    Name="PART_Watermark"
+                                    Name="PART_PlaceholderText"
                                     Opacity="0.5"
-                                    Text="{TemplateBinding Watermark}"
+                                    Text="{TemplateBinding PlaceholderText}"
                                     TextAlignment="{TemplateBinding TextAlignment}"
                                     TextWrapping="{TemplateBinding TextWrapping}"
                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
@@ -577,9 +577,9 @@
                                 <Panel>
                                     <TextBlock
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        Name="PART_Watermark"
+                                        Name="PART_PlaceholderText"
                                         Opacity="0.5"
-                                        Text="{TemplateBinding Watermark}"
+                                        Text="{TemplateBinding PlaceholderText}"
                                         TextAlignment="{TemplateBinding TextAlignment}"
                                         TextWrapping="{TemplateBinding TextWrapping}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}">

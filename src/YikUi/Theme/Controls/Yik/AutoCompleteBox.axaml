@@ -23,8 +23,8 @@
                         InnerRightContent="{TemplateBinding InnerRightContent}"
                         MinHeight="{TemplateBinding MinHeight}"
                         Name="PART_TextBox"
-                        VerticalAlignment="Stretch"
-                        Watermark="{TemplateBinding Watermark}" />
+                        PlaceholderText="{TemplateBinding PlaceholderText}"
+                        VerticalAlignment="Stretch" />
                     <Button
                         Command="{Binding $parent[yik:AutoCompleteBox].Clear}"
                         HorizontalAlignment="Right"

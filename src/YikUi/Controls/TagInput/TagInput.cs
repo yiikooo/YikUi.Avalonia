@@ -16,18 +16,19 @@ using YikUi.Common.Helpers;
 namespace YikUi.Controls;
 
 [TemplatePart(PART_ItemsControl, typeof(ItemsControl))]
-[TemplatePart(PART_Watermark, typeof(Visual))]
+[TemplatePart(PART_PlaceholderText, typeof(Visual))]
 [PseudoClasses(PseudoClassName.PC_Empty)]
 public class TagInput : TemplatedControl
 {
     public const string PART_ItemsControl = "PART_ItemsControl";
-    public const string PART_Watermark = "PART_Watermark";
+    public const string PART_PlaceholderText = "PART_PlaceholderText";
 
     public static readonly StyledProperty<IList<string>> TagsProperty =
         AvaloniaProperty.Register<TagInput, IList<string>>(
             nameof(Tags));
 
-    public static readonly StyledProperty<string?> WatermarkProperty = TextBox.WatermarkProperty.AddOwner<TagInput>();
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
+        TextBox.PlaceholderTextProperty.AddOwner<TagInput>();
 
 
     public static readonly StyledProperty<bool> AcceptsReturnProperty =
@@ -71,9 +72,9 @@ public class TagInput : TemplatedControl
 
     private IList _items = null!;
     private ItemsControl? _itemsControl;
+    private Visual? _PlaceholderText;
 
     private TextPresenter? _presenter;
-    private Visual? _watermark;
 
 
     static TagInput()
@@ -103,10 +104,10 @@ public class TagInput : TemplatedControl
         set => SetValue(AcceptsReturnProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public IList<string> Tags
@@ -186,15 +187,16 @@ public class TagInput : TemplatedControl
     {
         base.OnApplyTemplate(e);
         _itemsControl = e.NameScope.Find<ItemsControl>(PART_ItemsControl);
-        _watermark = e.NameScope.Find<Visual>(PART_Watermark);
+        _PlaceholderText = e.NameScope.Find<Visual>(PART_PlaceholderText);
     }
 
     protected override void OnLoaded(RoutedEventArgs e)
     {
         base.OnLoaded(e);
-        if (_watermark is null) return;
+        if (_PlaceholderText is null) return;
         _presenter = _textBox.GetTemplateChildren().OfType<TextPresenter>().FirstOrDefault();
-        ObservableExtensions.Subscribe(_presenter?.GetObservable(TextPresenter.PreeditTextProperty), _ => CheckEmpty());
+        ObservableExtensions.Subscribe(_presenter?.GetObservable(TextPresenter.PreeditTextProperty)!,
+            _ => CheckEmpty());
         ObservableExtensions.Subscribe(_textBox.GetObservable(TextBox.TextProperty), _ => CheckEmpty());
     }
 

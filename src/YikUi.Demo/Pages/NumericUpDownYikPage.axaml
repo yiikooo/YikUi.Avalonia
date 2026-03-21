@@ -35,10 +35,10 @@
                         Minimum="{Binding Minimum}"
                         Name="numd"
                         ParsingNumberStyle="{Binding ParsingNumberStyle}"
+                        PlaceholderText="{Binding PlaceholderText}"
                         ShowButtonSpinner="{Binding ShowButtonSpinner}"
                         Step="{Binding Step}"
                         Value="{Binding Value}"
-                        Watermark="{Binding Watermark}"
                         Width="{Binding Width}" />
                     <TextBox
                         HorizontalAlignment="Center"
@@ -57,9 +57,9 @@
                             Classes="ClearButton"
                             InnerLeftContent="Age"
                             Name="input"
+                            PlaceholderText="Input Value"
                             Step="1"
-                            Value="2"
-                            Watermark="Input Value" />
+                            Value="2" />
                         <yik:Divider Content="{Binding #inputDouble.Value, StringFormat='Double = {0}'}" />
                         <yik:NumericDoubleUpDown
                             EmptyInputValue="1"
@@ -77,9 +77,9 @@
                             AllowDrag="True"
                             InnerLeftContent="Drag"
                             Name="Drag_Int"
+                            PlaceholderText="Input Value"
                             Step="1"
-                            Value="2"
-                            Watermark="Input Value" />
+                            Value="2" />
 
                         <!--  hex demo  -->
 
@@ -91,9 +91,9 @@
                             InnerLeftContent="HexNumber"
                             Name="uint_HexNumber"
                             ParsingNumberStyle="HexNumber"
+                            PlaceholderText="Input Value"
                             Step="1"
-                            Value="2"
-                            Watermark="Input Value" />
+                            Value="2" />
 
                         <!--  =================we should use AllowHexSpecifier  -->
                         <yik:Divider Content="{Binding #uint_AllowHexSpecifier.Value, StringFormat='uint = {0}, hex={0:X}'}" />
@@ -105,9 +105,9 @@
                             InnerLeftContent="AllowHexSpecifier"
                             Name="uint_AllowHexSpecifier"
                             ParsingNumberStyle="AllowHexSpecifier"
+                            PlaceholderText="AllowHexSpecifier"
                             Step="1"
-                            Value="2"
-                            Watermark="AllowHexSpecifier" />
+                            Value="2" />
 
                         <yik:Divider Content="{Binding #Consolas_uint.Value, StringFormat='Font=Consolas {0}, hex={0:X}'}" />
                         <yik:NumericUIntUpDown
@@ -118,21 +118,21 @@
                             InnerLeftContent="0x"
                             Name="Consolas_uint"
                             ParsingNumberStyle="AllowHexSpecifier"
+                            PlaceholderText="AllowHexSpecifier"
                             Step="1"
-                            Value="2"
-                            Watermark="AllowHexSpecifier" />
+                            Value="2" />
                         <yik:Divider Content="Sizes" />
                         <yik:NumericUIntUpDown
                             Classes="Small"
-                            Step="1"
-                            Watermark="Small" />
+                            PlaceholderText="Small"
+                            Step="1" />
                         <yik:NumericUIntUpDown
                             Classes="Large"
                             Margin="0,8,0,0"
-                            Step="1"
-                            Watermark="Large" />
+                            PlaceholderText="Large"
+                            Step="1" />
                         <yik:Divider Content="Error" />
-                        <yik:NumericUIntUpDown Step="1" Watermark="Validation Error">
+                        <yik:NumericUIntUpDown PlaceholderText="Validation Error" Step="1">
                             <DataValidationErrors.Error>
                                 <system:Exception />
                             </DataValidationErrors.Error>
@@ -170,7 +170,7 @@
                         InnerRightContent="obj"
                         Text="{Binding InnerLeftContent}" />
 
-                    <TextBox InnerLeftContent="Watermark" Text="{Binding Watermark}" />
+                    <TextBox InnerLeftContent="PlaceholderText" Text="{Binding PlaceholderText}" />
 
                     <TextBox
                         InnerLeftContent="FormatString"

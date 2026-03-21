@@ -94,9 +94,9 @@
                         <TextBlock
                             IsVisible="False"
                             Margin="12,0"
-                            Name="{x:Static yik:TagInput.PART_Watermark}"
+                            Name="{x:Static yik:TagInput.PART_PlaceholderText}"
                             Opacity="0.5"
-                            Text="{TemplateBinding Watermark}"
+                            Text="{TemplateBinding PlaceholderText}"
                             VerticalAlignment="Center" />
                         <ItemsControl
                             HorizontalAlignment="Stretch"
@@ -115,7 +115,7 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-        <Style Selector="^:empty /template/ TextBlock#PART_Watermark">
+        <Style Selector="^:empty /template/ TextBlock#PART_PlaceholderText">
             <Setter Property="IsVisible" Value="True" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#PART_RootBorder">

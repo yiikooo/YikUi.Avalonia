@@ -19,9 +19,9 @@
                 <yik:TagInput
                     AllowDuplicates="True"
                     Name="labels"
+                    PlaceholderText="Hello world"
                     Separator="-"
-                    Tags="{Binding Tags}"
-                    Watermark="Hello world" />
+                    Tags="{Binding Tags}" />
                 <yik:TagInput
                     AllowDuplicates="False"
                     LostFocusBehavior="Clear"

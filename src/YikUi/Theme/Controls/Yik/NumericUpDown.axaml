@@ -32,9 +32,9 @@
                                 InnerRightContent="{TemplateBinding InnerRightContent}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="PART_TextBox"
+                                PlaceholderText="{TemplateBinding PlaceholderText}"
                                 TextWrapping="NoWrap"
-                                Theme="{DynamicResource NonErrorTextBox}"
-                                Watermark="{TemplateBinding Watermark}" />
+                                Theme="{DynamicResource NonErrorTextBox}" />
                             <Panel
                                 Background="Transparent"
                                 Cursor="SizeAll"

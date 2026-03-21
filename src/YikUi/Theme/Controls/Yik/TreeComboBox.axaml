@@ -7,7 +7,7 @@
         <StackPanel Height="300">
             <yik:TreeComboBox
                 MaxHeight="200"
-                Watermark="Please Select"
+                PlaceholderText="Please Select"
                 Width="300">
                 <yik:TreeComboBoxItem Header="Option 1">
                     <yik:TreeComboBoxItem Header="Inner Option 1" />
@@ -63,7 +63,7 @@
                         Margin="{TemplateBinding Padding}"
                         Name="PlaceholderTextBlock"
                         Opacity="0.3"
-                        Text="{TemplateBinding Watermark}"
+                        Text="{TemplateBinding PlaceholderText}"
                         TextTrimming="CharacterEllipsis"
                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     <ContentPresenter

@@ -239,7 +239,7 @@ public partial class MultiAutoCompleteBox : TemplatedControl, IInnerContentContr
                     ObservableExtensions.Subscribe(_textBox.GetObservable(TextBox.TextProperty)
                         .Skip(1), _ => OnTextBoxTextChanged());
                 _textBoxKeyDownSubscriptions =
-                    _textBox.AddDisposableHandler(KeyDownEvent, OnTextBoxKeyDown, RoutingStrategies.Tunnel);
+                    _textBox.AddDisposableHandler(KeyDownEvent, OnTextBoxKeyDown!, RoutingStrategies.Tunnel);
                 if (Text != null) UpdateTextValue(Text);
             }
         }
@@ -1335,7 +1335,7 @@ public partial class MultiAutoCompleteBox : TemplatedControl, IInnerContentContr
                 if (!inResults)
                 {
                     if (stringFiltering)
-                        inResults = textFilter!(text, FormatValue(item));
+                        inResults = textFilter!(text, FormatValue(item)!);
                     else if (objectFiltering) inResults = itemFilter!(text, item);
                 }
 

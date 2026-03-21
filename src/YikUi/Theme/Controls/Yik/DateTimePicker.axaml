@@ -44,9 +44,9 @@
                                 InnerRightContent="{TemplateBinding InnerRightContent}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="PART_TextBox"
+                                PlaceholderText="{TemplateBinding PlaceholderText}"
                                 Theme="{DynamicResource LooklessTextBox}"
-                                VerticalAlignment="Stretch"
-                                Watermark="{TemplateBinding Watermark}" />
+                                VerticalAlignment="Stretch" />
                             <Button
                                 Command="{Binding $parent[yik:DateTimePicker].Clear}"
                                 Focusable="False"

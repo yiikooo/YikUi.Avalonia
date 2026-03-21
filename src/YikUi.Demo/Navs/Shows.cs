@@ -67,11 +67,11 @@ public static class Shows
             Title = "DataGrid",
             Content = new DataGridPage(),
         },
-        new()
-        {
-            Title = "TreeDataGrid",
-            Content = new TreeDataGridPage(),
-        },
+        // new()
+        // {
+        //     Title = "TreeDataGrid",
+        //     Content = new TreeDataGridPage(),
+        // },
         new()
         {
             Title = "ToolTip",

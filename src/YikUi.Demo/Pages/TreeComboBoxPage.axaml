@@ -35,8 +35,8 @@
                 <yik:TreeComboBox
                     HorizontalAlignment="Left"
                     ItemsSource="{Binding Items}"
+                    PlaceholderText="Please select an item. "
                     SelectedItem="{Binding SelectedItem}"
-                    Watermark="Please select an item. "
                     Width="300">
                     <yik:TreeComboBox.ItemTemplate>
                         <TreeDataTemplate ItemsSource="{Binding Children}">
@@ -51,10 +51,10 @@
                     InnerLeftContent="Left"
                     InnerRightContent="Right"
                     ItemsSource="{Binding Items}"
+                    PlaceholderText="Please select an item. "
                     PopupInnerBottomContent="Bottom"
                     PopupInnerTopContent="Top"
                     SelectedItem="{Binding SelectedItem}"
-                    Watermark="Please select an item. "
                     Width="300">
                     <yik:TreeComboBox.Styles>
                         <Style Selector="yik|TreeComboBoxItem" x:DataType="pages:TreeComboBoxItemViewModel">

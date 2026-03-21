@@ -26,8 +26,9 @@ public class TimePicker : TimePickerBase, IClearControl
         AvaloniaProperty.Register<TimePicker, TimeSpan?>(
             nameof(SelectedTime), defaultBindingMode: BindingMode.TwoWay);
 
-    public static readonly StyledProperty<string?> WatermarkProperty = AvaloniaProperty.Register<TimePicker, string?>(
-        nameof(Watermark));
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
+        AvaloniaProperty.Register<TimePicker, string?>(
+            nameof(PlaceholderText));
 
     private Button? _button;
 
@@ -47,10 +48,10 @@ public class TimePicker : TimePickerBase, IClearControl
             picker.OnDisplayFormatChanged(args));
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public TimeSpan? SelectedTime

@@ -20,8 +20,8 @@
                     <yik:MultiComboBox
                         ItemsSource="{Binding Items}"
                         MaxHeight="200"
+                        PlaceholderText="Please Select"
                         SelectedItems="{Binding SelectedItems}"
-                        Watermark="Please Select"
                         Width="300" />
 
                     <yik:MultiComboBox
@@ -31,8 +31,8 @@
                         ItemsSource="{Binding Items}"
                         MaxHeight="200"
                         Name="combo"
+                        PlaceholderText="Please Select"
                         SelectedItems="{Binding SelectedItems}"
-                        Watermark="Please Select"
                         Width="300">
                         <yik:MultiComboBox.PopupInnerTopContent>
                             <StackPanel Margin="0" Orientation="Horizontal">
@@ -65,7 +65,7 @@
                 <TextBlock>Items inside axaml (yik:MultiComboBox's tag content)</TextBlock>
                 <yik:MultiComboBox
                     MaxHeight="200"
-                    Watermark="Please Select"
+                    PlaceholderText="Please Select"
                     Width="300">
                     <yik:MultiComboBoxItem>option 1</yik:MultiComboBoxItem>
                     <yik:MultiComboBoxItem>option 2</yik:MultiComboBoxItem>

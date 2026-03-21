@@ -450,7 +450,7 @@ public class IPv4Box : TemplatedControl
         _currentActivePresenter ??= _presenters[0];
 
         // var keymap = TopLevel.GetTopLevel(this)?.PlatformSettings?.HotkeyConfiguration;
-        bool Match(List<KeyGesture> gestures) => gestures.Any(g => g.Matches(e));
+        // bool Match(List<KeyGesture> gestures) => gestures.Any(g => g.Matches(e));
         if (e.Key is Key.Enter or Key.Return)
         {
             ParseBytes(ShowLeadingZero);

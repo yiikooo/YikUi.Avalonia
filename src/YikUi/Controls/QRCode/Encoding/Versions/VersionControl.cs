@@ -13,6 +13,7 @@ internal static class VersionControl
     /// Determine which version to use
     /// </summary>
     /// <param name="dataBitsLength">Number of bits for encoded content</param>
+    /// <param name="level"></param>
     /// <param name="encodingName">Encoding name for EightBitByte</param>
     /// <returns>VersionDetail and ECI</returns>
     internal static VersionControlStruct InitialSetup(int dataBitsLength, ErrorCorrectionLevel level,

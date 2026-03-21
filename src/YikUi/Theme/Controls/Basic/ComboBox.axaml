@@ -443,7 +443,7 @@
                             Grid.Column="0"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             Margin="{TemplateBinding Padding}"
-                            Name="WatermarkBlock"
+                            Name="PlaceholderTextBlock"
                             Text="{TemplateBinding PlaceholderText}"
                             TextTrimming="CharacterEllipsis"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
@@ -471,11 +471,11 @@
                             IsVisible="{TemplateBinding IsEditable}"
                             Name="PART_EditableTextBox"
                             Padding="{TemplateBinding Padding}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}"
                             Text="{TemplateBinding Text,
                                                    Mode=TwoWay}"
                             Theme="{StaticResource LooklessTextBox}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Watermark="{TemplateBinding PlaceholderText}" />
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 
                         <Button
                             Command="{Binding $parent[ComboBox].Clear}"
@@ -579,7 +579,7 @@
             <Style Selector="^ /template/ ContentControl#ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             </Style>
-            <Style Selector="^ /template/ TextBlock#WatermarkBlock">
+            <Style Selector="^ /template/ TextBlock#PlaceholderTextBlock">
                 <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
             </Style>
         </Style>

@@ -36,13 +36,13 @@ public class TimeRangePicker : TimePickerBase, IClearControl
         AvaloniaProperty.Register<TimeRangePicker, TimeSpan?>(
             nameof(EndTime), defaultBindingMode: BindingMode.TwoWay);
 
-    public static readonly StyledProperty<string?> StartWatermarkProperty =
+    public static readonly StyledProperty<string?> StartPlaceholderTextProperty =
         AvaloniaProperty.Register<TimeRangePicker, string?>(
-            nameof(StartWatermark));
+            nameof(StartPlaceholderText));
 
-    public static readonly StyledProperty<string?> EndWatermarkProperty =
+    public static readonly StyledProperty<string?> EndPlaceholderTextProperty =
         AvaloniaProperty.Register<TimeRangePicker, string?>(
-            nameof(EndWatermark));
+            nameof(EndPlaceholderText));
 
     private Button? _button;
     private TimePickerPresenter? _endPresenter;
@@ -66,16 +66,16 @@ public class TimeRangePicker : TimePickerBase, IClearControl
     }
 
 
-    public string? EndWatermark
+    public string? EndPlaceholderText
     {
-        get => GetValue(EndWatermarkProperty);
-        set => SetValue(EndWatermarkProperty, value);
+        get => GetValue(EndPlaceholderTextProperty);
+        set => SetValue(EndPlaceholderTextProperty, value);
     }
 
-    public string? StartWatermark
+    public string? StartPlaceholderText
     {
-        get => GetValue(StartWatermarkProperty);
-        set => SetValue(StartWatermarkProperty, value);
+        get => GetValue(StartPlaceholderTextProperty);
+        set => SetValue(StartPlaceholderTextProperty, value);
     }
 
     public TimeSpan? StartTime

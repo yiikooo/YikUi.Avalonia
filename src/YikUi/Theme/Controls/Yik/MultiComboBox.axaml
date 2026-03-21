@@ -459,7 +459,7 @@
                                     IsVisible="False"
                                     Margin="{TemplateBinding Padding}"
                                     Opacity="0.3"
-                                    Text="{TemplateBinding Watermark}"
+                                    Text="{TemplateBinding PlaceholderText}"
                                     TextTrimming="CharacterEllipsis"
                                     VerticalAlignment="Center"
                                     x:Name="PlaceholderTextBlock" />

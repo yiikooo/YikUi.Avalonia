@@ -35,8 +35,8 @@
                                 IsReadOnly="{TemplateBinding IsReadonly}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="{x:Static yik:TimeRangePicker.PART_StartTextBox}"
-                                VerticalAlignment="Stretch"
-                                Watermark="{TemplateBinding StartWatermark}" />
+                                PlaceholderText="{TemplateBinding StartPlaceholderText}"
+                                VerticalAlignment="Stretch" />
                             <TextBlock
                                 Grid.Column="1"
                                 Text="~"
@@ -51,8 +51,8 @@
                                 IsReadOnly="{TemplateBinding IsReadonly}"
                                 MinHeight="{TemplateBinding MinHeight}"
                                 Name="{x:Static yik:TimeRangePicker.PART_EndTextBox}"
-                                VerticalAlignment="Stretch"
-                                Watermark="{TemplateBinding EndWatermark}" />
+                                PlaceholderText="{TemplateBinding EndPlaceholderText}"
+                                VerticalAlignment="Stretch" />
                             <Button
                                 Command="{Binding $parent[yik:TimeRangePicker].Clear}"
                                 Focusable="False"

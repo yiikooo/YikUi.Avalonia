@@ -43,16 +43,16 @@
                 <yik:AutoCompleteBox
                     Classes="ClearButton"
                     Name="box"
-                    ValueMemberBinding="{ReflectionBinding MenuHeader}"
-                    Watermark="Please select a Control" />
+                    PlaceholderText="Please select a Control"
+                    ValueMemberBinding="{ReflectionBinding MenuHeader}" />
 
                 <yik:AutoCompleteBox Classes="Large" ValueMemberBinding="{ReflectionBinding MenuHeader}" />
                 <yik:AutoCompleteBox Classes="Small" ValueMemberBinding="{ReflectionBinding MenuHeader}" />
                 <yik:AutoCompleteBox Classes="Bordered" ValueMemberBinding="{ReflectionBinding MenuHeader}" />
                 <yik:AutoCompleteBox
                     IsEnabled="False"
-                    ValueMemberBinding="{ReflectionBinding MenuHeader}"
-                    Watermark="Disabled" />
+                    PlaceholderText="Disabled"
+                    ValueMemberBinding="{ReflectionBinding MenuHeader}" />
                 <yik:AutoCompleteBox
                     InnerLeftContent="https://"
                     InnerRightContent=".com"

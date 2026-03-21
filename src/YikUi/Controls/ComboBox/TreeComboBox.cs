@@ -31,8 +31,8 @@ public class TreeComboBox : ItemsControl, IClearControl, IInnerContentControl, I
     public static readonly StyledProperty<double> MaxDropDownHeightProperty =
         ComboBox.MaxDropDownHeightProperty.AddOwner<TreeComboBox>();
 
-    public static readonly StyledProperty<string?> WatermarkProperty =
-        TextBox.WatermarkProperty.AddOwner<TreeComboBox>();
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
+        TextBox.PlaceholderTextProperty.AddOwner<TreeComboBox>();
 
     public static readonly StyledProperty<bool> IsDropDownOpenProperty =
         ComboBox.IsDropDownOpenProperty.AddOwner<TreeComboBox>();
@@ -92,10 +92,10 @@ public class TreeComboBox : ItemsControl, IClearControl, IInnerContentControl, I
         set => SetValue(MaxDropDownHeightProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public bool IsDropDownOpen

@@ -18,8 +18,8 @@
             <StackPanel HorizontalAlignment="Left" Spacing="20">
                 <TextBox
                     Name="format"
-                    Text="yyyy-MM-dd"
-                    Watermark="Display Format" />
+                    PlaceholderText="Display Format"
+                    Text="yyyy-MM-dd" />
                 <TextBlock Text="Default" />
                 <yik:DateRangePicker
                     DisplayFormat="{Binding #format.Text}"

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Controls;
@@ -41,9 +42,9 @@ public abstract class NumericUpDown : TemplatedControl, IClearControl, IInnerCon
         AvaloniaProperty.Register<NumericUpDown, object?>(
             nameof(InnerRightContent));
 
-    public static readonly StyledProperty<string?> WatermarkProperty =
+    public static readonly StyledProperty<string?> PlaceholderTextProperty =
         AvaloniaProperty.Register<NumericUpDown, string?>(
-            nameof(Watermark));
+            nameof(PlaceholderText));
 
     public static readonly StyledProperty<NumberFormatInfo?> NumberFormatProperty =
         AvaloniaProperty.Register<NumericUpDown, NumberFormatInfo?>(
@@ -108,10 +109,10 @@ public abstract class NumericUpDown : TemplatedControl, IClearControl, IInnerCon
         set => SetValue(HorizontalContentAlignmentProperty, value);
     }
 
-    public string? Watermark
+    public string? PlaceholderText
     {
-        get => GetValue(WatermarkProperty);
-        set => SetValue(WatermarkProperty, value);
+        get => GetValue(PlaceholderTextProperty);
+        set => SetValue(PlaceholderTextProperty, value);
     }
 
     public NumberFormatInfo? NumberFormat
@@ -377,6 +378,7 @@ public abstract class NumericUpDown : TemplatedControl, IClearControl, IInnerCon
         bool forceTextUpdate = false);
 }
 
+[SuppressMessage("AvaloniaProperty", "AVP1002:AvaloniaProperty objects should not be owned by a generic type")]
 public abstract class NumericUpDownBase<T> : NumericUpDown where T : struct, IComparable<T>
 {
     public static readonly StyledProperty<T?> ValueProperty = AvaloniaProperty.Register<NumericUpDownBase<T>, T?>(

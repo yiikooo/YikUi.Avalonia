@@ -14,6 +14,8 @@ internal static class ModeEncodeCheck
     /// </summary>
     /// <param name="content">Input string</param>
     /// <param name="encodingName">Encoding name. Check ECI table</param>
+    /// <param name="startingPosition"></param>
+    /// <param name="contentLength"></param>
     /// <returns>Returns -1 if from starting position to end encoding success. Else returns fail position</returns>
     internal static int TryEncodeEightBitByte(string content, string encodingName, int startingPosition,
         int contentLength)
