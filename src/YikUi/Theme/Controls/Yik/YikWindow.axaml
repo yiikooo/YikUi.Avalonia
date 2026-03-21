@@ -10,49 +10,47 @@
         <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="36" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="SystemDecorations">
+        <Setter Property="WindowDecorations">
             <OnPlatform>
                 <On Options="Default">
-                    <SystemDecorations>Full</SystemDecorations>
+                    <WindowDecorations>Full</WindowDecorations>
                 </On>
                 <On Options="Linux">
-                    <SystemDecorations>None</SystemDecorations>
+                    <WindowDecorations>None</WindowDecorations>
                 </On>
             </OnPlatform>
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:YikWindow">
                 <VisualLayerManager>
-                    <Border Background="{TemplateBinding Background}" Name="PART_Root">
-                        <DockPanel>
-                            <yik:YikTitleBar
-                                DockPanel.Dock="Top"
-                                IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
-                                IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
-                                IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
-                                LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
-                                Name="PART_TitleBar"
-                                RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
-                            <ContentPresenter
-                                Content="{Binding $parent[yik:YikWindow].Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                DockPanel.Dock="Bottom"
-                                HorizontalContentAlignment="{Binding $parent[yik:YikWindow].HorizontalContentAlignment}"
-                                Margin="{Binding $parent[yik:YikWindow].Padding}"
-                                Name="PART_ContentPresenter"
-                                VerticalContentAlignment="{Binding $parent[yik:YikWindow].VerticalContentAlignment}" />
-                        </DockPanel>
-                    </Border>
-                    <VisualLayerManager.ChromeOverlayLayer>
-                        <VisualLayerManager>
-                            <Panel>
-                                <yik:OverlayDialogHost
-                                    IsModalStatusReporter="True"
-                                    IsTopLevel="True"
-                                    Name="PART_DialogHost" />
-                            </Panel>
-                        </VisualLayerManager>
-                    </VisualLayerManager.ChromeOverlayLayer>
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" Name="PART_Root">
+                            <DockPanel>
+                                <yik:YikTitleBar
+                                    DockPanel.Dock="Top"
+                                    IsCloseBtnShow="{Binding $parent[yik:YikWindow].IsCloseBtnShow}"
+                                    IsMaxBtnShow="{Binding $parent[yik:YikWindow].IsMaxBtnShow}"
+                                    IsMinBtnShow="{Binding $parent[yik:YikWindow].IsMinBtnShow}"
+                                    LeftContent="{Binding $parent[yik:YikWindow].TitleBarLeftContent}"
+                                    Name="PART_TitleBar"
+                                    RightContent="{Binding $parent[yik:YikWindow].TitleBarRightContent}" />
+                                <ContentPresenter
+                                    Content="{Binding $parent[yik:YikWindow].Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalContentAlignment="{Binding $parent[yik:YikWindow].HorizontalContentAlignment}"
+                                    Margin="{Binding $parent[yik:YikWindow].Padding}"
+                                    Name="PART_ContentPresenter"
+                                    VerticalContentAlignment="{Binding $parent[yik:YikWindow].VerticalContentAlignment}" />
+                            </DockPanel>
+                        </Border>
+                        <Panel>
+                            <yik:OverlayDialogHost
+                                IsModalStatusReporter="True"
+                                IsTopLevel="True"
+                                Name="PART_DialogHost" />
+                        </Panel>
+                    </Grid>
                 </VisualLayerManager>
             </ControlTemplate>
         </Setter>

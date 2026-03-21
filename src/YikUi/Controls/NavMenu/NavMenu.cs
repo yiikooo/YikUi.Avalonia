@@ -229,33 +229,32 @@ public class NavMenu : ItemsControl, ICustomKeyboardNavigation
 
         var visual = element as Visual;
 
-        if (!_itemsPresenter.IsVisualAncestorOf(visual))
-        {
-            _isNavigatingMenu = true;
-            var next = KeyboardNavigationHandler.GetNext(element, direction);
-            _isNavigatingMenu = false;
+        // if (!_itemsPresenter.IsVisualAncestorOf(visual))
+        // {
+        //     _isNavigatingMenu = true;
+        //     var next = element.GetNextElement(direction);
+        //     _isNavigatingMenu = false;
 
-            if (_itemsPresenter.IsVisualAncestorOf(next as Visual))
-            {
-                var target = IsHorizontalCollapsed
-                    ? GetRootMenuItem(GetContainerForItem(SelectedItem))
-                    : GetUncollapsedOrTopmostMenuItem(GetContainerForItem(SelectedItem));
-                target ??= ContainerFromIndex(this, 0);
+        //     if (_itemsPresenter.IsVisualAncestorOf(next as Visual))
+        //     {
+        //         var target = IsHorizontalCollapsed
+        //             ? GetRootMenuItem(GetContainerForItem(SelectedItem))
+        //             : GetUncollapsedOrTopmostMenuItem(GetContainerForItem(SelectedItem));
+        //         target ??= ContainerFromIndex(this, 0);
 
-                return (target is not null, target);
-            }
-        }
-        else
-        {
-            _isNavigatingMenu = true;
-            var next = KeyboardNavigationHandler.GetNext(_itemsPresenter, direction);
-            _isNavigatingMenu = false;
+        //         return (target is not null, target);
+        //     }
+        // }
+        // else
+        // {
+        //     _isNavigatingMenu = true;
+        //     var next = _itemsPresenter.GetNextElement(direction);
+        //     _isNavigatingMenu = false;
 
-            if (element is NavMenuItem { Level: 1 } firstLevelItem) firstLevelItem.CloseAllOpenPopups();
+        //     if (element is NavMenuItem { Level: 1 } firstLevelItem) firstLevelItem.CloseAllOpenPopups();
 
-            return (true, next);
-        }
-
+        //     return (true, next);
+        // }
         return (false, null);
     }
 

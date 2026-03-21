@@ -597,15 +597,15 @@ public class TimeBox : TemplatedControl
     protected override void OnKeyDown(KeyEventArgs e)
     {
         if (_currentActiveSectionIndex is null) return;
-        var keymap = TopLevel.GetTopLevel(this)?.PlatformSettings?.HotkeyConfiguration;
-        bool Match(List<KeyGesture> gestures) => gestures.Any(g => g.Matches(e));
-        if (keymap is not null && Match(keymap.SelectAll))
-        {
-            _presenters[_currentActiveSectionIndex.Value].SelectionStart = 0;
-            _presenters[_currentActiveSectionIndex.Value].SelectionEnd =
-                _presenters[_currentActiveSectionIndex.Value].Text?.Length ?? 0;
-            return;
-        }
+        // var keymap = TopLevel.GetTopLevel(this)?.PlatformSettings?.HotkeyConfiguration;
+        // bool Match(List<KeyGesture> gestures) => gestures.Any(g => g.Matches(e));
+        // if (keymap is not null && Match(keymap.SelectAll))
+        // {
+        //     _presenters[_currentActiveSectionIndex.Value].SelectionStart = 0;
+        //     _presenters[_currentActiveSectionIndex.Value].SelectionEnd =
+        //         _presenters[_currentActiveSectionIndex.Value].Text?.Length ?? 0;
+        //     return;
+        // }
 
         if (e.Key is Key.Enter or Key.Return)
         {
@@ -738,7 +738,7 @@ public class TimeBox : TemplatedControl
         }
     }
 
-    protected override void OnLostFocus(RoutedEventArgs e)
+    protected void OnLostFocus(RoutedEventArgs e)
     {
         for (int i = 0; i < 4; ++i)
         {

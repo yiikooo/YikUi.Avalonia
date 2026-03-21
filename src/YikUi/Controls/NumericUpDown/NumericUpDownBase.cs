@@ -218,10 +218,9 @@ public abstract class NumericUpDown : TemplatedControl, IClearControl, IInnerCon
         PointerReleasedEvent.AddHandler(OnDragPanelPointerReleased, _dragPanel);
     }
 
-    protected override void OnLostFocus(RoutedEventArgs e)
+    protected void OnLostFocus(RoutedEventArgs e)
     {
         CommitInput(true);
-        base.OnLostFocus(e);
         if (AllowDrag && _dragPanel is not null)
         {
             _dragPanel.IsVisible = true;
@@ -230,9 +229,8 @@ public abstract class NumericUpDown : TemplatedControl, IClearControl, IInnerCon
         FocusChanged(IsKeyboardFocusWithin);
     }
 
-    protected override void OnGotFocus(GotFocusEventArgs e)
+    protected void OnGotFocus(RoutedEventArgs e)
     {
-        base.OnGotFocus(e);
         FocusChanged(IsKeyboardFocusWithin);
     }
 

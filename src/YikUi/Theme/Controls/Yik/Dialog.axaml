@@ -487,16 +487,16 @@
         <Setter Property="WindowStartupLocation" Value="CenterOwner" />
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="1" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
+
         <Setter Property="MinWidth" Value="{DynamicResource DialogMinWidth}" />
         <Setter Property="MinHeight" Value="{DynamicResource DialogMinHeight}" />
-        <Setter Property="SystemDecorations">
+        <Setter Property="WindowDecorations">
             <OnPlatform>
                 <OnPlatform.Windows>
-                    <SystemDecorations>Full</SystemDecorations>
+                    <WindowDecorations>Full</WindowDecorations>
                 </OnPlatform.Windows>
                 <OnPlatform.Default>
-                    <SystemDecorations>BorderOnly</SystemDecorations>
+                    <WindowDecorations>BorderOnly</WindowDecorations>
                 </OnPlatform.Default>
             </OnPlatform>
         </Setter>
@@ -559,16 +559,16 @@
         <Setter Property="WindowStartupLocation" Value="CenterOwner" />
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="1" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
-        <Setter Property="ExtendClientAreaChromeHints" Value="SystemChrome" />
+
         <Setter Property="MinWidth" Value="{DynamicResource DialogMinWidth}" />
         <Setter Property="MinHeight" Value="{DynamicResource DialogMinHeight}" />
-        <Setter Property="SystemDecorations">
+        <Setter Property="WindowDecorations">
             <OnPlatform>
                 <OnPlatform.Windows>
-                    <SystemDecorations>Full</SystemDecorations>
+                    <WindowDecorations>Full</WindowDecorations>
                 </OnPlatform.Windows>
                 <OnPlatform.Default>
-                    <SystemDecorations>BorderOnly</SystemDecorations>
+                    <WindowDecorations>BorderOnly</WindowDecorations>
                 </OnPlatform.Default>
             </OnPlatform>
         </Setter>

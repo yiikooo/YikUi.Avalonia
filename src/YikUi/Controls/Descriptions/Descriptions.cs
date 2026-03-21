@@ -19,8 +19,8 @@ public class Descriptions : ItemsControl
     public static readonly StyledProperty<IDataTemplate?> LabelTemplateProperty =
         LabeledContentControl.LabelTemplateProperty.AddOwner<Descriptions>();
 
-    public static readonly StyledProperty<IBinding?> LabelMemberBindingProperty =
-        AvaloniaProperty.Register<Descriptions, IBinding?>(
+    public static readonly StyledProperty<BindingBase?> LabelMemberBindingProperty =
+        AvaloniaProperty.Register<Descriptions, BindingBase?>(
             nameof(LabelMemberBinding));
 
     public static readonly StyledProperty<Position> LabelPositionProperty =
@@ -55,7 +55,7 @@ public class Descriptions : ItemsControl
 
     [AssignBinding]
     [InheritDataTypeFromItems(nameof(ItemsSource))]
-    public IBinding? LabelMemberBinding
+    public BindingBase? LabelMemberBinding
     {
         get => GetValue(LabelMemberBindingProperty);
         set => SetValue(LabelMemberBindingProperty, value);
@@ -192,7 +192,7 @@ public class Descriptions : ItemsControl
             return itemTemplate;
         if (this._valueDisplayMemberItemTemplate == null)
         {
-            IBinding? binding = this.DisplayMemberBinding;
+            BindingBase? binding = this.DisplayMemberBinding;
             if (binding != null)
                 _valueDisplayMemberItemTemplate =
                     new FuncDataTemplate<object>((o, s) => new TextBlock { [!TextBlock.TextProperty] = binding });
@@ -208,7 +208,7 @@ public class Descriptions : ItemsControl
             return itemTemplate;
         if (this._labelDisplayMemberItemTemplate == null)
         {
-            IBinding? binding = this.LabelMemberBinding;
+            BindingBase? binding = this.LabelMemberBinding;
             if (binding != null)
                 _labelDisplayMemberItemTemplate =
                     new FuncDataTemplate<object>((o, s) => new TextBlock { [!TextBlock.TextProperty] = binding });

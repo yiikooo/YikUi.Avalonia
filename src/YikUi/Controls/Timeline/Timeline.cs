@@ -12,16 +12,16 @@ public class Timeline : ItemsControl
 {
     private static readonly FuncTemplate<Panel?> DefaultPanel = new((Func<Panel>)(() => new TimelinePanel()));
 
-    public static readonly StyledProperty<IBinding?> IconMemberBindingProperty =
-        AvaloniaProperty.Register<Timeline, IBinding?>(
+    public static readonly StyledProperty<BindingBase?> IconMemberBindingProperty =
+        AvaloniaProperty.Register<Timeline, BindingBase?>(
             nameof(IconMemberBinding));
 
-    public static readonly StyledProperty<IBinding?> HeaderMemberBindingProperty =
-        AvaloniaProperty.Register<Timeline, IBinding?>(
+    public static readonly StyledProperty<BindingBase?> HeaderMemberBindingProperty =
+        AvaloniaProperty.Register<Timeline, BindingBase?>(
             nameof(HeaderMemberBinding));
 
-    public static readonly StyledProperty<IBinding?> ContentMemberBindingProperty =
-        AvaloniaProperty.Register<Timeline, IBinding?>(
+    public static readonly StyledProperty<BindingBase?> ContentMemberBindingProperty =
+        AvaloniaProperty.Register<Timeline, BindingBase?>(
             nameof(ContentMemberBinding));
 
 
@@ -33,8 +33,8 @@ public class Timeline : ItemsControl
         AvaloniaProperty.Register<Timeline, IDataTemplate?>(
             nameof(DescriptionTemplate));
 
-    public static readonly StyledProperty<IBinding?> TimeMemberBindingProperty =
-        AvaloniaProperty.Register<Timeline, IBinding?>(
+    public static readonly StyledProperty<BindingBase?> TimeMemberBindingProperty =
+        AvaloniaProperty.Register<Timeline, BindingBase?>(
             nameof(TimeMemberBinding));
 
     public static readonly StyledProperty<string?> TimeFormatProperty = AvaloniaProperty.Register<Timeline, string?>(
@@ -53,7 +53,7 @@ public class Timeline : ItemsControl
 
     [AssignBinding]
     [InheritDataTypeFromItems(nameof(ItemsSource))]
-    public IBinding? IconMemberBinding
+    public BindingBase? IconMemberBinding
     {
         get => GetValue(IconMemberBindingProperty);
         set => SetValue(IconMemberBindingProperty, value);
@@ -61,7 +61,7 @@ public class Timeline : ItemsControl
 
     [AssignBinding]
     [InheritDataTypeFromItems(nameof(ItemsSource))]
-    public IBinding? HeaderMemberBinding
+    public BindingBase? HeaderMemberBinding
     {
         get => GetValue(HeaderMemberBindingProperty);
         set => SetValue(HeaderMemberBindingProperty, value);
@@ -69,7 +69,7 @@ public class Timeline : ItemsControl
 
     [AssignBinding]
     [InheritDataTypeFromItems(nameof(ItemsSource))]
-    public IBinding? ContentMemberBinding
+    public BindingBase? ContentMemberBinding
     {
         get => GetValue(ContentMemberBindingProperty);
         set => SetValue(ContentMemberBindingProperty, value);
@@ -91,7 +91,7 @@ public class Timeline : ItemsControl
 
     [AssignBinding]
     [InheritDataTypeFromItems(nameof(ItemsSource))]
-    public IBinding? TimeMemberBinding
+    public BindingBase? TimeMemberBinding
     {
         get => GetValue(TimeMemberBindingProperty);
         set => SetValue(TimeMemberBindingProperty, value);

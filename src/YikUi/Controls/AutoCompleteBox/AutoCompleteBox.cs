@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Controls.Templates;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.VisualTree;
@@ -64,19 +63,13 @@ public class AutoCompleteBox : Avalonia.Controls.AutoCompleteBox, IClearControl
         }
     }
 
-    protected override void OnGotFocus(GotFocusEventArgs e)
+    protected void OnGotFocus(RoutedEventArgs e)
     {
-        base.OnGotFocus(e);
-        // If the focus is set by pointer navigation, it is handled by PointerPressed, do not open the dropdown.
-        if (e.NavigationMethod == NavigationMethod.Pointer) return;
-        if (!this.GetTemplateChildren().Contains(e.Source)) return;
         // If the focus is set by keyboard navigation, open the dropdown.
         if (!_closeBySelectionFlag && IsDropDownOpen == false)
         {
             SetCurrentValue(IsDropDownOpenProperty, true);
         }
-
-        _closeBySelectionFlag = false;
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)

@@ -398,13 +398,13 @@ public class IPv4Box : TemplatedControl
 
     public async void Paste()
     {
-        IClipboard? clipboard = TopLevel.GetTopLevel(this)?.Clipboard;
-        if (clipboard is null) return;
-        var s = await clipboard.GetTextAsync();
-        if (s is not null && IPAddress.TryParse(s, out var address))
-        {
-            IPAddress = address;
-        }
+        // IClipboard? clipboard = TopLevel.GetTopLevel(this)?.Clipboard;
+        // if (clipboard is null) return;
+        // var s = clipboard.GetText();
+        // if (s is not null && IPAddress.TryParse(s, out var address))
+        // {
+        //     IPAddress = address;
+        // }
     }
 
     public async void Cut()
@@ -448,7 +448,8 @@ public class IPv4Box : TemplatedControl
     protected override void OnKeyDown(KeyEventArgs e)
     {
         _currentActivePresenter ??= _presenters[0];
-        var keymap = TopLevel.GetTopLevel(this)?.PlatformSettings?.HotkeyConfiguration;
+
+        // var keymap = TopLevel.GetTopLevel(this)?.PlatformSettings?.HotkeyConfiguration;
         bool Match(List<KeyGesture> gestures) => gestures.Any(g => g.Matches(e));
         if (e.Key is Key.Enter or Key.Return)
         {
@@ -459,38 +460,38 @@ public class IPv4Box : TemplatedControl
             return;
         }
 
-        if (keymap is not null && Match(keymap.SelectAll))
-        {
-            if (_currentActivePresenter is not null)
-            {
-                _currentActivePresenter.SelectionStart = 0;
-                _currentActivePresenter.SelectionEnd = _currentActivePresenter.Text?.Length ?? 0;
-            }
+        // if (keymap is not null && Match(keymap.SelectAll))
+        // {
+        //     if (_currentActivePresenter is not null)
+        //     {
+        //         _currentActivePresenter.SelectionStart = 0;
+        //         _currentActivePresenter.SelectionEnd = _currentActivePresenter.Text?.Length ?? 0;
+        //     }
 
-            e.Handled = true;
-            return;
-        }
+        //     e.Handled = true;
+        //     return;
+        // }
 
-        if (keymap is not null && Match(keymap.Copy))
-        {
-            Copy();
-            e.Handled = true;
-            return;
-        }
+        // if (keymap is not null && Match(keymap.Copy))
+        // {
+        //     Copy();
+        //     e.Handled = true;
+        //     return;
+        // }
 
-        if (keymap is not null && Match(keymap.Paste))
-        {
-            Paste();
-            e.Handled = true;
-            return;
-        }
+        // if (keymap is not null && Match(keymap.Paste))
+        // {
+        //     Paste();
+        //     e.Handled = true;
+        //     return;
+        // }
 
-        if (keymap is not null && Match(keymap.Cut))
-        {
-            Cut();
-            e.Handled = true;
-            return;
-        }
+        // if (keymap is not null && Match(keymap.Cut))
+        // {
+        //     Cut();
+        //     e.Handled = true;
+        //     return;
+        // }
 
         if (e.Key == Key.Tab)
         {
@@ -631,9 +632,8 @@ public class IPv4Box : TemplatedControl
         e.Handled = true;
     }
 
-    protected override void OnLostFocus(RoutedEventArgs e)
+    protected void OnLostFocus(RoutedEventArgs e)
     {
-        base.OnLostFocus(e);
         if (IsTargetByNumPad)
         {
             return;
@@ -656,18 +656,16 @@ public class IPv4Box : TemplatedControl
     }
 
 
-    protected override void OnGotFocus(GotFocusEventArgs e)
+    protected void OnGotFocus(RoutedEventArgs e)
     {
         _currentActivePresenter = _firstText;
         if (_currentActivePresenter is null)
         {
-            base.OnGotFocus(e);
             return;
         }
 
         _currentActivePresenter.ShowCaret();
         _currentActivePresenter.MoveCaretToStart();
-        base.OnGotFocus(e);
     }
 
     #endregion

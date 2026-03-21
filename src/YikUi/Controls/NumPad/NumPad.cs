@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Controls.Templates;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.LogicalTree;
 using YikUi.Common;
 using YikUi.Common.Helpers;
@@ -80,7 +81,7 @@ public class NumPad : TemplatedControl
         }
     }
 
-    private static void OnTargetGotFocus(object? sender, GotFocusEventArgs e)
+    private static void OnTargetGotFocus(object? sender, RoutedEventArgs e)
     {
         if (sender is not InputElement element) return;
         var existing = OverlayDialog.Recall<NumPad>(null);

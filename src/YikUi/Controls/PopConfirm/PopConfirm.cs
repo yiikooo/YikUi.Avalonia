@@ -257,7 +257,7 @@ public class PopConfirm : ContentControl
         SetCurrentValue(IsDropdownOpenProperty, false);
     }
 
-    private void OnMainElementGotFocus(object? sender, GotFocusEventArgs e)
+    private void OnMainElementGotFocus(object? sender, RoutedEventArgs e)
     {
         Debug.WriteLine("Got Focus");
         if (TriggerMode.HasFlag(PopConfirmTriggerMode.Click) && TriggerMode.HasFlag(PopConfirmTriggerMode.Focus))

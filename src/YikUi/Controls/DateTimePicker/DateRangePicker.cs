@@ -422,7 +422,7 @@ public class DateRangePicker : DatePickerBase, IClearControl
         }
     }
 
-    private void OnTextBoxGetFocus(object? sender, GotFocusEventArgs e)
+    private void OnTextBoxGetFocus(object? sender, RoutedEventArgs e)
     {
         if (sender == _startTextBox)
         {
@@ -477,15 +477,13 @@ public class DateRangePicker : DatePickerBase, IClearControl
         }
     }
 
-    protected override void OnGotFocus(GotFocusEventArgs e)
+    protected void OnGotFocus(RoutedEventArgs e)
     {
-        base.OnGotFocus(e);
         FocusChanged(IsKeyboardFocusWithin);
     }
 
-    protected override void OnLostFocus(RoutedEventArgs e)
+    protected void OnLostFocus(RoutedEventArgs e)
     {
-        base.OnLostFocus(e);
         FocusChanged(IsKeyboardFocusWithin);
         var top = TopLevel.GetTopLevel(this);
         var element = top?.FocusManager?.GetFocusedElement();

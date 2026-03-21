@@ -1,6 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Utilities;
 
 namespace YikUi.Theme.Controls.ColorPicker;
 
@@ -221,8 +220,8 @@ public class YikColorDarkPalette : IColorPalette
     public Color GetColor(int colorIndex, int shadeIndex)
     {
         return Colors[
-            MathUtilities.Clamp(colorIndex, 0, ColorCount - 1),
-            MathUtilities.Clamp(shadeIndex, 0, ShadeCount - 1)
+            Math.Clamp(colorIndex, 0, ColorCount - 1),
+            Math.Clamp(shadeIndex, 0, ShadeCount - 1)
         ];
     }
 

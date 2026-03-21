@@ -4,7 +4,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
-using Avalonia.VisualTree;
 
 namespace YikUi.Controls;
 
@@ -34,14 +33,14 @@ public partial class YikTitleBar : UserControl
         if (!e.GetCurrentPoint(this).Properties.IsLeftButtonPressed) return;
         if (sender is Grid control)
         {
-            var window = control.GetVisualRoot() as Window;
+            var window = TopLevel.GetTopLevel(control) as Window;
             window?.BeginMoveDrag(e);
         }
 
         if (IsMaxBtnShow && _lastClickTime.HasValue && (DateTime.Now - _lastClickTime.Value).TotalMilliseconds < 300)
         {
             _lastClickTime = null;
-            if (this.GetVisualRoot() is Window window)
+            if (TopLevel.GetTopLevel(this) is Window window)
                 window.WindowState = window.WindowState == WindowState.Maximized
                     ? WindowState.Normal
                     : WindowState.Maximized;
@@ -57,20 +56,20 @@ public partial class YikTitleBar : UserControl
     private void MinimizeButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
-        if (button.GetVisualRoot() is Window window) window.WindowState = WindowState.Minimized;
+        if (TopLevel.GetTopLevel(button) is Window window) window.WindowState = WindowState.Minimized;
     }
 
     private void MaximizeButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
-        if (button.GetVisualRoot() is not Window window) return;
+        if (TopLevel.GetTopLevel(button) is not Window window) return;
         window.WindowState = window.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
     }
 
     private void CloseButton_Click(object? sender, RoutedEventArgs e)
     {
         if (sender is not Button button) return;
-        if (button.GetVisualRoot() is not Window window) return;
+        if (TopLevel.GetTopLevel(button) is not Window window) return;
 
         if (window is YikWindow yikWindow)
         {
@@ -180,7 +179,7 @@ public partial class YikTitleBar : UserControl
             return;
         }
 
-        var window = this.GetVisualRoot() as Window;
+        var window = TopLevel.GetTopLevel(this) as Window;
         if (window == null)
         {
             Debug.WriteLine("YikTitleBar: Window not found");

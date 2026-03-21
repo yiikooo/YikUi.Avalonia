@@ -40,7 +40,7 @@ public class ToolBar : HeaderedItemsControl
         // TODO: use helper method after merged and upgrade helper dependency. 
         IsOverflowItemProperty.Changed.AddClassHandler<Control, bool>((o, e) =>
         {
-            PseudolassesExtensions.Set(o.Classes, PC_Overflow, e.NewValue.Value);
+            o.Classes.Set(PC_Overflow, e.NewValue.Value);
         });
     }
 
