@@ -8,14 +8,14 @@ public class YikWindow : Window
 {
     private Action<YikTitleBar>? _titleBarLoadedCallback;
 
-    public YikWindow()
+    /*public YikWindow()
     {
         PropertyChanged += (_, args) =>
         {
             if (args.Property != WindowStateProperty) return;
             RootBorder?.Margin = new Thickness(WindowState == WindowState.Maximized ? 8 : 0);
         };
-    }
+    }*/
 
     protected override Type StyleKeyOverride => typeof(YikWindow);
 
