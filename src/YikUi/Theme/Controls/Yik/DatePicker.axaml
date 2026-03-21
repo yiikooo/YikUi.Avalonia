@@ -84,18 +84,17 @@
                                 Placement="BottomEdgeAlignedLeft"
                                 PlacementTarget="{TemplateBinding}">
                                 <Border
-                                    Background="{DynamicResource ComboBoxPopupBackground}"
-                                    BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
+                                    Background="{DynamicResource PopupBackgroundColor}"
+                                    BorderBrush="{DynamicResource PopupBorderBrush}"
                                     BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
-                                    BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
-                                    CornerRadius="{DynamicResource CalendarCornerRadius}"
+                                    CornerRadius="{DynamicResource YikCornerRadius}"
                                     Margin="{DynamicResource ComboBoxPopupBorderMargin}"
                                     Padding="8">
                                     <yik:CalendarView
                                         BorderThickness="0"
                                         CornerRadius="{Binding $parent[Border].CornerRadius}"
                                         FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
-                                        FontSize="{DynamicResource DefaultFontSize}"
+                                        FontSize="{DynamicResource YikFontSize}"
                                         IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
                                         Name="PART_Calendar" />
                                 </Border>

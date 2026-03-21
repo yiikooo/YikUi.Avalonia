@@ -1,0 +1,62 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.TimePickerYikPage"
+    x:DataType="pages:TimePickerDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="TimePicker(yik)"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <ToggleSwitch Content="Need Confirm" Name="needConfirm" />
+
+                <TextBlock Text="{Binding #picker.SelectedTime}" />
+
+                <TextBox
+                    InnerLeftContent="Display Format"
+                    Name="displayFormat"
+                    Text="HH 时 mm 分 ss 秒"
+                    Width="300" />
+                <TextBox
+                    InnerLeftContent="Panel Format"
+                    Name="panelFormat"
+                    Text="tt HH mm ss"
+                    Width="300" />
+
+                <yik:TimePicker
+                    DisplayFormat="{Binding #displayFormat.Text}"
+                    HorizontalAlignment="Left"
+                    Name="picker"
+                    NeedConfirmation="{Binding #needConfirm.IsChecked}"
+                    PanelFormat="{Binding #panelFormat.Text}"
+                    Width="200" />
+
+                <yik:TimePicker
+                    Classes="ClearButton"
+                    DisplayFormat="{Binding #displayFormat.Text}"
+                    HorizontalAlignment="Left"
+                    InnerLeftContent="时刻"
+                    InnerRightContent="截止"
+                    NeedConfirmation="True"
+                    PanelFormat="{Binding #panelFormat.Text}"
+                    Width="300" />
+
+                <TextBlock Text="Binding" />
+                <yik:TimePicker
+                    DisplayFormat="{Binding #displayFormat.Text}"
+                    HorizontalAlignment="Left"
+                    PanelFormat="{Binding #panelFormat.Text}"
+                    SelectedTime="{Binding Time}"
+                    Width="300" />
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

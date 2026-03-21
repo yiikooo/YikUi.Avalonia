@@ -18,6 +18,7 @@
         <ResourceInclude Source="KeyGestureInput.axaml" />
         <ResourceInclude Source="IPv4Box.axaml" />
         <ResourceInclude Source="MultiComboBox.axaml" />
+        <ResourceInclude Source="Calendar.axaml" />
         <ResourceInclude Source="MultiAutoCompleteBox.axaml" />
         <ResourceInclude Source="NumericUpDown.axaml" />
         <ResourceInclude Source="NumPad.axaml" />

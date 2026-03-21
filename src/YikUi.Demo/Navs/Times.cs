@@ -24,8 +24,43 @@ public static class Times
         },
         new()
         {
+            Title = "DatePicker(yik)",
+            Content = new DatePickerYikPage(),
+        },
+        new()
+        {
             Title = "TimePicker",
             Content = new TimePickerPage(),
+        },
+        new()
+        {
+            Title = "Clock",
+            Content = new ClockPage(),
+        },
+        new()
+        {
+            Title = "DateRangePicker",
+            Content = new DateRangePickerPage(),
+        },
+        new()
+        {
+            Title = "DateTimePicker",
+            Content = new DateTimePickerPage(),
+        },
+        new()
+        {
+            Title = "TimeBox",
+            Content = new TimeBoxPage(),
+        },
+        new()
+        {
+            Title = "TimePicker(yik)",
+            Content = new TimePickerYikPage(),
+        },
+        new()
+        {
+            Title = "TimeRangePicker",
+            Content = new TimeRangePickerPage(),
         },
     ];
 }
