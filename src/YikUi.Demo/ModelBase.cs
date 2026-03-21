@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace YikUi.Demo.Pages;
+namespace YikUi.Demo;
 
 public class ModelBase : INotifyPropertyChanged
 {

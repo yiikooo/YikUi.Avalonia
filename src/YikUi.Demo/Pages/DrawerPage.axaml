@@ -1,0 +1,62 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.DrawerPage"
+    x:DataType="pages:DrawerDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="Drawer"
+        Margin="15"
+        Padding="15">
+        <Grid ColumnDefinitions="Auto, *">
+            <yik:Form
+                Grid.Column="0"
+                LabelPosition="Top"
+                Width="300">
+                <TextBox Text="{Binding Title}" yik:FormItem.Label="Title" />
+                <yik:EnumSelector
+                    EnumType="yik:Position"
+                    Value="{Binding Position}"
+                    yik:FormItem.Label="Position" />
+                <yik:EnumSelector
+                    EnumType="yik:DialogButton"
+                    Value="{Binding Buttons}"
+                    yik:FormItem.Label="Buttons" />
+                <CheckBox IsChecked="{Binding CanLightDismiss}" yik:FormItem.Label="Can LightDismiss" />
+                <CheckBox IsChecked="{Binding IsModal}" yik:FormItem.Label="Is Modal" />
+                <CheckBox
+                    IsChecked="{Binding IsCloseButtonVisible}"
+                    IsThreeState="True"
+                    yik:FormItem.Label="Is Close Button Visible" />
+                <CheckBox IsChecked="{Binding Custom}" yik:FormItem.Label="Custom Dialog" />
+                <CheckBox IsChecked="{Binding CanResize}" yik:FormItem.Label="CanResize" />
+                <ToggleSwitch
+                    IsChecked="{Binding IsLocal}"
+                    OffContent="Global"
+                    OnContent="Local"
+                    yik:FormItem.Label="Global/Local OverlayHost" />
+                <Button
+                    Command="{Binding ShowDialogCommand}"
+                    Content="Show"
+                    HorizontalAlignment="Left"
+                    yik:FormItem.NoLabel="True" />
+            </yik:Form>
+            <Grid ClipToBounds="True" Grid.Column="1">
+                <Border
+                    Background="{DynamicResource PanelBackgroundColor}"
+                    BorderBrush="{DynamicResource LineColor}"
+                    BorderThickness="1"
+                    ClipToBounds="True"
+                    CornerRadius="20">
+                    <yik:OverlayDialogHost HostId="LocalHost" />
+                </Border>
+            </Grid>
+        </Grid>
+    </yik:GroupBorder>
+</UserControl>

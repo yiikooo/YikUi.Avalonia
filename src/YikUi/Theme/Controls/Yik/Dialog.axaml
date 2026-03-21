@@ -1,4 +1,4 @@
-﻿<ResourceDictionary
+<ResourceDictionary
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
@@ -6,6 +6,55 @@
     <ControlTheme TargetType="yik:OverlayDialogHost" x:Key="{x:Type yik:OverlayDialogHost}">
         <Setter Property="OverlayMaskBrush" Value="{DynamicResource OverlayDialogMaskBrush}" />
     </ControlTheme>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="White" x:Key="SemiColorBackground2" />
+            <SolidColorBrush
+                Color="#16161A"
+                Opacity="0.6"
+                x:Key="SemiColorOverlayBackground" />
+            <SolidColorBrush Color="#0062D6" x:Key="SemiBlue6" />
+            <SolidColorBrush Color="#D52515" x:Key="SemiRed6" />
+            <SolidColorBrush Color="#D26700" x:Key="SemiOrange6" />
+            <SolidColorBrush Color="#30953B" x:Key="SemiGreen6" />
+            <SolidColorBrush Color="#F2F3F5" x:Key="WindowDefaultBackground" />
+            <SolidColorBrush Color="#16161A" x:Key="WindowDefaultForeground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="BorderCardBackground" />
+            <StaticResource ResourceKey="SemiColorOverlayBackground" x:Key="OverlayDialogMaskBrush" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#35363C" x:Key="SemiColorBackground2" />
+            <SolidColorBrush
+                Color="#16161A"
+                Opacity="0.6"
+                x:Key="SemiColorOverlayBackground" />
+            <SolidColorBrush Color="#7FC1FF" x:Key="SemiBlue6" />
+            <SolidColorBrush Color="#FD9983" x:Key="SemiRed6" />
+            <SolidColorBrush Color="#FFC772" x:Key="SemiOrange6" />
+            <SolidColorBrush Color="#7FD184" x:Key="SemiGreen6" />
+            <SolidColorBrush Color="#16161A" x:Key="WindowDefaultBackground" />
+            <SolidColorBrush Color="#F2F3F5" x:Key="WindowDefaultForeground" />
+            <SolidColorBrush Color="#242529" x:Key="BorderCardBackground" />
+            <StaticResource ResourceKey="SemiColorOverlayBackground" x:Key="OverlayDialogMaskBrush" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <x:Double x:Key="DialogMinWidth">48</x:Double>
+    <x:Double x:Key="DialogMinHeight">48</x:Double>
+    <CornerRadius x:Key="DialogCornerRadius">12</CornerRadius>
+    <x:Double x:Key="DefaultFontSize">14</x:Double>
+    <FontWeight x:Key="TextBlockTitleFontWeight">600</FontWeight>
+    <StreamGeometry x:Key="DialogArrangeBringForwardGlyph">M2,2H16V16H2V2M22,8V22H8V18H10V20H20V10H18V8H22Z</StreamGeometry>
+    <StreamGeometry x:Key="DialogArrangeBringToFrontGlyph">M2,2H11V6H9V4H4V9H6V11H2V2M22,13V22H13V18H15V20H20V15H18V13H22M8,8H16V16H8V8Z</StreamGeometry>
+    <StreamGeometry x:Key="DialogArrangeSendBackwardGlyph">M2,2H16V16H2V2M22,8V22H8V18H18V8H22M4,4V14H14V4H4Z</StreamGeometry>
+    <StreamGeometry x:Key="DialogArrangeSendToBackGlyph">M2,2H11V11H2V2M9,4H4V9H9V4M22,13V22H13V13H22M15,20H20V15H15V20M16,8V11H13V8H16M11,16H8V13H11V16Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconClose">M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z</StreamGeometry>
+    <StaticResource ResourceKey="SemiIconInfoCircle" x:Key="DialogInformationIconGlyph" />
+    <StaticResource ResourceKey="SemiIconAlertCircle" x:Key="DialogErrorIconGlyph" />
+    <StaticResource ResourceKey="SemiIconAlertTriangle" x:Key="DialogWarningIconGlyph" />
+    <StaticResource ResourceKey="SemiIconHelpCircle" x:Key="DialogQuestionIconGlyph" />
+    <StaticResource ResourceKey="SemiIconTickCircle" x:Key="DialogSuccessIconGlyph" />
 
     <ControlTheme TargetType="yik:CustomDialogControl" x:Key="{x:Type yik:CustomDialogControl}">
         <Setter Property="MinWidth" Value="{DynamicResource DialogMinWidth}" />
@@ -23,8 +72,9 @@
             <ControlTemplate TargetType="yik:CustomDialogControl">
                 <Panel>
                     <Border
-                        Background="{DynamicResource SemiColorBackground2}"
-                        Classes="Shadow"
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        BorderBrush="{DynamicResource PopupBorderBrush}"
+                        BorderThickness="1"
                         ClipToBounds="False"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Focusable="True"
@@ -32,7 +82,6 @@
                         IsHitTestVisible="True"
                         Name="PART_Border"
                         Padding="0"
-                        Theme="{DynamicResource CardBorder}"
                         VerticalAlignment="{TemplateBinding VerticalAlignment}">
                         <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid RowDefinitions="Auto, *">
@@ -76,8 +125,7 @@
         <Style Selector="^ /template/ Panel#PART_TitleArea">
             <Setter Property="ContextFlyout">
                 <MenuFlyout>
-                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}"
-                              Header="{DynamicResource STRING_MENU_DIALOG_CLOSE}">
+                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}" Header="{DynamicResource Lang.Close}">
                         <MenuItem.Icon>
                             <PathIcon Data="{DynamicResource SemiIconClose}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
@@ -91,41 +139,36 @@
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.BringForward}"
-                        Header="{DynamicResource STRING_MENU_BRING_FORWARD}">
+                        Header="{DynamicResource Lang.BringForward}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeBringForwardGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeBringForwardGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.BringToFront}"
-                        Header="{DynamicResource STRING_MENU_BRING_TO_FRONT}">
+                        Header="{DynamicResource Lang.BringToFront}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeBringToFrontGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeBringToFrontGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.SendBackward}"
-                        Header="{DynamicResource STRING_MENU_SEND_BACKWARD}">
+                        Header="{DynamicResource Lang.SendBackward}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeSendBackwardGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeSendBackwardGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.SendToBack}"
-                        Header="{DynamicResource STRING_MENU_SEND_TO_BACK}">
+                        Header="{DynamicResource Lang.SendToBack}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeSendToBackGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeSendToBackGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}"
-                              Header="{DynamicResource STRING_MENU_DIALOG_CLOSE}">
+                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}" Header="{DynamicResource Lang.Close}">
                         <MenuItem.Icon>
                             <PathIcon Data="{DynamicResource SemiIconClose}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
@@ -150,9 +193,9 @@
             <ControlTemplate TargetType="yik:DefaultDialogControl">
                 <Panel>
                     <Border
-                        Background="{DynamicResource SemiColorBackground2}"
-                        BoxShadow="0 0 8 0 #1A000000"
-                        Classes="Shadow"
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        BorderBrush="{DynamicResource PopupBorderBrush}"
+                        BorderThickness="1"
                         ClipToBounds="False"
                         CornerRadius="{TemplateBinding CornerRadius}"
                         Focusable="True"
@@ -160,7 +203,6 @@
                         IsHitTestVisible="True"
                         Name="PART_Border"
                         Padding="0"
-                        Theme="{DynamicResource CardBorder}"
                         VerticalAlignment="{TemplateBinding VerticalAlignment}">
                         <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid RowDefinitions="Auto, *, Auto">
@@ -210,8 +252,7 @@
                                     Grid.Row="2"
                                     HorizontalAlignment="Right"
                                     Margin="24,0,24,24">
-                                    <Button Margin="8,0,0,0"
-                                            Name="{x:Static yik:DefaultDialogControl.PART_CancelButton}" />
+                                    <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_CancelButton}" />
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_NoButton}" />
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_YesButton}" />
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_OKButton}" />
@@ -237,24 +278,24 @@
         <Style Selector="^ /template/ Button#PART_CancelButton">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="yik:ClassHelper.Classes" Value="Tertiary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_CANCEL}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Cancel}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_NoButton">
             <Setter Property="Grid.Column" Value="1" />
             <Setter Property="yik:ClassHelper.Classes" Value="Danger" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_NO}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.No}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_YesButton">
             <Setter Property="Grid.Column" Value="2" />
             <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_YES}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Yes}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_OKButton">
             <Setter Property="Grid.Column" Value="3" />
             <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_OK}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Ok}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^[Mode=None]">
@@ -378,8 +419,7 @@
         <Style Selector="^ /template/ Panel#PART_TitleArea">
             <Setter Property="ContextFlyout">
                 <MenuFlyout>
-                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}"
-                              Header="{DynamicResource STRING_MENU_DIALOG_CLOSE}">
+                    <MenuItem Command="{Binding $parent[yik:DialogControlBase].Close}" Header="{DynamicResource Lang.Close}">
                         <MenuItem.Icon>
                             <PathIcon Data="{DynamicResource SemiIconClose}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
@@ -393,43 +433,39 @@
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.BringForward}"
-                        Header="{DynamicResource STRING_MENU_BRING_FORWARD}">
+                        Header="{DynamicResource Lang.BringForward}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeBringForwardGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeBringForwardGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.BringToFront}"
-                        Header="{DynamicResource STRING_MENU_BRING_TO_FRONT}">
+                        Header="{DynamicResource Lang.BringToFront}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeBringToFrontGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeBringToFrontGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.SendBackward}"
-                        Header="{DynamicResource STRING_MENU_SEND_BACKWARD}">
+                        Header="{DynamicResource Lang.SendBackward}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeSendBackwardGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeSendBackwardGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].UpdateLayer}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.SendToBack}"
-                        Header="{DynamicResource STRING_MENU_SEND_TO_BACK}">
+                        Header="{DynamicResource Lang.SendToBack}">
                         <MenuItem.Icon>
-                            <PathIcon Data="{DynamicResource DialogArrangeSendToBackGlyph}"
-                                      Theme="{StaticResource InnerPathIcon}" />
+                            <PathIcon Data="{DynamicResource DialogArrangeSendToBackGlyph}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem
                         Command="{Binding $parent[yik:DialogControlBase].Close}"
                         CommandParameter="{x:Static yik:DialogLayerChangeType.BringForward}"
-                        Header="{DynamicResource STRING_MENU_DIALOG_CLOSE}">
+                        Header="{DynamicResource Lang.Close}">
                         <MenuItem.Icon>
                             <PathIcon Data="{DynamicResource SemiIconClose}" Theme="{StaticResource InnerPathIcon}" />
                         </MenuItem.Icon>
@@ -441,11 +477,11 @@
 
     <ControlTheme TargetType="yik:DialogWindow" x:Key="{x:Type yik:DialogWindow}">
         <Setter Property="Title" Value="{x:Null}" />
-        <Setter Property="Background" Value="{DynamicResource SemiColorBackground2}" />
-        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource WindowDefaultBackground}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowDefaultForeground}" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
-        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
+        <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
         <Setter Property="Padding" Value="48 24" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="WindowStartupLocation" Value="CenterOwner" />
@@ -513,11 +549,11 @@
 
     <ControlTheme TargetType="yik:DefaultDialogWindow" x:Key="{x:Type yik:DefaultDialogWindow}">
         <Setter Property="Title" Value="{x:Null}" />
-        <Setter Property="Background" Value="{DynamicResource SemiColorBackground2}" />
-        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource WindowDefaultBackground}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource WindowDefaultForeground}" />
         <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
-        <Setter Property="FontFamily" Value="{DynamicResource DefaultFontFamily}" />
+        <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
         <Setter Property="Padding" Value="48 24" />
         <Setter Property="SizeToContent" Value="WidthAndHeight" />
         <Setter Property="WindowStartupLocation" Value="CenterOwner" />
@@ -607,24 +643,24 @@
         <Style Selector="^ /template/ Button#PART_CancelButton">
             <Setter Property="Grid.Column" Value="0" />
             <Setter Property="yik:ClassHelper.Classes" Value="Tertiary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_CANCEL}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Cancel}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_NoButton">
             <Setter Property="Grid.Column" Value="1" />
             <Setter Property="yik:ClassHelper.Classes" Value="Danger" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_NO}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.No}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_YesButton">
             <Setter Property="Grid.Column" Value="2" />
             <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_YES}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Yes}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^ /template/ Button#PART_OKButton">
             <Setter Property="Grid.Column" Value="3" />
             <Setter Property="yik:ClassHelper.Classes" Value="Primary" />
-            <Setter Property="Content" Value="{DynamicResource STRING_MENU_DIALOG_OK}" />
+            <Setter Property="Content" Value="{DynamicResource Lang.Ok}" />
             <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
         </Style>
         <Style Selector="^[Mode=None]">

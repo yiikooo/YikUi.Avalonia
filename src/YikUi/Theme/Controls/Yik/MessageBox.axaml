@@ -43,8 +43,8 @@
     <StaticResource ResourceKey="SemiIconTickCircle" x:Key="DialogSuccessIconGlyph" />
     <ControlTheme TargetType="yik:MessageBoxWindow" x:Key="{x:Type yik:MessageBoxWindow}">
         <Setter Property="Title" Value="{x:Null}" />
-        <Setter Property="Background" Value="{DynamicResource SemiColorBackground3}" />
-        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="{DynamicResource YikFontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource YikFontFamily}" />
@@ -167,14 +167,12 @@
         <Style Selector="^[MessageIcon=None] /template/ PathIcon#PART_Icon">
             <Setter Property="IsVisible" Value="False" />
         </Style>
-        <Style
-            Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
+        <Style Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
             <Setter Property="Data" Value="{DynamicResource DialogInformationIconGlyph}" />
         </Style>
-        <Style
-            Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
+        <Style Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Foreground" Value="{DynamicResource SemiRed6}" />
             <Setter Property="Data" Value="{DynamicResource DialogErrorIconGlyph}" />
@@ -202,21 +200,21 @@
     </ControlTheme>
 
     <ControlTheme TargetType="yik:MessageBoxControl" x:Key="{x:Type yik:MessageBoxControl}">
-        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Padding" Value="48 24" />
         <Setter Property="yik:DialogControlBase.CanDragMove" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:MessageBoxControl">
                 <Border
-                    Background="{DynamicResource SemiColorBackground3}"
-                    Classes="Shadow"
+                    Background="{DynamicResource PopupBackgroundColor}"
+                    BorderBrush="{DynamicResource PopupBorderBrush}"
+                    BorderThickness="1"
                     ClipToBounds="False"
                     CornerRadius="{TemplateBinding CornerRadius}"
                     Focusable="True"
                     HorizontalAlignment="Center"
                     IsHitTestVisible="True"
                     Padding="0"
-                    Theme="{DynamicResource CardBorder}"
                     VerticalAlignment="Center">
                     <Border ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}">
                         <Grid RowDefinitions="Auto, *, Auto">
@@ -289,8 +287,7 @@
         <Style Selector="^ /template/ Panel#PART_TitleArea">
             <Setter Property="ContextFlyout">
                 <MenuFlyout>
-                    <MenuItem Command="{Binding $parent[yik:MessageBoxControl].Close}"
-                              Header="{DynamicResource Lang.Close}">
+                    <MenuItem Command="{Binding $parent[yik:MessageBoxControl].Close}" Header="{DynamicResource Lang.Close}">
                         <MenuItem.Icon>
                             <PathIcon
                                 Data="{DynamicResource Close}"
@@ -330,14 +327,12 @@
         <Style Selector="^[MessageIcon=None] /template/ TextBlock#PART_Title">
             <Setter Property="Margin" Value="24 24 0 0" />
         </Style>
-        <Style
-            Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
+        <Style Selector="^[MessageIcon=Asterisk] /template/ PathIcon#PART_Icon, ^[MessageIcon=Information] /template/ PathIcon#PART_Icon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Foreground" Value="{DynamicResource SemiBlue6}" />
             <Setter Property="Data" Value="{DynamicResource DialogInformationIconGlyph}" />
         </Style>
-        <Style
-            Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
+        <Style Selector="^[MessageIcon=Error] /template/ PathIcon#PART_Icon, ^[MessageIcon=Hand] /template/ PathIcon#PART_Icon, ^[MessageIcon=Stop] /template/ PathIcon#PART_Icon">
             <Setter Property="IsVisible" Value="True" />
             <Setter Property="Foreground" Value="{DynamicResource SemiRed6}" />
             <Setter Property="Data" Value="{DynamicResource DialogErrorIconGlyph}" />

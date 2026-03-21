@@ -32,4 +32,8 @@ public class LangEnUs : ILang
     public string Yes => "Yes";
     public string No => "No";
     public string Close => "Close";
+    public string BringForward => "Bring Forward";
+    public string BringToFront => "Bring to Front";
+    public string SendBackward => "Send Backward";
+    public string SendToBack => "Send to Back";
 }

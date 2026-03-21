@@ -32,4 +32,8 @@ public class LangZhCn : ILang
     public string Yes => "是";
     public string No => "否";
     public string Close => "关闭";
+    public string BringForward => "前移一层";
+    public string BringToFront => "置于顶层";
+    public string SendBackward => "后移一层";
+    public string SendToBack => "置于底层";
 }

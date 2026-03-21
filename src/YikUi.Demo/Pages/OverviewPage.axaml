@@ -56,6 +56,7 @@
                 <Carousel
                     Classes="Center Dot"
                     Height="140"
+                    IsVisible="False"
                     Theme="{DynamicResource FullCarousel}">
                     <Border Background="#EAF5FF">
                         <TextBlock Text="Text 1" />
@@ -77,6 +78,16 @@
                 Spacing="15">
                 <StackPanel Spacing="15">
                     <Button Content="Button" Width="170" />
+                    <yik:IconButton
+                        Classes="Float"
+                        Content="Float Icon Button"
+                        Width="170">
+                        <yik:IconButton.Icon>
+                            <StreamGeometry>
+                                F1 M448,512z M0,0z M224,0C206.3,0,192,14.3,192,32L192,35.2C119,50,64,114.6,64,192L64,213.7C64,261.8,47.6,308.5,17.6,346.1L7.8,358.3C2.7,364.6 0,372.4 0,380.5 0,400.1 15.9,416 35.5,416L412.4,416C432,416 447.9,400.1 447.9,380.5 447.9,372.4 445.2,364.6 440.1,358.3L430.3,346.1C400.4,308.5,384,261.8,384,213.7L384,192C384,114.6,329,50,256,35.2L256,32C256,14.3,241.7,-1.06581410364015E-14,224,-1.06581410364015E-14z M162,464C169.1,491.6 194.2,512 224,512 253.8,512 278.9,491.6 286,464L162,464z
+                            </StreamGeometry>
+                        </yik:IconButton.Icon>
+                    </yik:IconButton>
                     <DropDownButton Content="DropDownButton" Width="170" />
                     <SplitButton Content="SplitButton" Width="170" />
                     <ToggleButton

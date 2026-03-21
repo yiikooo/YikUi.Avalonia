@@ -46,6 +46,16 @@ public static class Feedbacks
         {
             Title = "MessageBox",
             Content = new MessageBoxPage(),
+        },
+        new()
+        {
+            Title = "Dialog",
+            Content = new DialogPage(),
+        },
+        new()
+        {
+            Title = "Drawer",
+            Content = new DrawerPage(),
         }
     ];
 }
