@@ -19,6 +19,11 @@ public static class Feedbacks
         },
         new()
         {
+            Title = "PopConfirm",
+            Content = new PopConfirmPage(),
+        },
+        new()
+        {
             Title = "Toast",
             Content = new ToastPage(),
         },

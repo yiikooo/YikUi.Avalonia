@@ -11,8 +11,7 @@
         <Setter Property="MaxHeight" Value="300" />
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:TimePickerPresenter">
-                <Grid ColumnDefinitions="*, Auto, *, Auto, *, Auto, *"
-                      Name="{x:Static yik:TimePickerPresenter.PART_PickerContainer}">
+                <Grid ColumnDefinitions="*, Auto, *, Auto, *, Auto, *" Name="{x:Static yik:TimePickerPresenter.PART_PickerContainer}">
                     <Grid.Styles>
                         <Style Selector="yik|YikDateTimeScrollPanel &gt; ListBoxItem">
                             <Setter Property="Theme" Value="{DynamicResource DateTimePickerItem}" />
@@ -176,11 +175,10 @@
                                     HorizontalAlignment="Stretch"
                                     Margin="{DynamicResource ComboBoxPopupBorderMargin}">
                                     <DockPanel>
-                                        <StackPanel DockPanel.Dock="Bottom"
-                                                    IsVisible="{TemplateBinding NeedConfirmation}">
+                                        <StackPanel DockPanel.Dock="Bottom" IsVisible="{TemplateBinding NeedConfirmation}">
                                             <Button
                                                 Command="{Binding $parent[yik:TimePicker].Confirm}"
-                                                Content="{DynamicResource Lang.Confirm}"
+                                                Content="{DynamicResource Lang.Ok}"
                                                 HorizontalAlignment="Right"
                                                 Margin="8" />
                                         </StackPanel>
@@ -213,12 +211,10 @@
 
         <Style Selector="^.clearButton, ^.ClearButton">
             <Style Selector="^:pointerover /template/ Button#ClearButton">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </Style>
             <Style Selector="^:pointerover /template/ Button#PART_Button">
-                <Setter Property="IsVisible"
-                        Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNull}}" />
+                <Setter Property="IsVisible" Value="{Binding $parent[yik:TimePicker].SelectedTime, Converter={x:Static ObjectConverters.IsNull}}" />
             </Style>
         </Style>
 

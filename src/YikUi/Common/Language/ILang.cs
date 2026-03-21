@@ -9,6 +9,7 @@ public interface ILang
     public string Size { get; }
     public string Cancel { get; }
     public string Confirm { get; }
+    public string Ok { get; }
     public string ShowHiddenFiles { get; }
     public string FileAlreadyExists { get; }
     public string Day { get; }

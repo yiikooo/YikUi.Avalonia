@@ -102,7 +102,7 @@
                                     <StackPanel DockPanel.Dock="Bottom" IsVisible="{TemplateBinding NeedConfirmation}">
                                         <Button
                                             Command="{Binding $parent[yik:TimeRangePicker].Confirm}"
-                                            Content="{DynamicResource Lang.Confirm}"
+                                            Content="{DynamicResource Lang.Ok}"
                                             HorizontalAlignment="Right"
                                             Margin="8" />
                                     </StackPanel>

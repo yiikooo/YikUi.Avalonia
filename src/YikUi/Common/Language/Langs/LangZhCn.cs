@@ -9,6 +9,7 @@ public class LangZhCn : ILang
     public string Size => "大小";
     public string Cancel => "取消";
     public string Confirm => "确认";
+    public string Ok => "确定";
     public string ShowHiddenFiles => "显示隐藏文件";
     public string FileAlreadyExists => "文件已存在";
     public string Day => "日";

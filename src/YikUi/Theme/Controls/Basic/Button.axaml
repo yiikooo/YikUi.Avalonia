@@ -188,4 +188,20 @@
             <Setter Property="Foreground" Value="{DynamicResource ButtonInputInnerPressedForeground}" />
         </Style>
     </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type Button}}"
+        TargetType="Button"
+        x:Key="SolidButton">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource SystemAccentColor}" />
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark1}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource SystemAccentColorDark2}" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>
