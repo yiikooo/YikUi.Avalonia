@@ -1,0 +1,145 @@
+name: Build and Publish
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+env:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+jobs:
+  # 生成版本号
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.date.outputs.version }}
+      year: ${{ steps.date.outputs.year }}
+      month_day: ${{ steps.date.outputs.month_day }}
+      hour_minute: ${{ steps.date.outputs.hour_minute }}
+      semver: ${{ steps.date.outputs.semver }}
+    steps:
+      - name: Generate Version
+        id: date
+        run: |
+          echo "version=$(TZ='Asia/Shanghai' date +'%Y.%m.%d.%H.%M')" >> $GITHUB_OUTPUT
+          echo "year=$(TZ='Asia/Shanghai' date +'%Y')" >> $GITHUB_OUTPUT
+          echo "month_day=$(TZ='Asia/Shanghai' date +'%m%d')" >> $GITHUB_OUTPUT
+          echo "hour_minute=$(TZ='Asia/Shanghai' date +'%H%M')" >> $GITHUB_OUTPUT
+          echo "semver=$(TZ='Asia/Shanghai' date +'%Y.%m.%d.%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Display Version
+        run: |
+          echo "Version: ${{ steps.date.outputs.version }}"
+          echo "SemVer: ${{ steps.date.outputs.semver }}"
+
+  # 构建 YikUi 库和 NuGet 包
+  build-library:
+    runs-on: ubuntu-latest
+    needs: version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Restore Dependencies
+        run: dotnet restore ./src/YikUi/YikUi.csproj
+
+      - name: Build Library
+        run: |
+          dotnet build ./src/YikUi/YikUi.csproj \
+            -c Release \
+            /p:Version=${{ needs.version.outputs.semver }}
+
+      - name: Pack NuGet
+        run: |
+          dotnet pack ./src/YikUi/YikUi.csproj \
+            -c Release \
+            --no-build \
+            /p:PackageVersion=${{ needs.version.outputs.semver }} \
+            /p:Version=${{ needs.version.outputs.semver }} \
+            -o ./nuget-output
+
+      - name: Upload Library DLL
+        uses: actions/upload-artifact@v4
+        with:
+          name: yikui-library
+          path: ./src/YikUi/bin/Release/net10.0/YikUi.dll
+          retention-days: 7
+
+      - name: Upload NuGet Package
+        uses: actions/upload-artifact@v4
+        with:
+          name: yikui-nuget
+          path: ./nuget-output/*.nupkg
+          retention-days: 7
+
+  # 构建 Windows x64 Demo 单文件
+  build-demo-windows:
+    runs-on: windows-latest
+    needs: version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Build Windows x64 Demo
+        run: |
+          dotnet publish ./src/YikUi.Demo/YikUi.Demo.csproj `
+            -c Release `
+            -r win-x64 `
+            /p:PublishSingleFile=true `
+            /p:SelfContained=false `
+            /p:IncludeNativeLibrariesForSelfExtract=true `
+            /p:Version=${{ needs.version.outputs.semver }}
+
+      - name: Rename Demo Executable
+        run: |
+          Move-Item `
+            -Path "./src/YikUi.Demo/bin/Release/net10.0/win-x64/publish/YikUi.Demo.exe" `
+            -Destination "./YikUi.Demo.win.x64.portable.exe"
+
+      - name: Upload Demo Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: yikui-demo-windows-x64
+          path: ./YikUi.Demo.win.x64.portable.exe
+          retention-days: 7
+
+  # 发布 Release
+  publish:
+    needs: [version, build-library, build-demo-windows]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./release-files/
+
+      - name: List Release Files
+        run: find ./release-files/ -type f
+
+      - name: Publish Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "v${{ needs.version.outputs.version }}"
+          automatic_release_tag: "v${{ needs.version.outputs.version }}"
+          prerelease: false
+          files: |
+            release-files/**/*.dll
+            release-files/**/*.nupkg
+            release-files/**/*.exe
