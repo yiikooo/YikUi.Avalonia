@@ -67,11 +67,16 @@ jobs:
             /p:Version=${{ needs.version.outputs.semver }} \
             -o ./nuget-output
 
+      - name: Rename Library DLL with Version
+        run: |
+          cp ./src/YikUi/bin/Release/net10.0/YikUi.dll \
+            ./YikUi.${{ needs.version.outputs.semver }}.dll
+
       - name: Upload Library DLL
         uses: actions/upload-artifact@v4
         with:
           name: yikui-library
-          path: ./src/YikUi/bin/Release/net10.0/YikUi.dll
+          path: ./YikUi.${{ needs.version.outputs.semver }}.dll
           retention-days: 7
 
       - name: Upload NuGet Package
@@ -106,17 +111,17 @@ jobs:
             /p:IncludeNativeLibrariesForSelfExtract=true `
             /p:Version=${{ needs.version.outputs.semver }}
 
-      - name: Rename Demo Executable
+      - name: Rename Demo Executable with Version
         run: |
           Move-Item `
             -Path "./src/YikUi.Demo/bin/Release/net10.0/win-x64/publish/YikUi.Demo.exe" `
-            -Destination "./YikUi.Demo.win.x64.portable.exe"
+            -Destination "./YikUi.${{ needs.version.outputs.semver }}.exe"
 
       - name: Upload Demo Executable
         uses: actions/upload-artifact@v4
         with:
           name: yikui-demo-windows-x64
-          path: ./YikUi.Demo.win.x64.portable.exe
+          path: ./YikUi.${{ needs.version.outputs.semver }}.exe
           retention-days: 7
 
   # 发布 Release
