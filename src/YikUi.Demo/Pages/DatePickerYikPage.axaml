@@ -21,17 +21,17 @@
                     Name="format"
                     Text="yyyy-MM-dd" />
                 <TextBlock Text="Default" />
-                <yik:DatePicker DisplayFormat="{Binding #format.Text}" Width="200" />
+                <yik:DatePicker DisplayFormat="{Binding #format.Text}" Width="300" />
                 <TextBlock Text="Binding" />
                 <yik:DatePicker
                     DisplayFormat="{Binding #format.Text}"
                     SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
-                    Width="200" />
+                    Width="300" />
                 <TextBlock Text="Clear Button" />
                 <yik:DatePicker
                     Classes="ClearButton"
                     Name="singlePicker"
-                    Width="200" />
+                    Width="300" />
             </StackPanel>
         </ScrollViewer>
     </yik:GroupBorder>

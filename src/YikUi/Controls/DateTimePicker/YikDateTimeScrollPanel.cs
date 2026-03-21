@@ -3,7 +3,7 @@ using Avalonia.Controls.Primitives;
 
 namespace YikUi.Controls;
 
-public class UrsaDateTimeScrollPanel : DateTimePickerPanel
+public class YikDateTimeScrollPanel : DateTimePickerPanel
 {
     protected override Size MeasureOverride(Size availableSize)
     {

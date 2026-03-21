@@ -156,7 +156,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Background" Value="{DynamicResource DateTimePickerListItemBackground}" />
-
+        <Setter Property="Padding" Value="6,4" />
         <Style Selector="^:selected">
             <Setter Property="IsHitTestVisible" Value="False" />
         </Style>
@@ -213,7 +213,8 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsVisible" Value="False" />
-        <Setter Property="Padding" Value="0 1" />
+        <Setter Property="Height" Value="0" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Content">
             <Template>
                 <PathIcon
@@ -234,7 +235,8 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="IsVisible" Value="False" />
-        <Setter Property="Padding" Value="0 1" />
+        <Setter Property="Height" Value="0" />
+        <Setter Property="Padding" Value="0" />
         <Setter Property="Content">
             <Template>
                 <PathIcon

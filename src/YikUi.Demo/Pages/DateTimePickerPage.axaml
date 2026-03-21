@@ -23,12 +23,13 @@
                     <TextBox
                         Name="panelBox"
                         Text="hh mm ss"
+                        Width="300"
                         yik:FormItem.Label="Panel" />
                     <yik:DateTimePicker
                         Classes="ClearButton"
                         DisplayFormat="{Binding #formatBox.Text}"
-                        MinWidth="100"
                         PanelFormat="{Binding #panelBox.Text}"
+                        Width="300"
                         yik:FormItem.NoLabel="True" />
                 </yik:Form>
             </StackPanel>

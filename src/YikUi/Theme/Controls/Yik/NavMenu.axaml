@@ -65,8 +65,7 @@
                             Text="{Binding SearchText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                             Watermark="{TemplateBinding SearchPlaceholderText}">
                             <TextBox.InnerRightContent>
-                                <PathIcon
-                                    Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
+                                <PathIcon Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
                             </TextBox.InnerRightContent>
                         </TextBox>
                     </Border>
@@ -86,12 +85,9 @@
                         IsVisible="False"
                         Margin="0,4,6,0"
                         Name="PART_SearchBoxBottom">
-                        <TextBox
-                            Text="{Binding SearchText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                            Watermark="{TemplateBinding SearchPlaceholderText}">
+                        <TextBox Text="{Binding SearchText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Watermark="{TemplateBinding SearchPlaceholderText}">
                             <TextBox.InnerRightContent>
-                                <PathIcon
-                                    Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
+                                <PathIcon Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
                             </TextBox.InnerRightContent>
                         </TextBox>
                     </Border>
@@ -104,15 +100,13 @@
             </ControlTemplate>
         </Setter>
         <Style Selector="^[SearchPlacement=Top] /template/ Border#PART_SearchBoxTop">
-            <Setter Property="IsVisible"
-                    Value="{Binding EnableSearch, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Setter Property="IsVisible" Value="{Binding EnableSearch, RelativeSource={RelativeSource TemplatedParent}}" />
         </Style>
         <Style Selector="^[SearchPlacement=Bottom] /template/ Border#PART_SearchBoxTop">
             <Setter Property="IsVisible" Value="False" />
         </Style>
         <Style Selector="^[SearchPlacement=Bottom] /template/ Border#PART_SearchBoxBottom">
-            <Setter Property="IsVisible"
-                    Value="{Binding EnableSearch, RelativeSource={RelativeSource TemplatedParent}}" />
+            <Setter Property="IsVisible" Value="{Binding EnableSearch, RelativeSource={RelativeSource TemplatedParent}}" />
         </Style>
         <Style Selector="^[SearchPlacement=Bottom] /template/ ContentPresenter#PART_Footer">
             <Setter Property="Grid.Row" Value="4" />
@@ -125,10 +119,8 @@
             <Setter Property="Grid.IsSharedSizeScope" Value="False" />
         </Style>
         <Style Selector="^.enable_animation">
-            <Setter Property="yik:SizeAnimationHelper.TriggerAvaloniaProperty"
-                    Value="{x:Static yik:NavMenu.IsHorizontalCollapsedProperty}" />
-            <Setter Property="yik:SizeAnimationHelper.CreateAnimation"
-                    Value="{DynamicResource NavMenuWidthAnimationGenerator}" />
+            <Setter Property="yik:SizeAnimationHelper.TriggerAvaloniaProperty" Value="{x:Static yik:NavMenu.IsHorizontalCollapsedProperty}" />
+            <Setter Property="yik:SizeAnimationHelper.CreateAnimation" Value="{DynamicResource NavMenuWidthAnimationGenerator}" />
             <Setter Property="yik:SizeAnimationHelper.EnableWHAnimation" Value="True" />
         </Style>
         <Style Selector="^.FlatScrollBar">
@@ -169,12 +161,9 @@
                             IsVisible="False"
                             Margin="0,4,6,0"
                             Name="PART_SearchBoxBottom">
-                            <TextBox
-                                Text="{Binding SearchText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                Watermark="{TemplateBinding SearchPlaceholderText}">
+                            <TextBox Text="{Binding SearchText, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Watermark="{TemplateBinding SearchPlaceholderText}">
                                 <TextBox.InnerRightContent>
-                                    <PathIcon
-                                        Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
+                                    <PathIcon Data="F1 M512,512z M0,0z M416,208C416,253.9,401.1,296.3,376,330.7L502.6,457.4C515.1,469.9 515.1,490.2 502.6,502.7 490.1,515.2 469.8,515.2 457.3,502.7L330.7,376C296.3,401.1 253.9,416 208,416 93.1,416 0,322.9 0,208 0,93.1 93.1,0 208,0 322.9,0 416,93.1 416,208z M208,352A144,144,0,1,0,208,64A144,144,0,1,0,208,352z" />
                                 </TextBox.InnerRightContent>
                             </TextBox>
                         </Border>
@@ -189,7 +178,7 @@
     </ControlTheme>
 
     <ControlTemplate TargetType="yik:NavMenuItem" x:Key="DefaultNavMenuItemTemplate">
-        <Grid Background="Transparent" RowDefinitions="Auto, *">
+        <Grid Background="{x:Null}" RowDefinitions="Auto, *">
             <Border
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
@@ -298,6 +287,7 @@
             </Border>
 
             <yik:ContentExpander
+                Background="{x:Null}"
                 Grid.Row="1"
                 Name="PART_ContentExpand"
                 Orientation="Vertical"
@@ -388,8 +378,7 @@
             <Style Selector="^ /template/ Border#PART_Border">
                 <Setter Property="ToolTip.Tip">
                     <Template>
-                        <ContentPresenter Content="{TemplateBinding yik:NavMenuItem.Header}"
-                                          ContentTemplate="{TemplateBinding yik:NavMenuItem.HeaderTemplate}" />
+                        <ContentPresenter Content="{TemplateBinding yik:NavMenuItem.Header}" ContentTemplate="{TemplateBinding yik:NavMenuItem.HeaderTemplate}" />
                     </Template>
                 </Setter>
                 <Setter Property="ToolTip.ShowDelay" Value="0" />

@@ -138,7 +138,7 @@
     <ControlTheme TargetType="DatePickerPresenter" x:Key="{x:Type DatePickerPresenter}">
         <Setter Property="Width" Value="296" />
         <Setter Property="MinWidth" Value="296" />
-        <Setter Property="MaxHeight" Value="300" />
+        <Setter Property="MaxHeight" Value="304" />
         <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -171,18 +171,15 @@
                                         BorderThickness="0"
                                         Name="PART_MonthBorder">
                                         <Panel>
-                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                                          VerticalScrollBarVisibility="Hidden">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                                 <DateTimePickerPanel
                                                     ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                                     Name="PART_MonthSelector"
                                                     PanelType="Month"
                                                     ShouldLoop="True" />
                                             </ScrollViewer>
-                                            <RepeatButton Name="PART_MonthUpButton"
-                                                          Theme="{StaticResource DateTimePickerUpButton}" />
-                                            <RepeatButton Name="PART_MonthDownButton"
-                                                          Theme="{StaticResource DateTimePickerDownButton}" />
+                                            <RepeatButton Name="PART_MonthUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                            <RepeatButton Name="PART_MonthDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                                         </Panel>
                                     </Border>
                                 </Panel>
@@ -191,18 +188,15 @@
                                 <Panel Grid.Column="2" Name="PART_DayHost">
                                     <Border BorderBrush="{DynamicResource DateTimePickerSeparatorBackground}">
                                         <Panel>
-                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                                          VerticalScrollBarVisibility="Hidden">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                                 <DateTimePickerPanel
                                                     ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                                     Name="PART_DaySelector"
                                                     PanelType="Day"
                                                     ShouldLoop="True" />
                                             </ScrollViewer>
-                                            <RepeatButton Name="PART_DayUpButton"
-                                                          Theme="{StaticResource DateTimePickerUpButton}" />
-                                            <RepeatButton Name="PART_DayDownButton"
-                                                          Theme="{StaticResource DateTimePickerDownButton}" />
+                                            <RepeatButton Name="PART_DayUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                            <RepeatButton Name="PART_DayDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                                         </Panel>
                                     </Border>
                                 </Panel>
@@ -213,18 +207,15 @@
                                         BorderThickness="0"
                                         Name="PART_YearBorder">
                                         <Panel>
-                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled"
-                                                          VerticalScrollBarVisibility="Hidden">
+                                            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                                                 <DateTimePickerPanel
                                                     ItemHeight="{DynamicResource DateTimePickerListBoxItemHeight}"
                                                     Name="PART_YearSelector"
                                                     PanelType="Year"
                                                     ShouldLoop="False" />
                                             </ScrollViewer>
-                                            <RepeatButton Name="PART_YearUpButton"
-                                                          Theme="{StaticResource DateTimePickerUpButton}" />
-                                            <RepeatButton Name="PART_YearDownButton"
-                                                          Theme="{StaticResource DateTimePickerDownButton}" />
+                                            <RepeatButton Name="PART_YearUpButton" Theme="{StaticResource DateTimePickerUpButton}" />
+                                            <RepeatButton Name="PART_YearDownButton" Theme="{StaticResource DateTimePickerDownButton}" />
                                         </Panel>
                                     </Border>
                                 </Panel>

@@ -14,7 +14,7 @@
                 <Grid ColumnDefinitions="*, Auto, *, Auto, *, Auto, *"
                       Name="{x:Static yik:TimePickerPresenter.PART_PickerContainer}">
                     <Grid.Styles>
-                        <Style Selector="yik|UrsaDateTimeScrollPanel &gt; ListBoxItem">
+                        <Style Selector="yik|YikDateTimeScrollPanel &gt; ListBoxItem">
                             <Setter Property="Theme" Value="{DynamicResource DateTimePickerItem}" />
                         </Style>
                     </Grid.Styles>
@@ -25,7 +25,7 @@
                         HorizontalScrollBarVisibility="Disabled"
                         Name="{x:Static yik:TimePickerPresenter.PART_HourScrollPanel}"
                         VerticalScrollBarVisibility="Hidden">
-                        <yik:UrsaDateTimeScrollPanel
+                        <yik:YikDateTimeScrollPanel
                             HorizontalAlignment="Left"
                             ItemHeight="32"
                             MinWidth="64"
@@ -47,7 +47,7 @@
                         HorizontalScrollBarVisibility="Disabled"
                         Name="{x:Static yik:TimePickerPresenter.PART_MinuteScrollPanel}"
                         VerticalScrollBarVisibility="Hidden">
-                        <yik:UrsaDateTimeScrollPanel
+                        <yik:YikDateTimeScrollPanel
                             ItemHeight="32"
                             MinWidth="64"
                             Name="{x:Static yik:TimePickerPresenter.PART_MinuteSelector}"
@@ -68,7 +68,7 @@
                         HorizontalScrollBarVisibility="Disabled"
                         Name="{x:Static yik:TimePickerPresenter.PART_SecondScrollPanel}"
                         VerticalScrollBarVisibility="Hidden">
-                        <yik:UrsaDateTimeScrollPanel
+                        <yik:YikDateTimeScrollPanel
                             ItemHeight="32"
                             MinWidth="64"
                             Name="{x:Static yik:TimePickerPresenter.PART_SecondSelector}"
@@ -89,7 +89,7 @@
                         HorizontalScrollBarVisibility="Disabled"
                         Name="{x:Static yik:TimePickerPresenter.PART_AmPmScrollPanel}"
                         VerticalScrollBarVisibility="Hidden">
-                        <yik:UrsaDateTimeScrollPanel
+                        <yik:YikDateTimeScrollPanel
                             ItemHeight="32"
                             MinWidth="64"
                             Name="{x:Static yik:TimePickerPresenter.PART_AmPmSelector}"
@@ -105,7 +105,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextBoxForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource TextBoxDefaultCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="MinHeight" Value="32" />
         <Setter Property="Template">
             <ControlTemplate TargetType="yik:TimePicker">
@@ -146,16 +146,18 @@
                                     Data="{DynamicResource Close}"
                                     Foreground="{DynamicResource InnerForegroundColor}"
                                     Height="11"
-                                    Width="16" />
+                                    Width="20" />
                             </Button>
                             <Button
                                 Focusable="False"
                                 Grid.Column="1"
                                 Margin="8,0"
-                                Name="{x:Static yik:TimePicker.PART_Button}">
+                                Name="{x:Static yik:TimePicker.PART_Button}"
+                                Theme="{DynamicResource TransparentButton}">
                                 <PathIcon
                                     Data="F1 M512,512z M0,0z M256,0A256,256,0,1,1,256,512A256,256,0,1,1,256,0z M232,120L232,256C232,264,236,271.5,242.7,276L338.7,340C349.7,347.4 364.6,344.4 372,333.3 379.4,322.2 376.4,307.4 365.3,300L280,243.2 280,120C280,106.7 269.3,96 256,96 242.7,96 232,106.7 232,120z"
                                     Foreground="{DynamicResource DateTimePickerIconForeground}"
+                                    Height="16"
                                     Width="20" />
                             </Button>
                             <Popup
@@ -167,11 +169,10 @@
                                 Placement="BottomEdgeAlignedLeft"
                                 PlacementTarget="Background">
                                 <Border
-                                    Background="{DynamicResource ComboBoxPopupBackground}"
-                                    BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
+                                    Background="{DynamicResource PopupBackgroundColor}"
+                                    BorderBrush="{DynamicResource PopupBorderBrush}"
                                     BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
-                                    BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
-                                    CornerRadius="6"
+                                    CornerRadius="10"
                                     HorizontalAlignment="Stretch"
                                     Margin="{DynamicResource ComboBoxPopupBorderMargin}">
                                     <DockPanel>
@@ -243,12 +244,12 @@
         </Style>
 
         <!--  Focused State  -->
-        <Style Selector="^:focus /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
-        </Style>
-        <Style Selector="^:focus-within /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
-        </Style>
+        <!-- <Style Selector="^:focus /template/ Border#Background"> -->
+        <!--     <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="^:focus-within /template/ Border#Background"> -->
+        <!--     <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" /> -->
+        <!-- </Style> -->
 
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="40" />

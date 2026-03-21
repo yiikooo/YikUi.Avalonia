@@ -7,7 +7,7 @@
     <ControlTheme TargetType="TimePickerPresenter" x:Key="{x:Type TimePickerPresenter}">
         <Setter Property="Width" Value="242" />
         <Setter Property="MinWidth" Value="242" />
-        <Setter Property="MaxHeight" Value="300" />
+        <Setter Property="MaxHeight" Value="304" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
         <Setter Property="BorderBrush" Value="{DynamicResource PopupBorderBrush}" />
@@ -131,7 +131,6 @@
                                         Data="{DynamicResource DateTimePickerAcceptGlyph}"
                                         Foreground="{DynamicResource InnerForegroundColor}"
                                         Height="15"
-                                        Theme="{StaticResource InnerPathIcon}"
                                         Width="12" />
                                 </Button>
                                 <Rectangle
@@ -298,6 +297,7 @@
                                     Data="F1 M512,512z M0,0z M256,0A256,256,0,1,1,256,512A256,256,0,1,1,256,0z M232,120L232,256C232,264,236,271.5,242.7,276L338.7,340C349.7,347.4 364.6,344.4 372,333.3 379.4,322.2 376.4,307.4 365.3,300L280,243.2 280,120C280,106.7 269.3,96 256,96 242.7,96 232,106.7 232,120z"
                                     Foreground="{DynamicResource DateTimePickerIconForeground}"
                                     Grid.Column="1"
+                                    Height="16"
                                     Margin="0,0,8,0"
                                     Name="PART_Icon"
                                     Width="20" />

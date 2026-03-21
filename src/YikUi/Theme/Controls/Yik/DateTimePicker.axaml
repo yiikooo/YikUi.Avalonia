@@ -7,7 +7,7 @@
         <Setter Property="Foreground" Value="{DynamicResource CalendarDatePickerForeground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerBorderBrush}" />
         <Setter Property="BorderThickness" Value="{DynamicResource CalendarDatePickerBorderThickness}" />
-        <Setter Property="CornerRadius" Value="{DynamicResource CalendarDatePickerCornerRadius}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource YikCornerRadius}" />
         <Setter Property="IsTodayHighlighted" Value="True" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -52,7 +52,7 @@
                                 Focusable="False"
                                 Grid.Column="1"
                                 IsVisible="False"
-                                Margin="8,0"
+                                Margin="7,0,9,0"
                                 Name="ClearButton"
                                 Theme="{DynamicResource TransparentButton}">
                                 <PathIcon
@@ -84,11 +84,10 @@
                                 Placement="BottomEdgeAlignedLeft"
                                 PlacementTarget="{TemplateBinding}">
                                 <Border
-                                    Background="{DynamicResource ComboBoxPopupBackground}"
-                                    BorderBrush="{DynamicResource ComboBoxPopupBorderBrush}"
+                                    Background="{DynamicResource PopupBackgroundColor}"
+                                    BorderBrush="{DynamicResource PopupBorderBrush}"
                                     BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
-                                    BoxShadow="{DynamicResource ComboBoxPopupBoxShadow}"
-                                    CornerRadius="{DynamicResource CalendarCornerRadius}"
+                                    CornerRadius="{DynamicResource YikCornerRadius}"
                                     Margin="{DynamicResource ComboBoxPopupBorderMargin}"
                                     Padding="8">
                                     <Grid ColumnDefinitions="*, *">
@@ -143,12 +142,12 @@
         </Style>
 
         <!--  Focused State  -->
-        <Style Selector="^:focus /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
-        </Style>
-        <Style Selector="^:focus-within /template/ Border#Background">
-            <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" />
-        </Style>
+        <!-- <Style Selector="^:focus /template/ Border#Background"> -->
+        <!--     <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="^:focus-within /template/ Border#Background"> -->
+        <!--     <Setter Property="BorderBrush" Value="{DynamicResource CalendarDatePickerFocusBorderBrush}" /> -->
+        <!-- </Style> -->
 
         <Style Selector="^.Large">
             <Setter Property="MinHeight" Value="40" />
