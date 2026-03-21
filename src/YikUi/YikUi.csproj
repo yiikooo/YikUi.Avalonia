@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Package">
-    <PackageId>YikUi</PackageId>
+    <PackageId>YikUi.Avalonia</PackageId>
     <Authors>yiikooo</Authors>
     <Description>现代化 Avalonia 控件库 - 提供丰富的 UI 组件，支持亮色/暗色主题和国际化</Description>
     <PackageTags>avalonia;ui;controls;theme;yikui</PackageTags>
