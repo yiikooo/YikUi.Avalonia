@@ -24,6 +24,11 @@ public static class Feedbacks
         },
         new()
         {
+            Title = "Skeleton",
+            Content = new SkeletonPage(),
+        },
+        new()
+        {
             Title = "Toast",
             Content = new ToastPage(),
         },
