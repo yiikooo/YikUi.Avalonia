@@ -1,0 +1,37 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.DividerPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="Divider"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <yik:Divider>Center</yik:Divider>
+                <yik:Divider HorizontalContentAlignment="Left">Left</yik:Divider>
+                <yik:Divider HorizontalContentAlignment="Right">Right</yik:Divider>
+                <yik:Divider HorizontalContentAlignment="Center">Center</yik:Divider>
+                <yik:Divider HorizontalContentAlignment="Stretch">Stretch</yik:Divider>
+                <yik:Divider />
+                <yik:Divider Orientation="Vertical" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="A" />
+                    <yik:Divider Margin="12,0" Orientation="Vertical" />
+                    <TextBlock Text="A" />
+                    <yik:Divider Orientation="Vertical" />
+                    <TextBlock Text="A" />
+                </StackPanel>
+                <Grid Background="LightGreen" Height="100">
+                    <yik:Divider HorizontalContentAlignment="Stretch">Stretch</yik:Divider>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

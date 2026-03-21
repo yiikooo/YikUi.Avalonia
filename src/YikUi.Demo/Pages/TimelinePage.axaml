@@ -1,0 +1,93 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.TimelinePage"
+    x:DataType="pages:TimelineDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SemiRed5Color">#F93920</Color>
+            <Color x:Key="SemiBlue5Color">#0064FA</Color>
+            <Color x:Key="SemiGreen5Color">#3BB346</Color>
+            <Color x:Key="SemiOrange5Color">#FC8800</Color>
+            <Color x:Key="SemiGrey5Color">#6B7075</Color>
+            <pages:TimelineIconTemplateSelector x:Key="IconSelector">
+                <SolidColorBrush Color="{DynamicResource SemiGrey5Color}" x:Key="Default" />
+                <SolidColorBrush Color="{DynamicResource SemiBlue5Color}" x:Key="Ongoing" />
+                <SolidColorBrush Color="{DynamicResource SemiGreen5Color}" x:Key="Success" />
+                <SolidColorBrush Color="{DynamicResource SemiOrange5Color}" x:Key="Warning" />
+                <SolidColorBrush Color="{DynamicResource SemiRed5Color}" x:Key="Error" />
+            </pages:TimelineIconTemplateSelector>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <yik:GroupBorder
+        Header="Timeline"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <WrapPanel>
+                <yik:Timeline
+                    ContentMemberBinding="{Binding Description}"
+                    HeaderMemberBinding="{Binding Header}"
+                    HorizontalAlignment="Left"
+                    IconMemberBinding="{Binding ItemType}"
+                    IconTemplate="{StaticResource IconSelector}"
+                    ItemsSource="{Binding Items}"
+                    Mode="Alternate"
+                    TimeMemberBinding="{Binding Time}" />
+                <yik:Timeline
+                    ContentMemberBinding="{Binding Description}"
+                    HeaderMemberBinding="{Binding Header}"
+                    HorizontalAlignment="Left"
+                    IconMemberBinding="{Binding ItemType}"
+                    IconTemplate="{StaticResource IconSelector}"
+                    ItemsSource="{Binding Items}"
+                    Mode="Left"
+                    TimeMemberBinding="{Binding Time}" />
+                <yik:Timeline
+                    ContentMemberBinding="{Binding Description}"
+                    HeaderMemberBinding="{Binding Header}"
+                    HorizontalAlignment="Left"
+                    IconMemberBinding="{Binding ItemType}"
+                    IconTemplate="{StaticResource IconSelector}"
+                    ItemsSource="{Binding Items}"
+                    Mode="Right"
+                    TimeMemberBinding="{Binding Time}" />
+                <yik:Timeline HorizontalAlignment="Left" Mode="Alternate">
+                    <yik:TimelineItem
+                        Content="Step 1"
+                        Header="第一步"
+                        Position="Left"
+                        Type="Default" />
+                    <yik:TimelineItem
+                        Content="Step 2"
+                        Header="第二步"
+                        Position="Right"
+                        Type="Success" />
+                    <yik:TimelineItem
+                        Content="Step 3"
+                        Header="第三步"
+                        Position="Separate"
+                        Type="Warning" />
+                    <yik:TimelineItem
+                        Content="Step 4"
+                        Header="第四步"
+                        Position="Separate"
+                        Type="Ongoing" />
+                    <yik:TimelineItem
+                        Content="Step 5"
+                        Header="第五步"
+                        Position="Separate"
+                        TimeFormat="yyyy-MM-dd"
+                        Type="Error" />
+                </yik:Timeline>
+            </WrapPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

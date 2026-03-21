@@ -19,6 +19,10 @@
             <PackagePath>\</PackagePath>
         </AvaloniaResource>
         <AvaloniaResource Include="icon.i.ico"/>
+        <None Remove="icon.png"/>
+        <AvaloniaResource Include="icon.png"/>
+        <None Remove="header.png"/>
+        <AvaloniaResource Include="header.png"/>
     </ItemGroup>
 
     <ItemGroup>

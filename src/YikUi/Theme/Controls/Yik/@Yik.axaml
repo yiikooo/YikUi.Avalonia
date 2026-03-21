@@ -14,6 +14,7 @@
         <ResourceInclude Source="ControlClassesInput.axaml" />
         <ResourceInclude Source="EnumSelector.axaml" />
         <ResourceInclude Source="Form.axaml" />
+        <ResourceInclude Source="Timeline.axaml" />
         <ResourceInclude Source="KeyGestureInput.axaml" />
         <ResourceInclude Source="IPv4Box.axaml" />
         <ResourceInclude Source="MultiComboBox.axaml" />

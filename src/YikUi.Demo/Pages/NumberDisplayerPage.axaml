@@ -1,0 +1,42 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.NumberDisplayerPage"
+    x:DataType="pages:NumberDisplayerDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="NumberDisplayer"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <Button Command="{Binding IncreaseCommand}" HorizontalAlignment="Left">Change</Button>
+                <yik:Int32Displayer Value="{Binding Value}" />
+                <yik:Int64Displayer Value="{Binding LongValue}" />
+                <yik:DoubleDisplayer StringFormat="N2" Value="{Binding DoubleValue}" />
+                <yik:DateDisplay
+                    FontSize="30"
+                    StringFormat="yyyy-MM-dd"
+                    Value="{Binding DateValue}" />
+                <TextBlock Text="Selectable: " />
+                <yik:Int32Displayer IsSelectable="True" Value="{Binding Value}" />
+                <yik:Int64Displayer IsSelectable="True" Value="{Binding LongValue}" />
+                <yik:DoubleDisplayer
+                    IsSelectable="True"
+                    StringFormat="N2"
+                    Value="{Binding DoubleValue}" />
+                <yik:DateDisplay
+                    FontSize="30"
+                    IsSelectable="True"
+                    StringFormat="yyyy-MM-dd"
+                    Value="{Binding DateValue}" />
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

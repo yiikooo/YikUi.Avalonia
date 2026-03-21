@@ -14,6 +14,51 @@ public static class Shows
         },
         new()
         {
+            Title = "Avatar",
+            Content = new AvatarPage(),
+        },
+        new()
+        {
+            Title = "QrCode",
+            Content = new QrCodePage(),
+        },
+        new()
+        {
+            Title = "ImageViewer",
+            Content = new ImageViewerPage(),
+        },
+        new()
+        {
+            Title = "Timeline",
+            Content = new TimelinePage(),
+        },
+        new()
+        {
+            Title = "NumberDisplayer",
+            Content = new NumberDisplayerPage(),
+        },
+        new()
+        {
+            Title = "Marquee",
+            Content = new MarqueePage(),
+        },
+        new()
+        {
+            Title = "Banner",
+            Content = new BannerPage(),
+        },
+        new()
+        {
+            Title = "Badge",
+            Content = new BadgePage(),
+        },
+        new()
+        {
+            Title = "Descriptions",
+            Content = new DescriptionsPage(),
+        },
+        new()
+        {
             Title = "DataGrid",
             Content = new DataGridPage(),
         },
@@ -26,6 +71,16 @@ public static class Shows
         {
             Title = "ToolTip",
             Content = new ToolTipPage(),
+        },
+        new()
+        {
+            Title = "DisableContainer",
+            Content = new DisableContainerPage(),
+        },
+        new()
+        {
+            Title = "DualBadge",
+            Content = new DualBadgePage(),
         },
         new()
         {

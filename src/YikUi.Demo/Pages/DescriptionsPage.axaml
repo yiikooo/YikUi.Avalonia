@@ -1,0 +1,123 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.DescriptionsPage"
+    x:DataType="pages:DescriptionsDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <yik:GroupBorder
+        Header="Descriptions"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <TextBlock Text="Descriptions support different orientations and item alignments. " />
+                <yik:Form LabelPosition="Left">
+                    <yik:EnumSelector
+                        EnumType="Orientation"
+                        Name="orientation"
+                        Value="{x:Static Orientation.Vertical}"
+                        yik:FormItem.Label="Orientation" />
+                    <yik:EnumSelector
+                        EnumType="yik:Position"
+                        Name="labelPosition"
+                        Value="{x:Static yik:Position.Left}"
+                        yik:FormItem.Label="Label Position" />
+                    <yik:EnumSelector
+                        EnumType="yik:ItemAlignment"
+                        Name="itemAlignment"
+                        Value="{x:Static yik:ItemAlignment.Center}"
+                        yik:FormItem.Label="Item Alignment" />
+                </yik:Form>
+                <yik:Descriptions
+                    DisplayMemberBinding="{Binding Description}"
+                    HorizontalAlignment="Left"
+                    ItemAlignment="{Binding #itemAlignment.Value}"
+                    ItemsSource="{Binding Items}"
+                    LabelMemberBinding="{Binding Label}"
+                    LabelPosition="{Binding #labelPosition.Value}"
+                    MaxWidth="400"
+                    Orientation="{Binding #orientation.Value}" />
+
+                <TextBlock Text="Descriptions support XAML inline declaration. " />
+                <yik:Descriptions
+                    HorizontalAlignment="Left"
+                    ItemAlignment="{Binding #itemAlignment.Value}"
+                    LabelPosition="{Binding #labelPosition.Value}"
+                    MaxWidth="400"
+                    Orientation="{Binding #orientation.Value}">
+                    <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                    <yik:DescriptionsItem Label="7天留存">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="98%" />
+                            <PathIcon
+                                Classes="Small"
+                                Data="{DynamicResource SemiIconArrowUp}"
+                                Foreground="{DynamicResource SemiGreen5}"
+                                Margin="2,0,0,0"
+                                Theme="{DynamicResource InnerPathIcon}" />
+                        </StackPanel>
+                    </yik:DescriptionsItem>
+                    <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                    <yik:DescriptionsItem Label="垂类标签">
+                        <Label Content="电商" Theme="{DynamicResource TagLabel}" />
+                    </yik:DescriptionsItem>
+                    <yik:DescriptionsItem Content="未认证" Label="认证状态" />
+                </yik:Descriptions>
+
+                <TextBlock Text="Use ColumnWrapPanel to display horizontally" />
+                <yik:Descriptions
+                    ItemAlignment="Plain"
+                    ItemsSource="{Binding Items2}"
+                    LabelMemberBinding="{Binding Label}">
+                    <yik:Descriptions.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <yik:ColumnWrapPanel Column="5" />
+                        </ItemsPanelTemplate>
+                    </yik:Descriptions.ItemsPanel>
+                    <yik:Descriptions.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Margin="0,0,8,0" Text="{Binding Description}" />
+                        </DataTemplate>
+                    </yik:Descriptions.ItemTemplate>
+                </yik:Descriptions>
+
+                <TextBlock Text="Setting Orientation to Horizontal support Classes Small and Large. " />
+                <StackPanel>
+                    <Border Theme="{StaticResource CardBorder}">
+                        <yik:Descriptions
+                            Classes="Small"
+                            LabelPosition="Top"
+                            Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                    <Border Theme="{StaticResource CardBorder}">
+                        <yik:Descriptions LabelPosition="Top" Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                    <Border Theme="{StaticResource CardBorder}">
+                        <yik:Descriptions
+                            Classes="Large"
+                            LabelPosition="Top"
+                            Orientation="Horizontal">
+                            <yik:DescriptionsItem Content="1,480,000" Label="实际用户数量" />
+                            <yik:DescriptionsItem Content="98%" Label="7天留存" />
+                            <yik:DescriptionsItem Content="3级" Label="安全等级" />
+                        </yik:Descriptions>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

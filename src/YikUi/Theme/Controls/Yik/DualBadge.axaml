@@ -85,7 +85,11 @@
                                 RecognizesAccessKey="True">
                                 <ContentPresenter.DataTemplates>
                                     <DataTemplate DataType="Geometry">
-                                        <PathIcon Data="{Binding}" Theme="{StaticResource InnerPathIcon}" />
+                                        <PathIcon
+                                            Data="{Binding}"
+                                            Foreground="{Binding $parent[yik:DualBadge].IconForeground}"
+                                            Height="16"
+                                            Width="16" />
                                     </DataTemplate>
                                 </ContentPresenter.DataTemplates>
                             </ContentPresenter>
@@ -116,7 +120,6 @@
                 </Border>
             </ControlTemplate>
         </Setter>
-
 
         <Style Selector="^.FlatSquare">
             <Setter Property="CornerRadius" Value="{DynamicResource DualBadgeFlatSquareCornerRadius}" />

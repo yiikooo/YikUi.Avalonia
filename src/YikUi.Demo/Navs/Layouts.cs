@@ -14,6 +14,21 @@ public static class Layouts
         },
         new()
         {
+            Title = "AspectRatioLayout",
+            Content = new AspectRatioLayoutPage(),
+        },
+        new()
+        {
+            Title = "Divider",
+            Content = new DividerPage(),
+        },
+        new()
+        {
+            Title = "ElasticWrapPanel",
+            Content = new ElasticWrapPanelPage(),
+        },
+        new()
+        {
             Title = "GridSplitter",
             Content = new GridSplitterPage(),
         },

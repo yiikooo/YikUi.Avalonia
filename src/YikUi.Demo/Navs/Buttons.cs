@@ -14,6 +14,11 @@ public class Buttons
         },
         new()
         {
+            Title = "ScrollToButton",
+            Content = new ScrollToButtonPage(),
+        },
+        new()
+        {
             Title = "ButtonGroup",
             Content = new ButtonGroupPage(),
         },
