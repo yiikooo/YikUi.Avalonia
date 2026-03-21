@@ -1,51 +1,67 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <LangVersion>14.0</LangVersion>
-        <NoWarn>$(NoWarn);CS1591</NoWarn>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <LangVersion>14.0</LangVersion>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
 
-    <PropertyGroup Label="Avalonia">
-        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    </PropertyGroup>
+  <PropertyGroup Label="NuGet Package">
+    <PackageId>YikUi</PackageId>
+    <Authors>yiikooo</Authors>
+    <Description>现代化 Avalonia 控件库 - 提供丰富的 UI 组件，支持亮色/暗色主题和国际化</Description>
+    <PackageTags>avalonia;ui;controls;theme;yikui</PackageTags>
+    <PackageProjectUrl>https://github.com/yiikooo/YikUi.Avalonia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/yiikooo/YikUi.Avalonia</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright (c) 2024 yiikooo</Copyright>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.12"/>
-        <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1"/>
-    </ItemGroup>
+  <PropertyGroup Label="Avalonia">
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <AvaloniaResource Include="Themes\**\*.axaml"/>
-        <None Remove="Public\MiSans-Regular.ttf"/>
-        <None Remove="Assets\MiSans-Regular.otf"/>
-        <AvaloniaResource Include="Assets\MiSans-Regular.otf"/>
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.12" />
+    <PackageReference Include="Avalonia.Controls.TreeDataGrid" Version="11.1.1" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Assets\"/>
-        <Folder Include="Common\Language\Langs\"/>
-    </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Themes\**\*.axaml" />
+    <None Remove="Public\MiSans-Regular.ttf" />
+    <None Remove="Assets\MiSans-Regular.otf" />
+    <AvaloniaResource Include="Assets\MiSans-Regular.otf" />
+    <None Include="..\..\assets\icon.png" Pack="true" PackagePath="\" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
-    <ItemGroup>
-        <Compile Update="Controls\ContentExpander.axaml.cs">
-            <SubType>Code</SubType>
-            <DependentUpon>ContentExpandControl.axaml</DependentUpon>
-        </Compile>
-        <Compile Update="Controls\Window\YikTitleBar.axaml.cs">
-            <DependentUpon>YikTitleBar.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-        <Compile Update="Controls\GlassCard.cs">
-            <DependentUpon>GlassCard.axaml</DependentUpon>
-            <SubType>Code</SubType>
-        </Compile>
-    </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Common\Language\Langs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\ContentExpander.axaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>ContentExpandControl.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\Window\YikTitleBar.axaml.cs">
+      <DependentUpon>YikTitleBar.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\GlassCard.cs">
+      <DependentUpon>GlassCard.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 
 </Project>
