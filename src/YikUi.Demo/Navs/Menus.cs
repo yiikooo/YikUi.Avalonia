@@ -19,6 +19,26 @@ public class Menus
         },
         new()
         {
+            Title = "Breadcrumb",
+            Content = new BreadcrumbPage(),
+        },
+        new()
+        {
+            Title = "Pagination",
+            Content = new PaginationPage(),
+        },
+        new()
+        {
+            Title = "ToolBar",
+            Content = new ToolBarPage(),
+        },
+        new()
+        {
+            Title = "Anchor",
+            Content = new AnchorPage(),
+        },
+        new()
+        {
             Title = "TabStrip",
             Content = new TabStripPage(),
         },

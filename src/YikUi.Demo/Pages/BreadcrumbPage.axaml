@@ -1,0 +1,59 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.BreadcrumbPage"
+    x:DataType="pages:BreadcrumbDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <UserControl.Resources>
+        <yik:IconNameToPathConverter x:Key="IconConverter" />
+    </UserControl.Resources>
+    <yik:GroupBorder
+        Header="Breadcrumb"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <yik:Breadcrumb>
+                    <TextBlock Text="Hello" />
+                    <yik:BreadcrumbItem Content="World" IsReadOnly="True" />
+                    <yik:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="Ursa" />
+                </yik:Breadcrumb>
+                <yik:Breadcrumb Classes="Small">
+                    <TextBlock Text="Hello" />
+                    <yik:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="Ursa" />
+                </yik:Breadcrumb>
+                <yik:Breadcrumb>
+                    <TextBlock Text="Hello" />
+                    <yik:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="Ursa" />
+                </yik:Breadcrumb>
+                <yik:Breadcrumb
+                    DisplayMemberBinding="{Binding Section}"
+                    IconBinding="{Binding Icon}"
+                    ItemsSource="{Binding Items1}">
+                    <yik:Breadcrumb.Styles>
+                        <Style Selector="yik|BreadcrumbItem" x:DataType="pages:BreadcrumbDemoItem">
+                            <Setter Property="IsReadOnly" Value="{Binding IsReadOnly}" />
+                        </Style>
+                    </yik:Breadcrumb.Styles>
+                    <yik:Breadcrumb.IconTemplate>
+                        <DataTemplate DataType="x:String">
+                            <PathIcon Data="{Binding Converter={StaticResource IconConverter}}" Theme="{StaticResource InnerPathIcon}" />
+                        </DataTemplate>
+                    </yik:Breadcrumb.IconTemplate>
+                </yik:Breadcrumb>
+            </StackPanel>
+        </ScrollViewer>
+    </yik:GroupBorder>
+</UserControl>

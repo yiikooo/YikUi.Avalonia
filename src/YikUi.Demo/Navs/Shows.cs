@@ -34,6 +34,11 @@ public static class Shows
         },
         new()
         {
+            Title = "TwoTonePathIcon",
+            Content = new TwoTonePathIconPage(),
+        },
+        new()
+        {
             Title = "NumberDisplayer",
             Content = new NumberDisplayerPage(),
         },
