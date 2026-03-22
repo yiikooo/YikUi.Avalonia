@@ -102,7 +102,7 @@ public class App : Application
         // 或设置为英语
         // LangManager.SetLanguage(Languages.en_us);
 
-        // 设置主题色（使用 ThemeManager，无需获取 YikUiTheme 实例）
+        // 设置主题色
         ThemeManager.SetThemeColor(Colors.CornflowerBlue);
         // 或使用十六进制颜色值
         // ThemeManager.SetThemeColor("#1890ff");
