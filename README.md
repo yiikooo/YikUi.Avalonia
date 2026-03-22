@@ -89,6 +89,7 @@ git clone https://github.com/yiikooo/YikUi.Avalonia.git
 或在CodeBehide设置
 
 ```csharp
+using YikUi.Common.Helpers;
 using YikUi.Common.Language;
 
 public class App : Application
@@ -100,12 +101,11 @@ public class App : Application
 
         // 或设置为英语
         // LangManager.SetLanguage(Languages.en_us);
-        
-        // 设置主题色
-        var yikTheme = Application.Current?.Styles
-                .OfType<YikUiTheme>()
-                .FirstOrDefault();
-            yikTheme?.SetThemeColor(Colors.CornflowerBlue);
+
+        // 设置主题色（使用 ThemeManager，无需获取 YikUiTheme 实例）
+        ThemeManager.SetThemeColor(Colors.CornflowerBlue);
+        // 或使用十六进制颜色值
+        // ThemeManager.SetThemeColor("#1890ff");
 
         base.OnFrameworkInitializationCompleted();
     }
@@ -115,6 +115,12 @@ public class App : Application
 public void SetLanguage()
 {
     LangManager.SetLanguage(Languages.en_us);
+}
+
+// 在运行时切换主题色
+public void SetThemeColor()
+{
+    ThemeManager.SetThemeColor("#52c41a");
 }
 ```
 

@@ -43,7 +43,10 @@ public class YikUiTheme : Styles
         else
             LangManager.SetLanguage(Languages.zh_cn);
 
-        ObservableExtension.Subscribe(this.GetObservable(ThemeColorProperty), ThemeHelper.SetThemeColor);
+        ThemeManager.SetThemeColor(ThemeColor);
+
+        // 使用 ThemeManager 统一管理主题色
+        ObservableExtension.Subscribe(this.GetObservable(ThemeColorProperty), ThemeManager.SetThemeColor);
 
         ObservableExtension.Subscribe(this.GetObservable(LanguageProperty), lang =>
         {
@@ -60,7 +63,7 @@ public class YikUiTheme : Styles
         AvaloniaXamlLoader.Load(this);
     }
 
-    public Color? ThemeColor
+    public Color ThemeColor
     {
         get => GetValue(ThemeColorProperty);
         set => SetValue(ThemeColorProperty, value);

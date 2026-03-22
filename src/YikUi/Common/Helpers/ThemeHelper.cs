@@ -4,7 +4,7 @@ using YikUi.Common.Converter;
 
 namespace YikUi.Common.Helpers;
 
-public static class ThemeHelper
+internal static class ThemeHelper
 {
     public static void SetThemeColor(Color accentColor)
     {

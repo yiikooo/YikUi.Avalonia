@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using Avalonia;
 using Avalonia.Media;
 using Avalonia.Styling;
+using YikUi.Common.Helpers;
 using YikUi.Common.Language;
 
 namespace YikUi.Demo;
@@ -34,7 +34,7 @@ public class Setting : INotifyPropertyChanged
     {
         get;
         set => SetField(ref field, value);
-    } = Color.Parse("#1890ff");
+    } = ThemeManager.ThemeColor;
 
     public Languages Language
     {
@@ -49,12 +49,7 @@ public class Setting : INotifyPropertyChanged
         if (e.PropertyName == nameof(Theme))
             Application.Current!.RequestedThemeVariant = Theme;
         else if (e.PropertyName == nameof(ThemeColor))
-        {
-            var yikTheme = Application.Current?.Styles
-                .OfType<YikUiTheme>()
-                .FirstOrDefault();
-            yikTheme?.SetThemeColor(ThemeColor);
-        }
+            ThemeManager.SetThemeColor(ThemeColor);
         else if (e.PropertyName == nameof(Language))
             LangManager.SetLanguage(Language);
     }
