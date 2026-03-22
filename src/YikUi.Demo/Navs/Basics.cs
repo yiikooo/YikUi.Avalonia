@@ -15,7 +15,7 @@ public class Basics
         new()
         {
             Title = "TextBlock",
-            Content = new TextBoxPage(),
+            Content = new TextBlockPage(),
         },
         new()
         {
