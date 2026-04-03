@@ -63,5 +63,6 @@
         <ResourceInclude Source="IconRepeatButton.axaml" />
         <ResourceInclude Source="IconToggleButton.axaml" />
         <ResourceInclude Source="PathPicker.axaml" />
+        <ResourceInclude Source="ContentDialog.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

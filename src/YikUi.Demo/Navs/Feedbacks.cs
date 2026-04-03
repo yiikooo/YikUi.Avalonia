@@ -56,6 +56,11 @@ public static class Feedbacks
         {
             Title = "Drawer",
             Content = new DrawerPage(),
+        },
+        new()
+        {
+            Title = "ContentDialog",
+            Content = new ContentDialogPage(),
         }
     ];
 }

@@ -1,0 +1,166 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+
+    <!--  ContentDialogHost: 全屏宿主，提供遮罩背景并居中显示对话框  -->
+    <ControlTheme TargetType="yik:ContentDialogHost" x:Key="{x:Type yik:ContentDialogHost}">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:ContentDialogHost">
+                <Panel>
+                    <Border Background="{DynamicResource OverlayDialogMaskBrush}" />
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!--  ContentDialog: 主对话框控件  -->
+    <ControlTheme TargetType="yik:ContentDialog" x:Key="{x:Type yik:ContentDialog}">
+        <Setter Property="MinWidth" Value="320" />
+        <Setter Property="MaxWidth" Value="548" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DialogCornerRadius}" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+        <Setter Property="RenderTransform" Value="scale(0.95)" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Duration="0:0:0.15"
+                    Easing="CubicEaseOut"
+                    Property="Opacity" />
+                <TransformOperationsTransition
+                    Duration="0:0:0.15"
+                    Easing="CubicEaseOut"
+                    Property="RenderTransform" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="yik:ContentDialog">
+                <Border
+                    Background="{DynamicResource PopupBackgroundColor}"
+                    BorderBrush="{DynamicResource PopupBorderBrush}"
+                    BorderThickness="1"
+                    BoxShadow="0 8 32 0 #28000000"
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    MaxWidth="{TemplateBinding MaxWidth}"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    Name="PART_Container">
+                    <Grid RowDefinitions="Auto,*,Auto">
+
+                        <!--  标题区域  -->
+                        <Grid
+                            ColumnDefinitions="*,Auto"
+                            Grid.Row="0"
+                            Margin="24,20,24,0">
+                            <ContentPresenter
+                                Content="{TemplateBinding Title}"
+                                ContentTemplate="{TemplateBinding TitleTemplate}"
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource TextPrimaryColor}"
+                                Grid.Column="0"
+                                IsHitTestVisible="False"
+                                Name="PART_TitlePresenter"
+                                TextBlock.TextWrapping="Wrap"
+                                VerticalAlignment="Center" />
+                        </Grid>
+
+                        <!--  内容区域  -->
+                        <ScrollViewer
+                            Grid.Row="1"
+                            HorizontalScrollBarVisibility="Disabled"
+                            Margin="24,12,24,0"
+                            VerticalScrollBarVisibility="Auto">
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{DynamicResource TextPrimaryColor}"
+                                Name="PART_ContentPresenter" />
+                        </ScrollViewer>
+
+                        <!--  按钮区域  -->
+                        <StackPanel
+                            Grid.Row="2"
+                            HorizontalAlignment="Right"
+                            Margin="24,16,24,20"
+                            Orientation="Horizontal"
+                            Spacing="8">
+
+                            <!--  次要按钮  -->
+                            <Button
+                                Content="{TemplateBinding SecondaryButtonText}"
+                                IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}"
+                                IsVisible="False"
+                                MinWidth="80"
+                                Name="{x:Static yik:ContentDialog.PART_SecondaryButton}"
+                                Padding="16,8" />
+
+                            <!--  关闭按钮  -->
+                            <Button
+                                Content="{TemplateBinding CloseButtonText}"
+                                IsVisible="False"
+                                MinWidth="80"
+                                Name="{x:Static yik:ContentDialog.PART_CloseButton}"
+                                Padding="16,8" />
+
+                            <!--  主要按钮  -->
+                            <Button
+                                Classes="accent"
+                                Content="{TemplateBinding PrimaryButtonText}"
+                                IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}"
+                                IsVisible="False"
+                                MinWidth="80"
+                                Name="{x:Static yik:ContentDialog.PART_PrimaryButton}"
+                                Padding="16,8" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  打开状态：完全不透明 + 正常缩放  -->
+        <Style Selector="^:open">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="scale(1)" />
+        </Style>
+
+        <!--  隐藏状态：透明 + 缩小  -->
+        <Style Selector="^:hidden">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="RenderTransform" Value="scale(0.95)" />
+        </Style>
+
+        <!--  有主要按钮时显示  -->
+        <Style Selector="^:primary /template/ Button#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!--  有次要按钮时显示  -->
+        <Style Selector="^:secondary /template/ Button#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!--  有关闭按钮时显示  -->
+        <Style Selector="^:close /template/ Button#PART_CloseButton">
+            <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!--  全尺寸模式  -->
+        <Style Selector="^:fullsize">
+            <Setter Property="MinWidth" Value="0" />
+            <Setter Property="MaxWidth" Value="9999" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^:fullsize /template/ Border#PART_Container">
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+    </ControlTheme>
+
+</ResourceDictionary>
