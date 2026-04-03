@@ -1,275 +1,174 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
 
-    <!--  ContentDialogHost: 全屏宿主，提供遮罩背景并居中显示对话框  -->
-    <ControlTheme TargetType="yik:ContentDialogHost" x:Key="{x:Type yik:ContentDialogHost}">
-        <Setter Property="Template">
-            <ControlTemplate TargetType="yik:ContentDialogHost">
-                <Panel>
-                    <Border Background="{DynamicResource OverlayDialogMaskBrush}" />
-                    <ContentPresenter
-                        Content="{TemplateBinding Content}"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
+  <!--  ContentDialogHost: 全屏宿主，提供遮罩背景并居中显示对话框  -->
+  <ControlTheme TargetType="yik:ContentDialogHost" x:Key="{x:Type yik:ContentDialogHost}">
+    <Setter Property="Template">
+      <ControlTemplate TargetType="yik:ContentDialogHost">
+        <Panel>
+          <Border Background="{DynamicResource OverlayDialogMaskBrush}" />
+          <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
 
-    <!--  ContentDialog: 主对话框控件  -->
-    <ControlTheme TargetType="yik:ContentDialog" x:Key="{x:Type yik:ContentDialog}">
-        <Setter Property="MinWidth" Value="320" />
-        <Setter Property="MaxWidth" Value="548" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="{DynamicResource DialogCornerRadius}" />
-        <Setter Property="Opacity" Value="0" />
-        <Setter Property="RenderTransformOrigin" Value="50%,50%" />
-        <Setter Property="RenderTransform" Value="scale(0.95)" />
-        <Setter Property="Transitions">
-            <Transitions>
-                <DoubleTransition
-                    Duration="0:0:0.15"
-                    Easing="CubicEaseOut"
-                    Property="Opacity" />
-                <TransformOperationsTransition
-                    Duration="0:0:0.15"
-                    Easing="CubicEaseOut"
-                    Property="RenderTransform" />
-            </Transitions>
-        </Setter>
-        <Setter Property="Template">
-            <ControlTemplate TargetType="yik:ContentDialog">
-                <Border
-                    Background="{DynamicResource PopupBackgroundColor}"
-                    BorderBrush="{DynamicResource PopupBorderBrush}"
-                    BorderThickness="1"
-                    ClipToBounds="True"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    MaxWidth="{TemplateBinding MaxWidth}"
-                    MinWidth="{TemplateBinding MinWidth}"
-                    Name="PART_Container">
-                    <Grid RowDefinitions="Auto,*,Auto">
+  <!--  ContentDialog: 主对话框控件  -->
+  <ControlTheme TargetType="yik:ContentDialog" x:Key="{x:Type yik:ContentDialog}">
+    <Setter Property="MinWidth" Value="320" />
+    <Setter Property="MaxWidth" Value="548" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CornerRadius" Value="{DynamicResource DialogCornerRadius}" />
+    <Setter Property="Opacity" Value="0" />
+    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+    <Setter Property="RenderTransform" Value="scale(0.95)" />
+    <Setter Property="Transitions">
+      <Transitions>
+        <DoubleTransition Duration="0:0:0.15" Easing="CubicEaseOut" Property="Opacity" />
+        <TransformOperationsTransition Duration="0:0:0.15" Easing="CubicEaseOut" Property="RenderTransform" />
+      </Transitions>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate TargetType="yik:ContentDialog">
+        <Border Background="{DynamicResource PopupBackgroundColor}" BorderBrush="{DynamicResource PopupBorderBrush}" BorderThickness="1" ClipToBounds="True" CornerRadius="{TemplateBinding CornerRadius}" MaxWidth="{TemplateBinding MaxWidth}" MinWidth="{TemplateBinding MinWidth}" Name="PART_Container">
+          <Grid RowDefinitions="Auto,*,Auto">
 
-                        <!--  标题区域  -->
-                        <Grid
-                            ColumnDefinitions="*,Auto"
-                            Grid.Row="0"
-                            Margin="24,20,24,0">
-                            <ContentPresenter
-                                Content="{TemplateBinding Title}"
-                                ContentTemplate="{TemplateBinding TitleTemplate}"
-                                FontSize="18"
-                                FontWeight="SemiBold"
-                                Foreground="{DynamicResource TextPrimaryColor}"
-                                Grid.Column="0"
-                                IsHitTestVisible="False"
-                                Name="PART_TitlePresenter"
-                                TextBlock.TextWrapping="Wrap"
-                                VerticalAlignment="Center" />
-                        </Grid>
+            <!--  标题区域  -->
+            <Grid ColumnDefinitions="*,Auto" Grid.Row="0" Margin="24,20,24,0">
+              <ContentPresenter Content="{TemplateBinding Title}" ContentTemplate="{TemplateBinding TitleTemplate}" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource TextPrimaryColor}" Grid.Column="0" IsHitTestVisible="False" Name="PART_TitlePresenter" TextBlock.TextWrapping="Wrap" VerticalAlignment="Center" />
+            </Grid>
 
-                        <!--  内容区域  -->
-                        <ScrollViewer
-                            Grid.Row="1"
-                            HorizontalScrollBarVisibility="Disabled"
-                            Margin="24,12,24,0"
-                            VerticalScrollBarVisibility="Auto">
-                            <ContentPresenter
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Foreground="{DynamicResource TextPrimaryColor}"
-                                Name="PART_ContentPresenter" />
-                        </ScrollViewer>
+            <!--  内容区域  -->
+            <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" Margin="24,12,24,0" VerticalScrollBarVisibility="Auto">
+              <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Foreground="{DynamicResource TextPrimaryColor}" Name="PART_ContentPresenter" />
+            </ScrollViewer>
 
-                        <!--  按钮区域  -->
-                        <Grid Grid.Row="2" Margin="24,12,24,20">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
+            <!--  按钮区域  -->
+            <Grid Grid.Row="2" Margin="24,12,24,20">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
 
-                            <!--  次要按钮  -->
-                            <yik:IconButton
-                                Classes="Float"
-                                Content="{TemplateBinding SecondaryButtonText}"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Center"
-                                IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}"
-                                IsVisible="False"
-                                Name="{x:Static yik:ContentDialog.PART_SecondaryButton}"
-                                Padding="16,8"
-                                VerticalAlignment="Stretch"
-                                VerticalContentAlignment="Center">
-                                <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="M448 256c0 17.7-14.3 32-32 32H288v128c0 17.7-14.3 32-32 32s-32-14.3-32-32V288H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h160V96c0-17.7 14.3-32 32-32s32 14.3 32 32v160h160c17.7 0 32 14.3 32 32z"
-                                        Height="12"
-                                        Width="12" />
-                                </yik:IconButton.Icon>
-                            </yik:IconButton>
+              <!--  次要按钮  -->
+              <yik:IconButton Classes="Float" Content="{TemplateBinding SecondaryButtonText}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}" IsVisible="False" Name="{x:Static yik:ContentDialog.PART_SecondaryButton}" Padding="16,8" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                <yik:IconButton.Styles>
+                  <Style Selector="yik|IconButton /template/ PathIcon">
+                    <Setter Property="Data"Value="{Binding $parent[yik:ContentDialog].SecondaryButtonIcon}"/><Setter Property="IsVisible"Value="{Binding $parent[yik:ContentDialog].IsSecondaryButtonIconVisible}"/>
+                  </Style>
+                </yik:IconButton.Styles>
+                <yik:IconButton.Icon>
+                  <PathIcon Height="12" Width="12" />
+                </yik:IconButton.Icon>
+              </yik:IconButton>
 
-                            <!--  关闭按钮  -->
-                            <yik:IconButton
-                                Classes="Float"
-                                Content="{TemplateBinding CloseButtonText}"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Center"
-                                IsVisible="False"
-                                Name="{x:Static yik:ContentDialog.PART_CloseButton}"
-                                Padding="16,8"
-                                VerticalAlignment="Stretch"
-                                VerticalContentAlignment="Center">
-                                <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"
-                                        Height="12"
-                                        Width="13" />
-                                </yik:IconButton.Icon>
-                            </yik:IconButton>
+              <!--  关闭按钮  -->
+              <yik:IconButton Classes="Float" Content="{TemplateBinding CloseButtonText}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsVisible="False" Name="{x:Static yik:ContentDialog.PART_CloseButton}" Padding="16,8" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                <yik:IconButton.Styles>
+                  <Style Selector="yik|IconButton /template/ PathIcon">
+                    <Setter Property="Data"Value="{Binding $parent[yik:ContentDialog].CloseButtonIcon}"/><Setter Property="IsVisible"Value="{Binding $parent[yik:ContentDialog].IsCloseButtonIconVisible}"/>
+                  </Style>
+                </yik:IconButton.Styles>
+                <yik:IconButton.Icon>
+                  <PathIcon Height="12" Width="13" />
+                </yik:IconButton.Icon>
+              </yik:IconButton>
 
-                            <!--  主要按钮  -->
-                            <yik:IconButton
-                                Classes="Accent Float"
-                                Content="{TemplateBinding PrimaryButtonText}"
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Center"
-                                IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}"
-                                IsVisible="False"
-                                Name="{x:Static yik:ContentDialog.PART_PrimaryButton}"
-                                Padding="16,8"
-                                VerticalAlignment="Stretch"
-                                VerticalContentAlignment="Center">
-                                <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-                                        Height="12"
-                                        Width="14" />
-                                </yik:IconButton.Icon>
-                            </yik:IconButton>
-                        </Grid>
-                    </Grid>
-                </Border>
-            </ControlTemplate>
-        </Setter>
+              <!--  主要按钮  -->
+              <yik:IconButton Classes="Accent Float" Content="{TemplateBinding PrimaryButtonText}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}" IsVisible="False" Name="{x:Static yik:ContentDialog.PART_PrimaryButton}" Padding="16,8" VerticalAlignment="Stretch" VerticalContentAlignment="Center">
+                <yik:IconButton.Styles>
+                  <Style Selector="yik|IconButton /template/ PathIcon">
+                    <Setter Property="Data"Value="{Binding $parent[yik:ContentDialog].PrimaryButtonIcon}"/><Setter Property="IsVisible"Value="{Binding $parent[yik:ContentDialog].IsPrimaryButtonIconVisible}"/>
+                  </Style>
+                </yik:IconButton.Styles>
+                <yik:IconButton.Icon>
+                  <PathIcon Height="12" Width="14" />
+                </yik:IconButton.Icon>
+              </yik:IconButton>
+            </Grid>
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
 
-        <!--  打开状态：完全不透明 + 正常缩放  -->
-        <Style Selector="^:open">
-            <Setter Property="Opacity" Value="1" />
-            <Setter Property="RenderTransform" Value="scale(1)" />
-        </Style>
+    <!--  打开状态：完全不透明 + 正常缩放  -->
+    <Style Selector="^:open">
+      <Setter Property="Opacity"Value="1"/><Setter Property="RenderTransform"Value="scale(1)"/>
+    </Style>
 
-        <!--  隐藏状态：透明 + 缩小  -->
-        <Style Selector="^:hidden">
-            <Setter Property="Opacity" Value="0" />
-            <Setter Property="RenderTransform" Value="scale(0.95)" />
-        </Style>
+    <!--  隐藏状态：透明 + 缩小  -->
+    <Style Selector="^:hidden">
+      <Setter Property="Opacity"Value="0"/><Setter Property="RenderTransform"Value="scale(0.95)"/>
+    </Style>
 
-        <!--  仅主要按钮  -->
-        <Style Selector="^:primary /template/ yik|IconButton#PART_PrimaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-        </Style>
+    <!--  仅主要按钮  -->
+    <Style Selector="^:primary /template/ yik|IconButton#PART_PrimaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/>
+    </Style>
 
-        <!--  仅次要按钮  -->
-        <Style Selector="^:secondary /template/ yik|IconButton#PART_SecondaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-        </Style>
+    <!--  仅次要按钮  -->
+    <Style Selector="^:secondary /template/ yik|IconButton#PART_SecondaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/>
+    </Style>
 
-        <!--  仅关闭按钮  -->
-        <Style Selector="^:close /template/ yik|IconButton#PART_CloseButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-        </Style>
+    <!--  仅关闭按钮  -->
+    <Style Selector="^:close /template/ yik|IconButton#PART_CloseButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/>
+    </Style>
 
-        <!--  主要 + 次要  -->
-        <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_PrimaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="0" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="0,0,4,0" />
-        </Style>
-        <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_SecondaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="4,0,0,0" />
-        </Style>
-        <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_CloseButton">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
+    <!--  主要 + 次要  -->
+    <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_PrimaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="0"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="0,0,4,0"/>
+    </Style>
+    <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_SecondaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="4,0,0,0"/>
+    </Style>
+    <Style Selector="^:primary:secondary /template/ yik|IconButton#PART_CloseButton">
+      <Setter Property="IsVisible"Value="False"/>
+    </Style>
 
-        <!--  主要 + 关闭  -->
-        <Style Selector="^:primary:close /template/ yik|IconButton#PART_PrimaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="0" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="0,0,4,0" />
-        </Style>
-        <Style Selector="^:primary:close /template/ yik|IconButton#PART_SecondaryButton">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:primary:close /template/ yik|IconButton#PART_CloseButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="4,0,0,0" />
-        </Style>
+    <!--  主要 + 关闭  -->
+    <Style Selector="^:primary:close /template/ yik|IconButton#PART_PrimaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="0"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="0,0,4,0"/>
+    </Style>
+    <Style Selector="^:primary:close /template/ yik|IconButton#PART_SecondaryButton">
+      <Setter Property="IsVisible"Value="False"/>
+    </Style>
+    <Style Selector="^:primary:close /template/ yik|IconButton#PART_CloseButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="4,0,0,0"/>
+    </Style>
 
-        <!--  次要 + 关闭  -->
-        <Style Selector="^:secondary:close /template/ yik|IconButton#PART_PrimaryButton">
-            <Setter Property="IsVisible" Value="False" />
-        </Style>
-        <Style Selector="^:secondary:close /template/ yik|IconButton#PART_SecondaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="0" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="0,0,4,0" />
-        </Style>
-        <Style Selector="^:secondary:close /template/ yik|IconButton#PART_CloseButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="2" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="4,0,0,0" />
-        </Style>
+    <!--  次要 + 关闭  -->
+    <Style Selector="^:secondary:close /template/ yik|IconButton#PART_PrimaryButton">
+      <Setter Property="IsVisible"Value="False"/>
+    </Style>
+    <Style Selector="^:secondary:close /template/ yik|IconButton#PART_SecondaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="0"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="0,0,4,0"/>
+    </Style>
+    <Style Selector="^:secondary:close /template/ yik|IconButton#PART_CloseButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="2"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="4,0,0,0"/>
+    </Style>
 
-        <!--  全部三个按钮  -->
-        <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_PrimaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="0" />
-            <Setter Property="Grid.ColumnSpan" Value="1" />
-            <Setter Property="Margin" Value="0,0,4,0" />
-        </Style>
-        <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_SecondaryButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="1" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Setter Property="Margin" Value="4,0,4,0" />
-        </Style>
-        <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_CloseButton">
-            <Setter Property="IsVisible" Value="True" />
-            <Setter Property="Grid.Column" Value="3" />
-            <Setter Property="Grid.ColumnSpan" Value="1" />
-            <Setter Property="Margin" Value="4,0,0,0" />
-        </Style>
+    <!--  全部三个按钮  -->
+    <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_PrimaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="0"/><Setter Property="Grid.ColumnSpan"Value="1"/><Setter Property="Margin"Value="0,0,4,0"/>
+    </Style>
+    <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_SecondaryButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="1"/><Setter Property="Grid.ColumnSpan"Value="2"/><Setter Property="Margin"Value="4,0,4,0"/>
+    </Style>
+    <Style Selector="^:primary:secondary:close /template/ yik|IconButton#PART_CloseButton">
+      <Setter Property="IsVisible"Value="True"/><Setter Property="Grid.Column"Value="3"/><Setter Property="Grid.ColumnSpan"Value="1"/><Setter Property="Margin"Value="4,0,0,0"/>
+    </Style>
 
-        <!--  全尺寸模式  -->
-        <Style Selector="^:fullsize">
-            <Setter Property="MinWidth" Value="0" />
-            <Setter Property="MaxWidth" Value="9999" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-        </Style>
-        <Style Selector="^:fullsize /template/ Border#PART_Container">
-            <Setter Property="CornerRadius" Value="0" />
-        </Style>
+    <!--  全尺寸模式  -->
+    <Style Selector="^:fullsize">
+      <Setter Property="MinWidth"Value="0"/><Setter Property="MaxWidth"Value="9999"/><Setter Property="HorizontalAlignment"Value="Stretch"/>
+    </Style>
+    <Style Selector="^:fullsize /template/ Border#PART_Container">
+      <Setter Property="CornerRadius"Value="0"/>
+    </Style>
 
-    </ControlTheme>
+  </ControlTheme>
 
 </ResourceDictionary>

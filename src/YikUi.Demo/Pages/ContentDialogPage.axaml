@@ -57,6 +57,15 @@
                                 yik:FormItem.Label="Default Button" />
                             <CheckBox IsChecked="{Binding FullSizeDesired}" yik:FormItem.Label="Full Size Desired" />
 
+                            <Separator Margin="0,8" />
+
+                            <CheckBox IsChecked="{Binding IsPrimaryIconVisible}"
+                                      yik:FormItem.Label="Primary Button Icon Visible" />
+                            <CheckBox IsChecked="{Binding IsSecondaryIconVisible}"
+                                      yik:FormItem.Label="Secondary Button Icon Visible" />
+                            <CheckBox IsChecked="{Binding IsCloseIconVisible}"
+                                      yik:FormItem.Label="Close Button Icon Visible" />
+
                             <yik:FormItem NoLabel="True">
                                 <Button
                                     Classes="accent"
@@ -125,6 +134,7 @@
                         <Button Command="{Binding ShowSaveCommand}" Content="Save Changes" />
                         <Button Command="{Binding ShowAlertCommand}" Content="Alert (No Input)" />
                         <Button Command="{Binding ShowInputDialogCommand}" Content="Input Dialog" />
+                        <Button Command="{Binding ShowCustomIconCommand}" Content="Custom Icons" />
                     </WrapPanel>
                     <TextBlock>
                         <Run Text="预设示例结果: " />

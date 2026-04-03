@@ -3,6 +3,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Controls.Templates;
+using Avalonia.Media;
 
 namespace YikUi.Controls;
 
@@ -86,6 +87,36 @@ public partial class ContentDialog
     /// <summary>定义 <see cref="FullSizeDesired"/> 属性</summary>
     public static readonly StyledProperty<bool> FullSizeDesiredProperty =
         AvaloniaProperty.Register<ContentDialog, bool>(nameof(FullSizeDesired));
+
+    /// <summary>定义 <see cref="IsPrimaryButtonIconVisible"/> 属性</summary>
+    public static readonly StyledProperty<bool> IsPrimaryButtonIconVisibleProperty =
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsPrimaryButtonIconVisible), true);
+
+    /// <summary>定义 <see cref="IsSecondaryButtonIconVisible"/> 属性</summary>
+    public static readonly StyledProperty<bool> IsSecondaryButtonIconVisibleProperty =
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsSecondaryButtonIconVisible), true);
+
+    /// <summary>定义 <see cref="IsCloseButtonIconVisible"/> 属性</summary>
+    public static readonly StyledProperty<bool> IsCloseButtonIconVisibleProperty =
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsCloseButtonIconVisible), true);
+
+    /// <summary>定义 <see cref="PrimaryButtonIcon"/> 属性</summary>
+    public static readonly StyledProperty<Geometry?> PrimaryButtonIconProperty =
+        AvaloniaProperty.Register<ContentDialog, Geometry?>(nameof(PrimaryButtonIcon),
+            Geometry.Parse(
+                "M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"));
+
+    /// <summary>定义 <see cref="SecondaryButtonIcon"/> 属性</summary>
+    public static readonly StyledProperty<Geometry?> SecondaryButtonIconProperty =
+        AvaloniaProperty.Register<ContentDialog, Geometry?>(nameof(SecondaryButtonIcon),
+            Geometry.Parse(
+                "M448 256c0 17.7-14.3 32-32 32H288v128c0 17.7-14.3 32-32 32s-32-14.3-32-32V288H64c-17.7 0-32-14.3-32-32s14.3-32 32-32h160V96c0-17.7 14.3-32 32-32s32 14.3 32 32v160h160c17.7 0 32 14.3 32 32z"));
+
+    /// <summary>定义 <see cref="CloseButtonIcon"/> 属性</summary>
+    public static readonly StyledProperty<Geometry?> CloseButtonIconProperty =
+        AvaloniaProperty.Register<ContentDialog, Geometry?>(nameof(CloseButtonIcon),
+            Geometry.Parse(
+                "M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"));
 
     /// <summary>获取或设置对话框标题</summary>
     public object? Title
@@ -190,6 +221,48 @@ public partial class ContentDialog
     {
         get => GetValue(FullSizeDesiredProperty);
         set => SetValue(FullSizeDesiredProperty, value);
+    }
+
+    /// <summary>获取或设置主要按钮图标是否可见</summary>
+    public bool IsPrimaryButtonIconVisible
+    {
+        get => GetValue(IsPrimaryButtonIconVisibleProperty);
+        set => SetValue(IsPrimaryButtonIconVisibleProperty, value);
+    }
+
+    /// <summary>获取或设置次要按钮图标是否可见</summary>
+    public bool IsSecondaryButtonIconVisible
+    {
+        get => GetValue(IsSecondaryButtonIconVisibleProperty);
+        set => SetValue(IsSecondaryButtonIconVisibleProperty, value);
+    }
+
+    /// <summary>获取或设置关闭按钮图标是否可见</summary>
+    public bool IsCloseButtonIconVisible
+    {
+        get => GetValue(IsCloseButtonIconVisibleProperty);
+        set => SetValue(IsCloseButtonIconVisibleProperty, value);
+    }
+
+    /// <summary>获取或设置主要按钮的图标路径数据</summary>
+    public Geometry? PrimaryButtonIcon
+    {
+        get => GetValue(PrimaryButtonIconProperty);
+        set => SetValue(PrimaryButtonIconProperty, value);
+    }
+
+    /// <summary>获取或设置次要按钮的图标路径数据</summary>
+    public Geometry? SecondaryButtonIcon
+    {
+        get => GetValue(SecondaryButtonIconProperty);
+        set => SetValue(SecondaryButtonIconProperty, value);
+    }
+
+    /// <summary>获取或设置关闭按钮的图标路径数据</summary>
+    public Geometry? CloseButtonIcon
+    {
+        get => GetValue(CloseButtonIconProperty);
+        set => SetValue(CloseButtonIconProperty, value);
     }
 
     /// <summary>在对话框打开之前触发</summary>

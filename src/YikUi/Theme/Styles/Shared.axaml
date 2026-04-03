@@ -25,4 +25,7 @@
             </Animation>
         </Style.Animations>
     </Style>
+    <Style Selector="Button.Accent">
+        <Setter Property="Theme" Value="{DynamicResource SolidButton}" />
+    </Style>
 </Styles>
