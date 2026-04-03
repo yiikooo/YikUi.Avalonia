@@ -57,15 +57,6 @@
                                 yik:FormItem.Label="Default Button" />
                             <CheckBox IsChecked="{Binding FullSizeDesired}" yik:FormItem.Label="Full Size Desired" />
 
-                            <Separator Margin="0,8" />
-
-                            <CheckBox IsChecked="{Binding IsPrimaryIconVisible}"
-                                      yik:FormItem.Label="Primary Button Icon Visible" />
-                            <CheckBox IsChecked="{Binding IsSecondaryIconVisible}"
-                                      yik:FormItem.Label="Secondary Button Icon Visible" />
-                            <CheckBox IsChecked="{Binding IsCloseIconVisible}"
-                                      yik:FormItem.Label="Close Button Icon Visible" />
-
                             <yik:FormItem NoLabel="True">
                                 <Button
                                     Classes="accent"

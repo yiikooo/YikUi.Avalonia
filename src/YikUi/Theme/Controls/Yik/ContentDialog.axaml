@@ -62,7 +62,7 @@
                                 ContentTemplate="{TemplateBinding TitleTemplate}"
                                 FontSize="18"
                                 FontWeight="SemiBold"
-                                Foreground="{DynamicResource TextPrimaryColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Grid.Column="0"
                                 IsHitTestVisible="False"
                                 Name="PART_TitlePresenter"
@@ -79,7 +79,7 @@
                             <ContentPresenter
                                 Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Foreground="{DynamicResource TextPrimaryColor}"
+                                Foreground="{DynamicResource ForegroundColor}"
                                 Name="PART_ContentPresenter" />
                         </ScrollViewer>
 
@@ -105,12 +105,17 @@
                                 VerticalAlignment="Stretch"
                                 VerticalContentAlignment="Center">
                                 <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="{TemplateBinding SecondaryButtonIcon}"
-                                        Height="12"
-                                        IsVisible="{TemplateBinding IsSecondaryButtonIconVisible}"
-                                        Width="12" />
+                                    <MultiBinding Converter="{x:Static yik:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="SecondaryButtonIcon" />
+                                        <TemplateBinding Property="IsSecondaryButtonIconVisible" />
+                                    </MultiBinding>
                                 </yik:IconButton.Icon>
+                                <yik:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </yik:IconButton.Styles>
                             </yik:IconButton>
 
                             <!--  关闭按钮  -->
@@ -125,12 +130,17 @@
                                 VerticalAlignment="Stretch"
                                 VerticalContentAlignment="Center">
                                 <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="{TemplateBinding CloseButtonIcon}"
-                                        Height="12"
-                                        IsVisible="{TemplateBinding IsCloseButtonIconVisible}"
-                                        Width="13" />
+                                    <MultiBinding Converter="{x:Static yik:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="CloseButtonIcon" />
+                                        <TemplateBinding Property="IsCloseButtonIconVisible" />
+                                    </MultiBinding>
                                 </yik:IconButton.Icon>
+                                <yik:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </yik:IconButton.Styles>
                             </yik:IconButton>
 
                             <!--  主要按钮  -->
@@ -146,12 +156,17 @@
                                 VerticalAlignment="Stretch"
                                 VerticalContentAlignment="Center">
                                 <yik:IconButton.Icon>
-                                    <PathIcon
-                                        Data="{TemplateBinding PrimaryButtonIcon}"
-                                        Height="12"
-                                        IsVisible="{TemplateBinding IsPrimaryButtonIconVisible}"
-                                        Width="14" />
+                                    <MultiBinding Converter="{x:Static yik:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="PrimaryButtonIcon" />
+                                        <TemplateBinding Property="IsPrimaryButtonIconVisible" />
+                                    </MultiBinding>
                                 </yik:IconButton.Icon>
+                                <yik:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </yik:IconButton.Styles>
                             </yik:IconButton>
                         </Grid>
                     </Grid>

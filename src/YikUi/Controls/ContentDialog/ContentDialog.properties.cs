@@ -90,15 +90,15 @@ public partial class ContentDialog
 
     /// <summary>定义 <see cref="IsPrimaryButtonIconVisible"/> 属性</summary>
     public static readonly StyledProperty<bool> IsPrimaryButtonIconVisibleProperty =
-        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsPrimaryButtonIconVisible), true);
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsPrimaryButtonIconVisible), false);
 
     /// <summary>定义 <see cref="IsSecondaryButtonIconVisible"/> 属性</summary>
     public static readonly StyledProperty<bool> IsSecondaryButtonIconVisibleProperty =
-        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsSecondaryButtonIconVisible), true);
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsSecondaryButtonIconVisible), false);
 
     /// <summary>定义 <see cref="IsCloseButtonIconVisible"/> 属性</summary>
     public static readonly StyledProperty<bool> IsCloseButtonIconVisibleProperty =
-        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsCloseButtonIconVisible), true);
+        AvaloniaProperty.Register<ContentDialog, bool>(nameof(IsCloseButtonIconVisible), false);
 
     /// <summary>定义 <see cref="PrimaryButtonIcon"/> 属性</summary>
     public static readonly StyledProperty<Geometry?> PrimaryButtonIconProperty =
