@@ -1,0 +1,182 @@
+<UserControl
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="YikUi.Demo.Pages.MacOsWindowPage"
+    x:DataType="pages:MacOsWindowPageViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:YikUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="15">
+
+                <!--  标题和说明  -->
+                <yik:GroupBorder Header="macOS 窗口按钮位置调整">
+                    <StackPanel Margin="15" Spacing="10">
+                        <TextBlock Text="此功能允许你调整 macOS 窗口标题栏按钮（关闭、最小化、最大化）的位置。" TextWrapping="Wrap" />
+                        <TextBlock
+                            Foreground="OrangeRed"
+                            Text="注意：此功能仅在 macOS 系统上生效。"
+                            TextWrapping="Wrap" />
+                        <TextBlock
+                            Foreground="Gray"
+                            Text="{Binding SystemInfo}"
+                            TextWrapping="Wrap" />
+                    </StackPanel>
+                </yik:GroupBorder>
+
+                <!--  参数设置  -->
+                <yik:GroupBorder Header="参数设置">
+                    <StackPanel Margin="15" Spacing="15">
+
+                        <!--  X 坐标  -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="X 坐标 (按钮距离窗口左边缘的距离)" />
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <yik:NumericDoubleUpDown
+                                    FormatString="0"
+                                    Maximum="200"
+                                    Minimum="-100"
+                                    Step="1"
+                                    Value="20"
+                                    Width="150"
+                                    x:Name="XCoordinate" />
+                                <TextBlock
+                                    Foreground="Gray"
+                                    Text="推荐范围: 10 - 50"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  Y 坐标  -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Y 坐标 (按钮的垂直偏移，负值向上)" />
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <yik:NumericDoubleUpDown
+                                    FormatString="0"
+                                    Maximum="100"
+                                    Minimum="-100"
+                                    Step="1"
+                                    Value="-4"
+                                    Width="150"
+                                    x:Name="YCoordinate" />
+                                <TextBlock
+                                    Foreground="Gray"
+                                    Text="推荐范围: -20 到 20"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  按钮间距  -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="按钮间距 (三个按钮之间的水平间距)" />
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <yik:NumericDoubleUpDown
+                                    FormatString="0"
+                                    Maximum="50"
+                                    Minimum="10"
+                                    Step="1"
+                                    Value="20"
+                                    Width="150"
+                                    x:Name="ButtonSpacing" />
+                                <TextBlock
+                                    Foreground="Gray"
+                                    Text="推荐范围: 15 - 30"
+                                    VerticalAlignment="Center" />
+                            </StackPanel>
+                        </StackPanel>
+
+                        <!--  操作按钮  -->
+                        <WrapPanel ItemSpacing="10" Margin="0,10,0,0">
+                            <Button
+                                Command="{Binding OpenTestWindow}"
+                                Content="打开测试窗口"
+                                Padding="20,8" />
+                            <Button
+                                Command="{Binding ResetDefaults}"
+                                Content="重置默认值"
+                                Padding="20,8" />
+                        </WrapPanel>
+                    </StackPanel>
+                </yik:GroupBorder>
+
+                <!--  预设参数  -->
+                <yik:GroupBorder Header="预设参数">
+                    <WrapPanel
+                        ItemSpacing="10"
+                        LineSpacing="10"
+                        Margin="15">
+                        <Button
+                            Command="{Binding ApplyPreset}"
+                            CommandParameter="standard"
+                            Content="标准布局 (20, -4, 20)"
+                            Padding="15,8" />
+                        <Button
+                            Command="{Binding ApplyPreset}"
+                            CommandParameter="compact"
+                            Content="紧凑布局 (15, -4, 15)"
+                            Padding="15,8" />
+                        <Button
+                            Command="{Binding ApplyPreset}"
+                            CommandParameter="loose"
+                            Content="宽松布局 (25, -4, 25)"
+                            Padding="15,8" />
+                        <Button
+                            Command="{Binding ApplyPreset}"
+                            CommandParameter="down"
+                            Content="向下偏移 (20, 0, 20)"
+                            Padding="15,8" />
+                    </WrapPanel>
+                </yik:GroupBorder>
+
+                <!--  使用说明  -->
+                <yik:GroupBorder Header="使用说明">
+                    <StackPanel Margin="15" Spacing="8">
+                        <TextBlock Text="• X 坐标: 控制按钮距离窗口左边缘的距离" TextWrapping="Wrap" />
+                        <TextBlock Text="• Y 坐标: 控制按钮的垂直位置，负值表示向上偏移" TextWrapping="Wrap" />
+                        <TextBlock Text="• 按钮间距: 控制三个按钮（关闭、最小化、最大化）之间的水平距离" TextWrapping="Wrap" />
+                        <TextBlock Text="• 点击'打开测试窗口'按钮，会打开一个新窗口应用当前设置" TextWrapping="Wrap" />
+                        <TextBlock Text="• 在测试窗口中，你可以看到窗口左上角按钮位置的实际效果" TextWrapping="Wrap" />
+                    </StackPanel>
+                </yik:GroupBorder>
+
+                <!--  代码示例  -->
+                <yik:GroupBorder Header="代码示例">
+                    <StackPanel Margin="15" Spacing="10">
+                        <TextBlock FontWeight="Bold" Text="在你的窗口中使用:" />
+                        <Border
+                            Background="#F5F5F5"
+                            CornerRadius="5"
+                            Padding="10">
+                            <TextBlock FontFamily="Consolas" TextWrapping="Wrap">
+                                if (Data.DesktopType == DesktopType.MacOs)
+                                {
+                                PropertyChanged += (_, e) =>
+                                {
+                                if (e.Property.Name != "IsVisible") return;
+                                if (GetValue(e.Property) is not true) return;
+                                var platform = TryGetPlatformHandle();
+                                if (platform is null) return;
+                                var nsWindow = platform.Handle;
+                                if (nsWindow == IntPtr.Zero) return;
+                                MacOsWindowHandler.RefreshTitleBarButtonPosition(
+                                nsWindow,
+                                x: 20, // X 坐标
+                                y: -4, // Y 坐标
+                                spacing: 20 // 按钮间距
+                                );
+                                };
+                                }
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+                </yik:GroupBorder>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

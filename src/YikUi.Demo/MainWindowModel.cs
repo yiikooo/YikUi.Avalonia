@@ -89,6 +89,11 @@ public sealed class MainWindowModel : INotifyPropertyChanged
         {
             Title = "Layout",
             Children = Layouts.LayoutsList
+        },
+        new()
+        {
+            Title = "Platform",
+            Children = Platform.PlatformList
         }
     ];
 

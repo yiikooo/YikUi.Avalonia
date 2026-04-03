@@ -1,0 +1,60 @@
+<controls:YikWindow
+    Height="400"
+    Title="测试窗口 - macOS 按钮位置效果"
+    Width="600"
+    WindowStartupLocation="CenterScreen"
+    d:DesignHeight="400"
+    d:DesignWidth="600"
+    mc:Ignorable="d"
+    x:Class="YikUi.Controls.MacOsTestWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:controls="using:YikUi.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel
+        Margin="40"
+        Spacing="20"
+        VerticalAlignment="Center">
+        <TextBlock
+            FontSize="24"
+            FontWeight="Bold"
+            HorizontalAlignment="Center"
+            Text="这是一个测试窗口" />
+
+        <TextBlock
+            FontSize="16"
+            Foreground="Gray"
+            HorizontalAlignment="Center"
+            Margin="0,0,0,20"
+            Text="查看窗口左上角的标题栏按钮位置" />
+
+        <Border
+            Background="#E3F2FD"
+            CornerRadius="8"
+            Padding="20">
+            <StackPanel Spacing="10">
+                <TextBlock
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Text="当前应用的参数:" />
+                <TextBlock TextWrapping="Wrap" x:Name="ParametersText" />
+            </StackPanel>
+        </Border>
+
+        <TextBlock
+            Foreground="OrangeRed"
+            HorizontalAlignment="Center"
+            Margin="0,20,0,0"
+            Text="提示: 在 macOS 系统上，您应该能看到窗口左上角的三个按钮（红、黄、绿）位置已经调整。"
+            TextWrapping="Wrap" />
+
+        <Button
+            Click="CloseWindow_Click"
+            Content="关闭窗口"
+            HorizontalAlignment="Center"
+            Margin="0,20,0,0"
+            Padding="30,10" />
+    </StackPanel>
+</controls:YikWindow>
