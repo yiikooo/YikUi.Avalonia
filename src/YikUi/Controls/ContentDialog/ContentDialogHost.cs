@@ -1,4 +1,3 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Layout;
@@ -6,46 +5,19 @@ using Avalonia.Layout;
 namespace YikUi.Controls;
 
 /// <summary>
-/// ContentDialog 的宿主控件，负责填满 OverlayLayer 并提供遮罩背景
+/// ContentDialog 的宿主控件。
+/// 由 ContentDialog 直接管理尺寸并添加到 OverlayDialogHost（Canvas）上，
+/// 负责提供遮罩背景并将对话框居中显示。
 /// </summary>
 internal class ContentDialogHost : ContentControl
 {
-    private IDisposable? _rootBoundsWatcher;
-
     static ContentDialogHost()
     {
-        HorizontalAlignmentProperty.OverrideDefaultValue<ContentDialogHost>(HorizontalAlignment.Left);
-        VerticalAlignmentProperty.OverrideDefaultValue<ContentDialogHost>(VerticalAlignment.Top);
         HorizontalContentAlignmentProperty.OverrideDefaultValue<ContentDialogHost>(HorizontalAlignment.Center);
         VerticalContentAlignmentProperty.OverrideDefaultValue<ContentDialogHost>(VerticalAlignment.Center);
     }
 
-    protected override Size MeasureOverride(Size availableSize)
-    {
-        base.MeasureOverride(availableSize);
-
-        if (VisualRoot is TopLevel tl)
-            return tl.ClientSize;
-        if (VisualRoot is Control c)
-            return c.Bounds.Size;
-
-        return default;
-    }
-
-    protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
-    {
-        base.OnAttachedToVisualTree(e);
-        if (e.RootVisual is Control root)
-            _rootBoundsWatcher = root.GetObservable(BoundsProperty).Subscribe(_ => InvalidateMeasure());
-    }
-
-    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
-    {
-        base.OnDetachedFromVisualTree(e);
-        _rootBoundsWatcher?.Dispose();
-        _rootBoundsWatcher = null;
-    }
-
+    // 拦截所有指针事件，防止点击穿透到遮罩下方的控件
     protected override void OnPointerEntered(PointerEventArgs e) => e.Handled = true;
     protected override void OnPointerExited(PointerEventArgs e) => e.Handled = true;
     protected override void OnPointerPressed(PointerPressedEventArgs e) => e.Handled = true;

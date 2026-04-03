@@ -11,18 +11,22 @@ using Avalonia.VisualTree;
 namespace YikUi.Controls;
 
 /// <summary>
-/// 异步内容对话框，提供标题、内容以及主要/次要/关闭三种按钮的模态对话框
+/// 异步内容对话框，提供标题、内容以及主要/次要/关闭三种按钮的模态对话框。
+/// 内部通过 <see cref="OverlayDialogHost"/> 承载，与 YikUi 现有对话框体系一致。
 /// </summary>
 public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
 {
     private Button? _closeButton;
     private bool _hasDeferralActive;
     private ContentDialogHost? _host;
+    private IDisposable? _hostBoundsWatcher;
     private Visual? _hotkeyDownVisual;
-
     private IInputElement? _lastFocus;
     private Control? _originalHost;
     private int _originalHostIndex;
+
+    // 记住承载此对话框的 OverlayDialogHost，关闭时用于移除
+    private OverlayDialogHost? _overlayHost;
     private Button? _primaryButton;
     private ContentDialogResult _result;
     private Button? _secondaryButton;
@@ -157,21 +161,26 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
     }
 
     /// <summary>
-    /// 异步显示对话框。自动查找当前活动窗口。
+    /// 异步显示对话框。自动查找当前活动窗口下的 <see cref="OverlayDialogHost"/>。
     /// </summary>
-    public Task<ContentDialogResult> ShowAsync() => ShowAsyncCore(null);
+    public Task<ContentDialogResult> ShowAsync() => ShowAsyncCore(null, null);
 
     /// <summary>
-    /// 在指定窗口上异步显示对话框
+    /// 在指定窗口上异步显示对话框。
     /// </summary>
-    public Task<ContentDialogResult> ShowAsync(Window window) => ShowAsyncCore(window);
+    public Task<ContentDialogResult> ShowAsync(Window window) => ShowAsyncCore(window, null);
 
     /// <summary>
-    /// 在指定 TopLevel 上异步显示对话框（适用于无 ApplicationLifetime 场景，如单元测试）
+    /// 在指定 TopLevel 上异步显示对话框。
     /// </summary>
-    public Task<ContentDialogResult> ShowAsync(TopLevel topLevel) => ShowAsyncCore(topLevel);
+    public Task<ContentDialogResult> ShowAsync(TopLevel topLevel) => ShowAsyncCore(topLevel, null);
 
-    private async Task<ContentDialogResult> ShowAsyncCore(TopLevel? topLevel)
+    /// <summary>
+    /// 使用指定 hostId 的 <see cref="OverlayDialogHost"/> 显示对话框（适合多 Host 场景）。
+    /// </summary>
+    public Task<ContentDialogResult> ShowAsync(string? hostId) => ShowAsyncCore(null, hostId);
+
+    private async Task<ContentDialogResult> ShowAsyncCore(TopLevel? topLevel, string? hostId)
     {
         _tcs = new TaskCompletionSource<ContentDialogResult>();
 
@@ -199,80 +208,50 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
             }
         }
 
+        // 定位 OverlayDialogHost —— 与 OverlayDialog 走同一套 OverlayDialogManager 体系
+        var overlayHost = FindOverlayDialogHost(topLevel, hostId);
+        if (overlayHost == null)
+            throw new InvalidOperationException(
+                "未找到 OverlayDialogHost。请确保窗口模板中包含 OverlayDialogHost（YikWindow 默认已包含），" +
+                "或在视图中手动放置 <yik:OverlayDialogHost />。");
+
+        _overlayHost = overlayHost;
+        _lastFocus = TopLevel.GetTopLevel(overlayHost)?.FocusManager?.GetFocusedElement();
+
+        // 在加入视觉树之前先设置按钮可见性伪类，避免对话框淡入时按钮延迟出现导致闪烁
+        PseudoClasses.Set(PC_Primary, !string.IsNullOrEmpty(PrimaryButtonText));
+        PseudoClasses.Set(PC_Secondary, !string.IsNullOrEmpty(SecondaryButtonText));
+        PseudoClasses.Set(PC_Close, !string.IsNullOrEmpty(CloseButtonText));
+
+        // 创建宿主，将 ContentDialog 居中承载，并提供遮罩背景
         _host ??= new ContentDialogHost();
         _host.Content = this;
 
-        // 查找 OverlayLayer
-        OverlayLayer? overlayLayer = null;
+        // ContentDialogHost 需填满 Canvas（OverlayDialogHost 是 Canvas）
+        SyncHostSize(overlayHost.Bounds.Size);
+        Canvas.SetLeft(_host, 0);
+        Canvas.SetTop(_host, 0);
 
-        if (topLevel != null)
-        {
-            overlayLayer = ResolveOverlayLayer(topLevel);
-        }
-        else
-        {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                var windows = desktop.Windows;
-                for (int i = 0; i < windows.Count; i++)
-                {
-                    if (windows[i].IsActive)
-                    {
-                        topLevel = windows[i];
-                        break;
-                    }
-                }
+        // 监听 Canvas 尺寸变化（窗口缩放时同步更新）
+        _hostBoundsWatcher = overlayHost.GetObservable(BoundsProperty)
+            .Subscribe(b => SyncHostSize(b.Size));
 
-                topLevel ??= desktop.MainWindow
-                             ?? throw new InvalidOperationException("未找到可用的 TopLevel 来承载 ContentDialog");
-
-                overlayLayer = ResolveOverlayLayer(topLevel);
-            }
-            else if (Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
-            {
-                topLevel = TopLevel.GetTopLevel(singleView.MainView);
-                if (topLevel != null)
-                    overlayLayer = ResolveOverlayLayer(topLevel);
-            }
-            else
-            {
-                throw new InvalidOperationException(
-                    "未找到 TopLevel，请向 ShowAsync() 传入 Window 或 TopLevel，或确保 ApplicationLifetime 已正确配置");
-            }
-        }
-
-        if (overlayLayer == null)
-            throw new InvalidOperationException("无法从指定的 TopLevel 获取 OverlayLayer。请确保窗口模板中包含 VisualLayerManager。");
-
-        _lastFocus = topLevel?.FocusManager?.GetFocusedElement();
-
-        overlayLayer.Children.Add(_host);
+        overlayHost.Children.Add(_host);
 
         IsVisible = true;
         PseudoClasses.Set(PC_Hidden, false);
         PseudoClasses.Set(PC_Open, true);
 
-        // 等待模板加载完成后再初始化
         Loaded += OnDialogLoaded;
 
         return await _tcs.Task;
     }
 
-    /// <summary>
-    /// 查找 TopLevel 下的 OverlayLayer。
-    /// 标准做法是从 visual 向上找 VisualLayerManager；
-    /// 但对于 Window 本身（无祖先），需向下搜索其 visual 树。
-    /// </summary>
-    private static OverlayLayer? ResolveOverlayLayer(Visual visual)
+    private void SyncHostSize(Size size)
     {
-        // 标准路径：从 visual 向上（含自身）找 VisualLayerManager
-        var ol = OverlayLayer.GetOverlayLayer(visual);
-        if (ol != null) return ol;
-
-        // 回退路径：Window 是根节点，GetOverlayLayer 无法在祖先中找到 VisualLayerManager，
-        // 改为向下遍历 visual 子树，直接找 OverlayLayer 控件实例。
-        // 适用于 YikWindow 等将 <VisualLayerManager> 放在模板内的自定义窗口。
-        return visual.GetVisualDescendants().OfType<OverlayLayer>().FirstOrDefault();
+        if (_host == null) return;
+        _host.Width = size.Width;
+        _host.Height = size.Height;
     }
 
     /// <summary>
@@ -332,8 +311,6 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
     private async void FinalCloseDialog()
     {
         IsHitTestVisible = false;
-
-        // 先聚焦自身以隐藏焦点框，避免关闭动画时焦点框残留
         Focus();
 
         PseudoClasses.Set(PC_Hidden, true);
@@ -350,10 +327,12 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
             _lastFocus = null;
         }
 
-        var overlayLayer = OverlayLayer.GetOverlayLayer(_host!);
-        if (overlayLayer == null) return; // 防止重入调用
+        _hostBoundsWatcher?.Dispose();
+        _hostBoundsWatcher = null;
 
-        overlayLayer.Children.Remove(_host!);
+        _overlayHost?.Children.Remove(_host!);
+        _overlayHost = null;
+
         _host!.Content = null;
 
         // 将对话框还原到原来的父容器
@@ -436,11 +415,6 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
         if (_primaryButton == null)
             throw new InvalidOperationException("对话框模板尚未应用，无法执行 SetupDialog");
 
-        PseudoClasses.Set(PC_Primary, !string.IsNullOrEmpty(PrimaryButtonText));
-        PseudoClasses.Set(PC_Secondary, !string.IsNullOrEmpty(SecondaryButtonText));
-        PseudoClasses.Set(PC_Close, !string.IsNullOrEmpty(CloseButtonText));
-
-        // 移除所有按钮的 accent class
         _primaryButton.Classes.Remove("accent");
         _secondaryButton.Classes.Remove("accent");
         _closeButton.Classes.Remove("accent");
@@ -480,5 +454,45 @@ public partial class ContentDialog : ContentControl, ICustomKeyboardNavigation
         SetupDialog();
         UpdateLayout();
         OnOpened();
+    }
+
+    /// <summary>
+    /// 查找可用的 OverlayDialogHost。
+    /// 优先通过 OverlayDialogManager（与 OverlayDialog 完全相同的寻址方式），
+    /// 找不到时再搜索 TopLevel 的 visual 子树作为兜底。
+    /// </summary>
+    private static OverlayDialogHost? FindOverlayDialogHost(TopLevel? topLevel, string? hostId)
+    {
+        // 先确定 TopLevel
+        topLevel ??= FindActiveTopLevel();
+
+        if (topLevel != null)
+        {
+            // 与 OverlayDialog 一致：通过 TopLevel 哈希从 OverlayDialogManager 取 host
+            var host = OverlayDialogManager.GetHost(hostId, topLevel.GetHashCode());
+            if (host != null) return host;
+
+            // 兜底：直接搜索 visual 子树（适用于未注册到 manager 的自定义场景）
+            return topLevel.GetVisualDescendants().OfType<OverlayDialogHost>().FirstOrDefault();
+        }
+
+        // TopLevel 未能确定时，直接从 manager 按 hostId 查找
+        return OverlayDialogManager.GetHost(hostId, null);
+    }
+
+    private static TopLevel? FindActiveTopLevel()
+    {
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            foreach (var w in desktop.Windows)
+                if (w.IsActive)
+                    return w;
+            return desktop.MainWindow;
+        }
+
+        if (Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+            return TopLevel.GetTopLevel(singleView.MainView);
+
+        return null;
     }
 }
