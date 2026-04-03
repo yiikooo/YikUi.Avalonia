@@ -215,7 +215,10 @@
                                         Margin="24,8"
                                         Name="PART_ContentPresenter" />
                                 </ScrollViewer>
-                                <Grid ColumnDefinitions="Auto, *, Auto" Grid.Row="0">
+                                <Grid
+                                    ColumnDefinitions="Auto, *, Auto"
+                                    Grid.Row="0"
+                                    Name="PART_Header">
                                     <Panel
                                         Background="Transparent"
                                         Grid.Column="0"
@@ -251,7 +254,8 @@
                                     ColumnDefinitions="Auto, Auto, Auto, Auto"
                                     Grid.Row="2"
                                     HorizontalAlignment="Right"
-                                    Margin="24,0,24,24">
+                                    Margin="24,0,24,24"
+                                    Name="PART_Footer">
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_CancelButton}" />
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_NoButton}" />
                                     <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_YesButton}" />
@@ -591,7 +595,10 @@
                                 Grid.Row="1"
                                 Margin="24,8"
                                 Name="PART_ContentPresenter" />
-                            <Grid ColumnDefinitions="Auto, *, Auto" Grid.Row="0">
+                            <Grid
+                                ColumnDefinitions="Auto, *, Auto"
+                                Grid.Row="0"
+                                Name="PART_Header">
                                 <Panel
                                     Background="Transparent"
                                     Grid.Column="0"
@@ -627,6 +634,7 @@
                                 Grid.Row="2"
                                 HorizontalAlignment="Right"
                                 Margin="24,0,24,24"
+                                Name="PART_Footer"
                                 Orientation="Horizontal">
                                 <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_CancelButton}" />
                                 <Button Margin="8,0,0,0" Name="{x:Static yik:DefaultDialogControl.PART_NoButton}" />

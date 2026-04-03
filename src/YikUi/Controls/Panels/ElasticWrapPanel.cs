@@ -61,6 +61,7 @@ public class ElasticWrapPanel : WrapPanel
 
         foreach (var child in children)
         {
+            if (!child.IsVisible) continue;
             UVSize sz;
             if (GetIsFixToRB(child))
             {
@@ -210,6 +211,7 @@ public class ElasticWrapPanel : WrapPanel
         var children = Children;
         foreach (var child in children)
         {
+            if (!child.IsVisible) continue;
             UVSize sz;
             if (GetIsFixToRB(child))
             {
