@@ -1,9 +1,12 @@
 <yik:YikWindow
     CanResize="True"
+    ExtendClientAreaToDecorationsHint="True"
     Icon="icon.i.ico"
+    IsHitTestVisible="True"
     MinHeight="400"
     MinWidth="600"
     Title="YikUi.Demo"
+    WindowDecorations="Full"
     WindowStartupLocation="CenterScreen"
     x:Class="YikUi.Demo.MainWindow"
     x:DataType="demo:MainWindowModel"
@@ -12,7 +15,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
     <yik:YikWindow.TitleBarLeftContent>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Name="Left" Orientation="Horizontal">
             <Image
                 Margin="7,0,0,0"
                 Source="{DynamicResource Logo}"

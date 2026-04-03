@@ -9,7 +9,7 @@ public static class Platform
     {
         new()
         {
-            Title = "macOS Window",
+            Title = "MacOsWindowHandler",
             Content = new MacOsWindowPage(),
         },
     };

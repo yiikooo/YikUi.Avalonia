@@ -4,6 +4,8 @@ using Avalonia;
 using Avalonia.Controls.Notifications;
 using Avalonia.Input;
 using Avalonia.Styling;
+using YikUi.Common;
+using YikUi.Common.Helpers;
 using YikUi.Controls;
 
 namespace YikUi.Demo;
@@ -30,6 +32,30 @@ public partial class MainWindow : YikWindow
             Command = new ActionCommand(() => ToggleTheme())
         });
         NavMenu.SearchPlaceholderText += $"   ({_mainWindowModel.Items} items)";
+        if (Platform.DetectPlatform() == DesktopType.MacOs)
+        {
+            Separator.IsVisible = false;
+            Left.Margin = new Thickness(50, 0, 0, 0);
+            IsMaxBtnShow = false;
+            IsMinBtnShow = false;
+            IsCloseBtnShow = false;
+            PropertyChanged += (_, _) =>
+            {
+                var platform = TryGetPlatformHandle();
+                if (platform is null) return;
+                var nsWindow = platform.Handle;
+                if (nsWindow == IntPtr.Zero) return;
+                try
+                {
+                    MacOsWindowHandler.RefreshTitleBarButtonPosition(nsWindow);
+                    MacOsWindowHandler.HideZoomButton(nsWindow);
+                }
+                catch
+                {
+                    // ignored
+                }
+            };
+        }
     }
 
     private void ToggleTheme(string? theme = null)

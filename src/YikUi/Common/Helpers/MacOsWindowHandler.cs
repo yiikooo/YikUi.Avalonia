@@ -15,7 +15,7 @@ public static class MacOsWindowHandler
         objc_msgSend_Bool(zoomButton, selSetHidden, true);
     }
 
-    public static void RefreshTitleBarButtonPosition(IntPtr nsWindow, double x = 20, double y = -4, double spacing = 20)
+    public static void RefreshTitleBarButtonPosition(IntPtr nsWindow, double x = 14, double y = 2, double spacing = 20)
     {
         var selStandardWindowButton = sel_registerName("standardWindowButton:");
         var selSetFrameOrigin = sel_registerName("setFrameOrigin:");
