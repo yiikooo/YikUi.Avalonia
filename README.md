@@ -10,7 +10,7 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg?style=for-the-badge)](https://dotnet.microsoft.com/)
-[![Avalonia](https://img.shields.io/badge/Avalonia-12.0.0.rc1-red.svg?style=for-the-badge)](https://avaloniaui.net/)
+[![Avalonia](https://img.shields.io/badge/Avalonia-12.0.0.rc2-red.svg?style=for-the-badge)](https://avaloniaui.net/)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg?style=for-the-badge)
 ![GitHub Star](https://img.shields.io/github/stars/yiikooo/YikUi.Avalonia?logo=github&label=Star&style=for-the-badge&color=#03DC6C)
 ![GitHub Forks](https://img.shields.io/github/forks/yiikooo/YikUi.Avalonia?logo=github&label=Fork&style=for-the-badge&color=#03DC6C)
