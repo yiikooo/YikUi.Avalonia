@@ -80,51 +80,5 @@
                 Width="1" />
         </StackPanel>
     </tio:TioWindow.TitleBarRightContent>
-    <DockPanel>
-        <Border
-            Background="{DynamicResource PanelBackgroundColor}"
-            BorderBrush="{DynamicResource LineColor}"
-            BorderThickness="1"
-            CornerRadius="{DynamicResource TioCornerRadius}"
-            Margin="15,15,-5,15">
-            <tio:NavMenu
-                Classes="FlatScrollBar"
-                DockPanel.Dock="Left"
-                EnableSearch="True"
-                HeaderBinding="{Binding Title}"
-                IconBinding="{Binding Icon}"
-                ItemsSource="{Binding Pages}"
-                Margin="10,10,4,10"
-                SearchPlaceholderText="Search..."
-                SearchPlacement="Top"
-                SelectedItem="{Binding SelectedPage}"
-                SubMenuBinding="{Binding Children}"
-                Width="235"
-                x:Name="NavMenu">
-                <tio:NavMenu.Styles>
-                    <Style Selector="tio|NavMenu /template/ ItemsPresenter#PART_ItemsPresenter">
-                        <Setter Property="Margin" Value="0,0,6,0" />
-                    </Style>
-                    <Style Selector="tio|NavMenuItem:first-level">
-                        <Setter Property="IsVerticalCollapsed" Value="True" />
-                    </Style>
-                </tio:NavMenu.Styles>
-                <tio:NavMenu.IconTemplate>
-                    <DataTemplate DataType="x:String">
-                        <PathIcon
-                            Data="{Binding}"
-                            Height="19"
-                            Margin="2,0,-1,0"
-                            Width="19" />
-                    </DataTemplate>
-                </tio:NavMenu.IconTemplate>
-                <tio:NavMenu.ItemTemplate>
-                    <DataTemplate DataType="demo:Page">
-                        <tio:NavMenuItem IsVerticalCollapsed="True" />
-                    </DataTemplate>
-                </tio:NavMenu.ItemTemplate>
-            </tio:NavMenu>
-        </Border>
-        <ContentControl Content="{Binding SelectedPage.Content}" DockPanel.Dock="Right" />
-    </DockPanel>
+    <ContentControl Content="{Binding MainView}" />
 </tio:TioWindow>

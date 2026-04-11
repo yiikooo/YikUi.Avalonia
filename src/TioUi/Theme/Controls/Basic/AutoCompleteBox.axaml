@@ -100,7 +100,7 @@
                                 BoxShadow="{DynamicResource AutoCompleteBoxPopupBoxShadow}"
                                 CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}"
                                 HorizontalAlignment="Stretch"
-                                Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
+                                Margin="4"
                                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ListBox
                                     Foreground="{TemplateBinding Foreground}"
@@ -140,7 +140,7 @@
                                 BoxShadow="{DynamicResource AutoCompleteBoxPopupBoxShadow}"
                                 CornerRadius="{DynamicResource AutoCompleteBoxPopupCornerRadius}"
                                 HorizontalAlignment="Stretch"
-                                Margin="{DynamicResource AutoCompleteBoxPopupMargin}"
+                                Margin="4"
                                 MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ListBox
                                     Foreground="{TemplateBinding Foreground}"

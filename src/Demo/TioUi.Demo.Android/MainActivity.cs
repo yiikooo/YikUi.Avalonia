@@ -1,4 +1,4 @@
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Avalonia.Android;
 
@@ -11,6 +11,4 @@ namespace TioUi.Demo.Android;
     MainLauncher = true,
     LaunchMode = LaunchMode.SingleTop,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
-public class MainActivity : AvaloniaMainActivity
-{
-}
+public class MainActivity : AvaloniaMainActivity;

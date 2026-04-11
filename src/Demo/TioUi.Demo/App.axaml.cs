@@ -18,6 +18,14 @@ public class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             desktop.MainWindow = new MainWindow();
+        else if (ApplicationLifetime is IActivityApplicationLifetime activityLifetime)
+        {
+            activityLifetime.MainViewFactory = () => new MainView();
+        }
+        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        {
+            singleView.MainView = new MainView();
+        }
         this.AttachDeveloperTools();
         base.OnFrameworkInitializationCompleted();
     }
