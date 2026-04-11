@@ -103,7 +103,7 @@ jobs:
 
       - name: Build Windows x64 Demo
         run: |
-          dotnet publish ./src/TioUi.Demo/TioUi.Demo.csproj `
+          dotnet publish ./src/Demo/TioUi.Demo/TioUi.Demo.csproj `
             -c Release `
             -r win-x64 `
             /p:PublishSingleFile=true `
@@ -114,7 +114,7 @@ jobs:
       - name: Rename Demo Executable with Version
         run: |
           Move-Item `
-            -Path "./src/TioUi.Demo/bin/Release/net10.0/win-x64/publish/TioUi.Demo.exe" `
+            -Path "./src/Demo/TioUi.Demo/bin/Release/net10.0/win-x64/publish/TioUi.Demo.exe" `
             -Destination "./TioUi.${{ needs.version.outputs.semver }}.exe"
 
       - name: Upload Demo Executable
