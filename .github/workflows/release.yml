@@ -70,9 +70,9 @@ jobs:
       - name: Copy Library
         run: |
           cp ./src/TioUi/bin/Release/net10.0/TioUi.dll \
-            ./TioUi.dll
+            ./TioUi.Avalonia.dll
           cp ./nuget-output/TioUi.Avalonia.*.nupkg \
-            ./TioUi.nupkg
+            ./TioUi.Avalonia.nupkg
 
       - name: Upload Library DLL
         uses: actions/upload-artifact@v4
@@ -117,13 +117,13 @@ jobs:
         run: |
           Move-Item `
             -Path "./src/Demo/TioUi.Demo.Desktop/bin/Release/net10.0/win-x64/publish/TioUi.Demo.Desktop.exe" `
-            -Destination "./TioUi.exe"
+            -Destination "./TioUi.Avalonia.exe"
 
       - name: Upload Demo Executable
         uses: actions/upload-artifact@v4
         with:
           name: tioui-demo-windows-x64
-          path: ./TioUi.exe
+          path: ./TioUi.Avalonia.exe
           retention-days: 7
 
   # 发布 Release
