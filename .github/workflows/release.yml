@@ -85,7 +85,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tioui-nuget
-          path: ./nuget-output/*.nupkg
+          path: ./*.nupkg
           retention-days: 7
 
   # 构建 Windows x64 Demo 单文件
