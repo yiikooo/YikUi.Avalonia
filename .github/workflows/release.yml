@@ -65,13 +65,14 @@ jobs:
             --no-build \
             /p:PackageVersion=${{ needs.version.outputs.semver }} \
             /p:Version=${{ needs.version.outputs.semver }} \
-            /p:PackageId=TioUi \
             -o ./nuget-output
 
-      - name: Copy Library DLL
+      - name: Copy Library
         run: |
           cp ./src/TioUi/bin/Release/net10.0/TioUi.dll \
             ./TioUi.dll
+          cp ./nuget-output/TioUi.Avalonia.${{ needs.version.outputs.semver }}.nupkg \
+            ./TioUi.nupkg
 
       - name: Upload Library DLL
         uses: actions/upload-artifact@v4
