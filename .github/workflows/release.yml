@@ -71,7 +71,7 @@ jobs:
         run: |
           cp ./src/TioUi/bin/Release/net10.0/TioUi.dll \
             ./TioUi.dll
-          cp ./nuget-output/TioUi.Avalonia.${{ needs.version.outputs.semver }}.nupkg \
+          cp ./nuget-output/TioUi.Avalonia.*.nupkg \
             ./TioUi.nupkg
 
       - name: Upload Library DLL
