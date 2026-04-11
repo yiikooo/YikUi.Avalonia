@@ -1,0 +1,16 @@
+using Avalonia.Controls;
+
+namespace TioUi.Demo.Pages;
+
+public partial class ButtonPage : UserControl
+{
+    public ButtonPage()
+    {
+        InitializeComponent();
+        DataContext = this;
+    }
+
+    public void Tip()
+    {
+    }
+}

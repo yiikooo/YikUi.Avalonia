@@ -1,0 +1,103 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.ToggleSwitchPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
+                <tio:GroupBorder Header="ToggleSwitch" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                OffContent="Off"
+                                OnContent="On" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                OffContent="Off"
+                                OnContent="On" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                IsEnabled="False"
+                                OffContent="Off"
+                                OnContent="On" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                IsEnabled="False"
+                                OffContent="Off"
+                                OnContent="On" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="SimpleToggleSwitch" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                OffContent="N"
+                                OnContent="Y"
+                                Theme="{DynamicResource SimpleToggleSwitch}" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                OffContent="N"
+                                OnContent="Y"
+                                Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                IsEnabled="False"
+                                OffContent="N"
+                                OnContent="Y"
+                                Theme="{DynamicResource SimpleToggleSwitch}" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                IsEnabled="False"
+                                OffContent="N"
+                                OnContent="Y"
+                                Theme="{DynamicResource SimpleToggleSwitch}" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="ButtonToggleSwitch" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                OffContent="Off"
+                                OnContent="On"
+                                Theme="{DynamicResource ButtonToggleSwitch}" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                OffContent="Off"
+                                OnContent="On"
+                                Theme="{DynamicResource ButtonToggleSwitch}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <ToggleSwitch
+                                IsChecked="False"
+                                IsEnabled="False"
+                                OffContent="Off"
+                                OnContent="On"
+                                Theme="{DynamicResource ButtonToggleSwitch}" />
+                            <ToggleSwitch
+                                IsChecked="True"
+                                IsEnabled="False"
+                                OffContent="Off"
+                                OnContent="On"
+                                Theme="{DynamicResource ButtonToggleSwitch}" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

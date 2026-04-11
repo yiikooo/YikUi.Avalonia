@@ -1,0 +1,182 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.RadioButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
+                <tio:GroupBorder Header="RadioButton" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <RadioButton Content="Unchecked" />
+                            <RadioButton Content="Checked" IsChecked="True" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <RadioButton Content="Unchecked" IsEnabled="False" />
+                            <RadioButton
+                                Content="Checked"
+                                IsChecked="True"
+                                IsEnabled="False" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="ButtonRadioButton" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal">
+                            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Classes="Small" Theme="{DynamicResource ButtonRadioButton}">small 1</RadioButton>
+                                    <RadioButton
+                                        Classes="Small"
+                                        IsChecked="True"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        small 2
+                                    </RadioButton>
+                                </StackPanel>
+                            </Border>
+                            <Border
+                                HorizontalAlignment="Left"
+                                Margin="8,0"
+                                Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton
+                                        Classes="Small"
+                                        IsEnabled="False"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        small 1
+                                    </RadioButton>
+                                    <RadioButton
+                                        Classes="Small"
+                                        IsChecked="True"
+                                        IsEnabled="False"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        small 2
+                                    </RadioButton>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Theme="{DynamicResource ButtonRadioButton}">default 1</RadioButton>
+                                    <RadioButton IsChecked="True" Theme="{DynamicResource ButtonRadioButton}">default 2</RadioButton>
+                                </StackPanel>
+                            </Border>
+                            <Border
+                                HorizontalAlignment="Left"
+                                Margin="8,0"
+                                Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton IsEnabled="False" Theme="{DynamicResource ButtonRadioButton}">default 1</RadioButton>
+                                    <RadioButton
+                                        IsChecked="True"
+                                        IsEnabled="False"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        default 2
+                                    </RadioButton>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton Classes="Large" Theme="{DynamicResource ButtonRadioButton}">large 1</RadioButton>
+                                    <RadioButton
+                                        Classes="Large"
+                                        IsChecked="True"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        large 2
+                                    </RadioButton>
+                                </StackPanel>
+                            </Border>
+                            <Border
+                                HorizontalAlignment="Left"
+                                Margin="8,0"
+                                Theme="{StaticResource RadioButtonGroupBorder}">
+                                <StackPanel Orientation="Horizontal">
+                                    <RadioButton
+                                        Classes="Large"
+                                        IsEnabled="False"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        large 1
+                                    </RadioButton>
+                                    <RadioButton
+                                        Classes="Large"
+                                        IsChecked="True"
+                                        IsEnabled="False"
+                                        Theme="{DynamicResource ButtonRadioButton}">
+                                        large 2
+                                    </RadioButton>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="CardRadioButton" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <RadioButton
+                                Content="Unchecked"
+                                IsChecked="True"
+                                Theme="{DynamicResource CardRadioButton}"
+                                Width="300" />
+                            <RadioButton
+                                Content="Checked"
+                                IsChecked="True"
+                                Theme="{DynamicResource CardRadioButton}"
+                                Width="300" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <RadioButton
+                                Content="Unchecked"
+                                IsEnabled="False"
+                                Theme="{DynamicResource CardRadioButton}"
+                                Width="300" />
+                            <RadioButton
+                                Content="Checked"
+                                IsChecked="True"
+                                IsEnabled="False"
+                                Theme="{DynamicResource CardRadioButton}"
+                                Width="300" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="PureCardRadioButton" Padding="15">
+                    <StackPanel Spacing="15">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <RadioButton
+                                Content="Unchecked"
+                                IsChecked="True"
+                                Theme="{DynamicResource PureCardRadioButton}"
+                                Width="300" />
+                            <RadioButton
+                                Content="Checked"
+                                IsChecked="True"
+                                Theme="{DynamicResource PureCardRadioButton}"
+                                Width="300" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <RadioButton
+                                Content="Unchecked"
+                                IsEnabled="False"
+                                Theme="{DynamicResource PureCardRadioButton}"
+                                Width="300" />
+                            <RadioButton
+                                Content="Checked"
+                                IsChecked="True"
+                                IsEnabled="False"
+                                Theme="{DynamicResource PureCardRadioButton}"
+                                Width="300" />
+                        </StackPanel>
+                    </StackPanel>
+                </tio:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

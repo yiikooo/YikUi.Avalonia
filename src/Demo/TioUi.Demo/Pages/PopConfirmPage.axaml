@@ -1,0 +1,79 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.PopConfirmPage"
+    x:DataType="pages:PopConfirmDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="PopConfirm"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left">
+                <tio:Form>
+                    <tio:ControlClassesInput
+                        Name="classInput"
+                        Width="240"
+                        tio:FormItem.Label="Control Classes" />
+                    <tio:EnumSelector
+                        EnumType="{x:Type PlacementMode}"
+                        Name="placement"
+                        Value="{x:Static PlacementMode.BottomEdgeAlignedLeft}"
+                        Width="240"
+                        tio:FormItem.Label="Popup Placement" />
+                </tio:Form>
+                <TextBlock Margin="0,16" Text="Default PopConfirm" />
+                <tio:PopConfirm
+                    CancelCommand="{Binding Path=CancelCommand}"
+                    ConfirmCommand="{Binding ConfirmCommand}"
+                    HorizontalAlignment="Left"
+                    Placement="{Binding #placement.Value}"
+                    PopupContent="此修改将不可逆"
+                    PopupHeader="确定是否要保存此修改？">
+                    <Button Content="Hello World" />
+                </tio:PopConfirm>
+                <TextBlock Margin="0,16" Text="GotFocus to open, LostFocus to close" />
+                <tio:PopConfirm
+                    CancelCommand="{Binding Path=CancelCommand}"
+                    ConfirmCommand="{Binding ConfirmCommand}"
+                    HorizontalAlignment="Left"
+                    Placement="{Binding #placement.Value}"
+                    PopupContent="此修改将不可逆"
+                    PopupHeader="确定是否要保存此修改？"
+                    TriggerMode="Focus, Click"
+                    tio:ControlClassesInput.Source="{Binding #classInput}">
+                    <Button Content="Hello World" />
+                </tio:PopConfirm>
+                <TextBlock Margin="0,16" Text="Non-button control as main element" />
+                <tio:PopConfirm
+                    CancelCommand="{Binding Path=CancelCommand}"
+                    ConfirmCommand="{Binding ConfirmCommand}"
+                    HorizontalAlignment="Left"
+                    Placement="{Binding #placement.Value}"
+                    PopupContent="此修改将不可逆"
+                    PopupHeader="确定是否要保存此修改？"
+                    TriggerMode="Click"
+                    tio:ControlClassesInput.Source="{Binding #classInput}">
+                    <TextBlock Text="Hello World" />
+                </tio:PopConfirm>
+                <TextBlock Margin="0,16" Text="Asynchronized command support" />
+                <tio:PopConfirm
+                    CancelCommand="{Binding Path=AsyncCancelCommand}"
+                    ConfirmCommand="{Binding AsyncConfirmCommand}"
+                    HorizontalAlignment="Left"
+                    Placement="{Binding #placement.Value}"
+                    PopupContent="此修改将不可逆"
+                    PopupHeader="确定是否要保存此修改？"
+                    tio:ControlClassesInput.Source="{Binding #classInput}">
+                    <Button Content="Hello World" />
+                </tio:PopConfirm>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

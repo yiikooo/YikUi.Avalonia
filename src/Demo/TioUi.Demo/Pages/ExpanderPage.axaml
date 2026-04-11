@@ -1,0 +1,103 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.ExpanderPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
+                <tio:GroupBorder Header="Expander down">
+                    <Expander
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        Header="Header text"
+                        Margin="10">
+                        <DockPanel>
+                            <Rectangle
+                                DockPanel.Dock="Top"
+                                Fill="{DynamicResource LineColor}"
+                                Height="1"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top" />
+                            <Border
+                                Background="CornflowerBlue"
+                                CornerRadius="{DynamicResource TioCornerRadius}"
+                                Height="120"
+                                Margin="15"
+                                Width="230">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </DockPanel>
+                    </Expander>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="Expander up">
+                    <Expander
+                        Background="{DynamicResource PopupBackgroundColor}"
+                        ExpandDirection="Up"
+                        Header="Header text"
+                        Margin="10">
+                        <Border
+                            Background="CornflowerBlue"
+                            CornerRadius="{DynamicResource TioCornerRadius}"
+                            Height="120"
+                            Margin="15"
+                            Width="230">
+                            <TextBlock
+                                Foreground="White"
+                                HorizontalAlignment="Center"
+                                Text="Content"
+                                VerticalAlignment="Center" />
+                        </Border>
+                    </Expander>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="Expander horizontal">
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="*">
+                        <Expander
+                            Background="{DynamicResource PopupBackgroundColor}"
+                            ExpandDirection="Left"
+                            Header="Header text"
+                            HorizontalAlignment="Right"
+                            Margin="10">
+                            <Border
+                                Background="CornflowerBlue"
+                                Height="205"
+                                Width="205">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </Expander>
+                        <Expander
+                            Background="{DynamicResource PopupBackgroundColor}"
+                            ExpandDirection="Right"
+                            Grid.Column="1"
+                            Header="Header text"
+                            HorizontalAlignment="Left"
+                            Margin="10">
+                            <Border
+                                Background="CornflowerBlue"
+                                Height="205"
+                                Width="205">
+                                <TextBlock
+                                    Foreground="White"
+                                    HorizontalAlignment="Center"
+                                    Text="Content"
+                                    VerticalAlignment="Center" />
+                            </Border>
+                        </Expander>
+                    </Grid>
+                </tio:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

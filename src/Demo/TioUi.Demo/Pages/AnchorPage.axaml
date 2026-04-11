@@ -1,0 +1,288 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.AnchorPage"
+    x:DataType="pages:AnchorDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <Color x:Key="SemiRed2Color">#FDB7A5</Color>
+        <Color x:Key="SemiPink1Color">#FBCFD8</Color>
+        <Color x:Key="SemiPurple1Color">#EFCAF0</Color>
+        <Color x:Key="SemiViolet1Color">#E2D1F4</Color>
+        <Color x:Key="SemiIndigo1Color">#D1D8F0</Color>
+        <Color x:Key="SemiBlue1Color">#CBE7FE</Color>
+        <Color x:Key="SemiLightBlue1Color">#C9ECFC</Color>
+        <Color x:Key="SemiCyan1Color">#C2EFF0</Color>
+        <SolidColorBrush Color="{StaticResource SemiRed2Color}" x:Key="SemiRed2" />
+        <SolidColorBrush Color="{StaticResource SemiPink1Color}" x:Key="SemiPink1" />
+        <SolidColorBrush Color="{StaticResource SemiPurple1Color}" x:Key="SemiPurple1" />
+        <SolidColorBrush Color="{StaticResource SemiViolet1Color}" x:Key="SemiViolet1" />
+        <SolidColorBrush Color="{StaticResource SemiIndigo1Color}" x:Key="SemiIndigo1" />
+        <SolidColorBrush Color="{StaticResource SemiBlue1Color}" x:Key="SemiBlue1" />
+        <SolidColorBrush Color="{StaticResource SemiLightBlue1Color}" x:Key="SemiLightBlue1" />
+        <SolidColorBrush Color="{StaticResource SemiCyan1Color}" x:Key="SemiCyan1" />
+    </UserControl.Resources>
+    <tio:GroupBorder
+        Header="Anchor"
+        Margin="15"
+        Padding="15">
+        <TabControl>
+            <TabItem Header="XAML Inline">
+                <Grid ColumnDefinitions="*, Auto">
+                    <ScrollViewer
+                        Grid.Column="0"
+                        Name="container1"
+                        VerticalAlignment="Stretch">
+                        <StackPanel>
+                            <StackPanel.Styles>
+                                <Style Selector="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </StackPanel.Styles>
+                            <Border
+                                Background="{DynamicResource SemiRed2}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a1">
+                                <TextBlock Text="Border 1" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPink1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a2">
+                                <TextBlock Text="Border 2" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPurple1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a3">
+                                <TextBlock Text="Border 3" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiViolet1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch">
+                                <TextBlock Text="Border 4" tio:Anchor.Id="a4" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiIndigo1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a5">
+                                <TextBlock Text="Border 5" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiBlue1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a6">
+                                <TextBlock Text="Border 6" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiLightBlue1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="a7">
+                                <TextBlock Text="Border 7" />
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <tio:Anchor
+                        Grid.Column="1"
+                        Margin="24"
+                        TargetContainer="{Binding ElementName=container1}"
+                        Width="200">
+                        <tio:AnchorItem AnchorId="a1" Header="Rectangle 1">
+                            <tio:AnchorItem AnchorId="a2" Header="Rectangle 2" />
+                            <tio:AnchorItem AnchorId="a3" Header="Rectangle 3" />
+                        </tio:AnchorItem>
+                        <tio:AnchorItem AnchorId="a4" Header="Rectangle 4" />
+                        <tio:AnchorItem AnchorId="a5" Header="Rectangle 5">
+                            <tio:AnchorItem AnchorId="a6" Header="Rectangle 6" />
+                            <tio:AnchorItem AnchorId="a7" Header="Rectangle 7" />
+                        </tio:AnchorItem>
+                    </tio:Anchor>
+                </Grid>
+            </TabItem>
+            <TabItem Header="MVVM">
+                <Grid ColumnDefinitions="*, Auto">
+                    <ScrollViewer
+                        Grid.Column="0"
+                        Name="container2"
+                        VerticalAlignment="Stretch">
+                        <StackPanel>
+                            <StackPanel.Styles>
+                                <Style Selector="TextBlock">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </StackPanel.Styles>
+                            <Border
+                                Background="{DynamicResource SemiRed2}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor1">
+                                <TextBlock Text="Border 1" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPink1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor2">
+                                <TextBlock Text="Border 2" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPurple1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3">
+                                <TextBlock Text="Border 3" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPurple1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-1">
+                                <TextBlock Text="Border 3-1" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPurple1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-2">
+                                <TextBlock Text="Border 3-2" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiCyan1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-2-1">
+                                <TextBlock Text="Border 3-2-1" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiCyan1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-2-2">
+                                <TextBlock Text="Border 3-2-2" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiCyan1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-2-3">
+                                <TextBlock Text="Border 3-2-3" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiPurple1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor3-3">
+                                <TextBlock Text="Border 3-3" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiViolet1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor4">
+                                <TextBlock Text="Border 4" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiIndigo1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor5">
+                                <TextBlock Text="Border 5" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiBlue1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor6">
+                                <TextBlock Text="Border 6" />
+                            </Border>
+                            <Border
+                                Background="{DynamicResource SemiLightBlue1}"
+                                Height="300"
+                                HorizontalAlignment="Stretch"
+                                tio:Anchor.Id="anchor7">
+                                <TextBlock Text="Border 7" />
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <tio:Anchor
+                        Grid.Column="1"
+                        ItemsSource="{Binding AnchorItems}"
+                        Margin="24"
+                        TargetContainer="{Binding #container2}"
+                        Width="200">
+                        <tio:Anchor.Styles>
+                            <Style Selector="tio|AnchorItem" x:DataType="pages:AnchorItemViewModel">
+                                <Setter Property="AnchorId" Value="{Binding AnchorId}" />
+                            </Style>
+                        </tio:Anchor.Styles>
+                        <tio:Anchor.ItemTemplate>
+                            <TreeDataTemplate ItemsSource="{Binding Children}">
+                                <TextBlock Text="{Binding Header}" />
+                            </TreeDataTemplate>
+                        </tio:Anchor.ItemTemplate>
+                    </tio:Anchor>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Appearance">
+                <StackPanel
+                    Margin="8"
+                    Orientation="Horizontal"
+                    Spacing="100">
+                    <tio:Anchor>
+                        <tio:AnchorItem Header="组件" />
+                        <tio:AnchorItem Header="设计语言" />
+                        <tio:AnchorItem Header="物料平台" />
+                        <tio:AnchorItem Header="主题商店" />
+                    </tio:Anchor>
+                    <tio:Anchor Classes="Small">
+                        <tio:AnchorItem Header="组件" />
+                        <tio:AnchorItem Header="设计语言" />
+                        <tio:AnchorItem Header="物料平台" />
+                        <tio:AnchorItem Header="主题商店" />
+                    </tio:Anchor>
+                    <tio:Anchor Classes="Tertiary">
+                        <tio:AnchorItem Header="尺寸" />
+                        <tio:AnchorItem Header="组件" />
+                        <tio:AnchorItem Header="设计语言" />
+                        <tio:AnchorItem Header="物料平台" />
+                        <tio:AnchorItem Header="主题商店" />
+                    </tio:Anchor>
+                    <tio:Anchor Classes="Muted">
+                        <tio:AnchorItem Header="尺寸" />
+                        <tio:AnchorItem Header="组件" />
+                        <tio:AnchorItem Header="设计语言" />
+                        <tio:AnchorItem Header="物料平台" />
+                        <tio:AnchorItem Header="主题商店" />
+                    </tio:Anchor>
+                    <tio:Anchor>
+                        <tio:AnchorItem Header="1. 动态展示">
+                            <tio:AnchorItem Header="1.1 组件">
+                                <tio:AnchorItem Header="1.1.1 Avatar" />
+                                <tio:AnchorItem Header="1.1.2 Button" />
+                                <tio:AnchorItem Header="1.1.3 Icon" />
+                            </tio:AnchorItem>
+                            <tio:AnchorItem Header="1.2 物料" />
+                            <tio:AnchorItem Header="1.3 主题商店" />
+                        </tio:AnchorItem>
+                        <tio:AnchorItem Header="2. 设计语言" />
+                    </tio:Anchor>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </tio:GroupBorder>
+</UserControl>

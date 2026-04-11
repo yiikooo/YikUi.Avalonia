@@ -1,0 +1,59 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.BreadcrumbPage"
+    x:DataType="pages:BreadcrumbDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <tio:IconNameToPathConverter x:Key="IconConverter" />
+    </UserControl.Resources>
+    <tio:GroupBorder
+        Header="Breadcrumb"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <tio:Breadcrumb>
+                    <TextBlock Text="Hello" />
+                    <tio:BreadcrumbItem Content="World" IsReadOnly="True" />
+                    <tio:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="TioUi" />
+                </tio:Breadcrumb>
+                <tio:Breadcrumb Classes="Small">
+                    <TextBlock Text="Hello" />
+                    <tio:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="TioUi" />
+                </tio:Breadcrumb>
+                <tio:Breadcrumb>
+                    <TextBlock Text="Hello" />
+                    <tio:BreadcrumbItem Icon="?" Separator="♥" />
+                    <TextBlock Text="Avalonia" />
+                    <TextBlock Text="TioUi" />
+                </tio:Breadcrumb>
+                <tio:Breadcrumb
+                    DisplayMemberBinding="{Binding Section}"
+                    IconBinding="{Binding Icon}"
+                    ItemsSource="{Binding Items1}">
+                    <tio:Breadcrumb.Styles>
+                        <Style Selector="tio|BreadcrumbItem" x:DataType="pages:BreadcrumbDemoItem">
+                            <Setter Property="IsReadOnly" Value="{Binding IsReadOnly}" />
+                        </Style>
+                    </tio:Breadcrumb.Styles>
+                    <tio:Breadcrumb.IconTemplate>
+                        <DataTemplate DataType="x:String">
+                            <PathIcon Data="{Binding Converter={StaticResource IconConverter}}" Theme="{StaticResource InnerPathIcon}" />
+                        </DataTemplate>
+                    </tio:Breadcrumb.IconTemplate>
+                </tio:Breadcrumb>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

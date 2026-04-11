@@ -1,0 +1,43 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.EnumSelectorPage"
+    x:DataType="pages:EnumSelectorDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="EnumSelector"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel>
+                <ToggleSwitch Content="Show Description" Name="description" />
+                <TextBlock Text="Select Type" />
+                <ComboBox
+                    DisplayMemberBinding="{Binding Name}"
+                    ItemsSource="{Binding Types}"
+                    SelectedItem="{Binding SelectedType}"
+                    Width="200" />
+                <TextBlock Text="Select Value" />
+                <tio:EnumSelector
+                    DisplayDescription="{Binding #description.IsChecked}"
+                    EnumType="{Binding SelectedType}"
+                    Value="{Binding Value}"
+                    Width="200" />
+                <TextBlock Text="{Binding Value}" />
+                <tio:Divider Content="Small Size" />
+                <tio:EnumSelector
+                    Classes="Small"
+                    DisplayDescription="{Binding #description.IsChecked}"
+                    EnumType="{Binding SelectedType}"
+                    Value="{Binding Value}"
+                    Width="200" />
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

@@ -4,11 +4,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Avalonia" Version="12.0.0-rc2" />
+    <PackageVersion Include="Avalonia.Android" Version="12.0.0-rc2" />
+    <PackageVersion Include="Avalonia.Browser" Version="12.0.0-rc2" />
     <PackageVersion Include="Avalonia.Controls.ColorPicker" Version="12.0.0-rc2" />
     <PackageVersion Include="Avalonia.Controls.DataGrid" Version="12.0.0-rc2" />
     <PackageVersion Include="Avalonia.Desktop" Version="12.0.0-rc2" />
     <PackageVersion Include="Avalonia.Fonts.Inter" Version="12.0.0-rc2" />
     <PackageVersion Include="Avalonia.Themes.Fluent" Version="12.0.0-rc2" />
+    <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.17" />
     <PackageVersion Include="AvaloniaUI.DiagnosticsSupport" Version="2.2.0-beta3" />
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="HotAvalonia" Version="3.1.0" />

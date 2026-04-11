@@ -1,0 +1,36 @@
+<UserControl
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.MacOsWindowPage"
+    x:DataType="pages:MacOsWindowPageViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="MacOsWindowHandler"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="10">
+                <TextBlock Text="此功能允许你调整 macOS 窗口标题栏按钮（关闭、最小化、最大化）的位置。" TextWrapping="Wrap" />
+                <TextBlock
+                    Foreground="OrangeRed"
+                    Text="注意：此功能仅在 macOS 系统上生效。"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Foreground="Gray"
+                    Text="{Binding SystemInfo}"
+                    TextWrapping="Wrap" />
+                <Button
+                    Click="Button_OnClick"
+                    Content="打开测试窗口"
+                    HorizontalAlignment="Left"
+                    Padding="20,8" />
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

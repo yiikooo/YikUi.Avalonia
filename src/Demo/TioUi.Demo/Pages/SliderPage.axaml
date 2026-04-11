@@ -1,0 +1,109 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.SliderPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="Slider"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="10"
+                    Value="0"
+                    Width="300" />
+                <Slider
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="10"
+                    TickPlacement="Outside"
+                    Value="0"
+                    Width="300" />
+                <Slider
+                    Classes="ToolTip"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="10"
+                    TickPlacement="Outside"
+                    Value="0"
+                    Width="300" />
+                <Slider
+                    IsDirectionReversed="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="10"
+                    Value="0"
+                    Width="300" />
+                <Slider
+                    IsEnabled="False"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="10"
+                    Value="30"
+                    Width="300" />
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <Slider
+                        Height="300"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        Value="0" />
+                    <Slider
+                        Height="300"
+                        IsSnapToTickEnabled="True"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        TickPlacement="TopLeft"
+                        Value="0" />
+                    <Slider
+                        Height="300"
+                        IsSnapToTickEnabled="True"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        TickPlacement="Outside"
+                        Value="0" />
+                    <Slider
+                        Classes="ToolTip"
+                        Height="300"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        TickPlacement="TopLeft"
+                        Value="0" />
+                    <Slider
+                        Height="300"
+                        IsDirectionReversed="True"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        Value="0" />
+                    <Slider
+                        Height="300"
+                        IsEnabled="False"
+                        Maximum="100"
+                        Minimum="0"
+                        Orientation="Vertical"
+                        TickFrequency="10"
+                        Value="30" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

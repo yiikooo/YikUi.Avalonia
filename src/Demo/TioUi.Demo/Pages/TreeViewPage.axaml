@@ -1,0 +1,91 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.TreeViewPage"
+    x:DataType="pages:TreeViewPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="TreeView"
+        Margin="15"
+        Padding="15">
+        <Grid ColumnDefinitions="*,*,*">
+
+            <Border BorderBrush="{DynamicResource LineColor}" Padding="0,0,7.5,0">
+                <TreeView>
+                    <TreeViewItem Header="Level 1">
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2" />
+                        <TreeViewItem Header="Level 2">
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <StackPanel>
+                                        <TextBlock>Layer 1</TextBlock>
+                                        <TextBlock>Layer 2</TextBlock>
+                                        <TextBlock>Layer 3</TextBlock>
+                                    </StackPanel>
+                                </TreeViewItem.Header>
+                                <TreeViewItem Header="Level 4" />
+                                <TreeViewItem Header="Level 4" />
+                                <TreeViewItem Header="Level 4" />
+                                <TreeViewItem Header="Level 4" />
+                                <TreeViewItem Header="Level 4" />
+                                <TreeViewItem Header="Level 4" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                            <TreeViewItem Header="Level 3" />
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </Border>
+
+            <Border
+                BorderBrush="{DynamicResource LineColor}"
+                BorderThickness="1,0"
+                Grid.Column="1"
+                Padding="7.5,0">
+                <TreeView ItemsSource="{Binding Items}" Margin="0,10">
+                    <TreeView.ItemTemplate>
+                        <TreeDataTemplate ItemsSource="{Binding Items}">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
+            </Border>
+
+            <Border
+                BorderBrush="{DynamicResource LineColor}"
+                Grid.Column="2"
+                Padding="7.5,0,0,0">
+                <TreeView ItemsSource="{Binding MultipleLevelItems}">
+                    <TreeView.DataTemplates>
+                        <TreeDataTemplate DataType="pages:FirstItem" ItemsSource="{Binding SecondItems}">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                        <TreeDataTemplate DataType="pages:SecondItem" ItemsSource="{Binding ThirdItemItems}">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                        <TreeDataTemplate DataType="pages:ThirdItem">
+                            <TextBlock Text="{Binding Name}" />
+                        </TreeDataTemplate>
+                    </TreeView.DataTemplates>
+                </TreeView>
+            </Border>
+
+        </Grid>
+    </tio:GroupBorder>
+</UserControl>

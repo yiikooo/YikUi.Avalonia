@@ -1,0 +1,72 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.BannerPage"
+    x:DataType="pages:BannerDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="Banner"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <tio:Banner
+                    Classes.Bordered="{Binding Bordered}"
+                    Content="{Binding Content}"
+                    Header="{Binding Title}"
+                    Name="banner" />
+                <tio:Form Width="500">
+                    <TextBox
+                        Classes="ClearButton"
+                        IsEnabled="{Binding SetTitleNull}"
+                        Text="{Binding Title}">
+                        <tio:FormItem.Label>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Content="Title" IsChecked="{Binding SetTitleNull}" />
+                            </StackPanel>
+                        </tio:FormItem.Label>
+                    </TextBox>
+                    <TextBox
+                        Classes="ClearButton TextArea"
+                        IsEnabled="{Binding SetContentNull}"
+                        Text="{Binding Content}"
+                        TextWrapping="Wrap">
+                        <tio:FormItem.Label>
+                            <CheckBox Content="Content" IsChecked="{Binding SetContentNull}" />
+                        </tio:FormItem.Label>
+                    </TextBox>
+                    <tio:EnumSelector
+                        EnumType="NotificationType"
+                        Value="{Binding #banner.Type}"
+                        tio:FormItem.Label="NotificationType" />
+                    <tio:EnumSelector
+                        EnumType="HorizontalAlignment"
+                        Value="{Binding #banner.HorizontalContentAlignment}"
+                        tio:FormItem.Label="HorizontalContentAlignment" />
+                    <ToggleSwitch
+                        IsChecked="{Binding Bordered}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        tio:FormItem.Label="Bordered" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.ShowIcon}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        tio:FormItem.Label="ShowIcon" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.CanClose}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        tio:FormItem.Label="CanClose" />
+                    <ToggleSwitch
+                        IsChecked="{Binding #banner.IsVisible}"
+                        Theme="{StaticResource SimpleToggleSwitch}"
+                        tio:FormItem.Label="IsVisible" />
+                </tio:Form>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

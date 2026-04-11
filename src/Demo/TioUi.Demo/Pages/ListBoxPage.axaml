@@ -1,0 +1,128 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.ListBoxPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
+                <tio:GroupBorder Header="ListBox" Padding="15">
+                    <ListBox SelectedIndex="0">
+                        <ListBoxItem>Apple</ListBoxItem>
+                        <ListBoxItem>Banana</ListBoxItem>
+                        <ListBoxItem>Orange</ListBoxItem>
+                        <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                        <ListBoxItem>Grape</ListBoxItem>
+                    </ListBox>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="RadioGroupListBox" Padding="15">
+                    <StackPanel Spacing="15">
+                        <TextBlock Margin="0,0,0,-5" Text="RadioGroupListBox" />
+                        <ListBox SelectedIndex="0" Theme="{DynamicResource RadioGroupListBox}">
+                            <ListBoxItem>Apple</ListBoxItem>
+                            <ListBoxItem>Banana</ListBoxItem>
+                            <ListBoxItem>Orange</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                            <ListBoxItem>Grape</ListBoxItem>
+                        </ListBox>
+                        <TextBlock Margin="0,0,0,-5" Text="ButtonRadioGroupListBox" />
+                        <StackPanel Spacing="10">
+                            <StackPanel Orientation="Horizontal">
+                                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem Classes="Small" IsSelected="True">Small 1</ListBoxItem>
+                                        <ListBoxItem Classes="Small">Small 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                                <Border
+                                    HorizontalAlignment="Left"
+                                    Margin="8,0"
+                                    Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox IsEnabled="False" Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem Classes="Small" IsSelected="True">Small 1</ListBoxItem>
+                                        <ListBoxItem Classes="Small">Small 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem IsSelected="True">Default 1</ListBoxItem>
+                                        <ListBoxItem>Default 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                                <Border
+                                    HorizontalAlignment="Left"
+                                    Margin="8,0"
+                                    Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox IsEnabled="False" Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem IsSelected="True">Default 1</ListBoxItem>
+                                        <ListBoxItem>Default 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Border HorizontalAlignment="Left" Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem Classes="Large" IsSelected="True">Large 1</ListBoxItem>
+                                        <ListBoxItem Classes="Large">Large 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                                <Border
+                                    HorizontalAlignment="Left"
+                                    Margin="8,0"
+                                    Theme="{StaticResource RadioButtonGroupBorder}">
+                                    <ListBox IsEnabled="False" Theme="{DynamicResource ButtonRadioGroupListBox}">
+                                        <ListBoxItem Classes="Large" IsSelected="True">Large 1</ListBoxItem>
+                                        <ListBoxItem Classes="Large">Large 2</ListBoxItem>
+                                    </ListBox>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                        <TextBlock Margin="0,0,0,-5" Text="CardRadioGroupListBox" />
+                        <ListBox SelectedIndex="0" Theme="{DynamicResource CardRadioGroupListBox}">
+                            <ListBoxItem>Apple</ListBoxItem>
+                            <ListBoxItem>Banana</ListBoxItem>
+                            <ListBoxItem>Orange</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                            <ListBoxItem>Grape</ListBoxItem>
+                        </ListBox>
+                        <TextBlock Margin="0,0,0,-5" Text="PureCardRadioGroupListBox" />
+                        <ListBox SelectedIndex="0" Theme="{DynamicResource PureCardRadioGroupListBox}">
+                            <ListBoxItem>Apple</ListBoxItem>
+                            <ListBoxItem>Banana</ListBoxItem>
+                            <ListBoxItem>Orange</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                            <ListBoxItem>Grape</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="CheckGroupListBox" Padding="15">
+                    <StackPanel Spacing="15">
+                        <TextBlock Margin="0,0,0,-5" Text="CheckGroupListBox" />
+                        <ListBox SelectionMode="Multiple,Toggle" Theme="{DynamicResource CheckGroupListBox}">
+                            <ListBoxItem IsSelected="True">Apple</ListBoxItem>
+                            <ListBoxItem>Banana</ListBoxItem>
+                            <ListBoxItem IsSelected="True">Orange</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                            <ListBoxItem>Grape</ListBoxItem>
+                        </ListBox>
+                        <TextBlock Margin="0,0,0,-5" Text="CardCheckGroupListBox" />
+                        <ListBox SelectionMode="Multiple,Toggle" Theme="{DynamicResource CardCheckGroupListBox}">
+                            <ListBoxItem IsSelected="True">Apple</ListBoxItem>
+                            <ListBoxItem>Banana</ListBoxItem>
+                            <ListBoxItem IsSelected="True">Orange</ListBoxItem>
+                            <ListBoxItem IsEnabled="False">Pear</ListBoxItem>
+                            <ListBoxItem>Grape</ListBoxItem>
+                        </ListBox>
+                    </StackPanel>
+                </tio:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

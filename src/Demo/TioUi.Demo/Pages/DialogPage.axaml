@@ -1,0 +1,224 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.DialogPage"
+    x:DataType="vm:DialogDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:vm="clr-namespace:TioUi.Demo.Pages"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="Dialog"
+        Margin="15"
+        Padding="15">
+        <Grid ColumnDefinitions="Auto, *">
+            <ScrollViewer>
+                <TabControl Grid.Column="0" TabStripPlacement="Left">
+                    <TabItem Header="Default Window Dialog">
+                        <tio:Form
+                            DataContext="{Binding DefaultWindowDialogDemoViewModel}"
+                            LabelPosition="Top"
+                            Margin="16,0"
+                            Width="300">
+                            <TextBox
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding Title}"
+                                tio:FormItem.Label="Title" />
+                            <tio:EnumSelector
+                                EnumType="WindowStartupLocation"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Location}"
+                                tio:FormItem.Label="Startup Location" />
+                            <tio:FormItem Label="PixelPosition">
+                                <UniformGrid Columns="2" Rows="1">
+                                    <tio:NumericIntUpDown InnerLeftContent="X" Value="{Binding X}" />
+                                    <tio:NumericIntUpDown InnerLeftContent="Y" Value="{Binding Y}" />
+                                </UniformGrid>
+                            </tio:FormItem>
+                            <tio:EnumSelector
+                                EnumType="tio:DialogMode"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Mode}"
+                                tio:FormItem.Label="Dialog Mode" />
+                            <tio:EnumSelector
+                                EnumType="tio:DialogButton"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Button}"
+                                tio:FormItem.Label="Dialog Buttons" />
+                            <CheckBox IsChecked="{Binding ShowInTaskBar}" tio:FormItem.Label="Show In Taskbar" />
+                            <CheckBox
+                                IsChecked="{Binding IsCloseButtonVisible}"
+                                IsThreeState="True"
+                                tio:FormItem.Label="Is Close Button Visible" />
+                            <CheckBox IsChecked="{Binding CanDragMove}" tio:FormItem.Label="CanDragMove" />
+                            <CheckBox IsChecked="{Binding CanResize}" tio:FormItem.Label="CanResize" />
+                            <tio:FormItem>
+                                <tio:FormItem.Label>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Style Class" />
+                                        <PathIcon
+                                            Data="{DynamicResource SemiIconHelpCircle}"
+                                            TextElement.FontWeight="Normal"
+                                            Theme="{StaticResource InnerPathIcon}"
+                                            ToolTip.Tip="Pass a Style Class to the created Dialog. In this example, if you set StyleClass as 'Custom', You will get Special Style for OK Button. These styles usually are defined in the root of your App/Window"
+                                            VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </tio:FormItem.Label>
+                                <TextBox HorizontalAlignment="Stretch" Text="{Binding StyleClass}" />
+                            </tio:FormItem>
+                            <Button
+                                Command="{Binding ShowDialogCommand}"
+                                Content="Show"
+                                HorizontalAlignment="Left"
+                                tio:FormItem.NoLabel="True" />
+                        </tio:Form>
+                    </TabItem>
+                    <TabItem Header="Custom Window Dialog">
+                        <tio:Form
+                            DataContext="{Binding CustomWindowDialogDemoViewModel}"
+                            LabelPosition="Top"
+                            Margin="16,0"
+                            Width="300">
+                            <TextBox
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding Title}"
+                                tio:FormItem.Label="Title" />
+                            <tio:EnumSelector
+                                EnumType="WindowStartupLocation"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Location}"
+                                tio:FormItem.Label="Startup Location" />
+                            <tio:FormItem Label="PixelPosition">
+                                <UniformGrid Columns="2" Rows="1">
+                                    <tio:NumericIntUpDown InnerLeftContent="X" Value="{Binding X}" />
+                                    <tio:NumericIntUpDown InnerLeftContent="Y" Value="{Binding Y}" />
+                                </UniformGrid>
+                            </tio:FormItem>
+                            <CheckBox IsChecked="{Binding ShowInTaskBar}" tio:FormItem.Label="Show In Taskbar" />
+                            <CheckBox
+                                IsChecked="{Binding IsCloseButtonVisible}"
+                                IsThreeState="True"
+                                tio:FormItem.Label="Is Close Button Visible" />
+                            <CheckBox IsChecked="{Binding IsModal}" tio:FormItem.Label="Modal" />
+                            <CheckBox IsChecked="{Binding CanDragMove}" tio:FormItem.Label="CanDragMove" />
+                            <CheckBox IsChecked="{Binding CanResize}" tio:FormItem.Label="CanResize" />
+                            <Button
+                                Command="{Binding ShowDialogCommand}"
+                                Content="Show"
+                                HorizontalAlignment="Left"
+                                tio:FormItem.NoLabel="True" />
+                        </tio:Form>
+                    </TabItem>
+                    <TabItem Header="Default Overlay Dialog">
+                        <tio:Form
+                            DataContext="{Binding DefaultOverlayDialogDemoViewModel}"
+                            LabelPosition="Top"
+                            Margin="16,0"
+                            Width="300">
+                            <TextBox
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding Title}"
+                                tio:FormItem.Label="Title" />
+                            <tio:EnumSelector
+                                EnumType="tio:DialogMode"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Mode}"
+                                tio:FormItem.Label="Dialog Mode" />
+                            <tio:EnumSelector
+                                EnumType="tio:DialogButton"
+                                HorizontalAlignment="Stretch"
+                                Value="{Binding Button}"
+                                tio:FormItem.Label="Dialog Buttons" />
+                            <CheckBox
+                                IsChecked="{Binding IsCloseButtonVisible}"
+                                IsThreeState="True"
+                                tio:FormItem.Label="Is Close Button Visible" />
+                            <CheckBox IsChecked="{Binding IsModal}" tio:FormItem.Label="Modal" />
+                            <CheckBox IsChecked="{Binding CanDragMove}" tio:FormItem.Label="Can DragMove" />
+                            <CheckBox IsChecked="{Binding CanLightDismiss}" tio:FormItem.Label="Can LightDismiss" />
+                            <CheckBox IsChecked="{Binding FullScreen}" tio:FormItem.Label="FullScreen" />
+                            <CheckBox IsChecked="{Binding CanResize}" tio:FormItem.Label="CanResize" />
+                            <ToggleSwitch
+                                IsChecked="{Binding IsLocal}"
+                                OffContent="Global"
+                                OnContent="Local"
+                                tio:FormItem.Label="Global/Local OverlayHost" />
+                            <tio:FormItem>
+                                <tio:FormItem.Label>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Style Class" />
+                                        <PathIcon
+                                            Data="{DynamicResource SemiIconHelpCircle}"
+                                            TextElement.FontWeight="Normal"
+                                            Theme="{StaticResource InnerPathIcon}"
+                                            ToolTip.Tip="Pass a Style Class to the created Dialog. In this example, if you set StyleClass as 'Custom', You will get Special Style for OK Button. These styles usually are defined in the root of your App/Window"
+                                            VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </tio:FormItem.Label>
+                                <TextBox HorizontalAlignment="Stretch" Text="{Binding StyleClass}" />
+                            </tio:FormItem>
+                            <Button
+                                Command="{Binding ShowDialogCommand}"
+                                Content="Show"
+                                HorizontalAlignment="Left"
+                                tio:FormItem.NoLabel="True" />
+                        </tio:Form>
+                    </TabItem>
+                    <TabItem Header="Custom Overlay Dialog">
+                        <tio:Form
+                            DataContext="{Binding CustomOverlayDialogDemoViewModel}"
+                            LabelPosition="Top"
+                            Margin="16,0"
+                            Width="300">
+                            <TextBox
+                                HorizontalAlignment="Stretch"
+                                Text="{Binding Title}"
+                                tio:FormItem.Label="Title" />
+                            <CheckBox
+                                IsChecked="{Binding IsCloseButtonVisible}"
+                                IsThreeState="True"
+                                tio:FormItem.Label="Is Close Button Visible" />
+                            <CheckBox IsChecked="{Binding IsModal}" tio:FormItem.Label="Modal" />
+                            <CheckBox IsChecked="{Binding CanDragMove}" tio:FormItem.Label="Can DragMove" />
+                            <CheckBox IsChecked="{Binding CanLightDismiss}" tio:FormItem.Label="Can LightDismiss" />
+                            <CheckBox IsChecked="{Binding FullScreen}" tio:FormItem.Label="FullScreen" />
+                            <CheckBox IsChecked="{Binding CanResize}" tio:FormItem.Label="CanResize" />
+                            <ToggleSwitch
+                                IsChecked="{Binding IsLocal}"
+                                OffContent="Global"
+                                OnContent="Local"
+                                tio:FormItem.Label="Global/Local OverlayHost" />
+                            <Button
+                                Command="{Binding ShowDialogCommand}"
+                                Content="Show"
+                                HorizontalAlignment="Left"
+                                tio:FormItem.NoLabel="True" />
+                        </tio:Form>
+                    </TabItem>
+                </TabControl>
+            </ScrollViewer>
+            <Grid Grid.Column="1">
+                <Border
+                    Background="{DynamicResource SemiColorBackground1}"
+                    BorderBrush="{DynamicResource SemiGrey1}"
+                    BorderThickness="1"
+                    ClipToBounds="True"
+                    CornerRadius="12">
+                    <tio:OverlayDialogHost HostId="{x:Static vm:DialogDemoViewModel.LocalHost}">
+                        <tio:OverlayDialogHost.DialogDataTemplates>
+                            <DataTemplate DataType="x:String">
+                                <TextBlock
+                                    Foreground="Red"
+                                    Margin="24,24,48,24"
+                                    Text="{Binding Path=.}" />
+                            </DataTemplate>
+                        </tio:OverlayDialogHost.DialogDataTemplates>
+                    </tio:OverlayDialogHost>
+                </Border>
+            </Grid>
+        </Grid>
+    </tio:GroupBorder>
+</UserControl>

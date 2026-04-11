@@ -1,0 +1,50 @@
+<UserControl
+    MinWidth="400"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Dialogs.DefaultDemoDialog"
+    x:DataType="dialogs1:DefaultDemoDialogViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogs1="clr-namespace:TioUi.Demo.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:Form HorizontalAlignment="Stretch" LabelPosition="Top">
+        <tio:Form.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, *" />
+            </ItemsPanelTemplate>
+        </tio:Form.ItemsPanel>
+        <tio:FormItem Label="Country/Region">
+            <ComboBox
+                ItemsSource="{Binding Cities}"
+                SelectedItem="{Binding City}"
+                Width="120" />
+        </tio:FormItem>
+        <tio:FormItem
+            Grid.Column="1"
+            Grid.Row="0"
+            Label="Owner"
+            Margin="32,8,0,8">
+            <TextBox Text="{Binding Owner}" tio:FormItem.Label="Owner" />
+        </tio:FormItem>
+        <tio:FormItem
+            Grid.Column="0"
+            Grid.Row="1"
+            Label="Target">
+            <ComboBox
+                ItemsSource="{Binding Cities}"
+                SelectedItem="{Binding Target}"
+                Width="120" />
+        </tio:FormItem>
+        <tio:FormItem
+            Grid.Column="1"
+            Grid.Row="1"
+            Label="Department"
+            Margin="32,8,0,8">
+            <TextBox Text="{Binding Department}" />
+        </tio:FormItem>
+    </tio:Form>
+</UserControl>

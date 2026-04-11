@@ -1,0 +1,81 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.MultiComboBoxPage"
+    x:DataType="pages:MultiComboBoxDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="MultiComboBox"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <StackPanel Orientation="Horizontal" Spacing="20">
+                    <tio:MultiComboBox
+                        ItemsSource="{Binding Items}"
+                        MaxHeight="200"
+                        PlaceholderText="Please Select"
+                        SelectedItems="{Binding SelectedItems}"
+                        Width="300" />
+
+                    <tio:MultiComboBox
+                        Classes="ClearButton"
+                        InnerLeftContent="Left"
+                        InnerRightContent="Right"
+                        ItemsSource="{Binding Items}"
+                        MaxHeight="200"
+                        Name="combo"
+                        PlaceholderText="Please Select"
+                        SelectedItems="{Binding SelectedItems}"
+                        Width="300">
+                        <tio:MultiComboBox.PopupInnerTopContent>
+                            <StackPanel Margin="0" Orientation="Horizontal">
+                                <Button
+                                    Command="{Binding SelectAllCommand}"
+                                    Content="Select All"
+                                    Theme="{DynamicResource BorderlessButton}" />
+                                <Button
+                                    Command="{Binding ClearAllCommand}"
+                                    Content="Unselect All"
+                                    Theme="{DynamicResource BorderlessButton}" />
+                                <Button
+                                    Command="{Binding InvertSelectionCommand}"
+                                    Content="Inverse"
+                                    Theme="{DynamicResource BorderlessButton}" />
+                            </StackPanel>
+                        </tio:MultiComboBox.PopupInnerTopContent>
+                        <tio:MultiComboBox.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuItem Command="{Binding SelectAllCommand}" Header="Select All" />
+                            </MenuFlyout>
+                        </tio:MultiComboBox.ContextFlyout>
+                    </tio:MultiComboBox>
+
+                    <ListBox ItemsSource="{Binding SelectedItems}" />
+                </StackPanel>
+
+                <Separator Margin="0,20" />
+
+                <TextBlock>Items inside axaml (tio:MultiComboBox's tag content)</TextBlock>
+                <tio:MultiComboBox
+                    MaxHeight="200"
+                    PlaceholderText="Please Select"
+                    Width="300">
+                    <tio:MultiComboBoxItem>option 1</tio:MultiComboBoxItem>
+                    <tio:MultiComboBoxItem>option 2</tio:MultiComboBoxItem>
+                    <tio:MultiComboBoxItem>option 3</tio:MultiComboBoxItem>
+                    <tio:MultiComboBoxItem>
+                        <Button>option 4</Button>
+                    </tio:MultiComboBoxItem>
+                    <Button>option 5</Button>
+                </tio:MultiComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

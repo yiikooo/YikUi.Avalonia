@@ -1,0 +1,53 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.NumPadPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="NumPad"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    PlaceholderText="Invoke NumPad"
+                    tio:NumPad.Attach="True" />
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    PlaceholderText="Invoke NumPad"
+                    tio:NumPad.Attach="True" />
+                <TextBox
+                    HorizontalAlignment="Stretch"
+                    PlaceholderText="Invoke NumPad"
+                    tio:NumPad.Attach="True" />
+                <tio:IPv4Box
+                    InputMode="Fast"
+                    ShowLeadingZero="False"
+                    Width="200"
+                    tio:NumPad.Attach="True" />
+                <tio:NumericIntUpDown
+                    HorizontalAlignment="Stretch"
+                    PlaceholderText="Invoke tio:NumericIntUpDown"
+                    tio:NumPad.Attach="True" />
+
+                <NumericUpDown
+                    ButtonSpinnerLocation="Left"
+                    PlaceholderText="NumericUpDown"
+                    tio:NumPad.Attach="True" />
+
+                <Border Theme="{StaticResource CardBorder}">
+                    <StackPanel>
+                        <TextBox Name="text" Width="200" />
+                        <tio:NumPad Target="{Binding #text}" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

@@ -1,5 +1,10 @@
 <Solution>
-    <Project Path="src\TioUi\TioUi.csproj"/>
-    <Project Path="src/TioUi.Test/TioUi.Test.csproj"/>
-    <Project Path="src\TioUi.Demo\TioUi.Demo.csproj"/>
+  <Project Path="src\TioUi\TioUi.csproj" />
+  <Folder Name="/Demo/">
+    <Project Path="src\Demo\TioUi.Demo.Android\TioUi.Demo.Android.csproj" />
+    <Project Path="src\Demo\TioUi.Demo.Browser\TioUi.Demo.Browser.csproj" />
+    <Project Path="src\Demo\TioUi.Demo.Desktop\TioUi.Demo.Desktop.csproj" />
+    <Project Path="src\Demo\TioUi.Demo\TioUi.Demo.csproj" />
+  </Folder>
+  <Project Path="src/TioUi.Test/TioUi.Test.csproj" />
 </Solution>
