@@ -1,5 +1,0 @@
-<Solution>
-    <Project Path="src\YikUi\YikUi.csproj"/>
-    <Project Path="src/YikUi.Test/YikUi.Test.csproj"/>
-    <Project Path="src\YikUi.Demo\YikUi.Demo.csproj"/>
-</Solution>

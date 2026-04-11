@@ -17,17 +17,17 @@
 
 ### 1. 在 Demo 中体验
 
-运行 YikUi.Demo 项目，在左侧导航栏找到 "Platform" → "macOS Window"，即可进入演示页面。
+运行 TioUi.Demo 项目，在左侧导航栏找到 "Platform" → "macOS Window"，即可进入演示页面。
 
 详见：[Demo 使用指南](MacOsWindowHandler-Demo.md)
 
 ### 2. 在项目中使用
 
 ```csharp
-using YikUi.Common;
-using YikUi.Common.Helpers;
+using TioUi.Common;
+using TioUi.Common.Helpers;
 
-public class MyWindow : YikWindow
+public class MyWindow : TioWindow
 {
     public MyWindow()
     {
@@ -66,18 +66,18 @@ public class MyWindow : YikWindow
 
 ### 核心功能
 
-- `src/YikUi/Common/Helpers/MacOsWindowHandler.cs` - 核心实现
+- `src/TioUi/Common/Helpers/MacOsWindowHandler.cs` - 核心实现
 
 ### Demo 页面
 
-- `src/YikUi.Demo/Pages/MacOsWindowPage.axaml` - Demo 页面 XAML
-- `src/YikUi.Demo/Pages/MacOsWindowPage.axaml.cs` - Demo 页面代码
-- `src/YikUi.Demo/Navs/Platform.cs` - 导航配置
+- `src/TioUi.Demo/Pages/MacOsWindowPage.axaml` - Demo 页面 XAML
+- `src/TioUi.Demo/Pages/MacOsWindowPage.axaml.cs` - Demo 页面代码
+- `src/TioUi.Demo/Navs/Platform.cs` - 导航配置
 
 ### 测试窗口
 
-- `src/YikUi/Controls/Window/MacOsTestWindow.axaml` - 测试窗口 XAML
-- `src/YikUi/Controls/Window/MacOsTestWindow.axaml.cs` - 测试窗口代码
+- `src/TioUi/Controls/Window/MacOsTestWindow.axaml` - 测试窗口 XAML
+- `src/TioUi/Controls/Window/MacOsTestWindow.axaml.cs` - 测试窗口代码
 
 ### 文档
 
@@ -135,7 +135,7 @@ public static void HideZoomButton(IntPtr nsWindow)
 
 ## 许可证
 
-遵循 YikUi 项目的许可证。
+遵循 TioUi 项目的许可证。
 
 ## 贡献
 

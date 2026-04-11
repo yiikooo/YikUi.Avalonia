@@ -13,6 +13,6 @@
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="HotAvalonia" Version="3.1.0" />
     <PackageVersion Include="System.Reactive" Version="7.0.0-preview.1" />
-    <PackageVersion Include="YikUi.Avalonia" Version="2026.3.21.2226" />
+    <PackageVersion Include="TioUi.Avalonia" Version="2026.3.21.2226" />
   </ItemGroup>
 </Project>

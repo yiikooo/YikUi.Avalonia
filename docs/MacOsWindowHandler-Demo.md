@@ -2,7 +2,7 @@
 
 ## 在 Demo 中访问
 
-1. 运行 YikUi.Demo 项目
+1. 运行 TioUi.Demo 项目
 2. 在左侧导航栏找到 "Platform" 分类
 3. 点击 "macOS Window" 进入演示页面
 
@@ -51,19 +51,19 @@
 
 ### Demo 页面文件
 
-- `src/YikUi.Demo/Pages/MacOsWindowPage.axaml` - 页面 XAML
-- `src/YikUi.Demo/Pages/MacOsWindowPage.axaml.cs` - 页面代码和 ViewModel
+- `src/TioUi.Demo/Pages/MacOsWindowPage.axaml` - 页面 XAML
+- `src/TioUi.Demo/Pages/MacOsWindowPage.axaml.cs` - 页面代码和 ViewModel
 
 ### 导航配置
 
-- `src/YikUi.Demo/Navs/Platform.cs` - Platform 导航分类
-- `src/YikUi.Demo/MainWindowModel.cs` - 主窗口模型（已添加 Platform 分类）
+- `src/TioUi.Demo/Navs/Platform.cs` - Platform 导航分类
+- `src/TioUi.Demo/MainWindowModel.cs` - 主窗口模型（已添加 Platform 分类）
 
 ### 核心功能文件
 
-- `src/YikUi/Common/Helpers/MacOsWindowHandler.cs` - macOS 窗口处理核心功能
-- `src/YikUi/Controls/Window/MacOsTestWindow.axaml` - 测试窗口 XAML
-- `src/YikUi/Controls/Window/MacOsTestWindow.axaml.cs` - 测试窗口代码
+- `src/TioUi/Common/Helpers/MacOsWindowHandler.cs` - macOS 窗口处理核心功能
+- `src/TioUi/Controls/Window/MacOsTestWindow.axaml` - 测试窗口 XAML
+- `src/TioUi/Controls/Window/MacOsTestWindow.axaml.cs` - 测试窗口代码
 
 ## 使用流程
 

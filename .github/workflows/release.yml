@@ -34,7 +34,7 @@ jobs:
           echo "Version: ${{ steps.date.outputs.version }}"
           echo "SemVer: ${{ steps.date.outputs.semver }}"
 
-  # 构建 YikUi 库和 NuGet 包
+  # 构建 TioUi 库和 NuGet 包
   build-library:
     runs-on: ubuntu-latest
     needs: version
@@ -50,17 +50,17 @@ jobs:
           dotnet-version: "10.0.x"
 
       - name: Restore Dependencies
-        run: dotnet restore ./src/YikUi/YikUi.csproj
+        run: dotnet restore ./src/TioUi/TioUi.csproj
 
       - name: Build Library
         run: |
-          dotnet build ./src/YikUi/YikUi.csproj \
+          dotnet build ./src/TioUi/TioUi.csproj \
             -c Release \
             /p:Version=${{ needs.version.outputs.semver }}
 
       - name: Pack NuGet
         run: |
-          dotnet pack ./src/YikUi/YikUi.csproj \
+          dotnet pack ./src/TioUi/TioUi.csproj \
             -c Release \
             --no-build \
             /p:PackageVersion=${{ needs.version.outputs.semver }} \
@@ -69,20 +69,20 @@ jobs:
 
       - name: Rename Library DLL with Version
         run: |
-          cp ./src/YikUi/bin/Release/net10.0/YikUi.dll \
-            ./YikUi.${{ needs.version.outputs.semver }}.dll
+          cp ./src/TioUi/bin/Release/net10.0/TioUi.dll \
+            ./TioUi.${{ needs.version.outputs.semver }}.dll
 
       - name: Upload Library DLL
         uses: actions/upload-artifact@v4
         with:
-          name: yikui-library
-          path: ./YikUi.${{ needs.version.outputs.semver }}.dll
+          name: tioui-library
+          path: ./TioUi.${{ needs.version.outputs.semver }}.dll
           retention-days: 7
 
       - name: Upload NuGet Package
         uses: actions/upload-artifact@v4
         with:
-          name: yikui-nuget
+          name: tioui-nuget
           path: ./nuget-output/*.nupkg
           retention-days: 7
 
@@ -103,7 +103,7 @@ jobs:
 
       - name: Build Windows x64 Demo
         run: |
-          dotnet publish ./src/YikUi.Demo/YikUi.Demo.csproj `
+          dotnet publish ./src/TioUi.Demo/TioUi.Demo.csproj `
             -c Release `
             -r win-x64 `
             /p:PublishSingleFile=true `
@@ -114,14 +114,14 @@ jobs:
       - name: Rename Demo Executable with Version
         run: |
           Move-Item `
-            -Path "./src/YikUi.Demo/bin/Release/net10.0/win-x64/publish/YikUi.Demo.exe" `
-            -Destination "./YikUi.${{ needs.version.outputs.semver }}.exe"
+            -Path "./src/TioUi.Demo/bin/Release/net10.0/win-x64/publish/TioUi.Demo.exe" `
+            -Destination "./TioUi.${{ needs.version.outputs.semver }}.exe"
 
       - name: Upload Demo Executable
         uses: actions/upload-artifact@v4
         with:
-          name: yikui-demo-windows-x64
-          path: ./YikUi.${{ needs.version.outputs.semver }}.exe
+          name: tioui-demo-windows-x64
+          path: ./TioUi.${{ needs.version.outputs.semver }}.exe
           retention-days: 7
 
   # 发布 Release

@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# YikUi.Avalonia
+# TioUi.Avalonia
 
 **现代化 Avalonia 控件库**
 
@@ -12,15 +12,15 @@
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg?style=for-the-badge)](https://dotnet.microsoft.com/)
 [![Avalonia](https://img.shields.io/badge/Avalonia-12.0.0.rc2-red.svg?style=for-the-badge)](https://avaloniaui.net/)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg?style=for-the-badge)
-![GitHub Star](https://img.shields.io/github/stars/yiikooo/YikUi.Avalonia?logo=github&label=Star&style=for-the-badge&color=#03DC6C)
-![GitHub Forks](https://img.shields.io/github/forks/yiikooo/YikUi.Avalonia?logo=github&label=Fork&style=for-the-badge&color=#03DC6C)
-![GitHub Watchers](https://img.shields.io/github/watchers/yiikooo/YikUi.Avalonia?logo=github&label=Watcher&style=for-the-badge&color=#03DC6C)
+![GitHub Star](https://img.shields.io/github/stars/yiikooo/TioUi.Avalonia?logo=github&label=Star&style=for-the-badge&color=#03DC6C)
+![GitHub Forks](https://img.shields.io/github/forks/yiikooo/TioUi.Avalonia?logo=github&label=Fork&style=for-the-badge&color=#03DC6C)
+![GitHub Watchers](https://img.shields.io/github/watchers/yiikooo/TioUi.Avalonia?logo=github&label=Watcher&style=for-the-badge&color=#03DC6C)
 
 </div>
 
 ## 📖 项目简介
 
-YikUi 二次修改于 [Semi.Avalonia](https://github.com/irihitech/Semi.Avalonia) 和 [Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia)
+TioUi 二次修改于 [Semi.Avalonia](https://github.com/irihitech/Semi.Avalonia) 和 [Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia)
 
 ## ✨ 特性
 
@@ -31,7 +31,7 @@ YikUi 二次修改于 [Semi.Avalonia](https://github.com/irihitech/Semi.Avalonia
 
 ## 🎯 设计理念
 
-YikUi 的设计风格融合了现代 UI 设计的精髓：
+TioUi 的设计风格融合了现代 UI 设计的精髓：
 
 - **流畅性** - 平滑的动画过渡和交互反馈
 - **一致性** - 统一的视觉语言和交互模式
@@ -41,41 +41,41 @@ YikUi 的设计风格融合了现代 UI 设计的精髓：
 ### 通过 NuGet 安装
 
 ```bash
-dotnet add package YikUi.Avalonia
+dotnet add package TioUi.Avalonia
 ```
 
 ### 引入 dll
 
-[Release · yiikooo/YikUi.Avalonia](https://github.com/yiikooo/YikUi.Avalonia/releases/tag/auto-release)
+[Release · yiikooo/TioUi.Avalonia](https://github.com/yiikooo/TioUi.Avalonia/releases/tag/auto-release)
 
 ### 手动安装
 
 1. 克隆仓库
 
 ```bash
-git clone https://github.com/yiikooo/YikUi.Avalonia.git
+git clone https://github.com/yiikooo/TioUi.Avalonia.git
 ```
 
 2. 在你的项目中添加引用
 
 ```xml
-<ProjectReference Include="path/to/YikUi/YikUi.csproj" />
+<ProjectReference Include="path/to/TioUi/TioUi.csproj" />
 ```
 
 ## 🚀 快速开始
 
 ### 配置 App.axaml
 
-在你的应用程序中引入 YikUi 主题：
+在你的应用程序中引入 TioUi 主题：
 
 ```xaml
 <Application x:Class="YourApp.App"
              xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
+             xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia">
     <Application.Styles>
-        <!-- 引入 YikUi 主题 -->
-        <yik:YikUiTheme />
+        <!-- 引入 TioUi 主题 -->
+        <tio:TioUiTheme />
     </Application.Styles>
 </Application>
 ```
@@ -83,14 +83,14 @@ git clone https://github.com/yiikooo/YikUi.Avalonia.git
 ### 设置语言与主题色（可选）
 
 ```xaml
-<yik:YikUiTheme Language="zh_cn" ThemeColor="CornflowerBlue" />
+<tio:TioUiTheme Language="zh_cn" ThemeColor="CornflowerBlue" />
 ```
 
 或在CodeBehide设置
 
 ```csharp
-using YikUi.Common.Helpers;
-using YikUi.Common.Language;
+using TioUi.Common.Helpers;
+using TioUi.Common.Language;
 
 public class App : Application
 {
@@ -129,7 +129,7 @@ public void SetThemeColor()
 在你的项目中创建一个新类，实现 `ILang` 接口：
 
 ```csharp
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 namespace YourApp.Languages;
 
@@ -146,7 +146,7 @@ public class LangJaJp : ILang
 使用自定义语言
 
 ```csharp
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 using YourApp.Languages;
 
 // 在应用启动时设置
@@ -170,18 +170,18 @@ public void SwitchToJapanese()
 
 ## 📚 组件列表
 
-YikUi 提供了丰富的组件库，涵盖基础组件、数据展示、导航、数据录入、反馈、布局等多个类别。
+TioUi 提供了丰富的组件库，涵盖基础组件、数据展示、导航、数据录入、反馈、布局等多个类别。
 
 包括但不限于：Button、Input、DatePicker、ColorPicker、Table、Tree、Menu、Tabs、Dialog、Notification、Layout、Grid 等常用组件。
 
-完整的组件列表和使用方法请查看[示例项目](https://github.com/yiikooo/YikUi.Avalonia/releases/tag/auto-release)。
+完整的组件列表和使用方法请查看[示例项目](https://github.com/yiikooo/TioUi.Avalonia/releases/tag/auto-release)。
 
 ## 🎯 示例项目
 
-YikUi 提供了一个完整的示例项目，展示了所有组件的用法：
+TioUi 提供了一个完整的示例项目，展示了所有组件的用法：
 
 ```bash
-cd src/YikUi.Demo
+cd src/TioUi.Demo
 dotnet run
 ```
 
@@ -199,7 +199,7 @@ dotnet run
 
 ## ❤️ 致谢
 
-YikUi 的开发受到了以下优秀项目的启发：
+TioUi 的开发受到了以下优秀项目的启发：
 
 - [Semi.Avalonia](https://github.com/irihitech/Semi.Avalonia)
 - [Ursa.Avalonia](https://github.com/irihitech/Ursa.Avalonia)

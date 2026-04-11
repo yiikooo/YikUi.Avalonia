@@ -1,8 +1,0 @@
-<Styles
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <Style Selector="yik|GroupBorder">
-        <Setter Property="IsHeaderSelectable" Value="True" />
-    </Style>
-</Styles>

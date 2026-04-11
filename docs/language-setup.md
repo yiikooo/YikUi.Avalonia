@@ -1,12 +1,12 @@
-# YikUi 多语言使用指南
+# TioUi 多语言使用指南
 
-YikUi 提供了灵活的多语言系统，支持运行时动态切换语言，UI 自动更新。
+TioUi 提供了灵活的多语言系统，支持运行时动态切换语言，UI 自动更新。
 
 ## 快速开始
 
 ### 使用内置语言
 
-YikUi 内置了以下语言：
+TioUi 内置了以下语言：
 
 - `Languages.zh_cn` - 简体中文
 - `Languages.en_us` - 英语（美国）
@@ -16,7 +16,7 @@ YikUi 内置了以下语言：
 ```csharp
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 public class App : Application
 {
@@ -36,7 +36,7 @@ public class App : Application
 ### 运行时切换语言
 
 ```csharp
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 // 切换到英语
 LangManager.SetLanguage(Languages.en_us);
@@ -56,7 +56,7 @@ LangManager.SetLanguage(Languages.zh_cn);
 在你的项目中创建一个新类，实现 `ILang` 接口：
 
 ```csharp
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 namespace YourApp.Languages;
 
@@ -80,7 +80,7 @@ public class LangJaJp : ILang
 ### 步骤 2：使用自定义语言
 
 ```csharp
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 using YourApp.Languages;
 
 // 在应用启动时设置
@@ -104,7 +104,7 @@ public void SwitchToJapanese()
 
 ## ILang 接口说明
 
-`ILang` 接口定义了 YikUi 组件使用的所有语言文本：
+`ILang` 接口定义了 TioUi 组件使用的所有语言文本：
 
 ```csharp
 public interface ILang
@@ -130,7 +130,7 @@ public interface ILang
 
 ```csharp
 // Languages/LangFrFr.cs - 法语
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 namespace YourApp.Languages;
 
@@ -172,7 +172,7 @@ public class LangDeDe : ILang
 
 ```csharp
 using Avalonia.Controls;
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 using YourApp.Languages;
 
 namespace YourApp.ViewModels;
@@ -259,7 +259,7 @@ public partial class SettingsView : UserControl
 
 ```csharp
 using System.Globalization;
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 using YourApp.Languages;
 
 public class App : Application
@@ -301,7 +301,7 @@ public class App : Application
 ```csharp
 using System.IO;
 using System.Text.Json;
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 public class LanguageSettings
 {
@@ -378,7 +378,7 @@ public void ChangeLanguage(string code)
 
 ```csharp
 using System.ComponentModel;
-using YikUi.Common.Language;
+using TioUi.Common.Language;
 
 public class MyViewModel
 {
@@ -405,11 +405,11 @@ public class MyViewModel
 
 ## 工作原理
 
-YikUi 的多语言系统基于 Avalonia 的动态资源（DynamicResource）：
+TioUi 的多语言系统基于 Avalonia 的动态资源（DynamicResource）：
 
 1. 当你调用 `LangManager.SetLanguage()` 时，系统会自动将 `ILang` 接口的所有属性注册为应用程序资源
 2. 资源键格式为 `Lang.{PropertyName}`，例如 `Lang.Confirm`、`Lang.Cancel`
-3. YikUi 的所有组件使用 `{DynamicResource Lang.xxx}` 引用这些资源
+3. TioUi 的所有组件使用 `{DynamicResource Lang.xxx}` 引用这些资源
 4. 当语言切换时，资源自动更新，UI 立即响应变化
 
 ## 注意事项
@@ -443,10 +443,10 @@ if (Application.Current?.Resources.TryGetResource("Lang.Confirm",
 
 不可以。你必须实现 `ILang` 接口的所有属性。如果某些文本不需要翻译，可以返回相同的值。
 
-### Q: 如何添加 YikUi 没有的语言文本？
+### Q: 如何添加 TioUi 没有的语言文本？
 
-你可以创建自己的资源字典或使用 Avalonia 的本地化系统来管理额外的文本。YikUi 的语言系统只管理 YikUi 组件使用的文本。
+你可以创建自己的资源字典或使用 Avalonia 的本地化系统来管理额外的文本。TioUi 的语言系统只管理 TioUi 组件使用的文本。
 
 ---
 
-更多信息请访问 [YikUi GitHub](https://github.com/yiikooo/YikUi.Avalonia)
+更多信息请访问 [TioUi GitHub](https://github.com/yiikooo/TioUi.Avalonia)

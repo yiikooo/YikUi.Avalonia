@@ -1,8 +1,0 @@
-<ResourceDictionary
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:yik="https://github.com/yiikooo/YikUi.Avalonia">
-    <ControlTheme TargetType="yik:QRCode" x:Key="{x:Type yik:QRCode}">
-        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
-    </ControlTheme>
-</ResourceDictionary>

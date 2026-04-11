@@ -6,7 +6,7 @@ on:
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   DOTNET_CLI_TELEMETRY_OPTOUT: true
-  PROJECT_PATH: ./src/YikUi/YikUi.csproj
+  PROJECT_PATH: ./src/TioUi/TioUi.csproj
 
 jobs:
   publish-nuget:
