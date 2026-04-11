@@ -65,18 +65,19 @@ jobs:
             --no-build \
             /p:PackageVersion=${{ needs.version.outputs.semver }} \
             /p:Version=${{ needs.version.outputs.semver }} \
+            /p:PackageId=TioUi \
             -o ./nuget-output
 
-      - name: Rename Library DLL with Version
+      - name: Copy Library DLL
         run: |
           cp ./src/TioUi/bin/Release/net10.0/TioUi.dll \
-            ./TioUi.${{ needs.version.outputs.semver }}.dll
+            ./TioUi.dll
 
       - name: Upload Library DLL
         uses: actions/upload-artifact@v4
         with:
           name: tioui-library
-          path: ./TioUi.${{ needs.version.outputs.semver }}.dll
+          path: ./TioUi.dll
           retention-days: 7
 
       - name: Upload NuGet Package
@@ -111,17 +112,17 @@ jobs:
             /p:IncludeNativeLibrariesForSelfExtract=true `
             /p:Version=${{ needs.version.outputs.semver }}
 
-      - name: Rename Demo Executable with Version
+      - name: Rename Demo Executable
         run: |
           Move-Item `
             -Path "./src/Demo/TioUi.Demo.Desktop/bin/Release/net10.0/win-x64/publish/TioUi.Demo.Desktop.exe" `
-            -Destination "./TioUi.${{ needs.version.outputs.semver }}.exe"
+            -Destination "./TioUi.exe"
 
       - name: Upload Demo Executable
         uses: actions/upload-artifact@v4
         with:
           name: tioui-demo-windows-x64
-          path: ./TioUi.${{ needs.version.outputs.semver }}.exe
+          path: ./TioUi.exe
           retention-days: 7
 
   # 发布 Release
