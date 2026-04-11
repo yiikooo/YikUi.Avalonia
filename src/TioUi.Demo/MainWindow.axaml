@@ -17,9 +17,9 @@
     <tio:TioWindow.TitleBarLeftContent>
         <StackPanel Name="Left" Orientation="Horizontal">
             <Image
-                Margin="7,0,0,0"
+                Margin="-3,0,-12,0"
                 Source="{DynamicResource Logo}"
-                Width="28" />
+                Width="48" />
             <TextBlock
                 FontSize="16"
                 Margin="5,0,0,0"

@@ -20,7 +20,8 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image
-                            Height="56"
+                            Height="76"
+                            Margin="0,0,-15,0"
                             Source="{DynamicResource Logo}"
                             VerticalAlignment="Center" />
                         <TextBlock
