@@ -78,7 +78,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: tioui-library
-          path: ./TioUi.dll
+          path: ./TioUi.Avalonia.dll
           retention-days: 7
 
       - name: Upload NuGet Package
