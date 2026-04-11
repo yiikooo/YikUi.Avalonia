@@ -7,17 +7,17 @@ using TioUi.Common.Helpers;
 using TioUi.Common.Language;
 using TioUi.Shared.Animations;
 
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Controls")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Controls.Overlay")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Common")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Common.Helpers")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Common.Classes")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Common.Interfaces")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Common.Converter")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Shared.Animations")]
-[assembly: XmlnsDefinition("https://github.com/yiikooo/TioUi.Avalonia", "TioUi.Theme.Controls.ColorPicker")]
-[assembly: XmlnsPrefix("https://github.com/yiikooo/TioUi.Avalonia", "tio")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Controls")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Controls.Overlay")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Common")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Common.Helpers")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Common.Classes")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Common.Interfaces")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Common.Converter")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Shared.Animations")]
+[assembly: XmlnsDefinition("https://github.com/tiouoo/TioUi.Avalonia", "TioUi.Theme.Controls.ColorPicker")]
+[assembly: XmlnsPrefix("https://github.com/tiouoo/TioUi.Avalonia", "tio")]
 
 namespace TioUi;
 

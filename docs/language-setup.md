@@ -449,4 +449,4 @@ if (Application.Current?.Resources.TryGetResource("Lang.Confirm",
 
 ---
 
-更多信息请访问 [TioUi GitHub](https://github.com/yiikooo/TioUi.Avalonia)
+更多信息请访问 [TioUi GitHub](https://github.com/tiouoo/TioUi.Avalonia)

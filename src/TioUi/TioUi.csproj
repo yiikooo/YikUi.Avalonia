@@ -12,16 +12,16 @@
 
   <PropertyGroup Label="NuGet Package">
     <PackageId>TioUi.Avalonia</PackageId>
-    <Authors>yiikooo</Authors>
+    <Authors>tiouoo</Authors>
     <Description>现代化 Avalonia 控件库 - 提供丰富的 UI 组件，支持亮色/暗色主题和国际化</Description>
     <PackageTags>avalonia;ui;controls;theme;tioui</PackageTags>
-    <PackageProjectUrl>https://github.com/yiikooo/TioUi.Avalonia</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/yiikooo/TioUi.Avalonia</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tiouoo/TioUi.Avalonia</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tiouoo/TioUi.Avalonia</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Copyright>Copyright (c) 2024 yiikooo</Copyright>
+    <Copyright>Copyright (c) 2024 tiouoo</Copyright>
     <IsPackable>true</IsPackable>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>

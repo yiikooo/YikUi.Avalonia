@@ -1,6 +1,6 @@
 <Styles
     xmlns="https://github.com/avaloniaui"
-    xmlns:converters="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:converters="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="Popup LayoutTransformControl">
         <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Popup].Placement, Converter={x:Static converters:PlacementToRenderTransformOriginConverter.Instance}}" />

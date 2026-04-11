@@ -12,7 +12,7 @@
     x:DataType="demo:MainWindowModel"
     xmlns="https://github.com/avaloniaui"
     xmlns:demo="clr-namespace:TioUi.Demo"
-    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <tio:TioWindow.TitleBarLeftContent>
         <StackPanel Name="Left" Orientation="Horizontal">

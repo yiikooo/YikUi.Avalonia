@@ -3,7 +3,7 @@
     xmlns:cvt="using:Avalonia.Controls.Converters"
     xmlns:dialogs="clr-namespace:Avalonia.Dialogs;assembly=Avalonia.Dialogs"
     xmlns:internal="clr-namespace:Avalonia.Dialogs.Internal;assembly=Avalonia.Dialogs"
-    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border

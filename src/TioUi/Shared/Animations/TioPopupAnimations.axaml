@@ -1,7 +1,7 @@
 <Styles
     x:Class="TioUi.Shared.Animations.TioPopupAnimations"
     xmlns="https://github.com/avaloniaui"
-    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style Selector="Popup LayoutTransformControl#PART_LayoutTransform">
         <Setter Property="RenderTransformOrigin" Value="{Binding $parent[Popup].Placement, Converter={x:Static tio:PlacementToRenderTransformOriginConverter.Instance}}" />
