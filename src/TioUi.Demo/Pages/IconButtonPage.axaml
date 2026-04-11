@@ -1,0 +1,279 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.IconButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <StreamGeometry x:Key="Icon">F1 M448,512z M0,0z M224,0C206.3,0,192,14.3,192,32L192,35.2C119,50,64,114.6,64,192L64,213.7C64,261.8,47.6,308.5,17.6,346.1L7.8,358.3C2.7,364.6 0,372.4 0,380.5 0,400.1 15.9,416 35.5,416L412.4,416C432,416 447.9,400.1 447.9,380.5 447.9,372.4 445.2,364.6 440.1,358.3L430.3,346.1C400.4,308.5,384,261.8,384,213.7L384,192C384,114.6,329,50,256,35.2L256,32C256,14.3,241.7,-1.06581410364015E-14,224,-1.06581410364015E-14z M162,464C169.1,491.6 194.2,512 224,512 253.8,512 278.9,491.6 286,464L162,464z</StreamGeometry>
+    </UserControl.Resources>
+
+    <ScrollViewer Margin="0,0,5,0">
+        <StackPanel Margin="15,15,10,15" Spacing="10">
+            <tio:GroupBorder Header="IconButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <tio:IconButton Icon="{StaticResource Icon}" />
+                        <tio:IconButton Content="IconButton" />
+                        <tio:IconButton Content="IconButton" Icon="{StaticResource Icon}" />
+                        <tio:IconButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconButton">
+                        <tio:IconButton Icon="{StaticResource Icon}" />
+                        <tio:IconButton Content="IconButton" />
+                        <tio:IconButton Content="IconButton" Icon="{StaticResource Icon}" />
+                        <tio:IconButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </tio:GroupBorder>
+            <tio:GroupBorder Header="IconDropDownButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <tio:IconDropDownButton Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton Content="IconDropDownButton" />
+                        <tio:IconDropDownButton Content="IconDropDownButton" Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconDropDownButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconDropDownButton">
+                        <tio:IconDropDownButton Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton Content="IconDropDownButton" />
+                        <tio:IconDropDownButton Content="IconDropDownButton" Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconDropDownButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconDropDownButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconDropDownButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </tio:GroupBorder>
+            <tio:GroupBorder Header="IconSplitButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <tio:IconSplitButton Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton Content="IconSplitButton" />
+                        <tio:IconSplitButton Content="IconSplitButton" Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconSplitButton">
+                        <tio:IconSplitButton Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton Content="IconSplitButton" />
+                        <tio:IconSplitButton Content="IconSplitButton" Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconSplitButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconSplitButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconSplitButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </tio:GroupBorder>
+            <tio:GroupBorder Header="IconToggleButton">
+                <StackPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <tio:IconToggleButton Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton Content="IconToggleButton" />
+                        <tio:IconToggleButton Content="IconToggleButton" Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconToggleButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15"
+                        Name="DangerIconToggleButton">
+                        <tio:IconToggleButton Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton Content="IconToggleButton" />
+                        <tio:IconToggleButton Content="IconToggleButton" Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton
+                            Content="Loading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                        <tio:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False" />
+                        <tio:IconToggleButton
+                            Content="Disabled"
+                            Icon="{StaticResource Icon}"
+                            IsEnabled="False"
+                            IsLoading="True" />
+                        <tio:IconToggleButton
+                            Classes="Float"
+                            Content="Float"
+                            Icon="{StaticResource Icon}" />
+                        <tio:IconToggleButton
+                            Classes="Float"
+                            Content="FloatLoading"
+                            Icon="{StaticResource Icon}"
+                            IsLoading="True" />
+                    </WrapPanel>
+                </StackPanel>
+            </tio:GroupBorder>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

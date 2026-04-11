@@ -1,0 +1,38 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.DateTimePickerPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="DateTimePicker"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <tio:Form>
+                    <TextBox
+                        Name="formatBox"
+                        Text="yyyy年MM月dd日 HH时mm分ss秒"
+                        Width="300"
+                        tio:FormItem.Label="DisplayFormat" />
+                    <TextBox
+                        Name="panelBox"
+                        Text="hh mm ss"
+                        Width="300"
+                        tio:FormItem.Label="Panel" />
+                    <tio:DateTimePicker
+                        Classes="ClearButton"
+                        DisplayFormat="{Binding #formatBox.Text}"
+                        PanelFormat="{Binding #panelBox.Text}"
+                        Width="300"
+                        tio:FormItem.NoLabel="True" />
+                </tio:Form>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

@@ -1,0 +1,32 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.LoadingPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="Loading"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <Grid RowDefinitions="Auto, Auto, *">
+                <ToggleSwitch Content="Loading" Name="s" />
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <tio:LoadingIcon Classes="Small" />
+                    <tio:LoadingIcon />
+                    <tio:LoadingIcon Classes="Large" />
+                </StackPanel>
+                <tio:LoadingContainer
+                    Grid.Row="2"
+                    IsLoading="{Binding #s.IsChecked}"
+                    LoadingMessage="Loading...">
+                    <Calendar />
+                </tio:LoadingContainer>
+            </Grid>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

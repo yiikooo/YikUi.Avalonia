@@ -1,0 +1,5 @@
+<Solution>
+    <Project Path="src\TioUi\TioUi.csproj"/>
+    <Project Path="src/TioUi.Test/TioUi.Test.csproj"/>
+    <Project Path="src\TioUi.Demo\TioUi.Demo.csproj"/>
+</Solution>

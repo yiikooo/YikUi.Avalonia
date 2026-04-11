@@ -1,0 +1,61 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.TextBoxPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="TextBox"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <TextBox Width="300" />
+                <TextBox
+                    InnerLeftContent="https://"
+                    InnerRightContent=".com"
+                    Width="300" />
+                <TextBox
+                    Classes="clearButton"
+                    Text="click to clear"
+                    Width="300" />
+                <TextBox
+                    Classes="revealPasswordButton"
+                    Text="123456"
+                    Width="300" />
+                <TextBox
+                    Classes="clearButton revealPasswordButton"
+                    InnerLeftContent="https://"
+                    InnerRightContent=".com"
+                    Text="123456"
+                    Width="300" />
+                <TextBox
+                    Classes="Bordered"
+                    PlaceholderText="Bordered"
+                    Width="300" />
+                <TextBox
+                    Classes="BorderedOnFocus"
+                    PlaceholderText="BorderedOnFocus"
+                    Width="300" />
+                <TextBox
+                    Classes="TextArea"
+                    PlaceholderText="TextArea TextBox"
+                    Width="300" />
+                <TextBox
+                    Classes="TextArea ClearButton"
+                    Text="TextArea with ClearButton - text should be clearable"
+                    Width="300" />
+                <TextBox
+                    InnerLeftContent="https://"
+                    InnerRightContent=".com"
+                    PlaceholderText="Lookless TextBox"
+                    Theme="{StaticResource LooklessTextBox}"
+                    Width="300" />
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

@@ -1,0 +1,24 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="tio:Marquee" x:Key="{x:Type tio:Marquee}">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+                    <Canvas>
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Name="{x:Static tio:PartNames.PART_ContentPresenter}" />
+                    </Canvas>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,34 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="tio:EnumSelector" x:Key="{x:Type tio:EnumSelector}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:EnumSelector">
+                <ComboBox
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    ItemsSource="{TemplateBinding Values}"
+                    Name="PART_ComboBox"
+                    SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedValue, Mode=TwoWay}"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    Width="{TemplateBinding Width}"
+                    tio:ClassHelper.ClassSource="{TemplateBinding}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[DisplayDescription=True] /template/ ComboBox">
+            <Setter Property="ItemTemplate">
+                <DataTemplate x:DataType="tio:EnumItemTuple">
+                    <TextBlock Text="{Binding DisplayName}" />
+                </DataTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="^[DisplayDescription=False] /template/ ComboBox">
+            <Setter Property="ItemTemplate">
+                <DataTemplate x:DataType="tio:EnumItemTuple">
+                    <TextBlock Text="{Binding Value}" />
+                </DataTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

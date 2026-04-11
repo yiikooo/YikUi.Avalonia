@@ -1,0 +1,63 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="tio:TioWindow" x:Key="{x:Type tio:TioWindow}">
+        <Setter Property="Background" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource TioFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
+        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="36" />
+        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
+        <Setter Property="WindowDecorations">
+            <OnPlatform>
+                <On Options="Default">
+                    <WindowDecorations>Full</WindowDecorations>
+                </On>
+                <On Options="Linux">
+                    <WindowDecorations>None</WindowDecorations>
+                </On>
+            </OnPlatform>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:TioWindow">
+                <VisualLayerManager>
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" Name="PART_Root">
+                            <DockPanel>
+                                <tio:TioTitleBar
+                                    DockPanel.Dock="Top"
+                                    IsCloseBtnShow="{Binding $parent[tio:TioWindow].IsCloseBtnShow}"
+                                    IsMaxBtnShow="{Binding $parent[tio:TioWindow].IsMaxBtnShow}"
+                                    IsMinBtnShow="{Binding $parent[tio:TioWindow].IsMinBtnShow}"
+                                    LeftContent="{Binding $parent[tio:TioWindow].TitleBarLeftContent}"
+                                    Name="PART_TitleBar"
+                                    RightContent="{Binding $parent[tio:TioWindow].TitleBarRightContent}" />
+                                <ContentPresenter
+                                    Content="{Binding $parent[tio:TioWindow].Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    DockPanel.Dock="Bottom"
+                                    HorizontalContentAlignment="{Binding $parent[tio:TioWindow].HorizontalContentAlignment}"
+                                    Margin="{Binding $parent[tio:TioWindow].Padding}"
+                                    Name="PART_ContentPresenter"
+                                    VerticalContentAlignment="{Binding $parent[tio:TioWindow].VerticalContentAlignment}" />
+                            </DockPanel>
+                        </Border>
+                        <Panel>
+                            <tio:OverlayDialogHost
+                                IsModalStatusReporter="True"
+                                IsTopLevel="True"
+                                Name="PART_DialogHost" />
+                        </Panel>
+                    </Grid>
+                </VisualLayerManager>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^">
+            <Style Selector="^ tio|TioTitleBar#PART_TitleBar">
+                <Setter Property="Background" Value="{DynamicResource TitleBarBackgroundColor}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

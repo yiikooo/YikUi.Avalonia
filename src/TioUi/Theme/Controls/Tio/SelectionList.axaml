@@ -1,0 +1,62 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush
+        Color="{DynamicResource SystemAccentColor}"
+        Opacity="0.3"
+        x:Key="PART_IndicatorBrush" />
+    <ControlTheme TargetType="tio:SelectionList" x:Key="{x:Type tio:SelectionList}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Indicator">
+            <Template>
+                <Border
+                    Background="{DynamicResource PART_IndicatorBrush}"
+                    HorizontalAlignment="Stretch"
+                    Margin="2"
+                    Theme="{StaticResource CardBorder}"
+                    VerticalAlignment="Stretch" />
+            </Template>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:SelectionList">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    ClipToBounds="{TemplateBinding ClipToBounds}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Name="border">
+                    <Panel>
+                        <ContentPresenter Content="{TemplateBinding Indicator}" Name="{x:Static tio:SelectionList.PART_Indicator}" />
+                        <ItemsPresenter
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PART_ItemsPresenter" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="tio:SelectionListItem" x:Key="{x:Type tio:SelectionListItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:SelectionListItem">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    FontWeight="{TemplateBinding FontWeight}"
+                    Foreground="{TemplateBinding Foreground}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

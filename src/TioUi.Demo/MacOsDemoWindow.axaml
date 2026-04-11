@@ -1,0 +1,70 @@
+<tio:TioWindow
+    Title="MacOsDemoWindow"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.MacOsDemoWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="MacOsWindowHandler"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <!--  X 坐标  -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="X 坐标 (按钮距离窗口左边缘的距离)" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <tio:NumericDoubleUpDown
+                            FormatString="0"
+                            Maximum="200"
+                            Minimum="-100"
+                            Step="1"
+                            Value="14"
+                            Width="150"
+                            x:Name="XCoordinate" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!--  Y 坐标  -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Y 坐标 (按钮的垂直偏移，负值向上)" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <tio:NumericDoubleUpDown
+                            FormatString="0"
+                            Maximum="100"
+                            Minimum="-100"
+                            Step="1"
+                            Value="2"
+                            Width="150"
+                            x:Name="YCoordinate" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!--  按钮间距  -->
+                <StackPanel Spacing="8">
+                    <TextBlock Text="按钮间距 (三个按钮之间的水平间距)" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <tio:NumericDoubleUpDown
+                            FormatString="0"
+                            Maximum="50"
+                            Minimum="10"
+                            Step="1"
+                            Value="20"
+                            Width="150"
+                            x:Name="ButtonSpacing" />
+                    </StackPanel>
+                </StackPanel>
+                <Button
+                    Click="SetButton_OnClick"
+                    Content="刷新"
+                    HorizontalAlignment="Left"
+                    x:Name="SetButton" />
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</tio:TioWindow>

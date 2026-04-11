@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="PopupRoot" x:Key="{x:Type PopupRoot}">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="TransparencyLevelHint" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource TioFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TioFontWeight}" />
+        <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
+        <Setter Property="Inline.TextDecorations" Value="" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="PopupRoot">
+                <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+                    <Panel>
+                        <Border IsHitTestVisible="False" Name="PART_TransparencyFallback" />
+                        <VisualLayerManager>
+                            <LayoutTransformControl Name="PART_LayoutTransform">
+                                <ContentPresenter
+                                    Background="{TemplateBinding Background}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Name="PART_ContentPresenter"
+                                    Padding="{TemplateBinding Padding}" />
+                            </LayoutTransformControl>
+                        </VisualLayerManager>
+                    </Panel>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="OverlayPopupHost" x:Key="{x:Type OverlayPopupHost}">
+        <Setter Property="FontSize" Value="{DynamicResource TioFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TioFontWeight}" />
+        <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
+        <Setter Property="Inline.TextDecorations" Value="" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+                    <VisualLayerManager>
+                        <LayoutTransformControl Name="PART_LayoutTransform">
+                            <ContentPresenter
+                                Background="{TemplateBinding Background}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Name="PART_ContentPresenter"
+                                Padding="{TemplateBinding Padding}" />
+                        </LayoutTransformControl>
+                    </VisualLayerManager>
+                </LayoutTransformControl>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

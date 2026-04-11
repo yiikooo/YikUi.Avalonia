@@ -1,0 +1,293 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  ContentDialogHost: 全屏宿主，提供遮罩背景并居中显示对话框  -->
+    <ControlTheme TargetType="tio:ContentDialogHost" x:Key="{x:Type tio:ContentDialogHost}">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:ContentDialogHost">
+                <Panel>
+                    <Border Background="{DynamicResource OverlayDialogMaskBrush}" />
+                    <ContentPresenter
+                        Content="{TemplateBinding Content}"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <!--  ContentDialog: 主对话框控件  -->
+    <ControlTheme TargetType="tio:ContentDialog" x:Key="{x:Type tio:ContentDialog}">
+        <Setter Property="MinWidth" Value="320" />
+        <Setter Property="MaxWidth" Value="548" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DialogCornerRadius}" />
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+        <Setter Property="RenderTransform" Value="scale(0.95)" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition
+                    Duration="0:0:0.15"
+                    Easing="CubicEaseOut"
+                    Property="Opacity" />
+                <TransformOperationsTransition
+                    Duration="0:0:0.15"
+                    Easing="CubicEaseOut"
+                    Property="RenderTransform" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:ContentDialog">
+                <Border
+                    Background="{DynamicResource PopupBackgroundColor}"
+                    BorderBrush="{DynamicResource PopupBorderBrush}"
+                    BorderThickness="1"
+                    ClipToBounds="True"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    MaxWidth="{TemplateBinding MaxWidth}"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    Name="PART_Container">
+                    <Grid RowDefinitions="Auto,*,Auto">
+
+                        <!--  标题区域  -->
+                        <Grid
+                            ColumnDefinitions="*,Auto"
+                            Grid.Row="0"
+                            Margin="24,20,24,0">
+                            <ContentPresenter
+                                Content="{TemplateBinding Title}"
+                                ContentTemplate="{TemplateBinding TitleTemplate}"
+                                FontSize="18"
+                                FontWeight="SemiBold"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                Grid.Column="0"
+                                IsHitTestVisible="False"
+                                Name="PART_TitlePresenter"
+                                TextBlock.TextWrapping="Wrap"
+                                VerticalAlignment="Center" />
+                        </Grid>
+
+                        <!--  内容区域  -->
+                        <ScrollViewer
+                            Grid.Row="1"
+                            HorizontalScrollBarVisibility="Disabled"
+                            Margin="24,12,24,0"
+                            VerticalScrollBarVisibility="Auto">
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{DynamicResource ForegroundColor}"
+                                Name="PART_ContentPresenter" />
+                        </ScrollViewer>
+
+                        <!--  按钮区域  -->
+                        <Grid Grid.Row="2" Margin="24,12,24,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  次要按钮  -->
+                            <tio:IconButton
+                                Classes.Float="{TemplateBinding IsSecondaryButtonIconVisible}"
+                                Content="{TemplateBinding SecondaryButtonText}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                IsEnabled="{TemplateBinding IsSecondaryButtonEnabled}"
+                                IsVisible="False"
+                                Name="{x:Static tio:ContentDialog.PART_SecondaryButton}"
+                                Padding="16,8"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center">
+                                <tio:IconButton.Icon>
+                                    <MultiBinding Converter="{x:Static tio:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="SecondaryButtonIcon" />
+                                        <TemplateBinding Property="IsSecondaryButtonIconVisible" />
+                                    </MultiBinding>
+                                </tio:IconButton.Icon>
+                                <tio:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </tio:IconButton.Styles>
+                            </tio:IconButton>
+
+                            <!--  关闭按钮  -->
+                            <tio:IconButton
+                                Classes.Float="{TemplateBinding IsCloseButtonIconVisible}"
+                                Content="{TemplateBinding CloseButtonText}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                IsVisible="False"
+                                Name="{x:Static tio:ContentDialog.PART_CloseButton}"
+                                Padding="16,8"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center">
+                                <tio:IconButton.Icon>
+                                    <MultiBinding Converter="{x:Static tio:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="CloseButtonIcon" />
+                                        <TemplateBinding Property="IsCloseButtonIconVisible" />
+                                    </MultiBinding>
+                                </tio:IconButton.Icon>
+                                <tio:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </tio:IconButton.Styles>
+                            </tio:IconButton>
+
+                            <!--  主要按钮  -->
+                            <tio:IconButton
+                                Classes.Float="{TemplateBinding IsPrimaryButtonIconVisible}"
+                                Content="{TemplateBinding PrimaryButtonText}"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                IsEnabled="{TemplateBinding IsPrimaryButtonEnabled}"
+                                IsVisible="False"
+                                Name="{x:Static tio:ContentDialog.PART_PrimaryButton}"
+                                Padding="16,8"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center">
+                                <tio:IconButton.Icon>
+                                    <MultiBinding Converter="{x:Static tio:ConditionalValueConverter.Instance}">
+                                        <TemplateBinding Property="PrimaryButtonIcon" />
+                                        <TemplateBinding Property="IsPrimaryButtonIconVisible" />
+                                    </MultiBinding>
+                                </tio:IconButton.Icon>
+                                <tio:IconButton.Styles>
+                                    <Style Selector="PathIcon">
+                                        <Setter Property="Width" Value="13" />
+                                        <Setter Property="Height" Value="13" />
+                                    </Style>
+                                </tio:IconButton.Styles>
+                            </tio:IconButton>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <!--  打开状态：完全不透明 + 正常缩放  -->
+        <Style Selector="^:open">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="scale(1)" />
+        </Style>
+
+        <!--  隐藏状态：透明 + 缩小  -->
+        <Style Selector="^:hidden">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="RenderTransform" Value="scale(0.95)" />
+        </Style>
+
+        <!--  仅主要按钮  -->
+        <Style Selector="^:primary /template/ tio|IconButton#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+        </Style>
+
+        <!--  仅次要按钮  -->
+        <Style Selector="^:secondary /template/ tio|IconButton#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+        </Style>
+
+        <!--  仅关闭按钮  -->
+        <Style Selector="^:close /template/ tio|IconButton#PART_CloseButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+        </Style>
+
+        <!--  主要 + 次要  -->
+        <Style Selector="^:primary:secondary /template/ tio|IconButton#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="0,0,4,0" />
+        </Style>
+        <Style Selector="^:primary:secondary /template/ tio|IconButton#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+        <Style Selector="^:primary:secondary /template/ tio|IconButton#PART_CloseButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+
+        <!--  主要 + 关闭  -->
+        <Style Selector="^:primary:close /template/ tio|IconButton#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="0,0,4,0" />
+        </Style>
+        <Style Selector="^:primary:close /template/ tio|IconButton#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:primary:close /template/ tio|IconButton#PART_CloseButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+
+        <!--  次要 + 关闭  -->
+        <Style Selector="^:secondary:close /template/ tio|IconButton#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:secondary:close /template/ tio|IconButton#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="0,0,4,0" />
+        </Style>
+        <Style Selector="^:secondary:close /template/ tio|IconButton#PART_CloseButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="2" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+
+        <!--  全部三个按钮  -->
+        <Style Selector="^:primary:secondary:close /template/ tio|IconButton#PART_PrimaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Grid.ColumnSpan" Value="1" />
+            <Setter Property="Margin" Value="0,0,4,0" />
+        </Style>
+        <Style Selector="^:primary:secondary:close /template/ tio|IconButton#PART_SecondaryButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Grid.ColumnSpan" Value="2" />
+            <Setter Property="Margin" Value="4,0,4,0" />
+        </Style>
+        <Style Selector="^:primary:secondary:close /template/ tio|IconButton#PART_CloseButton">
+            <Setter Property="IsVisible" Value="True" />
+            <Setter Property="Grid.Column" Value="3" />
+            <Setter Property="Grid.ColumnSpan" Value="1" />
+            <Setter Property="Margin" Value="4,0,0,0" />
+        </Style>
+
+        <!--  全尺寸模式  -->
+        <Style Selector="^:fullsize">
+            <Setter Property="MinWidth" Value="0" />
+            <Setter Property="MaxWidth" Value="9999" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="^:fullsize /template/ Border#PART_Container">
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+    </ControlTheme>
+
+</ResourceDictionary>

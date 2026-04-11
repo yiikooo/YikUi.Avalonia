@@ -1,0 +1,36 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.DisableContainerPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="DisableContainer"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left" Spacing="20">
+                <ToggleSwitch IsChecked="True" Name="s" />
+                <tio:DisableContainer DisabledTip="This is disabled. ">
+                    <Button IsEnabled="{Binding #s.IsChecked}">Hello World!</Button>
+                </tio:DisableContainer>
+                <tio:DisableContainer DisabledTip="This is disabled. ">
+                    <Calendar IsEnabled="{Binding #s.IsChecked}" />
+                </tio:DisableContainer>
+                <tio:DisableContainer>
+                    <Button IsEnabled="{Binding #s.IsChecked}">Hello Avalonia</Button>
+                </tio:DisableContainer>
+                <Button
+                    IsEnabled="{Binding #s.IsChecked}"
+                    tio:DisabledAdorner.DisabledTip="Fine"
+                    tio:DisabledAdorner.IsEnabled="True">
+                    Hello Avalonia
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

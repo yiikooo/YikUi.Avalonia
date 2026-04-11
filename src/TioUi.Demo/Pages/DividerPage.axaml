@@ -1,0 +1,37 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.DividerPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="Divider"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <tio:Divider>Center</tio:Divider>
+                <tio:Divider HorizontalContentAlignment="Left">Left</tio:Divider>
+                <tio:Divider HorizontalContentAlignment="Right">Right</tio:Divider>
+                <tio:Divider HorizontalContentAlignment="Center">Center</tio:Divider>
+                <tio:Divider HorizontalContentAlignment="Stretch">Stretch</tio:Divider>
+                <tio:Divider />
+                <tio:Divider Orientation="Vertical" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="A" />
+                    <tio:Divider Margin="12,0" Orientation="Vertical" />
+                    <TextBlock Text="A" />
+                    <tio:Divider Orientation="Vertical" />
+                    <TextBlock Text="A" />
+                </StackPanel>
+                <Grid Background="LightGreen" Height="100">
+                    <tio:Divider HorizontalContentAlignment="Stretch">Stretch</tio:Divider>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

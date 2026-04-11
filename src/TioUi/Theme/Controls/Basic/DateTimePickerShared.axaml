@@ -1,0 +1,251 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StreamGeometry x:Key="SemiIconTriangleUp">
+        m2.17 17.4 9.02-12.3a1 1 0 0 1 1.62 0l9.02 12.3a1 1 0 0 1-.8 1.6H2.97a1 1 0 0 1-.8-1.6Z
+    </StreamGeometry>
+    <StreamGeometry x:Key="SemiIconTriangleDown">
+        m21.83 6.6-9.02 12.3a1 1 0 0 1-1.62 0L2.17 6.6a1 1 0 0 1 .8-1.6h18.06a1 1 0 0 1 .8 1.6Z
+    </StreamGeometry>
+    <StaticResource ResourceKey="SemiIconTriangleUp" x:Key="DateTimePickerButtonUpGlyph" />
+    <StaticResource ResourceKey="SemiIconTriangleDown" x:Key="DateTimePickerButtonDownGlyph" />
+
+    <!--  Theme resources  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <!--  DateTimePicker resources  -->
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerListItemBackground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="DateTimePickerFlyoutButtonForeground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="DateTimePickerFlyoutButtonPointeroverForeground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="DateTimePickerFlyoutButtonPressedForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerFlyoutButtonBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="DateTimePickerFlyoutButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.13"
+                x:Key="DateTimePickerFlyoutButtonPressedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="DateTimePickerButtonPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonDisabledBorderBrush" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.02"
+                x:Key="DateTimePickerButtonDisabledBackground" />
+
+            <!--  DataValidationErrors resources  -->
+            <SolidColorBrush Color="#FEF2ED" x:Key="DataValidationErrorsBackground" />
+            <SolidColorBrush Color="#FEDDD2" x:Key="DataValidationErrorsPointeroverBackground" />
+            <SolidColorBrush Color="#FDB7A5" x:Key="DataValidationErrorsPressedBackground" />
+            <SolidColorBrush Color="#FEF2ED" x:Key="DataValidationErrorsSelectedBackground" />
+            <SolidColorBrush Color="#F93920" x:Key="DataValidationErrorsSelectedBorderBrush" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+            <!--  DateTimePicker resources  -->
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerListItemBackground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="DateTimePickerFlyoutButtonForeground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="DateTimePickerFlyoutButtonPointeroverForeground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="DateTimePickerFlyoutButtonPressedForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerFlyoutButtonBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="DateTimePickerFlyoutButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.20"
+                x:Key="DateTimePickerFlyoutButtonPressedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="DateTimePickerButtonPointeroverBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonPointeroverBorderBrush" />
+            <SolidColorBrush Color="Transparent" x:Key="DateTimePickerButtonDisabledBorderBrush" />
+            <SolidColorBrush
+                Color="#E6E8EA"
+                Opacity="0.04"
+                x:Key="DateTimePickerButtonDisabledBackground" />
+
+            <!--  DataValidationErrors resources  -->
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.2"
+                x:Key="DataValidationErrorsBackground" />
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.3"
+                x:Key="DataValidationErrorsPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.4"
+                x:Key="DataValidationErrorsPressedBackground" />
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.2"
+                x:Key="DataValidationErrorsSelectedBackground" />
+            <SolidColorBrush Color="#FC725A" x:Key="DataValidationErrorsSelectedBorderBrush" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="Button" x:Key="DateTimePickerFlyoutButton">
+        <Setter Property="RenderTransform" Value="none" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}"
+                    HorizontalContentAlignment="Stretch"
+                    Name="PART_ContentPresenter"
+                    VerticalContentAlignment="Stretch" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource DateTimePickerButtonDisabledBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerButtonDisabledBackground}" />
+        </Style>
+
+        <Style Selector="^:error">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <!--  Theme for the items displayed in the selectors  -->
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type ListBoxItem}}"
+        TargetType="ListBoxItem"
+        x:Key="DateTimePickerItem">
+        <Setter Property="Margin" Value="2,0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerListItemBackground}" />
+        <Setter Property="Padding" Value="6,4" />
+        <Style Selector="^:selected">
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Rectangle#SelectionIndicator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:not(:selected) /template/ Rectangle#SelectionIndicator">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </ControlTheme>
+
+    <!--  This is used for both the accept/dismiss & buttons in the presenter  -->
+    <ControlTheme TargetType="Button" x:Key="DateTimePickerButton">
+        <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonBackground}" />
+        <Setter Property="Padding" Value="0 ,3" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter
+                        Background="{TemplateBinding Background}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DateTimePickerFlyoutButtonPressedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource DateTimePickerFlyoutButtonPressedBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource DateTimePickerButton}"
+        TargetType="RepeatButton"
+        x:Key="DateTimePickerUpButton">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsVisible" Value="False" />
+        <Setter Property="Height" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Data="{DynamicResource DateTimePickerButtonUpGlyph}"
+                    Height="8"
+                    HorizontalAlignment="Center"
+                    Theme="{StaticResource InnerPathIcon}"
+                    VerticalAlignment="Center" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource DateTimePickerButton}"
+        TargetType="RepeatButton"
+        x:Key="DateTimePickerDownButton">
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="IsVisible" Value="False" />
+        <Setter Property="Height" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Content">
+            <Template>
+                <PathIcon
+                    Data="{DynamicResource DateTimePickerButtonDownGlyph}"
+                    Height="8"
+                    HorizontalAlignment="Center"
+                    Theme="{StaticResource InnerPathIcon}"
+                    VerticalAlignment="Center" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

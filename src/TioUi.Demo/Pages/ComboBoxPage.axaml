@@ -1,0 +1,46 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.ComboBoxPage"
+    x:DataType="pages:ComboBoxPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="ComboBox"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <StackPanel Spacing="20">
+                <StackPanel.Styles>
+                    <Style Selector="ComboBox">
+                        <Setter Property="Width" Value="300" />
+                        <Setter Property="ItemsSource" Value="{Binding Items}" />
+                    </Style>
+                </StackPanel.Styles>
+
+                <ComboBox />
+                <ComboBox Classes="ClearButton" />
+                <ComboBox PlaceholderText="Please Select" />
+                <ComboBox IsEditable="True" />
+                <ComboBox IsEnabled="False" />
+                <ComboBox Classes="Bordered" />
+                <ComboBox Classes="BorderedOnFocus" />
+                <ComboBox>
+                    <ComboBox.SelectionBoxItemTemplate>
+                        <DataTemplate DataType="x:String">
+                            <ContentControl
+                                BorderBrush="Gold"
+                                BorderThickness="1"
+                                Content="{Binding}" />
+                        </DataTemplate>
+                    </ComboBox.SelectionBoxItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

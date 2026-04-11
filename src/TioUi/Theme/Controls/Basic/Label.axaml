@@ -1,0 +1,79 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush
+                Color="#000000"
+                Opacity="0.35"
+                x:Key="DisabledForegroundColor" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.35"
+                x:Key="DisabledForegroundColor" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="Label" x:Key="{x:Type Label}">
+        <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Label">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    FontSize="{TemplateBinding FontSize}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition
+                    Duration="0:0:0.3"
+                    Easing="CircularEaseOut"
+                    Property="Foreground" />
+            </Transitions>
+        </Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Style Selector="^.H1">
+            <Setter Property="FontSize" Value="32" />
+        </Style>
+        <Style Selector="^.H2">
+            <Setter Property="FontSize" Value="28" />
+        </Style>
+        <Style Selector="^.H3">
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        <Style Selector="^.H4">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style Selector="^.H5">
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style Selector="^.H6">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style Selector="^.Success">
+            <Setter Property="Foreground" Value="#3bb346" />
+        </Style>
+        <Style Selector="^.Warning">
+            <Setter Property="Foreground" Value="#fc8800" />
+        </Style>
+        <Style Selector="^.Danger">
+            <Setter Property="Foreground" Value="#f93920" />
+        </Style>
+        <Style Selector="^.Accent">
+            <Setter Property="Foreground" Value="{DynamicResource SystemAccentColor}" />
+        </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,92 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <tio:PinCode Count="4" />
+    </Design.PreviewWith>
+    <ControlTheme TargetType="tio:PinCodeItem" x:Key="{x:Type tio:PinCodeItem}">
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="Height" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="Width" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TextBoxDefaultBorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    HorizontalAlignment="Stretch"
+                    Name="PART_Background"
+                    VerticalAlignment="Stretch">
+                    <TextPresenter
+                        HorizontalAlignment="Center"
+                        PasswordChar="{TemplateBinding PasswordChar}"
+                        Text="{TemplateBinding Text}"
+                        TextElement.FontSize="{TemplateBinding FontSize}"
+                        VerticalAlignment="Center" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+            <!-- <Setter Property="BorderBrush" Value="{DynamicResource TextBoxFocusBorderBrush}" /> -->
+        </Style>
+        <!-- <Style Selector="^:error /template/ Border#PART_Background"> -->
+        <!--     <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" /> -->
+        <!-- </Style> -->
+        <!-- <Style Selector="^:focus:error /template/ Border#PART_Background"> -->
+        <!--     <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" /> -->
+        <!-- </Style> -->
+        <Style Selector="^.Large">
+            <Setter Property="Height" Value="40" />
+            <Setter Property="Width" Value="40" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="Height" Value="24" />
+            <Setter Property="Width" Value="24" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="tio:PinCodeCollection" x:Key="{x:Type tio:PinCodeCollection}">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:PinCodeCollection">
+                <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="tio:PinCode" x:Key="{x:Type tio:PinCode}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:PinCode">
+                <DataValidationErrors>
+                    <tio:PinCodeCollection
+                        HorizontalAlignment="Left"
+                        ItemsSource="{TemplateBinding Digits}"
+                        Name="{x:Static tio:PinCode.PART_ItemsControl}">
+                        <tio:PinCodeCollection.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" Spacing="4" />
+                            </ItemsPanelTemplate>
+                        </tio:PinCodeCollection.ItemsPanel>
+                        <tio:PinCodeCollection.ItemContainerTheme>
+                            <ControlTheme BasedOn="{StaticResource {x:Type tio:PinCodeItem}}" TargetType="tio:PinCodeItem">
+                                <Setter Property="PasswordChar" Value="{Binding $parent[tio:PinCode].PasswordChar}" />
+                                <Setter Property="DataValidationErrors.Errors" Value="{Binding $parent[tio:PinCode].(DataValidationErrors.Errors)}" />
+                            </ControlTheme>
+                        </tio:PinCodeCollection.ItemContainerTheme>
+                    </tio:PinCodeCollection>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

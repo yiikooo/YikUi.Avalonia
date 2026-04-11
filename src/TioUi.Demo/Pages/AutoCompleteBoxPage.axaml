@@ -1,0 +1,52 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.AutoCompleteBoxPage"
+    x:DataType="pages:AutoCompleteBoxPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="AutoCompleteBox"
+        Margin="15"
+        Padding="15">
+        <StackPanel HorizontalAlignment="Left" Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="AutoCompleteBox">
+                    <Setter Property="Width" Value="300" />
+                    <Setter Property="ItemsSource">
+                        <Binding Path="DataList" />
+                    </Setter>
+                    <Setter Property="ItemTemplate">
+                        <DataTemplate DataType="pages:Data">
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+            <AutoCompleteBox PlaceholderText="Please input" ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
+            <AutoCompleteBox
+                IsEnabled="False"
+                PlaceholderText="Disabled"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
+            <AutoCompleteBox
+                InnerLeftContent="https://"
+                InnerRightContent=".com"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}" />
+            <AutoCompleteBox
+                Classes="Bordered"
+                PlaceholderText="Bordered"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}"
+                Width="300" />
+            <AutoCompleteBox
+                Classes="BorderedOnFocus"
+                PlaceholderText="BorderedOnFocus"
+                ValueMemberBinding="{Binding Name, DataType=pages:Data}"
+                Width="300" />
+        </StackPanel>
+    </tio:GroupBorder>
+</UserControl>

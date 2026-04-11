@@ -1,0 +1,419 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Calendar />
+        </Border>
+    </Design.PreviewWith>
+
+    <Thickness x:Key="CalendarBorderThickness">1</Thickness>
+    <CornerRadius x:Key="CalendarCornerRadius">10</CornerRadius>
+    <GridLength x:Key="CalendarItemWeekDayNameHeight">40</GridLength>
+    <FontWeight x:Key="CalendarItemWeekDayNameFontWeight">600</FontWeight>
+    <x:Double x:Key="CalendarMinWidth">240</x:Double>
+    <x:Double x:Key="CalendarMinHeight">250</x:Double>
+    <x:Double x:Key="CalendarItemWeekDayNameFontSize">12</x:Double>
+    <x:Double x:Key="SemiWidthIconMedium">16</x:Double>
+
+    <!--  Theme resources  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="#111827" x:Key="CalendarForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.08"
+                x:Key="CalendarBorderBrush" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.62"
+                x:Key="CalendarItemWeekDayNameForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.62"
+                x:Key="CalendarItemIconForeground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarButtonBackground" />
+            <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="CalendarItemCalendarButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.09"
+                x:Key="CalendarItemCalendarButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.13"
+                x:Key="CalendarItemCalendarButtonPressedBackground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.3"
+                x:Key="CalendarItemCalendarButtonSelectedBackground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarButtonSelectedForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarButtonDisabledForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarButtonBlackoutForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.62"
+                x:Key="CalendarItemCalendarButtonInactiveForeground" />
+            <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarDayButtonForeground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarDayButtonBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="CalendarItemCalendarDayButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.09"
+                x:Key="CalendarItemCalendarDayButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.13"
+                x:Key="CalendarItemCalendarDayButtonPressedBackground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.3"
+                x:Key="CalendarItemCalendarDayButtonSelectedBackground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarDayButtonSelectedForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="CalendarItemCalendarDayButtonTodayForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.05"
+                x:Key="CalendarItemCalendarDayButtonTodayBackground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarDayButtonDisabledForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarDayButtonBlackoutForeground" />
+            <SolidColorBrush
+                Color="#111827"
+                Opacity="0.62"
+                x:Key="CalendarItemCalendarDayButtonInactiveForeground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.08"
+                x:Key="CalendarBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.6"
+                x:Key="CalendarItemWeekDayNameForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.6"
+                x:Key="CalendarItemIconForeground" />
+            <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarButtonBackground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="CalendarItemCalendarButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.16"
+                x:Key="CalendarItemCalendarButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.2"
+                x:Key="CalendarItemCalendarButtonPressedBackground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.3"
+                x:Key="CalendarItemCalendarButtonSelectedBackground" />
+            <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarButtonSelectedForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarButtonDisabledForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarButtonBlackoutForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.6"
+                x:Key="CalendarItemCalendarButtonInactiveForeground" />
+            <SolidColorBrush Color="#FFFFFF" x:Key="CalendarItemCalendarDayButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="CalendarItemCalendarDayButtonBackground" />
+            <SolidColorBrush Color="Transparent" x:Key="CalendarItemCalendarDayButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.16"
+                x:Key="CalendarItemCalendarDayButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.2"
+                x:Key="CalendarItemCalendarDayButtonPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="CalendarItemCalendarDayButtonSelectedBackground" />
+            <SolidColorBrush Color="#111827" x:Key="CalendarItemCalendarDayButtonSelectedForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="CalendarItemCalendarDayButtonTodayForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.12"
+                x:Key="CalendarItemCalendarDayButtonTodayBackground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarDayButtonDisabledForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.35"
+                x:Key="CalendarItemCalendarDayButtonBlackoutForeground" />
+            <SolidColorBrush
+                Color="#FFFFFF"
+                Opacity="0.6"
+                x:Key="CalendarItemCalendarDayButtonInactiveForeground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="Calendar" x:Key="{x:Type Calendar}">
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource PopupBackgroundColor}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CalendarBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource CalendarBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Calendar">
+                <StackPanel
+                    ClipToBounds="True"
+                    HorizontalAlignment="Center"
+                    Name="PART_Root">
+                    <CalendarItem
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{DynamicResource TioCornerRadius}"
+                        HeaderBackground="{TemplateBinding HeaderBackground}"
+                        Name="PART_CalendarItem" />
+                </StackPanel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="CalendarItem" x:Key="{x:Type CalendarItem}">
+        <Setter Property="MinWidth" Value="{DynamicResource CalendarMinWidth}" />
+        <Setter Property="MinHeight" Value="{DynamicResource CalendarMinHeight}" />
+        <Setter Property="DayTitleTemplate">
+            <Template>
+                <TextBlock
+                    FontSize="{DynamicResource CalendarItemWeekDayNameFontSize}"
+                    FontWeight="{DynamicResource CalendarItemWeekDayNameFontWeight}"
+                    Foreground="{DynamicResource ForegroundColor}"
+                    HorizontalAlignment="Center"
+                    Text="{Binding}"
+                    VerticalAlignment="Center"
+                    x:DataType="x:String" />
+            </Template>
+        </Setter>
+
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CalendarItem">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="10"
+                    Padding="16">
+                    <Grid
+                        HorizontalAlignment="Stretch"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        MinWidth="{TemplateBinding MinWidth}"
+                        RowDefinitions="Auto,*"
+                        VerticalAlignment="Stretch">
+                        <Grid ColumnDefinitions="Auto,*,Auto" Grid.Row="0">
+                            <RepeatButton
+                                Foreground="{TemplateBinding Foreground}"
+                                Grid.Column="0"
+                                MinWidth="{Binding $self.MinHeight}"
+                                Name="PART_PreviousButton"
+                                Padding="0"
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="F1 M256,512z M0,0z M9.4,233.4C-3.1,245.9,-3.1,266.2,9.4,278.7L169.4,438.7C181.9,451.2 202.2,451.2 214.7,438.7 227.2,426.2 227.2,405.9 214.7,393.4L77.3,256 214.6,118.6C227.1,106.1 227.1,85.8 214.6,73.3 202.1,60.8 181.8,60.8 169.3,73.3L9.30000000000001,233.3z"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Height="16"
+                                    Margin="0,0,6,0" />
+                            </RepeatButton>
+
+                            <Button
+                                CornerRadius="16"
+                                Foreground="{TemplateBinding Foreground}"
+                                Grid.Column="1"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Center"
+                                Name="PART_HeaderButton" />
+
+                            <RepeatButton
+                                Foreground="{TemplateBinding Foreground}"
+                                Grid.Column="2"
+                                MinWidth="{Binding $self.MinHeight}"
+                                Name="PART_NextButton"
+                                Padding="0"
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="F1 M256,512z M0,0z M247.1,233.4C259.6,245.9,259.6,266.2,247.1,278.7L87.1,438.7C74.6,451.2 54.3,451.2 41.8,438.7 29.3,426.2 29.3,405.9 41.8,393.4L179.2,256 41.9,118.6C29.4,106.1 29.4,85.8 41.9,73.3 54.4,60.8 74.7,60.8 87.2,73.3L247.2,233.3z"
+                                    Foreground="{DynamicResource ForegroundColor}"
+                                    Height="16"
+                                    Margin="6,0,0,0" />
+                            </RepeatButton>
+                        </Grid>
+                        <Grid
+                            ColumnDefinitions="*,*,*,*,*,*,*"
+                            Grid.Row="1"
+                            HorizontalAlignment="Stretch"
+                            IsVisible="False"
+                            Name="PART_MonthView">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{DynamicResource CalendarItemWeekDayNameHeight}" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                        <Grid
+                            Background="{TemplateBinding Background}"
+                            ColumnDefinitions="*,*,*,*"
+                            Grid.Row="1"
+                            IsVisible="False"
+                            Name="PART_YearView"
+                            RowDefinitions="*,*,*" />
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme TargetType="CalendarButton" x:Key="{x:Type CalendarButton}">
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CalendarItemCalendarButtonBorderBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="MaxHeight" Value="45" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CalendarButton">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    FontSize="{TemplateBinding FontSize}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Margin="{TemplateBinding Padding}"
+                    Name="Content"
+                    RecognizesAccessKey="True"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ ContentPresenter">
+                <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarButtonSelectedBackground}" />
+                <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="FontWeight" Value="{DynamicResource CalendarItemCalendarButtonSelectedFontWeight}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:blackout /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
+        </Style>
+
+        <Style Selector="^:inactive /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="CalendarDayButton" x:Key="{x:Type CalendarDayButton}">
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonBackground}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource CalendarItemCalendarDayButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="CalendarDayButton">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    FontSize="{TemplateBinding FontSize}"
+                    HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="Content"
+                    Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
+                    VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:today /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonTodayBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonTodayForeground}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedBackground}" />
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonSelectedForeground}" />
+        </Style>
+
+        <Style Selector="^:inactive /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundColor}" />
+        </Style>
+
+        <Style Selector="^:blackout /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonBlackoutForeground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource CalendarItemCalendarDayButtonDisabledForeground}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

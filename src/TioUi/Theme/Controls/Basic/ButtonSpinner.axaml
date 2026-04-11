@@ -1,0 +1,167 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20" Spacing="20">
+            <ButtonSpinner Content="Hello World" />
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Thickness x:Key="SemiBorderThicknessControl">1</Thickness>
+    <CornerRadius x:Key="SemiBorderRadiusSmall">10</CornerRadius>
+    <x:Double x:Key="SemiWidthIconMedium">16</x:Double>
+    <x:Double x:Key="SemiWidthIconExtraSmall">8</x:Double>
+    <StreamGeometry x:Key="SemiIconChevronUp">M19.64 16.44a1.5 1.5 0 0 1-2.12 0l-5.66-5.66-5.66 5.66a1.5 1.5 0 1 1-2.12-2.12L10.8 7.6a1.5 1.5 0 0 1 2.12 0l6.72 6.72a1.5 1.5 0 0 1 0 2.12Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconChevronDown">M4.08 7.6a1.5 1.5 0 0 1 2.12 0l5.66 5.65 5.66-5.65a1.5 1.5 0 1 1 2.12 2.12l-6.72 6.72a1.5 1.5 0 0 1-2.12 0L4.08 9.72a1.5 1.5 0 0 1 0-2.12Z</StreamGeometry>
+    <StaticResource ResourceKey="SemiBorderThicknessControl" x:Key="ButtonSpinnerButtonGroupBorderThickness" />
+    <StaticResource ResourceKey="SemiBorderRadiusSmall" x:Key="ButtonSpinnerButtonGroupCornerRadius" />
+    <StaticResource ResourceKey="SemiIconChevronUp" x:Key="ButtonSpinnerIncreaseButtonGlyph" />
+    <StaticResource ResourceKey="SemiIconChevronDown" x:Key="ButtonSpinnerDecreaseButtonGlyph" />
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="White" x:Key="ButtonSpinnerRepeatButtonBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="ButtonSpinnerRepeatButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="ButtonSpinnerRepeatButtonPressedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="ButtonSpinnerRepeatButtonDisabledBackground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="ButtonSpinnerRepeatButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="ButtonSpinnerRepeatButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonSpinnerRepeatButtonPointeroverBorderBrush" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="#35363C" x:Key="ButtonSpinnerRepeatButtonBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="ButtonSpinnerRepeatButtonPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="ButtonSpinnerRepeatButtonPressedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.04"
+                x:Key="ButtonSpinnerRepeatButtonDisabledBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="ButtonSpinnerRepeatButtonBorderBrush" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="ButtonSpinnerRepeatButtonForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="ButtonSpinnerRepeatButtonPointeroverBorderBrush" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="RepeatButton" x:Key="ButtonSpinnerRepeatButton">
+        <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonBackground}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="PART_ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ButtonSpinnerRepeatButtonDisabledBackground}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="ButtonSpinner" x:Key="{x:Type ButtonSpinner}">
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="MinWidth" Value="300" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ButtonSpinner">
+                <Grid ColumnDefinitions="Auto, *, Auto">
+                    <Border
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Grid.Column="1">
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                    <Border
+                        BorderBrush="{DynamicResource ButtonSpinnerRepeatButtonBorderBrush}"
+                        BorderThickness="0"
+                        ClipToBounds="True"
+                        CornerRadius="{DynamicResource TioCornerRadius}"
+                        Grid.Column="2"
+                        IsVisible="{TemplateBinding ShowButtonSpinner}"
+                        Margin="4,0,0,0"
+                        MinWidth="16"
+                        Name="ButtonGroup"
+                        UseLayoutRounding="False">
+                        <Grid RowDefinitions="*, *">
+                            <RepeatButton
+                                Grid.Row="0"
+                                Name="PART_IncreaseButton"
+                                Theme="{StaticResource ButtonSpinnerRepeatButton}">
+                                <PathIcon
+                                    Classes="Small"
+                                    Data="{DynamicResource ButtonSpinnerIncreaseButtonGlyph}"
+                                    Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}"
+                                    Theme="{DynamicResource InnerPathIcon}" />
+                            </RepeatButton>
+                            <RepeatButton
+                                Grid.Row="1"
+                                Name="PART_DecreaseButton"
+                                Theme="{StaticResource ButtonSpinnerRepeatButton}">
+                                <PathIcon
+                                    Classes="Small"
+                                    Data="{DynamicResource ButtonSpinnerDecreaseButtonGlyph}"
+                                    Foreground="{DynamicResource ButtonSpinnerRepeatButtonForeground}"
+                                    Theme="{DynamicResource InnerPathIcon}" />
+                            </RepeatButton>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[ButtonSpinnerLocation=Left] /template/ Border#ButtonGroup">
+            <Setter Property="Grid.Column" Value="0" />
+            <Setter Property="Margin" Value="0 0 4 0" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#ButtonGroup">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonSpinnerRepeatButtonPointeroverBorderBrush}" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

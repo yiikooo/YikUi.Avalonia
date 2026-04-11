@@ -1,0 +1,19 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="SystemAccentColor">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight1">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight2">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorLight3">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark1">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark2">#1BD76A</Color>
+    <Color x:Key="SystemAccentColorDark3">#1BD76A</Color>
+    <system:Double x:Key="BackGroundOpacity">1</system:Double>
+    <FontFamily x:Key="TioFontFamily">avares://TioUi/Assets#MiSans</FontFamily>
+    <FontWeight x:Key="TioFontWeight">350</FontWeight>
+    <system:Double x:Key="TioFontSize">14</system:Double>
+    <CornerRadius x:Key="TioCornerRadius">10</CornerRadius>
+    <tio:SukiEaseOutBack BounceIntensity="Soft" x:Key="MenuEasing" />
+</ResourceDictionary>

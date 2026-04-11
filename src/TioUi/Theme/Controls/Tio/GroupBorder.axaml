@@ -1,0 +1,49 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="tio:GroupBorder" x:Key="{x:Type tio:GroupBorder}">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{DynamicResource LineColor}" />
+        <Setter Property="Background" Value="{DynamicResource PanelBackgroundColor}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                        <Grid RowDefinitions="Auto,1,*">
+                            <ContentPresenter Content="{TemplateBinding Header}" Grid.Row="0">
+                                <ContentPresenter.DataTemplates>
+                                    <DataTemplate DataType="x:String">
+                                        <Panel>
+                                            <SelectableTextBlock
+                                                Margin="14,10"
+                                                Name="SelectableText"
+                                                Text="{Binding}" />
+                                            <TextBlock
+                                                Margin="14,10"
+                                                Name="Text"
+                                                Text="{Binding}" />
+                                        </Panel>
+                                    </DataTemplate>
+                                </ContentPresenter.DataTemplates>
+                            </ContentPresenter>
+                            <Border
+                                Background="{TemplateBinding BorderBrush}"
+                                Grid.Row="1"
+                                Height="1" />
+                            <ContentPresenter
+                                Content="{Binding $parent[tio:GroupBorder].Content}"
+                                Grid.Row="2"
+                                Padding="{TemplateBinding Padding}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+</ResourceDictionary>

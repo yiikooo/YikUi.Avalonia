@@ -1,0 +1,93 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <CornerRadius x:Key="ButtonCornerRadius">10</CornerRadius>
+    <StreamGeometry x:Key="ScrollToButtonIconGlyph">M19.64 16.44a1.5 1.5 0 0 1-2.12 0l-5.66-5.66-5.66 5.66a1.5 1.5 0 1 1-2.12-2.12L10.8 7.6a1.5 1.5 0 0 1 2.12 0l6.72 6.72a1.5 1.5 0 0 1 0 2.12Z</StreamGeometry>
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ButtonDefaultPrimaryForeground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="ButtonDefaultPrimaryForeground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+    <ControlTheme TargetType="tio:ScrollToButton" x:Key="{x:Type tio:ScrollToButton}">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0, 0, 16, 16" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:ScrollToButton">
+                <Border
+                    Background="{DynamicResource ButtonDefaultBackground}"
+                    CornerRadius="{DynamicResource ButtonCornerRadius}"
+                    Name="PART_Background">
+                    <PathIcon
+                        Data="{DynamicResource ScrollToButtonIconGlyph}"
+                        Foreground="{DynamicResource ButtonDefaultPrimaryForeground}"
+                        Margin="8"
+                        Name="PART_Icon"
+                        Theme="{StaticResource InnerPathIcon}" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPointeroverBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_Background">
+            <Setter Property="BorderBrush" Value="{DynamicResource ButtonDefaultPressedBorderBrush}" />
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+        <Style Selector="^[Direction=Right] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
+        </Style>
+        <Style Selector="^[Direction=Bottom] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+        <Style Selector="^[Direction=Left] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(270deg)" />
+        </Style>
+    </ControlTheme>
+
+
+    <ControlTheme TargetType="tio:ScrollToButton" x:Key="PrimaryScrollToButton">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0, 0, 16, 16" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:ScrollToButton">
+                <Border
+                    Background="{DynamicResource ButtonDefaultBackground}"
+                    CornerRadius="{DynamicResource TioCornerRadius}"
+                    Name="PART_Background">
+                    <PathIcon
+                        Data="{DynamicResource ScrollToButtonIconGlyph}"
+                        Foreground="{DynamicResource ButtonDefaultPrimaryForeground}"
+                        Height="12"
+                        Margin="8"
+                        Name="PART_Icon"
+                        Width="12" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_Background">
+            <Setter Property="Background" Value="{DynamicResource ButtonDefaultPressedBackground}" />
+        </Style>
+
+        <Style Selector="^[Direction=Right] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(90deg)" />
+        </Style>
+        <Style Selector="^[Direction=Bottom] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(180deg)" />
+        </Style>
+        <Style Selector="^[Direction=Left] /template/ PathIcon#PART_Icon">
+            <Setter Property="RenderTransform" Value="rotate(270deg)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

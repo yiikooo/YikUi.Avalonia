@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme TargetType="tio:NumberDisplayerBase" x:Key="{x:Type tio:NumberDisplayerBase}">
+        <Setter Property="Duration" Value="0:0:0.2" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:NumberDisplayerBase">
+                <TextBlock
+                    Background="{TemplateBinding Background}"
+                    FontFamily="{TemplateBinding FontFamily}"
+                    FontSize="{TemplateBinding FontSize}"
+                    FontStretch="{TemplateBinding FontStretch}"
+                    FontStyle="{TemplateBinding FontStyle}"
+                    FontWeight="{TemplateBinding FontWeight}"
+                    Foreground="{TemplateBinding Foreground}"
+                    Text="{TemplateBinding InternalText,
+                                           Mode=OneWay}" />
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^[IsSelectable=True]">
+            <Setter Property="Template">
+                <ControlTemplate TargetType="tio:NumberDisplayerBase">
+                    <SelectableTextBlock
+                        Background="{TemplateBinding Background}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        FontStretch="{TemplateBinding FontStretch}"
+                        FontStyle="{TemplateBinding FontStyle}"
+                        FontWeight="{TemplateBinding FontWeight}"
+                        Foreground="{TemplateBinding Foreground}"
+                        Text="{TemplateBinding InternalText,
+                                               Mode=OneWay}" />
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

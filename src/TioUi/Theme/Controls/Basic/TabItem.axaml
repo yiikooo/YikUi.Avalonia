@@ -1,0 +1,360 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel
+            Height="400"
+            Margin="20"
+            Width="400">
+            <TabControl TabStripPlacement="Top" Theme="{DynamicResource LineTabControl}">
+                <TabItem Header="文档">
+                    <TextBlock Text="Content1" />
+                </TabItem>
+                <TabItem Header="快速起步">
+                    <TextBlock Text="Content2" />
+                </TabItem>
+                <TabItem Header="帮助" IsSelected="True">
+                    <TextBlock Text="Content3" />
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <system:Double x:Key="BackGroundOpacity">1</system:Double>
+    <system:Double x:Key="TabItemCardDefaultHeight">32</system:Double>
+    <FontWeight x:Key="SemiFontWeightBold">600</FontWeight>
+    <system:Double x:Key="SemiHeightControlDefault">32</system:Double>
+    <CornerRadius x:Key="SemiBorderRadiusSmall">3</CornerRadius>
+
+
+    <!--  主题字典  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="TabItemLineHeaderForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="TabItemLinePipeBackground" />
+            <SolidColorBrush Color="#1C1F23" x:Key="TabItemLineHeaderSelectedForeground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="TabItemLineHeaderPointeroverForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="TabItemLinePipeSelectedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="TabItemLinePipePointeroverBorderBrush" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.13"
+                x:Key="TabItemLinePipePressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.15"
+                x:Key="TabItemLineHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="TabItemLineHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="TabItemLineHeaderPressedBackground" />
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="TabControlSeparatorBorderBrush" />
+            <SolidColorBrush Color="White" x:Key="TabItemCardHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="TabItemCardHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="TabItemCardHeaderPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="TabItemButtonHeaderSelectedForeground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColor}"
+                Opacity="0.15"
+                x:Key="TabItemButtonHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="TabItemButtonHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="TabItemButtonHeaderPressedBackground" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="TabItemLineHeaderForeground" />
+            <SolidColorBrush Color="Transparent" x:Key="TabItemLinePipeBackground" />
+            <SolidColorBrush Color="#F9F9F9" x:Key="TabItemLineHeaderSelectedForeground" />
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="TabItemLineHeaderPointeroverForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
+                             x:Key="TabItemLinePipeSelectedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="TabItemLinePipePointeroverBorderBrush" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.2"
+                x:Key="TabItemLinePipePressedBorderBrush" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorLight1}"
+                Opacity="0.2"
+                x:Key="TabItemLineHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="TabItemLineHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="TabItemLineHeaderPressedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="TabControlSeparatorBorderBrush" />
+            <SolidColorBrush Color="#16161A" x:Key="TabItemCardHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="TabItemCardHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="TabItemCardHeaderPressedBackground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}"
+                             x:Key="TabItemButtonHeaderSelectedForeground" />
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorLight1}"
+                Opacity="0.2"
+                x:Key="TabItemButtonHeaderSelectedBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="TabItemButtonHeaderPointeroverBackground" />
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="TabItemButtonHeaderPressedBackground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="TabItem" x:Key="BaseTabItem">
+        <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderForeground}" />
+        <Setter Property="Background" Value="{DynamicResource TabItemLinePipeBackground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="TabItem">
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Header}"
+                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    FontFamily="{TemplateBinding FontFamily}"
+                    FontWeight="{TemplateBinding FontWeight}"
+                    Foreground="{TemplateBinding Foreground}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="PART_HeaderPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="FontWeight" Value="{DynamicResource TabItemSelectedFontWeight}" />
+            <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderSelectedForeground}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Setter Property="Cursor" Value="Hand" />
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource TabItemLineHeaderPointeroverForeground}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseTabItem}"
+        TargetType="TabItem"
+        x:Key="{x:Type TabItem}">
+        <Setter Property="Padding" Value="8 4" />
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="BorderThickness" Value="0 0 0 2" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="BorderThickness" Value="0 2 0 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="BorderThickness" Value="2 0 0 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="BorderThickness" Value="0 0 2 0" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseTabItem}"
+        TargetType="TabItem"
+        x:Key="LineTabItem">
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipeSelectedBackground}" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderSelectedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="BorderBrush" Value="{DynamicResource TabItemLinePipePressedBorderBrush}" />
+            </Style>
+            <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+                <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                    <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderPointeroverBackground}" />
+                </Style>
+                <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                    <Setter Property="Background" Value="{DynamicResource TabItemLineHeaderPressedBackground}" />
+                </Style>
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="Margin" Value="0 0 24 0" />
+            <Setter Property="Padding" Value="4 16 4 14" />
+            <Setter Property="BorderThickness" Value="0 0 0 2" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="Margin" Value="0 0 24 0" />
+            <Setter Property="Padding" Value="4 14 4 16" />
+            <Setter Property="BorderThickness" Value="0 2 0 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="Padding" Value="12" />
+            <Setter Property="BorderThickness" Value="2 0 0 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="Padding" Value="12" />
+            <Setter Property="BorderThickness" Value="0 0 2 0" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseTabItem}"
+        TargetType="TabItem"
+        x:Key="CardTabItem">
+        <Setter Property="BorderBrush" Value="Transparent" />
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderSelectedBackground}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TabControlSeparatorBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Background" Value="{DynamicResource TabItemCardHeaderPressedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top]">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="MinHeight" Value="{DynamicResource TabItemCardDefaultHeight}" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="12 0" />
+            <Setter Property="CornerRadius" Value="10 10 0 0" />
+            <Setter Property="BorderThickness" Value="1 1 1 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Bottom]">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="MinHeight" Value="{DynamicResource TabItemCardDefaultHeight}" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="12 0" />
+            <Setter Property="CornerRadius" Value="0 0 10 10" />
+            <Setter Property="BorderThickness" Value="1 0 1 1" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left]">
+            <Setter Property="Margin" Value="0 0 0 8" />
+            <Setter Property="Padding" Value="12 8" />
+            <Setter Property="CornerRadius" Value="10 0 0 10" />
+            <Setter Property="BorderThickness" Value="1 1 0 1" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Right]">
+            <Setter Property="Margin" Value="0 0 0 8" />
+            <Setter Property="Padding" Value="12 8" />
+            <Setter Property="CornerRadius" Value="0 10 10 0" />
+            <Setter Property="BorderThickness" Value="0 1 1 1" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource BaseTabItem}"
+        TargetType="TabItem"
+        x:Key="ButtonTabItem">
+        <Setter Property="CornerRadius" Value="10" />
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource TabItemButtonHeaderSelectedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderSelectedBackground}" />
+        </Style>
+
+        <Style Selector="^:not(:selected)">
+            <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPointeroverBackground}" />
+            </Style>
+            <Style Selector="^:pressed /template/ ContentPresenter#PART_HeaderPresenter">
+                <Setter Property="Background" Value="{DynamicResource TabItemButtonHeaderPressedBackground}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
+            <Setter Property="TabItem.Margin" Value="0 0 8 0" />
+            <Setter Property="TabItem.VerticalContentAlignment" Value="Center" />
+            <Setter Property="TabItem.MinHeight" Value="{DynamicResource TabItemCardDefaultHeight}" />
+            <Setter Property="TabItem.Padding" Value="12 0" />
+        </Style>
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="TabItem.Margin" Value="0 0 0 8" />
+            <Setter Property="TabItem.Padding" Value="12 8" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

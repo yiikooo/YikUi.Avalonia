@@ -1,0 +1,65 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.ButtonPage"
+    x:DataType="pages:ButtonPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Border>
+        <ScrollViewer Margin="0,0,5,0">
+            <StackPanel Margin="15,15,10,15" Spacing="10">
+                <tio:GroupBorder Header="Button">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <Button Command="{Binding Tip}" Content="Button" />
+                        <Button
+                            Command="{Binding Tip}"
+                            Content="Disabled"
+                            IsEnabled="False" />
+                        <Button
+                            Classes="Danger"
+                            Command="{Binding Tip}"
+                            Content="Danger Button" />
+                        <Button
+                            Classes="Danger"
+                            Content="Danger Disabled"
+                            IsEnabled="False" />
+                    </WrapPanel>
+                </tio:GroupBorder>
+                <tio:GroupBorder Header="TransparentButton">
+                    <WrapPanel
+                        ItemSpacing="15"
+                        LineSpacing="15"
+                        Margin="15">
+                        <Button
+                            Command="{Binding Tip}"
+                            Content="Button"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center" />
+                        <Button
+                            Content="Disabled"
+                            IsEnabled="False"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center" />
+                        <Button
+                            Command="{Binding Tip}"
+                            Theme="{StaticResource TransparentButton}"
+                            VerticalAlignment="Center">
+                            <PathIcon
+                                Data="{DynamicResource AppleIcon}"
+                                Foreground="#db5c5c"
+                                Width="16" />
+                        </Button>
+                    </WrapPanel>
+                </tio:GroupBorder>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</UserControl>

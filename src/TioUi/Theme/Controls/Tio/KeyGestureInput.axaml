@@ -1,0 +1,92 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:converters="using:Avalonia.Controls.Converters"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
+
+    <ControlTheme TargetType="tio:KeyGestureInput" x:Key="{x:Type tio:KeyGestureInput}">
+        <Setter Property="MinHeight" Value="{DynamicResource TextBoxDefaultHeight}" />
+        <Setter Property="Background" Value="{DynamicResource TextBoxDefaultBackground}" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="{DynamicResource TextBoxBorderThickness}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="8 0" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="tio:KeyGestureInput">
+                <Border
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    HorizontalAlignment="Stretch"
+                    Name="Background"
+                    VerticalAlignment="Stretch">
+                    <Panel Margin="{TemplateBinding Padding}" VerticalAlignment="Stretch">
+                        <Grid ColumnDefinitions="Auto, *, Auto">
+                            <ContentPresenter
+                                Content="{TemplateBinding InnerLeftContent}"
+                                DockPanel.Dock="Left"
+                                Foreground="{DynamicResource TextBoxInnerForeground}"
+                                Grid.Column="0"
+                                IsVisible="{Binding Path=InnerLeftContent, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Padding="{TemplateBinding Padding,
+                                                          Converter={tio:ThicknessMixerConverter Right}}"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center" />
+                            <ContentPresenter
+                                Content="{TemplateBinding InnerRightContent}"
+                                DockPanel.Dock="Right"
+                                Foreground="{DynamicResource TextBoxInnerForeground}"
+                                Grid.Column="2"
+                                IsVisible="{Binding Path=InnerRightContent, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                Padding="{TemplateBinding Padding,
+                                                          Converter={tio:ThicknessMixerConverter Left}}"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Center" />
+                            <SelectableTextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Text="{TemplateBinding Gesture,
+                                                       Converter={StaticResource KeyGestureConverter}}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <Button
+                                Command="{Binding $parent[tio:KeyGestureInput].Clear}"
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                IsVisible="False"
+                                Margin="0,0,9,0"
+                                Name="PART_ClearButton"
+                                Theme="{DynamicResource TransparentButton}">
+                                <PathIcon
+                                    Data="{DynamicResource Close}"
+                                    Foreground="{DynamicResource InnerForegroundColor}"
+                                    Height="11"
+                                    Width="16" />
+                            </Button>
+                        </Grid>
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#Background">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPointeroverBackground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Background">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#Background" />
+        <Style Selector="^:focus-within /template/ Border#Background">
+            <Setter Property="Background" Value="{DynamicResource TextBoxPressedBackground}" />
+        </Style>
+        <Style Selector="^:not(:empty).clearButton, ^:not(:empty).ClearButton">
+            <Style Selector="^:focus /template/ Button#PART_ClearButton">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Button#PART_ClearButton">
+                <Setter Property="IsVisible" Value="True" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

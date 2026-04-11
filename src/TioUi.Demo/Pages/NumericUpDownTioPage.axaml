@@ -1,0 +1,212 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="TioUi.Demo.Pages.NumericUpDownTioPage"
+    x:DataType="pages:NumericUpDownDemoViewModel"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:TioUi.Demo.Pages"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <tio:GroupBorder
+        Header="NumericUpDown(tio)"
+        Margin="15"
+        Padding="15">
+        <ScrollViewer>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="150,*">
+                <StackPanel Grid.ColumnSpan="2" Spacing="20">
+                    <tio:Divider Content="Demo" />
+                    <tio:NumericUIntUpDown
+                        AllowDrag="{Binding AllowDrag}"
+                        AllowSpin="{Binding AllowSpin}"
+                        Command="{Binding TrythisCommand}"
+                        FontFamily="{Binding FontFamily, Mode=OneWay}"
+                        FormatString="{Binding FormatString}"
+                        HorizontalAlignment="{Binding HorizontalAlignment}"
+                        HorizontalContentAlignment="{Binding HorizontalContentAlignment}"
+                        InnerLeftContent="{Binding InnerLeftContent}"
+                        InnerRightContent="{Binding InnerRightContent}"
+                        IsEnabled="{Binding IsEnable}"
+                        IsReadOnly="{Binding IsReadOnly}"
+                        Maximum="{Binding Maximum}"
+                        Minimum="{Binding Minimum}"
+                        Name="numd"
+                        ParsingNumberStyle="{Binding ParsingNumberStyle}"
+                        PlaceholderText="{Binding PlaceholderText}"
+                        ShowButtonSpinner="{Binding ShowButtonSpinner}"
+                        Step="{Binding Step}"
+                        Value="{Binding Value}"
+                        Width="{Binding Width}" />
+                    <TextBox
+                        HorizontalAlignment="Center"
+                        IsReadOnly="true"
+                        Text="{Binding CommandUpdateText}"
+                        Width="NaN" />
+                </StackPanel>
+
+                <Grid
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left">
+                    <StackPanel Spacing="20">
+                        <tio:Divider Content="{Binding #input.Value, StringFormat='Int = {0}'}" />
+                        <tio:NumericIntUpDown
+                            Classes="ClearButton"
+                            InnerLeftContent="Age"
+                            Name="input"
+                            PlaceholderText="Input Value"
+                            Step="1"
+                            Value="2" />
+                        <tio:Divider Content="{Binding #inputDouble.Value, StringFormat='Double = {0}'}" />
+                        <tio:NumericDoubleUpDown
+                            EmptyInputValue="1"
+                            Name="inputDouble"
+                            Step="0.5"
+                            Value="3.1" />
+                        <tio:Divider Content="{Binding #inputByte.Value, StringFormat='Byte = {0}'}" />
+                        <tio:NumericByteUpDown
+                            EmptyInputValue="1"
+                            Name="inputByte"
+                            Step="1"
+                            Value="3" />
+                        <tio:Divider Content="{Binding #Drag_Int.Value, StringFormat='Drag Int = {0}'}" />
+                        <tio:NumericIntUpDown
+                            AllowDrag="True"
+                            InnerLeftContent="Drag"
+                            Name="Drag_Int"
+                            PlaceholderText="Input Value"
+                            Step="1"
+                            Value="2" />
+
+                        <!--  hex demo  -->
+
+                        <tio:Divider Content="{Binding #uint_HexNumber.Value, StringFormat='Don‘t Use = {0}, hex={0:X}'}" />
+                        <!--  =================this is error usage  -->
+                        <tio:NumericUIntUpDown
+                            AllowDrag="False"
+                            FormatString="{}{0:X8}"
+                            InnerLeftContent="HexNumber"
+                            Name="uint_HexNumber"
+                            ParsingNumberStyle="HexNumber"
+                            PlaceholderText="Input Value"
+                            Step="1"
+                            Value="2" />
+
+                        <!--  =================we should use AllowHexSpecifier  -->
+                        <tio:Divider Content="{Binding #uint_AllowHexSpecifier.Value, StringFormat='uint = {0}, hex={0:X}'}" />
+                        <tio:NumericUIntUpDown
+                            AllowDrag="False"
+                            FontFamily="Consolas"
+                            FormatString="{}{0:X8}"
+                            HorizontalContentAlignment="Right"
+                            InnerLeftContent="AllowHexSpecifier"
+                            Name="uint_AllowHexSpecifier"
+                            ParsingNumberStyle="AllowHexSpecifier"
+                            PlaceholderText="AllowHexSpecifier"
+                            Step="1"
+                            Value="2" />
+
+                        <tio:Divider Content="{Binding #Consolas_uint.Value, StringFormat='Font=Consolas {0}, hex={0:X}'}" />
+                        <tio:NumericUIntUpDown
+                            AllowDrag="False"
+                            FontFamily="Consolas"
+                            FormatString="X8"
+                            HorizontalContentAlignment="Right"
+                            InnerLeftContent="0x"
+                            Name="Consolas_uint"
+                            ParsingNumberStyle="AllowHexSpecifier"
+                            PlaceholderText="AllowHexSpecifier"
+                            Step="1"
+                            Value="2" />
+                        <tio:Divider Content="Sizes" />
+                        <tio:NumericUIntUpDown
+                            Classes="Small"
+                            PlaceholderText="Small"
+                            Step="1" />
+                        <tio:NumericUIntUpDown
+                            Classes="Large"
+                            Margin="0,8,0,0"
+                            PlaceholderText="Large"
+                            Step="1" />
+                        <tio:Divider Content="Error" />
+                        <tio:NumericUIntUpDown PlaceholderText="Validation Error" Step="1">
+                            <DataValidationErrors.Error>
+                                <system:Exception />
+                            </DataValidationErrors.Error>
+                        </tio:NumericUIntUpDown>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    Orientation="Vertical"
+                    Spacing="20">
+
+                    <CheckBox Content="AutoWidth" IsChecked="{Binding AutoWidth}" />
+                    <tio:NumericDoubleUpDown
+                        AllowDrag="True"
+                        InnerLeftContent="Width"
+                        IsEnabled="{Binding !AutoWidth}"
+                        Value="{Binding Width}" />
+
+                    <TextBox InnerLeftContent="FontFamily" Text="{Binding FontFamily}" />
+
+                    <CheckBox Content="AllowDrag" IsChecked="{Binding AllowDrag}" />
+
+                    <CheckBox Content="IsReadOnly" IsChecked="{Binding IsReadOnly}" />
+
+                    <Label Content="HorizontalAlignment" />
+                    <ComboBox ItemsSource="{Binding ArrayHorizontalAlignment}" SelectedItem="{Binding HorizontalAlignment}" />
+                    <Label Content="HorizontalContentAlignment" />
+                    <ComboBox ItemsSource="{Binding ArrayHorizontalContentAlignment}" SelectedItem="{Binding HorizontalContentAlignment}" />
+
+                    <TextBox
+                        InnerLeftContent="InnerLeftContent"
+                        InnerRightContent="obj"
+                        Text="{Binding InnerLeftContent}" />
+
+                    <TextBox InnerLeftContent="PlaceholderText" Text="{Binding PlaceholderText}" />
+
+                    <TextBox
+                        InnerLeftContent="FormatString"
+                        MaxLength="100"
+                        MinWidth="100"
+                        Text="{Binding FormatString}" />
+
+                    <Label Content="ParsingNumberStyle" />
+                    <ComboBox ItemsSource="{Binding ArrayParsingNumberStyle}" SelectedItem="{Binding ParsingNumberStyle}" />
+
+                    <CheckBox Content="AllowSpin" IsChecked="{Binding AllowSpin}" />
+
+                    <CheckBox Content="ShowButtonSpinner" IsChecked="{Binding ShowButtonSpinner}" />
+
+                    <tio:NumericUIntUpDown
+                        AllowSpin="True"
+                        InnerLeftContent="Value"
+                        IsEnabled="True"
+                        IsReadOnly="False"
+                        Name="nudV"
+                        Value="{Binding Value, Mode=TwoWay}" />
+
+                    <tio:NumericUIntUpDown InnerLeftContent="Max" Value="{Binding Maximum}" />
+
+                    <tio:NumericUIntUpDown InnerLeftContent="Min" Value="{Binding Minimum}" />
+
+                    <Label Content="{Binding Step, StringFormat='Step {0}'}" />
+                    <Slider
+                        Minimum="1"
+                        ToolTip.Tip="{Binding Step}"
+                        Value="{Binding Step}" />
+
+                    <CheckBox Content="IsEnable" IsChecked="{Binding IsEnable}" />
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </tio:GroupBorder>
+</UserControl>

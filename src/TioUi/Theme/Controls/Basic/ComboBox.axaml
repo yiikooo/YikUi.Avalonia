@@ -1,0 +1,721 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel Margin="20">
+            <ComboBoxItem>Hello World</ComboBoxItem>
+            <ComboBoxItem>Hello World</ComboBoxItem>
+            <ComboBoxItem IsSelected="True">Hello World</ComboBoxItem>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Thickness x:Key="ComboBoxSelectorDefaultPadding">12 0 0 0</Thickness>
+    <x:Double x:Key="ComboBoxPopupMaxDropDownHeight">504</x:Double>
+    <Thickness x:Key="ComboBoxSelectorThickness">1</Thickness>
+    <CornerRadius x:Key="ComboBoxSelectorCornerRadius">3</CornerRadius>
+    <x:Double x:Key="ComboBoxDefaultHeight">32</x:Double>
+    <x:Double x:Key="ComboBoxIconWidth">32</x:Double>
+    <StreamGeometry x:Key="SemiIconClear">M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm5.04-6.14a1.5 1.5 0 0 1-2.13.04l-2.87-2.78L9.26 17A1.5 1.5 0 0 1 7.1 14.9l2.78-2.87L7 9.26A1.5 1.5 0 1 1 9.1 7.1l2.87 2.78L14.74 7A1.5 1.5 0 0 1 16.9 9.1l-2.78 2.87L17 14.74c.6.58.61 1.53.04 2.12Z</StreamGeometry>
+    <StreamGeometry x:Key="SemiIconChevronDown">F1 M384,512z M0,0z M169.4,374.6C181.9,387.1,202.2,387.1,214.7,374.6L374.7,214.6C387.2,202.1 387.2,181.8 374.7,169.3 362.2,156.8 341.9,156.8 329.4,169.3L192,306.7 54.6,169.4C42.1,156.9 21.8,156.9 9.3,169.4 -3.2,181.9 -3.2,202.2 9.3,214.7L169.3,374.7z</StreamGeometry>
+    <StaticResource ResourceKey="SemiIconChevronDown" x:Key="ComboBoxIcon" />
+    <Thickness x:Key="ComboBoxPopupBorderMargin">4</Thickness>
+    <Thickness x:Key="ComboBoxPopupBorderPadding">0 4</Thickness>
+    <Thickness x:Key="ComboBoxPopupBorderThickness">1</Thickness>
+    <CornerRadius x:Key="ComboBoxPopupBoxCornerRadius">6</CornerRadius>
+    <x:Double x:Key="ComboBoxLargeHeight">40</x:Double>
+    <x:Double x:Key="ComboBoxSmallHeight">24</x:Double>
+
+    <!--  主题资源  -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <!--  ComboBoxSelectorBackground  -->
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.05"
+                x:Key="SemiColorFill0" />
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxSelectorBackground" />
+
+            <!--  ComboBoxSelectorBorderBrush  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderBrush" />
+
+            <!--  ComboBoxSelectorPlaceHolderForeground  -->
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.62"
+                x:Key="SemiColorText2" />
+            <StaticResource ResourceKey="SemiColorText2" x:Key="ComboBoxSelectorPlaceHolderForeground" />
+
+            <!--  ComboBoxIconDefaultForeground  -->
+            <StaticResource ResourceKey="SemiColorText2" x:Key="ComboBoxIconDefaultForeground" />
+
+            <!--  ComboBoxPopupBackground  -->
+            <Color x:Key="SemiBackground3Color">White</Color>
+            <SolidColorBrush Color="{StaticResource SemiBackground3Color}" x:Key="SemiColorBackground3" />
+            <StaticResource ResourceKey="SemiColorBackground3" x:Key="ComboBoxPopupBackground" />
+
+            <!--  ComboBoxPopupBorderBrush  -->
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.08"
+                x:Key="SemiColorBorder" />
+            <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxPopupBorderBrush" />
+
+            <!--  ComboBoxPopupBoxShadow  -->
+            <BoxShadows x:Key="SemiShadowElevated">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+            <StaticResource ResourceKey="SemiShadowElevated" x:Key="ComboBoxPopupBoxShadow" />
+
+            <!--  ComboBoxSelectorPointeroverBackground  -->
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.09"
+                x:Key="SemiColorFill1" />
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxSelectorPointeroverBackground" />
+
+            <!--  ComboBoxSelectorPointeroverBorderBrush  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorPointeroverBorderBrush" />
+
+            <!--  ComboBoxIconPointeroverForeground  -->
+            <SolidColorBrush Color="#1C1F23" x:Key="SemiColorText0" />
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconPointeroverForeground" />
+
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxSelectorFocusBackground" />
+
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="SemiColorPrimary" />
+            <StaticResource ResourceKey="SemiColorPrimary" x:Key="ComboBoxSelectorFocusBorderBrush" />
+
+            <!--  ComboBoxIconFocusForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconFocusForeground" />
+
+            <!--  ComboBoxSelectorPressedBackground  -->
+            <SolidColorBrush
+                Color="#2E3238"
+                Opacity="0.13"
+                x:Key="SemiColorFill2" />
+            <StaticResource ResourceKey="SemiColorFill2" x:Key="ComboBoxSelectorPressedBackground" />
+
+            <!--  ComboBoxSelectorPressedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorPrimary" x:Key="ComboBoxSelectorPressedBorderBrush" />
+
+            <!--  ComboBoxIconPressedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconPressedForeground" />
+
+            <!--  ComboBoxDisabledForeground  -->
+            <SolidColorBrush
+                Color="#1C1F23"
+                Opacity="0.35"
+                x:Key="SemiColorDisabledText" />
+            <StaticResource ResourceKey="SemiColorDisabledText" x:Key="ComboBoxDisabledForeground" />
+
+            <!--  ComboBoxIconDisabledForeground  -->
+            <StaticResource ResourceKey="SemiColorDisabledText" x:Key="ComboBoxIconDisabledForeground" />
+
+            <!--  DataValidationErrorsBackground  -->
+            <Color x:Key="SemiRed0Color">#FEF2ED</Color>
+            <SolidColorBrush Color="{StaticResource SemiRed0Color}" x:Key="SemiColorDangerLight" />
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBackground" />
+
+            <!--  DataValidationErrorsPointeroverBackground  -->
+            <Color x:Key="SemiRed1Color">#FCE0D9</Color>
+            <SolidColorBrush Color="{StaticResource SemiRed1Color}" x:Key="SemiColorDangerLightPointerover" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
+
+            <!--  DataValidationErrorsPressedBackground  -->
+            <Color x:Key="SemiRed2Color">#FAD0C4</Color>
+            <SolidColorBrush Color="{StaticResource SemiRed2Color}" x:Key="SemiColorDangerLightActive" />
+            <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBackground" />
+
+            <!--  DataValidationErrorsSelectedBackground  -->
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsSelectedBackground" />
+
+            <!--  DataValidationErrorsSelectedBorderBrush  -->
+            <Color x:Key="SemiRed5Color">#F93920</Color>
+            <SolidColorBrush Color="{StaticResource SemiRed5Color}" x:Key="SemiColorDanger" />
+            <StaticResource ResourceKey="SemiColorDanger" x:Key="DataValidationErrorsSelectedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedBackground" />
+
+            <!--  ComboBoxSelectorBorderedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxSelectorBorderedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedPointeroverBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPointeroverBackground" />
+
+            <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="SemiColorPrimaryPointerover" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedPressedBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
+
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="SemiColorPrimaryActive" />
+            <StaticResource ResourceKey="SemiColorPrimaryActive" x:Key="ComboBoxSelectorBorderedPressedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedFocusBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedFocusBackground" />
+
+            <!--  ComboBoxSelectorBorderedFocusBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedFocusBorderBrush" />
+
+            <!--  DataValidationErrorsBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
+
+            <!--  DataValidationErrorsPointeroverBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
+
+            <!--  DataValidationErrorsPressedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
+
+            <!--  ComboBoxItemForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemForeground" />
+
+            <!--  ComboBoxItemBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxItemBackground" />
+
+            <!--  ComboBoxItemDefaultPadding  -->
+            <Thickness x:Key="ComboBoxItemDefaultPadding">12 8</Thickness>
+
+            <!--  ComboBoxItemPointeroverForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemPointeroverForeground" />
+
+            <!--  ComboBoxItemPointeroverBackground  -->
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxItemPointeroverBackground" />
+
+            <!--  ComboBoxItemFocusForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemFocusForeground" />
+
+            <!--  ComboBoxItemFocusBackground  -->
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxItemFocusBackground" />
+
+            <!--  ComboBoxItemDisabledBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxItemDisabledBackground" />
+
+            <!--  ComboBoxItemPressedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemPressedForeground" />
+
+            <!--  ComboBoxItemPressedBackground  -->
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxItemPressedBackground" />
+
+            <!--  ComboBoxItemSelectedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemSelectedForeground" />
+
+            <!--  ComboBoxItemSelectedBackground  -->
+            <SolidColorBrush Color="#E6F2FF" x:Key="SemiColorPrimaryLight" />
+            <StaticResource ResourceKey="SemiColorPrimaryLight" x:Key="ComboBoxItemSelectedBackground" />
+
+            <!--  ComboBoxItemSelectedDisabledBackground  -->
+            <SolidColorBrush Color="#F5F5F5" x:Key="ComboBoxItemSelectedDisabledBackground" />
+
+            <!--  ComboBoxItemSelectedPointeroverBackground  -->
+            <SolidColorBrush Color="#CCE6FF" x:Key="SemiColorPrimaryLightPointerover" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Dark">
+            <!--  ComboBoxSelectorBackground  -->
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.12"
+                x:Key="SemiColorFill0" />
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxSelectorBackground" />
+
+            <!--  ComboBoxSelectorBorderBrush  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderBrush" />
+
+            <!--  ComboBoxSelectorPlaceHolderForeground  -->
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.6"
+                x:Key="SemiColorText2" />
+            <StaticResource ResourceKey="SemiColorText2" x:Key="ComboBoxSelectorPlaceHolderForeground" />
+
+            <!--  ComboBoxIconDefaultForeground  -->
+            <StaticResource ResourceKey="SemiColorText2" x:Key="ComboBoxIconDefaultForeground" />
+
+            <!--  ComboBoxPopupBackground  -->
+            <Color x:Key="SemiBackground3Color">#43444A</Color>
+            <SolidColorBrush Color="{StaticResource SemiBackground3Color}" x:Key="SemiColorBackground3" />
+            <StaticResource ResourceKey="SemiColorBackground3" x:Key="ComboBoxPopupBackground" />
+
+            <!--  ComboBoxPopupBorderBrush  -->
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.08"
+                x:Key="SemiColorBorder" />
+            <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxPopupBorderBrush" />
+
+            <!--  ComboBoxPopupBoxShadow  -->
+            <BoxShadows x:Key="SemiShadowElevated">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+            <StaticResource ResourceKey="SemiShadowElevated" x:Key="ComboBoxPopupBoxShadow" />
+
+            <!--  ComboBoxSelectorPointeroverBackground  -->
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.16"
+                x:Key="SemiColorFill1" />
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxSelectorPointeroverBackground" />
+
+            <!--  ComboBoxSelectorPointeroverBorderBrush  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorPointeroverBorderBrush" />
+
+            <!--  ComboBoxIconPointeroverForeground  -->
+            <SolidColorBrush Color="#F9F9F9" x:Key="SemiColorText0" />
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconPointeroverForeground" />
+
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxSelectorFocusBackground" />
+
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="SemiColorPrimary" />
+            <StaticResource ResourceKey="SemiColorPrimary" x:Key="ComboBoxSelectorFocusBorderBrush" />
+
+            <!--  ComboBoxIconFocusForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconFocusForeground" />
+
+            <!--  ComboBoxSelectorPressedBackground  -->
+            <SolidColorBrush
+                Color="White"
+                Opacity="0.20"
+                x:Key="SemiColorFill2" />
+            <StaticResource ResourceKey="SemiColorFill2" x:Key="ComboBoxSelectorPressedBackground" />
+
+            <!--  ComboBoxSelectorPressedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorPrimary" x:Key="ComboBoxSelectorPressedBorderBrush" />
+
+            <!--  ComboBoxIconPressedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxIconPressedForeground" />
+
+            <!--  ComboBoxDisabledForeground  -->
+            <SolidColorBrush
+                Color="#F9F9F9"
+                Opacity="0.35"
+                x:Key="SemiColorDisabledText" />
+            <StaticResource ResourceKey="SemiColorDisabledText" x:Key="ComboBoxDisabledForeground" />
+
+            <!--  ComboBoxIconDisabledForeground  -->
+            <StaticResource ResourceKey="SemiColorDisabledText" x:Key="ComboBoxIconDisabledForeground" />
+
+            <!--  DataValidationErrorsBackground  -->
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.2"
+                x:Key="SemiColorDangerLight" />
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBackground" />
+
+            <!--  DataValidationErrorsPointeroverBackground  -->
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.3"
+                x:Key="SemiColorDangerLightPointerover" />
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBackground" />
+
+            <!--  DataValidationErrorsPressedBackground  -->
+            <SolidColorBrush
+                Color="#FC725A"
+                Opacity="0.4"
+                x:Key="SemiColorDangerLightActive" />
+            <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBackground" />
+
+            <!--  DataValidationErrorsSelectedBackground  -->
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsSelectedBackground" />
+
+            <!--  DataValidationErrorsSelectedBorderBrush  -->
+            <SolidColorBrush Color="#FC725A" x:Key="SemiColorDanger" />
+            <StaticResource ResourceKey="SemiColorDanger" x:Key="DataValidationErrorsSelectedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedBackground" />
+
+            <!--  ComboBoxSelectorBorderedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxSelectorBorderedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedPointeroverBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPointeroverBackground" />
+
+            <!--  ComboBoxSelectorBorderedPointeroverBorderBrush  -->
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="SemiColorPrimaryPointerover" />
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedPointeroverBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedPressedBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedPressedBackground" />
+
+            <!--  ComboBoxSelectorBorderedPressedBorderBrush  -->
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight1}" x:Key="SemiColorPrimaryActive" />
+            <StaticResource ResourceKey="SemiColorPrimaryActive" x:Key="ComboBoxSelectorBorderedPressedBorderBrush" />
+
+            <!--  ComboBoxSelectorBorderedFocusBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxSelectorBorderedFocusBackground" />
+
+            <!--  ComboBoxSelectorBorderedFocusBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorPrimaryPointerover" x:Key="ComboBoxSelectorBorderedFocusBorderBrush" />
+
+            <!--  DataValidationErrorsBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLight" x:Key="DataValidationErrorsBorderBrush" />
+
+            <!--  DataValidationErrorsPointeroverBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLightPointerover" x:Key="DataValidationErrorsPointeroverBorderBrush" />
+
+            <!--  DataValidationErrorsPressedBorderBrush  -->
+            <StaticResource ResourceKey="SemiColorDangerLightActive" x:Key="DataValidationErrorsPressedBorderBrush" />
+
+            <!--  ComboBoxItemForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemForeground" />
+
+            <!--  ComboBoxItemBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxItemBackground" />
+
+            <!--  ComboBoxItemDefaultPadding  -->
+            <Thickness x:Key="ComboBoxItemDefaultPadding">12 8</Thickness>
+
+            <!--  ComboBoxItemPointeroverForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemPointeroverForeground" />
+
+            <!--  ComboBoxItemPointeroverBackground  -->
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxItemPointeroverBackground" />
+
+            <!--  ComboBoxItemFocusForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemFocusForeground" />
+
+            <!--  ComboBoxItemFocusBackground  -->
+            <StaticResource ResourceKey="SemiColorFill0" x:Key="ComboBoxItemFocusBackground" />
+
+            <!--  ComboBoxItemDisabledBackground  -->
+            <SolidColorBrush Color="Transparent" x:Key="ComboBoxItemDisabledBackground" />
+
+            <!--  ComboBoxItemPressedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemPressedForeground" />
+
+            <!--  ComboBoxItemPressedBackground  -->
+            <StaticResource ResourceKey="SemiColorFill1" x:Key="ComboBoxItemPressedBackground" />
+
+            <!--  ComboBoxItemSelectedForeground  -->
+            <StaticResource ResourceKey="SemiColorText0" x:Key="ComboBoxItemSelectedForeground" />
+
+            <!--  ComboBoxItemSelectedBackground  -->
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorLight1}"
+                Opacity="0.2"
+                x:Key="SemiColorPrimaryLight" />
+            <StaticResource ResourceKey="SemiColorPrimaryLight" x:Key="ComboBoxItemSelectedBackground" />
+
+            <!--  ComboBoxItemSelectedDisabledBackground  -->
+            <SolidColorBrush Color="#333333" x:Key="ComboBoxItemSelectedDisabledBackground" />
+
+            <!--  ComboBoxItemSelectedPointeroverBackground  -->
+            <SolidColorBrush
+                Color="{DynamicResource SystemAccentColorLight1}"
+                Opacity="0.3"
+                x:Key="SemiColorPrimaryLightPointerover" />
+            <StaticResource ResourceKey="SemiColorPrimaryLightPointerover" x:Key="ComboBoxItemSelectedPointeroverBackground" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+    <ControlTheme TargetType="ComboBox" x:Key="{x:Type ComboBox}">
+        <Setter Property="Padding" Value="{DynamicResource ComboBoxSelectorDefaultPadding}" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderBrush}" />
+        <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+        <Setter Property="BorderThickness" Value="{DynamicResource ComboBoxSelectorThickness}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="MaxDropDownHeight" Value="209" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="MinHeight" Value="{DynamicResource ComboBoxDefaultHeight}" />
+        <Setter Property="PlaceholderForeground" Value="{DynamicResource ComboBoxSelectorPlaceHolderForeground}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ComboBox">
+                <DataValidationErrors>
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BackgroundSizing="{TemplateBinding BackgroundSizing}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            MinHeight="{TemplateBinding MinHeight}"
+                            Name="Background" />
+                        <TextBlock
+                            Foreground="{TemplateBinding PlaceholderForeground}"
+                            Grid.Column="0"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="PlaceholderTextBlock"
+                            Text="{TemplateBinding PlaceholderText}"
+                            TextTrimming="CharacterEllipsis"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <TextBlock.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <TemplateBinding Converter="{x:Static ObjectConverters.IsNull}" Property="SelectionBoxItem" />
+                                    <TemplateBinding Converter="{x:Static BoolConverters.Not}" Property="IsEditable" />
+                                </MultiBinding>
+                            </TextBlock.IsVisible>
+                        </TextBlock>
+                        <ContentPresenter
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            Grid.Column="0"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            IsVisible="{TemplateBinding IsEditable,
+                                                        Converter={x:Static BoolConverters.Not}}"
+                            Margin="{TemplateBinding Padding}"
+                            Name="ContentPresenter"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <TextBox
+                            Foreground="{TemplateBinding Foreground}"
+                            Grid.Column="0"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            IsVisible="{TemplateBinding IsEditable}"
+                            Name="PART_EditableTextBox"
+                            Padding="{TemplateBinding Padding}"
+                            PlaceholderText="{TemplateBinding PlaceholderText}"
+                            Text="{TemplateBinding Text,
+                                                   Mode=TwoWay}"
+                            Theme="{StaticResource LooklessTextBox}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+                        <Button
+                            Command="{Binding $parent[ComboBox].Clear}"
+                            Focusable="False"
+                            Grid.Column="1"
+                            IsVisible="False"
+                            Name="ClearButton"
+                            Theme="{DynamicResource TransparentButton}"
+                            Width="{DynamicResource ComboBoxIconWidth}">
+                            <PathIcon
+                                Data="{DynamicResource Close}"
+                                Foreground="{DynamicResource InnerForegroundColor}"
+                                Height="11"
+                                Width="16" />
+                        </Button>
+
+                        <PathIcon
+                            Data="{DynamicResource ComboBoxIcon}"
+                            Foreground="{DynamicResource InnerForegroundColor}"
+                            Grid.Column="1"
+                            IsHitTestVisible="False"
+                            Margin="8,0,11,0"
+                            Name="DropDownGlyph"
+                            UseLayoutRounding="False"
+                            Width="12" />
+
+                        <Popup
+                            Grid.Column="0"
+                            InheritsTransform="True"
+                            IsLightDismissEnabled="True"
+                            IsOpen="{TemplateBinding IsDropDownOpen,
+                                                     Mode=TwoWay}"
+                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                            Name="PART_Popup"
+                            PlacementTarget="Background"
+                            WindowManagerAddShadowHint="False">
+                            <Border
+                                Background="{DynamicResource PopupBackgroundColor}"
+                                BorderBrush="{DynamicResource PopupBorderBrush}"
+                                BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
+                                CornerRadius="{DynamicResource TioCornerRadius}"
+                                HorizontalAlignment="Stretch"
+                                Margin="4"
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                Name="PopupBorder"
+                                Padding="0,-2">
+                                <ScrollViewer
+                                    HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
+                                    IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                                    VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <Border Margin="4">
+                                        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" Name="PART_ItemsPresenter" />
+                                    </Border>
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.clearButton, ^.ClearButton">
+            <Style Selector="^:pointerover /template/ Button#ClearButton">
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ PathIcon#DropDownGlyph">
+                <Setter Property="IsVisible" Value="{Binding $parent[ComboBox].SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+            </Style>
+        </Style>
+
+        <!--  Pointerover State  -->
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPointeroverBackground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <!--  Focus State  -->
+        <Style Selector="^:focus">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorFocusBackground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+        <Style Selector="^.Large">
+            <Setter Property="MinHeight" Value="40" />
+        </Style>
+        <Style Selector="^.Small">
+            <Setter Property="MinHeight" Value="24" />
+        </Style>
+        <!--  Pressed State  -->
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxSelectorPressedBackground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:dropdownopen">
+            <Setter Property="BorderBrush" Value="Transparent" />
+        </Style>
+
+        <!--  Disabled State  -->
+        <Style Selector="^:disabled">
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Style Selector="^ /template/ ContentControl#ContentPresenter">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PlaceholderTextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource ButtonDefaultDisabledForeground}" />
+            </Style>
+        </Style>
+        <!--  Error State  -->
+        <Style Selector="^:error">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsBackground}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPointeroverBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsPressedBackground}" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style Selector="^:focus /template/ Border#Background">
+                <Setter Property="Background" Value="{DynamicResource DataValidationErrorsSelectedBackground}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource DataValidationErrorsSelectedBorderBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^[IsEditable=true]">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
+        </Style>
+
+        <Style Selector="^.Bordered">
+            <Style Selector="^ /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pointerover /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:pressed /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:disabled">
+                <Style Selector="^ /template/ Border#Background">
+                    <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+                </Style>
+            </Style>
+        </Style>
+        <Style Selector="^.BorderedOnFocus">
+            <Style Selector="^:focus /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:focus /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+            <Style Selector="^:dropdownopen /template/ Border#Background">
+                <Setter Property="BorderBrush" Value="{DynamicResource ComboBoxSelectorBorderedPointeroverBorderBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme TargetType="ComboBoxItem" x:Key="{x:Type ComboBoxItem}">
+        <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemForeground}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="Background" Value="{DynamicResource ComboBoxItemBackground}" />
+        <Setter Property="Padding" Value="{DynamicResource ComboBoxItemDefaultPadding}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="ComboBoxItem">
+                <Grid Margin="0,2">
+                    <Rectangle
+                        Fill="{DynamicResource SystemAccentColor}"
+                        Height="16"
+                        HorizontalAlignment="Left"
+                        IsVisible="True"
+                        Margin="0,4,-2,4"
+                        Name="SelectionIndicator"
+                        Opacity="0"
+                        RadiusX="2"
+                        RadiusY="2"
+                        RenderTransform="scaleY(0)"
+                        UseLayoutRounding="False"
+                        VerticalAlignment="Center"
+                        Width="3">
+                        <Rectangle.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition
+                                    Duration="00:00:00.167"
+                                    Easing="0,0 0,1"
+                                    Property="RenderTransform" />
+                                <DoubleTransition
+                                    Duration="00:00:00.167"
+                                    Easing="0,0 0,1"
+                                    Property="Opacity" />
+                            </Transitions>
+                        </Rectangle.Transitions>
+                    </Rectangle>
+                    <ContentPresenter
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        Name="PART_ContentPresenter"
+                        Padding="{TemplateBinding Padding}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPointeroverForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
+        </Style>
+
+        <Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemFocusForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemFocusBackground}" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemDisabledBackground}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPressedForeground}" />
+            <Setter Property="Background" Value="{DynamicResource ComboBoxItemPressedBackground}" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Background" Value="{DynamicResource ListBoxItemSelectedBackground}" />
+        </Style>
+        <Style Selector="^:selected /template/ Rectangle#SelectionIndicator">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="RenderTransform" Value="scaleY(1)" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

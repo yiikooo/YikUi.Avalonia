@@ -1,0 +1,118 @@
+<ResourceDictionary
+    x:CompileBindings="True"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="50">
+            <StackPanel Spacing="10">
+                <HyperlinkButton Content="Hello" />
+                <HyperlinkButton Content="Disabled" IsEnabled="False" />
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Light">
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="HyperlinkButtonForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark3}" x:Key="HyperlinkButtonForegroundPointerOver" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorDark1}" x:Key="HyperlinkButtonForegroundPressed" />
+            <SolidColorBrush Color="#5C000000" x:Key="HyperlinkButtonForegroundDisabled" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBackground" />
+            <SolidColorBrush Color="#09000000" x:Key="HyperlinkButtonBackgroundPointerOver" />
+            <SolidColorBrush Color="#06000000" x:Key="HyperlinkButtonBackgroundPressed" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBackgroundDisabled" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrush" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushPointerOver" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushPressed" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushDisabled" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Dark">
+            <SolidColorBrush Color="{DynamicResource SystemAccentColor}" x:Key="HyperlinkButtonForeground" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight3}" x:Key="HyperlinkButtonForegroundPointerOver" />
+            <SolidColorBrush Color="{DynamicResource SystemAccentColorLight2}" x:Key="HyperlinkButtonForegroundPressed" />
+            <SolidColorBrush Color="#5DFFFFFF" x:Key="HyperlinkButtonForegroundDisabled" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBackground" />
+            <SolidColorBrush Color="#0FFFFFFF" x:Key="HyperlinkButtonBackgroundPointerOver" />
+            <SolidColorBrush Color="#0AFFFFFF" x:Key="HyperlinkButtonBackgroundPressed" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBackgroundDisabled" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrush" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushPointerOver" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushPressed" />
+            <SolidColorBrush Color="#00FFFFFF" x:Key="HyperlinkButtonBorderBrushDisabled" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+
+    <ControlTheme TargetType="HyperlinkButton" x:Key="{x:Type HyperlinkButton}">
+        <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrush}" />
+        <Setter Property="BorderThickness" Value="{DynamicResource HyperlinkButtonBorderThemeThickness}" />
+        <Setter Property="Padding" Value="11,5,11,6" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
+        <Setter Property="FontSize" Value="{DynamicResource TioFontSize}" />
+        <Setter Property="FontWeight" Value="{DynamicResource TioFontWeight}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="CornerRadius" Value="{DynamicResource TioCornerRadius}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Content="{TemplateBinding Content}"
+                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    Foreground="{TemplateBinding Foreground}"
+                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    Name="ContentPresenter"
+                    Padding="{TemplateBinding Padding}"
+                    RecognizesAccessKey="True"
+                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^.Underline /template/ AccessText">
+            <Setter Property="TextDecorations" Value="{x:Null}" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackgroundPointerOver}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrushPointerOver}" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackgroundPressed}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrushPressed}" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Foreground" Value="{DynamicResource HyperlinkButtonForegroundDisabled}" />
+            <Setter Property="Background" Value="{DynamicResource HyperlinkButtonBackgroundDisabled}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource HyperlinkButtonBorderBrushDisabled}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme
+        BasedOn="{StaticResource {x:Type HyperlinkButton}}"
+        TargetType="HyperlinkButton"
+        x:Key="TransparentHyperlinkButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Padding" Value="0" />
+
+        <Style Selector="^ /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pressed /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:disabled /template/ ContentPresenter#ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,11 @@
+using Avalonia.Controls;
+
+namespace TioUi.Demo.Pages;
+
+public partial class MarqueePage : UserControl
+{
+    public MarqueePage()
+    {
+        InitializeComponent();
+    }
+}

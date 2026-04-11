@@ -1,0 +1,10 @@
+<Application
+    RequestedThemeVariant="Default"
+    x:Class="TioUi.Test.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:tio="https://github.com/yiikooo/TioUi.Avalonia"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Styles>
+        <tio:TioUiTheme />
+    </Application.Styles>
+</Application>
