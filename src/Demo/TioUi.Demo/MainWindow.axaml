@@ -9,9 +9,10 @@
     WindowDecorations="Full"
     WindowStartupLocation="CenterScreen"
     x:Class="TioUi.Demo.MainWindow"
-    x:DataType="demo:MainWindowModel"
+    x:DataType="models:MainWindowModel"
     xmlns="https://github.com/avaloniaui"
     xmlns:demo="clr-namespace:TioUi.Demo"
+    xmlns:models="clr-namespace:TioUi.Demo.Models"
     xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <tio:TioWindow.TitleBarLeftContent>
@@ -80,5 +81,5 @@
                 Width="1" />
         </StackPanel>
     </tio:TioWindow.TitleBarRightContent>
-    <ContentControl Content="{Binding MainView}" />
+    <ContentControl Content="{Binding DemoView}" />
 </tio:TioWindow>

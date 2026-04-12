@@ -1,21 +1,29 @@
 using System;
 using System.Windows.Input;
 using Avalonia;
+using Avalonia.Input;
+using Avalonia.Styling;
 using TioUi.Common;
 using TioUi.Common.Helpers;
 using TioUi.Controls;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo;
 
-public partial class MainWindow : TioWindow
+public partial class MainWindow : TioWindow , IView
 {
-    private MainWindowModel _mainWindowModel;
-
     public MainWindow()
     {
         InitializeComponent();
-        _mainWindowModel = new MainWindowModel();
-        DataContext = _mainWindowModel;
+        var mainWindowModel = new MainWindowModel();
+        DataContext = mainWindowModel;
+        NotificationManager = new TioWindowNotificationManager(this);
+        ToastManager = new TioWindowToastManager(this);
+        KeyBindings.Add(new KeyBinding
+        {
+            Gesture = KeyGesture.Parse("Ctrl+Q"),
+            Command = new ActionCommand(() => ToggleTheme())
+        });
         if (Platform.DetectPlatform() == DesktopType.MacOs)
         {
             Separator.IsVisible = false;
@@ -42,8 +50,26 @@ public partial class MainWindow : TioWindow
         }
     }
 
-    public TioWindowNotificationManager notification => _mainWindowModel.MainView.notification;
-    public TioWindowToastManager toast => _mainWindowModel.MainView.toast;
+    private void ToggleTheme(string? theme = null)
+    {
+        if (Application.Current != null && theme == null)
+        {
+            Application.Current.RequestedThemeVariant =
+                Application.Current.ActualThemeVariant == ThemeVariant.Dark
+                    ? ThemeVariant.Light
+                    : ThemeVariant.Dark;
+        }
+
+        if (theme == "a")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Default;
+        else if (theme == "l")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Light;
+        else if (theme == "d")
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
+    }
+    
+    public TioWindowNotificationManager NotificationManager { get; }
+    public TioWindowToastManager ToastManager { get; }
 }
 
 public class ActionCommand : ICommand

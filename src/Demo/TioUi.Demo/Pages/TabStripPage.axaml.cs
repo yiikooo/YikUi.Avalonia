@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia;
 using Avalonia.Styling;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo.Pages;
 

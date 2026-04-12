@@ -8,9 +8,7 @@
         <Setter Property="Foreground" Value="{DynamicResource ForegroundColor}" />
         <Setter Property="FontSize" Value="{DynamicResource TioFontSize}" />
         <Setter Property="FontFamily" Value="{DynamicResource TioFontFamily}" />
-        <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="36" />
         <Setter Property="ExtendClientAreaTitleBarHeightHint" Value="-1" />
-        <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="ExtendClientAreaToDecorationsHint" Value="True" />
         <Setter Property="WindowDecorations">
             <OnPlatform>

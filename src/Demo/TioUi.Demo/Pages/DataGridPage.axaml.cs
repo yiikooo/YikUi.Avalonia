@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Collections;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo.Pages;
 

@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Avalonia.Controls;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
 public class PageModelBase : UserControl, INotifyPropertyChanged, INotifyPropertyChanging
 {

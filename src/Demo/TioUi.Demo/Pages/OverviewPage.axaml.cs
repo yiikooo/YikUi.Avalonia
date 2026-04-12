@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo.Pages;
 

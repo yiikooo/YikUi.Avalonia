@@ -1,5 +1,6 @@
 using Avalonia.Interactivity;
 using Avalonia.Styling;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo.Pages;
 

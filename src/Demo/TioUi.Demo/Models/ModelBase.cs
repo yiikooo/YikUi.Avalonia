@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
 public class ModelBase : INotifyPropertyChanged
 {

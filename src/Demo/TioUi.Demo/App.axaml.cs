@@ -4,11 +4,14 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using TioUi.Common.Language;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo;
 
 public class App : Application
 {
+    public static IView RootView { get; private set; }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -17,15 +20,25 @@ public class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            desktop.MainWindow = new MainWindow();
-        else if (ApplicationLifetime is IActivityApplicationLifetime activityLifetime)
         {
-            activityLifetime.MainViewFactory = () => new MainView();
+            var desktopMainWindow = new MainWindow();
+            RootView = desktopMainWindow;
+            desktop.MainWindow = desktopMainWindow;
         }
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+        else
         {
-            singleView.MainView = new MainView();
+            var singleViewMainView = new MainView();
+            RootView = singleViewMainView;
+            if (ApplicationLifetime is IActivityApplicationLifetime activityLifetime)
+            {
+                activityLifetime.MainViewFactory = () => singleViewMainView;
+            }
+            else if (ApplicationLifetime is ISingleViewApplicationLifetime singleView)
+            {
+                singleView.MainView = singleViewMainView;
+            }
         }
+
         this.AttachDeveloperTools();
         base.OnFrameworkInitializationCompleted();
     }

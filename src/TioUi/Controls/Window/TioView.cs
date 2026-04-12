@@ -6,8 +6,8 @@ namespace TioUi.Controls;
 public class TioView : ContentControl
 {
     public const string PART_DialogHost = "PART_DialogHost";
+    protected override Type StyleKeyOverride => typeof(TioView);
 
-    
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);

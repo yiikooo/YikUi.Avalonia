@@ -22,9 +22,7 @@ public partial class PinCodePage : UserControl
     private async void VerificationCode_OnComplete(object? _, PinCodeCompleteEventArgs e)
     {
         var text = string.Join(string.Empty, e.Code);
-        var lifetime = Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-        var w = lifetime.MainWindow as MainWindow;
-        w.toast.Show(text);
+        App.RootView.ToastManager.Show(text);
     }
 }
 
@@ -44,8 +42,6 @@ public partial class PinCodeDemoViewModel : ObservableObject
     {
         if (obj is null) return;
         var code = string.Join("", obj);
-        var lifetime = Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-        var w = lifetime.MainWindow as MainWindow;
-        w.toast.Show(code);
+        App.RootView.ToastManager.Show(code);
     }
 }

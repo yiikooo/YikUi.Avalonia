@@ -1,29 +1,20 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Notifications;
 using Avalonia.Input;
+using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using TioUi.Controls;
+using TioUi.Demo.Models;
 
 namespace TioUi.Demo;
 
-public partial class MainView : UserControl
+public partial class MainView : TioView, IView
 {
-    public readonly MainViewModel _mainViewModel;
-    public readonly TioWindowNotificationManager notification;
-    public readonly TioWindowToastManager toast;
-
     public MainView()
     {
         InitializeComponent();
-        _mainViewModel = new MainViewModel();
-        DataContext = _mainViewModel;
-        toast = new TioWindowToastManager(TopLevel.GetTopLevel(this));
-        notification = new TioWindowNotificationManager(TopLevel.GetTopLevel(this))
-        {
-            Position = NotificationPosition.TopRight
-        };
-        NavMenu.SearchPlaceholderText += $"   ({_mainViewModel.Items} items)";
+        NotificationManager = new TioWindowNotificationManager(TopLevel.GetTopLevel(this));
+        ToastManager = new TioWindowToastManager(TopLevel.GetTopLevel(this));
         KeyBindings.Add(new KeyBinding
         {
             Gesture = KeyGesture.Parse("Ctrl+Q"),
@@ -48,4 +39,7 @@ public partial class MainView : UserControl
         else if (theme == "d")
             Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
     }
+    
+    public TioWindowNotificationManager NotificationManager { get; }
+    public TioWindowToastManager ToastManager { get; }
 }

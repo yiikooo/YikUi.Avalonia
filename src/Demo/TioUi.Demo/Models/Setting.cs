@@ -7,7 +7,7 @@ using Avalonia.Styling;
 using TioUi.Common.Helpers;
 using TioUi.Common.Language;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
 public class Setting : INotifyPropertyChanged
 {

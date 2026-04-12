@@ -26,9 +26,7 @@ public partial class NotificationPage : UserControl
     {
         if (_notificationManager != null) return _notificationManager;
 
-        var lifetime = Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-        var mainWindow = lifetime?.MainWindow as MainWindow;
-        _notificationManager = mainWindow?.notification;
+        _notificationManager = App.RootView.NotificationManager;
         return _notificationManager!;
     }
 

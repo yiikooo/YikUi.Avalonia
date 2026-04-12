@@ -4,11 +4,11 @@ using Avalonia.Controls;
 using TioUi.Demo.Navs;
 using TioUi.Demo.Pages;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
-public class MainViewModel : ModelBase
+public class DemoViewModel : ModelBase
 {
-    public MainViewModel()
+    public DemoViewModel()
     {
         SelectedPage = Pages[0];
         foreach (var page in Pages)

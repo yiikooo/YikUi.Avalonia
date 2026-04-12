@@ -22,10 +22,8 @@ public partial class ToastPage : UserControl
     private TioWindowToastManager GetToastManager()
     {
         if (_toastManager != null) return _toastManager;
-
-        var lifetime = Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-        var mainWindow = lifetime?.MainWindow as MainWindow;
-        _toastManager = mainWindow?.toast;
+        
+        _toastManager = App.RootView.ToastManager;
         return _toastManager!;
     }
 

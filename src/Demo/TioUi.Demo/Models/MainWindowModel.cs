@@ -5,11 +5,11 @@ using Avalonia;
 using Avalonia.Styling;
 using TioUi.Common.Language;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
 public sealed class MainWindowModel : INotifyPropertyChanged
 {
-    public MainView MainView { get; } = new();
+    public DemoView DemoView { get; } = new();
     public event PropertyChangedEventHandler? PropertyChanged;
 
     private void OnPropertyChanged([CallerMemberName] string? propertyName = null)

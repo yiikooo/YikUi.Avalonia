@@ -5,7 +5,7 @@ using Avalonia;
 using Avalonia.Data.Converters;
 using Avalonia.Metadata;
 
-namespace TioUi.Demo;
+namespace TioUi.Demo.Models;
 
 public class FileIconConverter : IMultiValueConverter
 {

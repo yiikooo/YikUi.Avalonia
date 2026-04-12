@@ -29,17 +29,7 @@ public class PopConfirmDemoViewModel : ObservableObject
         CancelCommand = new RelayCommand(OnCancel);
     }
 
-    internal TioWindowToastManager? ToastManager
-    {
-        get
-        {
-            {
-                var lifetime = Application.Current.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
-                var w = lifetime.MainWindow as MainWindow;
-                return w.toast;
-            }
-        }
-    }
+    internal TioWindowToastManager? ToastManager => App.RootView.ToastManager;
 
     public ICommand ConfirmCommand { get; }
     public ICommand CancelCommand { get; }
