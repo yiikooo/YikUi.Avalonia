@@ -64,5 +64,6 @@
         <ResourceInclude Source="IconToggleButton.axaml" />
         <ResourceInclude Source="PathPicker.axaml" />
         <ResourceInclude Source="ContentDialog.axaml" />
+        <ResourceInclude Source="TioView.axaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
