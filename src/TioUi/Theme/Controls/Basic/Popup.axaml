@@ -11,7 +11,7 @@
                 <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
                     <Panel>
                         <Border IsHitTestVisible="False" Name="PART_TransparencyFallback" />
-                        <VisualLayerManager>
+                        <VisualLayerManager Name="PART_VisualLayerManager">
                             <LayoutTransformControl Name="PART_LayoutTransform">
                                 <ContentPresenter
                                     Background="{TemplateBinding Background}"

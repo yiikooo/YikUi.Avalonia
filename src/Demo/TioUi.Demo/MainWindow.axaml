@@ -6,7 +6,6 @@
     MinHeight="400"
     MinWidth="600"
     Title="TioUi.Demo"
-    WindowDecorations="Full"
     WindowStartupLocation="CenterScreen"
     x:Class="TioUi.Demo.MainWindow"
     x:DataType="models:MainWindowModel"

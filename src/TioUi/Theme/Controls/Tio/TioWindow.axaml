@@ -22,7 +22,7 @@
         </Setter>
         <Setter Property="Template">
             <ControlTemplate TargetType="tio:TioWindow">
-                <VisualLayerManager>
+                <VisualLayerManager Name="PART_VisualLayerManager">
                     <Grid>
                         <Border Background="{TemplateBinding Background}" Name="PART_Root">
                             <DockPanel>
