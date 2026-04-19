@@ -10,19 +10,24 @@
         <Setter Property="tio:OverlayDialogHost.IsModalStatusScope" Value="True" />
         <Setter Property="Template">
             <ControlTemplate TargetType="tio:TioView">
-                <Panel>
-                    <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+                <VisualLayerManager Name="PART_VisualLayerManager">
                     <Panel>
-                        <ContentPresenter
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            Margin="{TemplateBinding Padding}"
-                            Name="PART_ContentPresenter"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-                        <tio:OverlayDialogHost IsModalStatusReporter="True" Name="{x:Static tio:TioView.PART_DialogHost}" />
+                        <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+                        <Panel>
+                            <ContentPresenter
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                Margin="{TemplateBinding Padding}"
+                                Name="PART_ContentPresenter"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            <tio:OverlayDialogHost
+                                IsModalStatusReporter="True"
+                                IsTopLevel="True"
+                                Name="PART_DialogHost" />
+                        </Panel>
                     </Panel>
-                </Panel>
+                </VisualLayerManager>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
