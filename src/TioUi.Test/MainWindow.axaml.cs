@@ -2,6 +2,7 @@ using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Styling;
 using TioUi.Controls;
 
@@ -26,6 +27,11 @@ public partial class MainWindow : TioWindow
             Application.Current.ActualThemeVariant == ThemeVariant.Dark
                 ? ThemeVariant.Light
                 : ThemeVariant.Dark;
+    }
+
+    private void Button_OnClick(object? sender, RoutedEventArgs e)
+    {
+        
     }
 }
 
