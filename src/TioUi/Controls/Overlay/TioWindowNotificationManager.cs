@@ -120,7 +120,7 @@ public class TioWindowNotificationManager : WindowMessageManager, INotificationM
                     Content = msg,
                     Title = options.Title
                 }
-                : options.Content,
+                : options.Content ?? options.Title,
             NotificationType = options.Type,
             ShowIcon = options.IsIconVisible,
             OperateButtons = options.OperateButtons,
