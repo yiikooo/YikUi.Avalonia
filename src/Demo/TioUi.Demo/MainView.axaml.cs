@@ -10,11 +10,12 @@ namespace TioUi.Demo;
 
 public partial class MainView : TioView, IView
 {
+    private TioWindowNotificationManager? _tioWindowNotificationManager;
+    private TioWindowToastManager? _tioWindowToastManager;
+
     public MainView()
     {
         InitializeComponent();
-        NotificationManager = new TioWindowNotificationManager(TopLevel.GetTopLevel(this));
-        ToastManager = new TioWindowToastManager(TopLevel.GetTopLevel(this));
         KeyBindings.Add(new KeyBinding
         {
             Gesture = KeyGesture.Parse("Ctrl+Q"),
@@ -39,7 +40,22 @@ public partial class MainView : TioView, IView
         else if (theme == "d")
             Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
     }
-    
-    public TioWindowNotificationManager NotificationManager { get; }
-    public TioWindowToastManager ToastManager { get; }
+
+    public TioWindowNotificationManager NotificationManager
+    {
+        get
+        {
+            _tioWindowNotificationManager ??= new TioWindowNotificationManager(TopLevel.GetTopLevel(this));
+            return _tioWindowNotificationManager;
+        }
+    }
+
+    public TioWindowToastManager ToastManager
+    {
+        get
+        {
+            _tioWindowToastManager ??= new TioWindowToastManager(TopLevel.GetTopLevel(this));
+            return _tioWindowToastManager;
+        }
+    }
 }

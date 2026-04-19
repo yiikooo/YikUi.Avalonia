@@ -118,7 +118,6 @@ public partial class NotificationPage : UserControl
         var options = new NotificationOptions
         {
             Title = "仅显示标题的通知",
-            Content = null,
             Type = NotificationType.Success
         };
         GetNotificationManager().Show(options);
