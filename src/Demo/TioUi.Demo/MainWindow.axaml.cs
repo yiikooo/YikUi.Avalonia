@@ -17,8 +17,8 @@ public partial class MainWindow : TioWindow , IView
         InitializeComponent();
         var mainWindowModel = new MainWindowModel();
         DataContext = mainWindowModel;
-        NotificationManager = new TioWindowNotificationManager(this);
-        ToastManager = new TioWindowToastManager(this);
+        NotificationManager = new TioNotificationManager(this);
+        ToastManager = new TioToastManager(this);
         KeyBindings.Add(new KeyBinding
         {
             Gesture = KeyGesture.Parse("Ctrl+Q"),
@@ -68,8 +68,8 @@ public partial class MainWindow : TioWindow , IView
             Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
     }
     
-    public TioWindowNotificationManager NotificationManager { get; }
-    public TioWindowToastManager ToastManager { get; }
+    public TioNotificationManager NotificationManager { get; }
+    public TioToastManager ToastManager { get; }
 }
 
 public class ActionCommand : ICommand

@@ -10,8 +10,8 @@ namespace TioUi.Demo;
 
 public partial class MainView : TioView, IView
 {
-    private TioWindowNotificationManager? _tioWindowNotificationManager;
-    private TioWindowToastManager? _tioWindowToastManager;
+    private TioNotificationManager? _tioWindowNotificationManager;
+    private TioToastManager? _tioWindowToastManager;
 
     public MainView()
     {
@@ -41,20 +41,20 @@ public partial class MainView : TioView, IView
             Application.Current!.RequestedThemeVariant = ThemeVariant.Dark;
     }
 
-    public TioWindowNotificationManager NotificationManager
+    public TioNotificationManager NotificationManager
     {
         get
         {
-            _tioWindowNotificationManager ??= new TioWindowNotificationManager(TopLevel.GetTopLevel(this));
+            _tioWindowNotificationManager ??= new TioNotificationManager(TopLevel.GetTopLevel(this));
             return _tioWindowNotificationManager;
         }
     }
 
-    public TioWindowToastManager ToastManager
+    public TioToastManager ToastManager
     {
         get
         {
-            _tioWindowToastManager ??= new TioWindowToastManager(TopLevel.GetTopLevel(this));
+            _tioWindowToastManager ??= new TioToastManager(TopLevel.GetTopLevel(this));
             return _tioWindowToastManager;
         }
     }

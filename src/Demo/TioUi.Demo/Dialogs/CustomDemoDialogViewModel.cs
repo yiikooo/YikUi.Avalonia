@@ -28,8 +28,8 @@ public partial class CustomDemoDialogViewModel : ObservableObject, IDialogContex
         DialogCommand = new AsyncRelayCommand(ShowDialog);
     }
 
-    public TioWindowNotificationManager? NotificationManager { get; set; }
-    public TioWindowToastManager? ToastManager { get; set; }
+    public TioNotificationManager? NotificationManager { get; set; }
+    public TioToastManager? ToastManager { get; set; }
 
     public ObservableCollection<string> Cities { get; set; }
 

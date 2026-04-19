@@ -10,12 +10,12 @@ namespace TioUi.Controls;
 /// Control that represents and displays a notification.
 /// </summary>
 [PseudoClasses(
-    TioWindowNotificationManager.PC_TopLeft,
-    TioWindowNotificationManager.PC_TopRight,
-    TioWindowNotificationManager.PC_BottomLeft,
-    TioWindowNotificationManager.PC_BottomRight,
-    TioWindowNotificationManager.PC_TopCenter,
-    TioWindowNotificationManager.PC_BottomCenter
+    TioNotificationManager.PC_TopLeft,
+    TioNotificationManager.PC_TopRight,
+    TioNotificationManager.PC_BottomLeft,
+    TioNotificationManager.PC_BottomRight,
+    TioNotificationManager.PC_TopCenter,
+    TioNotificationManager.PC_BottomCenter
 )]
 public class TioNotificationCard : TioMessageCard
 {
@@ -37,11 +37,11 @@ public class TioNotificationCard : TioMessageCard
 
     private void UpdatePseudoClasses(NotificationPosition position)
     {
-        PseudoClasses.Set(TioWindowNotificationManager.PC_TopLeft, position == NotificationPosition.TopLeft);
-        PseudoClasses.Set(TioWindowNotificationManager.PC_TopRight, position == NotificationPosition.TopRight);
-        PseudoClasses.Set(TioWindowNotificationManager.PC_BottomLeft, position == NotificationPosition.BottomLeft);
-        PseudoClasses.Set(TioWindowNotificationManager.PC_BottomRight, position == NotificationPosition.BottomRight);
-        PseudoClasses.Set(TioWindowNotificationManager.PC_TopCenter, position == NotificationPosition.TopCenter);
-        PseudoClasses.Set(TioWindowNotificationManager.PC_BottomCenter, position == NotificationPosition.BottomCenter);
+        PseudoClasses.Set(TioNotificationManager.PC_TopLeft, position == NotificationPosition.TopLeft);
+        PseudoClasses.Set(TioNotificationManager.PC_TopRight, position == NotificationPosition.TopRight);
+        PseudoClasses.Set(TioNotificationManager.PC_BottomLeft, position == NotificationPosition.BottomLeft);
+        PseudoClasses.Set(TioNotificationManager.PC_BottomRight, position == NotificationPosition.BottomRight);
+        PseudoClasses.Set(TioNotificationManager.PC_TopCenter, position == NotificationPosition.TopCenter);
+        PseudoClasses.Set(TioNotificationManager.PC_BottomCenter, position == NotificationPosition.BottomCenter);
     }
 }

@@ -13,7 +13,7 @@ using INotificationManager = TioUi.Common.Interfaces.INotificationManager;
 namespace TioUi.Controls;
 
 [PseudoClasses(PC_TopLeft, PC_TopRight, PC_BottomLeft, PC_BottomRight, PC_TopCenter, PC_BottomCenter)]
-public class TioWindowNotificationManager : WindowMessageManager, INotificationManager
+public class TioNotificationManager : WindowMessageManager, INotificationManager
 {
     public const string PC_TopLeft = ":topleft";
     public const string PC_TopRight = ":topright";
@@ -23,21 +23,21 @@ public class TioWindowNotificationManager : WindowMessageManager, INotificationM
     public const string PC_BottomCenter = ":bottomcenter";
 
     public static readonly StyledProperty<NotificationPosition> PositionProperty =
-        AvaloniaProperty.Register<TioWindowNotificationManager, NotificationPosition>(nameof(Position),
+        AvaloniaProperty.Register<TioNotificationManager, NotificationPosition>(nameof(Position),
             NotificationPosition.TopRight);
 
-    static TioWindowNotificationManager()
+    static TioNotificationManager()
     {
-        HorizontalAlignmentProperty.OverrideDefaultValue<TioWindowNotificationManager>(HorizontalAlignment.Stretch);
-        VerticalAlignmentProperty.OverrideDefaultValue<TioWindowNotificationManager>(VerticalAlignment.Stretch);
+        HorizontalAlignmentProperty.OverrideDefaultValue<TioNotificationManager>(HorizontalAlignment.Stretch);
+        VerticalAlignmentProperty.OverrideDefaultValue<TioNotificationManager>(VerticalAlignment.Stretch);
     }
 
-    public TioWindowNotificationManager()
+    public TioNotificationManager()
     {
         UpdatePseudoClasses(Position);
     }
 
-    public TioWindowNotificationManager(TopLevel? host) : this()
+    public TioNotificationManager(TopLevel? host) : this()
     {
         if (host is not null)
         {
@@ -45,7 +45,7 @@ public class TioWindowNotificationManager : WindowMessageManager, INotificationM
         }
     }
 
-    public TioWindowNotificationManager(VisualLayerManager? visualLayerManager) : base(visualLayerManager)
+    public TioNotificationManager(VisualLayerManager? visualLayerManager) : base(visualLayerManager)
     {
         UpdatePseudoClasses(Position);
     }
@@ -72,9 +72,9 @@ public class TioWindowNotificationManager : WindowMessageManager, INotificationM
         Show(options);
     }
 
-    public static bool TryGetNotificationManager(Visual? visual, out TioWindowNotificationManager? manager)
+    public static bool TryGetNotificationManager(Visual? visual, out TioNotificationManager? manager)
     {
-        manager = visual?.FindDescendantOfType<TioWindowNotificationManager>();
+        manager = visual?.FindDescendantOfType<TioNotificationManager>();
         return manager is not null;
     }
 

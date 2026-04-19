@@ -23,12 +23,12 @@ public partial class CustomDemoDialog : UserControl
         var visualLayerManager = this.FindAncestorOfType<VisualLayerManager>();
         if (_viewModel == null) return;
         _viewModel.NotificationManager =
-            TioWindowNotificationManager.TryGetNotificationManager(visualLayerManager, out var notificationManager)
+            TioNotificationManager.TryGetNotificationManager(visualLayerManager, out var notificationManager)
                 ? notificationManager
-                : new TioWindowNotificationManager(visualLayerManager) { MaxItems = 3 };
-        _viewModel.ToastManager = TioWindowToastManager.TryGetToastManager(visualLayerManager, out var toastManager)
+                : new TioNotificationManager(visualLayerManager) { MaxItems = 3 };
+        _viewModel.ToastManager = TioToastManager.TryGetToastManager(visualLayerManager, out var toastManager)
             ? toastManager
-            : new TioWindowToastManager(visualLayerManager) { MaxItems = 3 };
-        Debug.Assert(TioWindowNotificationManager.TryGetNotificationManager(visualLayerManager, out _));
+            : new TioToastManager(visualLayerManager) { MaxItems = 3 };
+        Debug.Assert(TioNotificationManager.TryGetNotificationManager(visualLayerManager, out _));
     }
 }

@@ -8,7 +8,7 @@ namespace TioUi.Test;
 
 public partial class MainView : TioView
 {
-    TioWindowToastManager _toastManager;
+    TioToastManager _toastManager;
 
     public MainView()
     {
@@ -18,7 +18,7 @@ public partial class MainView : TioView
     private void Button_OnClick(object? sender, RoutedEventArgs e)
     {
         var topLevel = TopLevel.GetTopLevel(this);
-        _toastManager = new TioWindowToastManager(topLevel);
+        _toastManager = new TioToastManager(topLevel);
         _toastManager.Show("hi");
     }
 }

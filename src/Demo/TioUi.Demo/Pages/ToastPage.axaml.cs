@@ -11,7 +11,7 @@ namespace TioUi.Demo.Pages;
 
 public partial class ToastPage : UserControl
 {
-    private TioWindowToastManager? _toastManager;
+    private TioToastManager? _toastManager;
 
     public ToastPage()
     {
@@ -19,7 +19,7 @@ public partial class ToastPage : UserControl
         DataContext = this;
     }
 
-    private TioWindowToastManager GetToastManager()
+    private TioToastManager GetToastManager()
     {
         if (_toastManager != null) return _toastManager;
         

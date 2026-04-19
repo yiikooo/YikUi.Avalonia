@@ -9,18 +9,18 @@ using TioUi.Common.Interfaces;
 
 namespace TioUi.Controls;
 
-public class TioWindowToastManager : WindowMessageManager, IToastManager
+public class TioToastManager : WindowMessageManager, IToastManager
 {
-    public TioWindowToastManager()
+    public TioToastManager()
     {
     }
 
-    public TioWindowToastManager(TopLevel? host) : this()
+    public TioToastManager(TopLevel? host) : this()
     {
         if (host is not null) InstallFromTopLevel(host);
     }
 
-    public TioWindowToastManager(VisualLayerManager? visualLayerManager) : base(visualLayerManager)
+    public TioToastManager(VisualLayerManager? visualLayerManager) : base(visualLayerManager)
     {
     }
 
@@ -56,9 +56,9 @@ public class TioWindowToastManager : WindowMessageManager, IToastManager
         Show(options);
     }
 
-    public static bool TryGetToastManager(Visual? visual, out TioWindowToastManager? manager)
+    public static bool TryGetToastManager(Visual? visual, out TioToastManager? manager)
     {
-        manager = visual?.FindDescendantOfType<TioWindowToastManager>();
+        manager = visual?.FindDescendantOfType<TioToastManager>();
         return manager is not null;
     }
 

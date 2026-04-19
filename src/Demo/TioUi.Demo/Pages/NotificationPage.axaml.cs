@@ -14,7 +14,7 @@ namespace TioUi.Demo.Pages;
 
 public partial class NotificationPage : UserControl
 {
-    private TioWindowNotificationManager? _notificationManager;
+    private TioNotificationManager? _notificationManager;
 
     public NotificationPage()
     {
@@ -22,7 +22,7 @@ public partial class NotificationPage : UserControl
         DataContext = this;
     }
 
-    private TioWindowNotificationManager GetNotificationManager()
+    private TioNotificationManager GetNotificationManager()
     {
         if (_notificationManager != null) return _notificationManager;
 

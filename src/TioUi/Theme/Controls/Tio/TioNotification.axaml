@@ -79,7 +79,7 @@
     </ResourceDictionary.ThemeDictionaries>
 
 
-    <ControlTheme TargetType="tio:TioWindowNotificationManager" x:Key="{x:Type tio:TioWindowNotificationManager}">
+    <ControlTheme TargetType="tio:TioNotificationManager" x:Key="{x:Type tio:TioNotificationManager}">
         <Setter Property="Margin" Value="10,45,10,10" />
         <Setter Property="Template">
             <ControlTemplate>
