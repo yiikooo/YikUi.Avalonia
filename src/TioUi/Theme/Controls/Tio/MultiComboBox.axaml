@@ -686,6 +686,18 @@
             <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPointeroverForeground}" />
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
         </Style>
+        <Style Selector="^ TextBlock">
+            <Setter Property="RenderTransform" Value="translate(0px, 0px)" />
+            <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover TextBlock">
+            <Setter Property="RenderTransform" Value="translate(2px, 0px)" />
+        </Style>
 
         <!--  Pressed State  -->
         <Style Selector="^:pressed">

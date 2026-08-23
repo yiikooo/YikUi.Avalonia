@@ -180,6 +180,18 @@
             <Setter Property="Background" Value="{DynamicResource SelectionNormal}" />
         </Style>
 
+        <Style Selector="^ /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RenderTransform" Value="translate(0px, 0px)" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RenderTransform" Value="translate(2px, 0px)" />
+        </Style>
+
         <Style Selector="^.hide-icon /template/ ContentPresenter#PART_Icon">
             <Setter Property="IsVisible" Value="False" />
         </Style>

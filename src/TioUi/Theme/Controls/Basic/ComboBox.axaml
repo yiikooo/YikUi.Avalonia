@@ -691,38 +691,59 @@
                             </Transitions>
                         </Rectangle.Transitions>
                     </Rectangle>
-                    <ContentPresenter
+                    <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
-                        Content="{TemplateBinding Content}"
-                        ContentTemplate="{TemplateBinding ContentTemplate}"
                         CornerRadius="{TemplateBinding CornerRadius}"
-                        Foreground="{TemplateBinding Foreground}"
-                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        Name="PART_ContentPresenter"
-                        Padding="{TemplateBinding Padding}"
-                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        Name="Background">
+                        <ContentPresenter
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
                 </Grid>
             </ControlTemplate>
         </Setter>
 
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPointeroverForeground}" />
+        </Style>
+        <Style Selector="^:pointerover /template/ Border#Background">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPointeroverBackground}" />
+        </Style>
+        <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RenderTransform" Value="translate(0px, 0px)" />
+            <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="RenderTransform" Value="translate(2px, 0px)" />
         </Style>
 
         <Style Selector="^:focus /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemFocusForeground}" />
+        </Style>
+        <Style Selector="^:focus /template/ Border#Background">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemFocusBackground}" />
         </Style>
 
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled /template/ Border#Background">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemDisabledBackground}" />
         </Style>
 
         <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Foreground" Value="{DynamicResource ComboBoxItemPressedForeground}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#Background">
             <Setter Property="Background" Value="{DynamicResource ComboBoxItemPressedBackground}" />
         </Style>
 
