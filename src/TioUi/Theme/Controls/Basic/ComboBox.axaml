@@ -572,6 +572,9 @@
         <Style Selector="^:dropdownopen">
             <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
+        <Style Selector="^:dropdownopen /template/ PathIcon#DropDownGlyph">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
 
         <!--  Disabled State  -->
         <Style Selector="^:disabled">
