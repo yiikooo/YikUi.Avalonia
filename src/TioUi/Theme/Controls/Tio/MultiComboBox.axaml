@@ -65,7 +65,7 @@
             <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxPopupBorderBrush" />
 
             <!--  ComboBoxPopupBoxShadow  -->
-            <BoxShadows x:Key="SemiShadowElevated">0 0 1 #4A000000, 0 4 14 #1A000000</BoxShadows>
+            <BoxShadows x:Key="SemiShadowElevated">0 0 8 0 #24000000</BoxShadows>
             <StaticResource ResourceKey="SemiShadowElevated" x:Key="ComboBoxPopupBoxShadow" />
 
             <!--  ComboBoxSelectorPointeroverBackground  -->
@@ -249,7 +249,7 @@
             <StaticResource ResourceKey="SemiColorBorder" x:Key="ComboBoxPopupBorderBrush" />
 
             <!--  ComboBoxPopupBoxShadow  -->
-            <BoxShadows x:Key="SemiShadowElevated">inset 0 0 0 1 #1AFFFFFF, 0 4 14 #40000000</BoxShadows>
+            <BoxShadows x:Key="SemiShadowElevated">0 0 8 0 #40000000</BoxShadows>
             <StaticResource ResourceKey="SemiShadowElevated" x:Key="ComboBoxPopupBoxShadow" />
 
             <!--  ComboBoxSelectorPointeroverBackground  -->
@@ -526,6 +526,7 @@
                                 Background="{DynamicResource PopupBackgroundColor}"
                                 BorderBrush="{DynamicResource PopupBorderBrush}"
                                 BorderThickness="{DynamicResource ComboBoxPopupBorderThickness}"
+                                BoxShadow="{DynamicResource PopupBoxShadow}"
                                 CornerRadius="{DynamicResource TioCornerRadius}"
                                 HorizontalAlignment="Stretch"
                                 Margin="{DynamicResource ComboBoxPopupBorderMargin}"

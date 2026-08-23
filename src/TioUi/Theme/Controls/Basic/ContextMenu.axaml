@@ -15,7 +15,11 @@
                     Name="PART_LayoutTransform"
                     RenderTransformOrigin="0%, 0%">
                     <Panel>
-                        <Border CornerRadius="{TemplateBinding CornerRadius}" Margin="16" />
+                        <Border
+                            Background="{TemplateBinding Background}"
+                            BoxShadow="{DynamicResource PopupBoxShadow}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Margin="16" />
                         <Border
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
