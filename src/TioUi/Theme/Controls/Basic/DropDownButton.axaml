@@ -118,6 +118,8 @@
                             HorizontalAlignment="Right"
                             IsHitTestVisible="False"
                             Name="DropDownGlyph"
+                            RenderTransform="translate(0px, 0px) rotate(0deg)"
+                            RenderTransformOrigin="50%,50%"
                             UseLayoutRounding="False"
                             Width="12" />
                         <ContentPresenter
@@ -140,6 +142,21 @@
 
         <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="RecognizesAccessKey" Value="True" />
+        </Style>
+
+        <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:flyout-open /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="translate(0px, 0px) rotate(180deg)" />
+        </Style>
+        <Style Selector="^:pressed /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="translate(0px, 2px) rotate(0deg)" />
         </Style>
 
         <Style Selector="^.Success /template/ ContentPresenter#PART_ContentPresenter">

@@ -499,6 +499,8 @@
                             IsHitTestVisible="False"
                             Margin="8,0,11,0"
                             Name="DropDownGlyph"
+                            RenderTransform="translate(0px, 0px) rotate(0deg)"
+                            RenderTransformOrigin="50%,50%"
                             UseLayoutRounding="False"
                             Width="12" />
 
@@ -573,8 +575,18 @@
         <Style Selector="^:dropdownopen">
             <Setter Property="BorderBrush" Value="Transparent" />
         </Style>
+        <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
         <Style Selector="^:dropdownopen /template/ PathIcon#DropDownGlyph">
-            <Setter Property="IsVisible" Value="False" />
+            <Setter Property="RenderTransform" Value="translate(0px, 0px) rotate(180deg)" />
+        </Style>
+        <Style Selector="^:pressed /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="translate(0px, 2px) rotate(0deg)" />
         </Style>
 
         <!--  Disabled State  -->

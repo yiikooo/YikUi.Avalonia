@@ -83,6 +83,8 @@
                     HorizontalAlignment="Right"
                     IsHitTestVisible="False"
                     Name="DropDownGlyph"
+                    RenderTransform="translate(0px, 0px) rotate(0deg)"
+                    RenderTransformOrigin="50%,50%"
                     UseLayoutRounding="False"
                     Width="12" />
             </Grid>
@@ -94,6 +96,19 @@
         TargetType="tio:IconDropDownButton"
         x:Key="{x:Type tio:IconDropDownButton}">
         <Setter Property="Template" Value="{StaticResource IconDropDownButtonTemplate}" />
+        <Style Selector="^ /template/ PathIcon#DropDownGlyph">
+            <Setter Property="Transitions">
+                <Transitions>
+                    <TransformOperationsTransition Duration="0:0:0.12" Property="RenderTransform" />
+                </Transitions>
+            </Setter>
+        </Style>
+        <Style Selector="^:flyout-open /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="translate(0px, 0px) rotate(180deg)" />
+        </Style>
+        <Style Selector="^:pressed /template/ PathIcon#DropDownGlyph">
+            <Setter Property="RenderTransform" Value="translate(0px, 2px) rotate(0deg)" />
+        </Style>
         <Style Selector="^:empty-content">
             <Setter Property="MinWidth" Value="0" />
             <Setter Property="Padding" Value="{DynamicResource ButtonDefaultPadding}" />
