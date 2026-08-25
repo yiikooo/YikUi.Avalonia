@@ -3,6 +3,7 @@
     xmlns:converters="clr-namespace:Avalonia.Controls.Converters;assembly=Avalonia.Controls"
     xmlns:local="clr-namespace:TioUi.Common.Converter;assembly=TioUi"
     xmlns:system="clr-namespace:System;assembly=netstandard"
+    xmlns:tio="https://github.com/tiouoo/TioUi.Avalonia"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <converters:PlatformKeyGestureConverter x:Key="KeyGestureConverter" />
 
@@ -148,11 +149,10 @@
                             IsOpen="{TemplateBinding IsSubMenuOpen,
                                                      Mode=TwoWay}"
                             Name="PART_Popup"
-                            Opacity="0"
                             OverlayInputPassThroughElement="{Binding $parent[MenuItem]}"
                             Placement="RightEdgeAlignedTop"
                             VerticalOffset="-1">
-                            <LayoutTransformControl Name="PART_LayoutTransform" RenderTransformOrigin="0%, 0%">
+                            <tio:PopupContentExpander Name="PART_LayoutTransform">
                                 <Panel Margin="0,-8,0,0">
                                     <Border
                                         Background="{DynamicResource PopupBackgroundColor}"
@@ -169,7 +169,7 @@
                                         </Panel>
                                     </Border>
                                 </Panel>
-                            </LayoutTransformControl>
+                            </tio:PopupContentExpander>
                         </Popup>
                     </Panel>
                 </Border>
@@ -189,6 +189,9 @@
             </Setter>
         </Style>
         <Style Selector="^:pointerover /template/ ContentPresenter#PART_HeaderPresenter">
+            <Setter Property="RenderTransform" Value="translate(2px, 0px)" />
+        </Style>
+        <Style Selector="^:open /template/ ContentPresenter#PART_HeaderPresenter">
             <Setter Property="RenderTransform" Value="translate(2px, 0px)" />
         </Style>
 
