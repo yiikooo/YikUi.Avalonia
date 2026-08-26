@@ -38,13 +38,13 @@
             <Color x:Key="TextBlockQuaternaryForeground">#F9F9F9</Color>
             <Color x:Key="ListBoxItemPointeroverForeground">#F9F9F9</Color>
             <SolidColorBrush
-                Color="#232429"
-                Opacity="0.6"
+                Color="White"
+                Opacity="0.08"
                 x:Key="ListBoxItemPointeroverBackground" />
             <Color x:Key="ListBoxItemSelectedForeground">#F9F9F9</Color>
             <SolidColorBrush
-                Color="#35363C"
-                Opacity="0.6"
+                Color="White"
+                Opacity="0.12"
                 x:Key="ListBoxItemSelectedBackground" />
             <Color x:Key="ListBoxItemSelectedPointeroverBackground">#3E3F45</Color>
             <Color x:Key="MenuFlyoutBackground">#43444A</Color>
@@ -53,12 +53,12 @@
         </ResourceDictionary>
         <ResourceDictionary x:Key="{x:Static shared:Themes.Mirage}">
             <SolidColorBrush
-                Color="#FF1A1E25"
-                Opacity="0.6"
+                Color="White"
+                Opacity="0.12"
                 x:Key="ListBoxItemSelectedBackground" />
             <SolidColorBrush
-                Color="#FF222832"
-                Opacity="0.6"
+                Color="White"
+                Opacity="0.08"
                 x:Key="ListBoxItemPointeroverBackground" />
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
