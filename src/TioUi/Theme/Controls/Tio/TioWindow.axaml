@@ -70,38 +70,49 @@
                             </Transitions>
                         </Border.Transitions>
                         <Panel>
-                            <Border Name="PART_Root">
-                                <DockPanel>
-                                    <tio:TioTitleBar
-                                        CloseIcon="{Binding $parent[tio:TioWindow].CloseIcon}"
-                                        ControlBtnMargin="{Binding $parent[tio:TioWindow].TitleBarControlBtnMargin}"
-                                        DockPanel.Dock="Top"
-                                        IsCloseBtnShow="{Binding $parent[tio:TioWindow].IsCloseBtnShow}"
-                                        IsMaxBtnShow="{Binding $parent[tio:TioWindow].IsMaxBtnShow}"
-                                        IsMinBtnShow="{Binding $parent[tio:TioWindow].IsMinBtnShow}"
-                                        LeftContent="{Binding $parent[tio:TioWindow].TitleBarLeftContent}"
-                                        MaximizeIcon="{Binding $parent[tio:TioWindow].MaximizeIcon}"
-                                        MinimizeIcon="{Binding $parent[tio:TioWindow].MinimizeIcon}"
-                                        Name="PART_TitleBar"
-                                        RightContent="{Binding $parent[tio:TioWindow].TitleBarRightContent}"
-                                        TitleBarHeight="{Binding $parent[tio:TioWindow].TitleBarHeight}" />
-                                    <ContentPresenter
-                                        Content="{Binding $parent[tio:TioWindow].Content}"
-                                        ContentTemplate="{TemplateBinding ContentTemplate}"
-                                        DockPanel.Dock="Bottom"
-                                        HorizontalContentAlignment="{Binding $parent[tio:TioWindow].HorizontalContentAlignment}"
-                                        Margin="{Binding $parent[tio:TioWindow].Padding}"
-                                        Name="PART_ContentPresenter"
-                                        VerticalContentAlignment="{Binding $parent[tio:TioWindow].VerticalContentAlignment}" />
-                                </DockPanel>
+                            <Border
+                                ClipToBounds="True"
+                                CornerRadius="{TemplateBinding FrameContentCornerRadius}">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <CornerRadiusTransition Duration="0.2" Property="CornerRadius" />
+                                    </Transitions>
+                                </Border.Transitions>
+                                <Panel>
+                                    <Border Name="PART_Root">
+                                        <DockPanel>
+                                            <tio:TioTitleBar
+                                                CloseIcon="{Binding $parent[tio:TioWindow].CloseIcon}"
+                                                ControlBtnMargin="{Binding $parent[tio:TioWindow].TitleBarControlBtnMargin}"
+                                                DockPanel.Dock="Top"
+                                                IsCloseBtnShow="{Binding $parent[tio:TioWindow].IsCloseBtnShow}"
+                                                IsMaxBtnShow="{Binding $parent[tio:TioWindow].IsMaxBtnShow}"
+                                                IsMinBtnShow="{Binding $parent[tio:TioWindow].IsMinBtnShow}"
+                                                LeftContent="{Binding $parent[tio:TioWindow].TitleBarLeftContent}"
+                                                MaximizeIcon="{Binding $parent[tio:TioWindow].MaximizeIcon}"
+                                                MinimizeIcon="{Binding $parent[tio:TioWindow].MinimizeIcon}"
+                                                Name="PART_TitleBar"
+                                                RightContent="{Binding $parent[tio:TioWindow].TitleBarRightContent}"
+                                                TitleBarHeight="{Binding $parent[tio:TioWindow].TitleBarHeight}" />
+                                            <ContentPresenter
+                                                Content="{Binding $parent[tio:TioWindow].Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                DockPanel.Dock="Bottom"
+                                                HorizontalContentAlignment="{Binding $parent[tio:TioWindow].HorizontalContentAlignment}"
+                                                Margin="{Binding $parent[tio:TioWindow].Padding}"
+                                                Name="PART_ContentPresenter"
+                                                VerticalContentAlignment="{Binding $parent[tio:TioWindow].VerticalContentAlignment}" />
+                                        </DockPanel>
+                                    </Border>
+                                    <Panel>
+                                        <tio:OverlayDialogHost
+                                            HostId="{Binding $parent[tio:TioWindow].HostId}"
+                                            IsModalStatusReporter="True"
+                                            IsTopLevel="True"
+                                            Name="PART_DialogHost" />
+                                    </Panel>
+                                </Panel>
                             </Border>
-                            <Panel>
-                                <tio:OverlayDialogHost
-                                    HostId="{Binding $parent[tio:TioWindow].HostId}"
-                                    IsModalStatusReporter="True"
-                                    IsTopLevel="True"
-                                    Name="PART_DialogHost" />
-                            </Panel>
                             <tio:WindowResizer IsVisible="{TemplateBinding IsManagedResizerVisible}" />
                         </Panel>
                     </Border>

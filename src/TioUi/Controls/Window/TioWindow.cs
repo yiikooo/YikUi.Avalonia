@@ -10,6 +10,15 @@ public class TioWindow : Window
 {
     private Action<TioTitleBar>? _titleBarLoadedCallback;
     private OverlayDialogHost? _dialogHost;
+    private CornerRadius _frameContentCornerRadius;
+
+    static TioWindow()
+    {
+        FrameBorderThicknessProperty.Changed.AddClassHandler<TioWindow>((window, _) =>
+            window.UpdateFrameContentCornerRadius());
+        FrameBorderCornerRadiusProperty.Changed.AddClassHandler<TioWindow>((window, _) =>
+            window.UpdateFrameContentCornerRadius());
+    }
 
     /*public TioWindow()
     {
@@ -158,6 +167,28 @@ public class TioWindow : Window
     {
         get => GetValue(FrameBorderCornerRadiusProperty);
         set => SetValue(FrameBorderCornerRadiusProperty, value);
+    }
+
+    public static readonly DirectProperty<TioWindow, CornerRadius> FrameContentCornerRadiusProperty =
+        AvaloniaProperty.RegisterDirect<TioWindow, CornerRadius>(
+            nameof(FrameContentCornerRadius),
+            window => window.FrameContentCornerRadius);
+
+    public CornerRadius FrameContentCornerRadius
+    {
+        get => _frameContentCornerRadius;
+        private set => SetAndRaise(FrameContentCornerRadiusProperty, ref _frameContentCornerRadius, value);
+    }
+
+    private void UpdateFrameContentCornerRadius()
+    {
+        var radius = FrameBorderCornerRadius;
+        var thickness = FrameBorderThickness;
+        FrameContentCornerRadius = new CornerRadius(
+            Math.Max(0, radius.TopLeft - Math.Max(thickness.Top, thickness.Left)),
+            Math.Max(0, radius.TopRight - Math.Max(thickness.Top, thickness.Right)),
+            Math.Max(0, radius.BottomRight - Math.Max(thickness.Bottom, thickness.Right)),
+            Math.Max(0, radius.BottomLeft - Math.Max(thickness.Bottom, thickness.Left)));
     }
 
     public static readonly StyledProperty<Brush> FrameBorderBrushProperty =
